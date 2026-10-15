@@ -1,0 +1,1427 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elektrondan Bilgisayara</title>
+<meta name="author" content="Koray Toksöz">
+<meta name="description" content="Gerilim ve akımdan mantık kapılarına, flip-flop'lardan basit bir bilgisayara: elektroniği canlı devrelerle oynayarak öğrenin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=1">
+<link rel="stylesheet" href="css/components.css?v=1">
+<!--STİLLER:BAŞ-->
+<link rel="stylesheet" href="css/demos-analog.css?v=1">
+<link rel="stylesheet" href="css/demos-ch01.css?v=1">
+<link rel="stylesheet" href="css/demos-ch03.css?v=1">
+<link rel="stylesheet" href="css/demos-ch04.css?v=1">
+<link rel="stylesheet" href="css/demos-ch05.css?v=1">
+<link rel="stylesheet" href="css/demos-ch06.css?v=1">
+<link rel="stylesheet" href="css/demos-ch08.css?v=1">
+<link rel="stylesheet" href="css/demos-ch09.css?v=1">
+<link rel="stylesheet" href="css/demos-ch10.css?v=1">
+<link rel="stylesheet" href="css/demos-ch11.css?v=1">
+<link rel="stylesheet" href="css/demos-ch12.css?v=1">
+<link rel="stylesheet" href="css/demos-ch13.css?v=1">
+<link rel="stylesheet" href="css/demos-ch13b.css?v=1">
+<link rel="stylesheet" href="css/demos-ch14.css?v=1">
+<!--STİLLER:SON-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c2a20'/%3E%3Cpath d='M4 16h6l3-6 6 12 3-6h6' fill='none' stroke='%23d4935a' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<main id="deck">
+
+<!--SLAYTLAR:BAŞ-->
+<!-- ================= 0. KAPAK ================= -->
+<section class="slide center cover" data-chapter="0" data-demo="cover" data-title="Kapak" id="kapak">
+  <div class="stage bare"></div>
+  <div class="cover-text">
+    <h1>Elektrondan<br>bilgisayara</h1>
+    <p>Bir pil, bir direnç ve bir LED'den başlayıp transistörlere, mantık kapılarına ve kendi kendine sayan devrelere uzanan bir yolculuk. Her sayfada canlı bir devre var: anahtarlara tıklayın, değerleri değiştirin, akımın akışını izleyin.</p>
+    <p class="byline">Koray Toksöz</p>
+    <div class="cover-actions">
+      <button class="btn primary big" type="button" onclick="Narrator.start()">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6L8 10z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Sesli anlatımla başla
+      </button>
+      <button class="btn big ghost" type="button" onclick="Deck.next()">Kendi hızımda gez</button>
+    </div>
+    <p class="hint">Anlatımlı turda slaytlar kendiliğinden ilerler; istediğiniz an durup deneylerle oynayabilirsiniz. Kendi hızınızda gezerken <kbd>→</kbd> ile ilerleyin.</p>
+    <div class="cover-meta">
+      <a class="gh-link" href="https://github.com/ktoksoz/elektrondan-bilgisayara" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>Kaynak kodu GitHub'da</span></a>
+      <a class="lic" href="https://creativecommons.org/licenses/by/4.0/deed.tr" target="_blank" rel="license noopener" title="İçerik: Creative Commons Atıf 4.0">
+        <img src="img/cc-cc.svg" alt="Creative Commons" width="21" height="21"><img src="img/cc-by.svg" alt="Atıf" width="21" height="21">
+        <span>İçerik CC BY 4.0 · Kod MIT</span>
+      </a>
+    </div>
+  </div>
+  <aside class="notes"><ul>
+    <li>Arkadaki devre canlı: iki transistörlü astable multivibratör. Telin rengi gerilimi, üzerinde akan noktalar akımı gösteriyor.</li>
+    <li>Devreye tıklayınca kondansatörler değişir, yanıp sönme hızı değişir. Bu devreye 13. bölümde, saat sinyalinde geri döneceğiz.</li>
+    <li>Kısayollar: N notlar, T metni gizle, O tüm slaytlar, F tam ekran, A anlatım, G deney gösterimleri.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="1" data-demo="c1su" id="su-benzetmesi">
+  <div class="text">
+    <h2>Yük, akım, gerilim</h2>
+    <p class="lead">Elektriği göremeyiz ama suyu tanırız: pompa iter, su borudan akar, dar bir yer akışı kısar.</p>
+    <p>Tellerin içinde hareket edebilen küçük parçacıklar vardır; taşıdıkları şeye <strong>elektrik yükü</strong> denir. Bir noktadan saniyede ne kadar yük geçtiği <strong>akım</strong>dır, borudaki debiye benzer.</p>
+    <p>Yükleri iten şey <strong>gerilim</strong>dir: iki nokta arasındaki “itme farkı”, pompanın yarattığı basınç farkı gibi. Pil bir pompadır. <strong>Direnç</strong> ise akışa karşı koyan daralmadır.</p>
+    <p>Deneyde boru suyunun rengi basıncı gösterir. Devredeki tellerin rengi de aynı skalayla gerilimi gösterir: mavi 0 V, kırmızı yüksek gerilim. Basınç daralmada düşer; gerilim de dirençte düşer.</p>
+    <details class="more"><summary>Daha fazla: birimler</summary>
+      <p><strong>Yük</strong> coulomb (C) ile ölçülür. Bir elektronun yükü yaklaşık 1,6·10⁻¹⁹ C'tur; 1 C yaklaşık 6,24·10¹⁸ elektron eder.</p>
+      <p><strong>Akım</strong> amper (A) ile ölçülür: 1 A = saniyede 1 C (A = C/s). Elektronikte çoğu akım miliamper (mA) düzeyindedir.</p>
+      <p><strong>Gerilim</strong> volt (V) ile ölçülür: 1 V, 1 C yükün iki nokta arasında taşınırken 1 joule enerji kazanması ya da kaybetmesi demektir (V = J/C). Gerilim hep iki nokta arasında ölçülür; tek bir noktanın gerilimi dediğimizde ikinci nokta toprak (0 V) kabul edilen yerdir.</p>
+    </details>
+    <p class="try">Gerilimi artırın, sonra direnci büyütün. Su parçacıklarının hızını ve ampermetreyi karşılaştırın; vanaya ya da anahtara tıklayın. Sonra “Benzetme nerede çöker?” düğmesine basın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>İki çizim aynı devre: pompa = pil, debimetre = ampermetre, daralma = direnç, vana = anahtar. Su parçacıklarının hızı çözücünün hesapladığı akımla orantılı.</li>
+    <li>Daralmada parçacıklar hızlanır ama saniyede geçen su miktarı her yerde aynı. Soru: debimetreyi daralmanın arkasına taşısak ne okur? (Aynı değeri.)</li>
+    <li>“Benzetme nerede çöker?” listesini mutlaka açın: en sık karışıklık “açık devre” kelimesidir. Vana açıkken su akar, anahtar açıkken akım akmaz.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="1" data-demo="c1yon" id="akim-yonu">
+  <div class="text">
+    <h2>Akımın yönü</h2>
+    <p class="lead">Bakır telde hareket edenler eksi yüklü elektronlardır ve pilin eksi ucundan artı ucuna doğru giderler. Ama devre şemalarında akım ters yönde çizilir.</p>
+    <p>Yüklere “artı” ve “eksi” adları, kimse elektronu bilmezken verildi. Akımın yönü de artı uçtan çıkıp eksi uca dönen bir akış olarak tanımlandı: buna <strong>geleneksel akım</strong> denir.</p>
+    <p>Sonradan metallerde hareket edenin eksi yüklü elektronlar olduğu anlaşıldı. Eksi yükün sola gitmesi, hesaplarda artı yükün sağa gitmesiyle aynı sonucu verir. Bu yüzden tanım değişmedi; bütün formüller ve semboller geleneksel yönle çalışır. Diyot ve transistör sembollerindeki oklar da bu yönü gösterir.</p>
+    <p><strong>Bu siteden sonra akım hep geleneksel yönde çizilir:</strong> sarı noktalar artıdan eksiye akar.</p>
+    <details class="more"><summary>Daha fazla: elektronlar çok yavaştır</summary>
+      <p>Bakırda metreküpte yaklaşık 8,5·10²⁸ serbest elektron vardır. 1 mm² kesitli bir telden 1 A geçerken elektronların ortalama <strong>sürüklenme hızı</strong> v = I / (n·e·A) = 1 / (8,5·10²⁸ · 1,6·10⁻¹⁹ · 10⁻⁶) ≈ 0,07 mm/s'dir. Bir metre teli geçmeleri saatler sürer.</p>
+      <p>Yine de lamba anahtara basar basmaz yanar. Çünkü tel zaten elektronlarla doludur; itmeyi taşıyan elektrik alanı tel boyunca ışık hızının önemli bir kesriyle yayılır ve bütün elektronlar neredeyse aynı anda kaymaya başlar. Su dolu bir hortumun bir ucundan su ittiğinizde diğer ucundan hemen su çıkması gibi.</p>
+      <p>Tarih: “artı” ve “eksi” adlarını 18. yüzyılın ortasında Benjamin Franklin kullandı. Elektron 1897'de J. J. Thomson'un deneyleriyle bulundu.</p>
+    </details>
+    <p class="try">“Elektronlar” düğmesine basın: noktalar ters yöne döner. Sonra “İkisi birden” ile karşılaştırın ve gerilimi artırın; ölçümlerde gerçek sürüklenme hızına bakın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Sarı noktalar geleneksel akım, açık mavi eksili noktalar elektronlar. İkisi aynı akımı anlatır; yalnızca işaret farklı.</li>
+    <li>Soru: saniyede kaç elektron geçiyor? Ölçümdeki sayı 10¹⁸ mertebesinde; buna rağmen sürüklenme hızı milimetrenin yüzde biri mertebesinde.</li>
+    <li>Bundan sonraki bütün slaytlarda yalnızca geleneksel akım var; bunu açıkça vurgulayın.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="1" data-demo="c1malzeme" id="iletken-yalitkan" data-model="basit">
+  <div class="text">
+    <h2>İletken, yalıtkan, yarı iletken</h2>
+    <p class="lead">Bir malzemenin akımı iletip iletmemesi, elektronlarının atomlarına ne kadar sıkı bağlı olduğuna bağlıdır.</p>
+    <p><strong>İletken</strong> metallerde, örneğin bakırda, her atom en dıştaki elektronunu ortaya bırakır. Bu serbest elektronlar bütün metalde gezinir; küçük bir gerilim onları kaydırmaya yeter.</p>
+    <p><strong>Yalıtkan</strong> cam ve plastikte elektronlar atomlarına sıkıca bağlıdır. Gerilim onları biraz çeker ama koparamaz; akım neredeyse sıfırdır.</p>
+    <p><strong>Yarı iletken</strong> silisyumda elektronlar atomlar arasındaki bağlarda durur. Isı bazılarını koparır; geride bir <strong>boşluk</strong> kalır. Sıcaklık arttıkça serbest elektron ve boşluk sayısı hızla artar, akım büyür. Diyot ve transistörler bu malzemeden yapılır.</p>
+    <details class="more"><summary>Daha fazla: özdirenç</summary>
+      <p>Malzemenin akıma karşı koyması <strong>özdirenç</strong> (ρ) ile ölçülür. Uzunluğu L, kesiti A olan bir parçanın direnci R = ρ·L / A'dır. Deneydeki numune 1 cm uzunluğunda, 1 mm² kesitlidir.</p>
+      <p>Oda sıcaklığında yaklaşık değerler: bakır 1,7·10⁻⁸ Ω·m, saf silisyum yaklaşık 2·10³ Ω·m, cam 10¹⁰–10¹⁴ Ω·m. Bakır ile cam arasında 10²⁰ kattan fazla fark var.</p>
+      <p>Metallerin direnci sıcaklıkla biraz artar (bakırda kelvin başına yaklaşık %0,4). Saf silisyumun direnci ise sıcaklıkla hızla düşer; oda sıcaklığı civarında her 10 °C yaklaşık iki kat daha fazla taşıyıcı demektir. Animasyon basitleştirilmiş bir modeldir; gerçek silisyumda bir santimetreküpte oda sıcaklığında yaklaşık 10¹⁰ serbest elektron vardır, bakırda ise 10²³ mertebesinde.</p>
+    </details>
+    <p class="try">Malzemeyi değiştirin ve gerilimi artırın. Silisyumda sıcaklığı yükseltin: serbest elektronlar ve boşluklar çoğalır, ampermetredeki akım büyür.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Animasyon karikatür: elektronların sürüklenmesi gösterilmek için çok abartıldı. Ölçümler ise gerçek özdirençlerden hesaplanıyor.</li>
+    <li>Camda akım femtoamper (10⁻¹⁵ A) mertebesinde. Soru: silisyumu 150 °C'ye ısıtınca akım kaç kat artıyor?</li>
+    <li>Boşluk bir parçacık değil, eksik bir elektrondur; komşu elektron atlayınca boşluk ters yöne “hareket eder”. Bu fikre PN ekleminde döneceğiz.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="2" data-demo="ohm" id="ohm-kanunu">
+  <div class="text">
+    <h2>Ohm kanunu</h2>
+    <p class="lead">Bir direncin üzerindeki gerilimi iki katına çıkarırsanız, içinden geçen akım da iki katına çıkar.</p>
+    <p>Georg Simon Ohm bunu 1827'de deneylerle gösterdi. Gerilim (V), akım (I) ve direnç (R) arasındaki ilişki tek satırdır:</p>
+    <p class="formula">V = I · R</p>
+    <p>Direnci büyütürseniz aynı gerilim daha az akım iter. V–I grafiğinde her direnç bir doğrudur; doğrunun eğimi 1/R'dir. Dik doğru küçük direnç, yatık doğru büyük direnç demektir.</p>
+    <p>Formülü unutursanız üçgene bakın: bulmak istediğiniz harfi kapatın, kalan ikisi formülü söyler. Üstteki harf bölünür, alttaki ikisi çarpılır.</p>
+    <details class="more"><summary>Daha fazla: birimler</summary>
+      <p>1 volt, 1 ohm'luk dirençten 1 amper akım geçirir. Elektronikte akımlar çoğunlukla miliamper (mA, binde bir amper), dirençler kiloohm (kΩ, bin ohm) düzeyindedir. Pratik kısayol: volt bölü kiloohm doğrudan miliamper verir. 6 V / 1 kΩ = 6 mA.</p>
+      <p>Ohm kanunu her şey için geçerli değildir. Dirençler ve teller için çok iyi çalışır; diyot ve transistör gibi yarı iletkenlerde akım gerilimle orantılı artmaz. Onlara 5. bölümde geleceğiz.</p>
+    </details>
+    <p class="try">Gerilimi artırın, sonra direnci küçültün. Ampermetredeki akımı ve grafikteki noktayı izleyin; üçgendeki harflere tıklayın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Ampermetre devreye seri bağlı; akımın tamamı içinden geçiyor.</li>
+    <li>Soru: 12 V ve 100 Ω ile akım ne olur? (120 mA, grafiğin dışına çıkar.)</li>
+    <li>"Volt bölü kiloohm = miliamper" kısayolunu tahtaya yazın.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="2" data-demo="c1guc" id="guc-ve-isi">
+  <div class="text">
+    <h2>Güç ve ısı</h2>
+    <p class="lead">Akım bir dirençten geçerken elektrik enerjisi ısıya dönüşür. Saniyede dönüşen enerjiye güç denir.</p>
+    <p class="formula">P = V · I = I² · R = V² / R</p>
+    <p><strong>Güç</strong> watt (W) ile ölçülür. Gerilimi iki katına çıkarırsanız akım da iki katına çıkar; ikisinin çarpımı olan güç dört katına çıkar.</p>
+    <p>Her direncin bir <strong>güç sınırı</strong> vardır: gövdesinin ısıyı havaya aktarabildiği en fazla güç. Breadboard'da en yaygın olan ¼ W'lık küçük dirençlerdir. Sınır aşılınca direnç ısınır, rengi değişir, ömrü kısalır; çok aşılırsa yanar. Daha büyük gövde daha çok ısı atabilir; bu yüzden güçlü dirençler büyüktür.</p>
+    <details class="more"><summary>Daha fazla: enerji ve watt-saat</summary>
+      <p>Enerji = güç × süre. 1 W'lık bir yük 1 saatte 1 watt-saat (Wh) enerji harcar; bu 3600 joule eder. Elektrik faturalarındaki kilowatt-saat (kWh) 1000 Wh'dir.</p>
+      <p>Bir telefon bataryası yaklaşık 15–20 Wh enerji depolar. Deneydeki direnç her saniye ölçülen güç kadar joule ısı üretir; ölçümlerde bir saatte harcadığı enerji görünüyor.</p>
+      <p>Pratik kural: bir direnci sınırının yarısını aşmayacak şekilde seçin. Simülasyonda direnç sınırın iki katı aşılınca yanar.</p>
+    </details>
+    <p class="try">Beslemeyi yavaşça artırın ve direncin kızarışını izleyin. ¼ W'lık direnç yanınca “Onar”a basın, 1 W ya da 5 W seçip tekrar deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>100 Ω ve 5 V: 50 mA, 0,25 W. Tam sınırda. Soru: 10 V'ta güç ne olur? (1 W, dört katı.)</li>
+    <li>Alttaki çizim gövdeleri gerçek boyut oranında gösteriyor: 5 W'lık seramik direnç ¼ W'lıktan çok daha büyük.</li>
+    <li>Gerçek hayatta yanan direnç kokusuyla kendini belli eder; kartta kararmış direnç gördüyseniz bu yüzdendir.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="2" data-demo="c1led" id="led-direnci" data-model="basit">
+  <div class="text">
+    <h2>LED'e direnç hesabı</h2>
+    <p class="lead">LED'i doğrudan pile bağlarsanız yanar. Önüne konan küçük bir direnç onu korur.</p>
+    <p>LED üzerinde, rengine göre neredeyse sabit bir gerilim kalır: kırmızıda yaklaşık 2 V, mavide ve beyazda yaklaşık 3 V. Bu <strong>ileri gerilim</strong>dir (V<sub>f</sub>). Beslemenin geri kalanı dirence düşer ve akımı direnç belirler:</p>
+    <p class="formula">R = (V<sub>s</sub> − V<sub>f</sub>) / I</p>
+    <p>Hesap çoğu zaman standart olmayan bir değer verir. Dirençler <strong>E12 serisi</strong> denen standart değerlerle satılır (10, 12, 15, 18, 22, 27, 33, 39, 47, 56, 68, 82 ve on katları). Bir üstteki değeri seçmek güvenlidir: akım biraz azalır, LED biraz sönükleşir ama zarar görmez.</p>
+    <details class="more"><summary>Daha fazla: dirençsiz LED neden yanar?</summary>
+      <p>LED bir diyottur: ileri gerilimin üstünde akımı gerilimle üstel olarak artar. Biraz fazla gerilim çok fazla akım demektir. Dirençsiz devrede akımı sınırlayan yalnızca LED'in ve pilin küçük iç dirençleridir; akım yüzlerce miliampere çıkar. Tipik bir 5 mm LED sürekli olarak yaklaşık 20–30 mA'e dayanır.</p>
+      <p>Direncin harcadığı gücü de kontrol edin: P = I²·R. 12 V ve 20 mA ile kırmızı LED'de direnç yaklaşık 0,2 W harcar; ¼ W'lık direnç sınırına yaklaşır.</p>
+      <p>Simülasyondaki LED modeli basitleştirilmiştir: ileri gerilim 10 mA'de verilen değerdir.</p>
+    </details>
+    <p class="try">Besleme gerilimini, LED rengini ve istenen akımı seçin; hesabı ve devrede ölçülen akımı karşılaştırın. Sonra “Direnci çıkar” düğmesine basın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Örnek: 5 V, kırmızı LED (2 V), 10 mA → 300 Ω; E12'de 330 Ω. Devrede ölçülen akım 9 mA civarı.</li>
+    <li>Arduino'da LED bağlarken 220 Ω ya da 330 Ω kullanılmasının nedeni bu hesap.</li>
+    <li>“Direnci çıkar” ile LED yanar. Soru: 3,3 V ve mavi LED'de dirençsiz ne olur? (Akım sınırı aşar ama anında yanmayabilir; yine de yapılmaz.)</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="2" data-demo="c1renk" id="renk-kodu">
+  <div class="text">
+    <h2>Direnç renk kodu</h2>
+    <p class="lead">Küçük dirençlerin üzerine değer yazılmaz; renkli şeritler basılır. Okumayı bir kez öğrenince her direnci bir bakışta tanırsınız.</p>
+    <p>Dört şeritli dirençte ilk iki şerit iki rakamdır, üçüncü şerit kaç sıfır ekleneceğini söyleyen <strong>çarpan</strong>dır. Dördüncü şerit <strong>tolerans</strong>tır; altın renk değerin ±%5 içinde olduğunu söyler. Okumaya altın şeridin karşı ucundan başlayın.</p>
+    <p>Örnek: sarı (4), mor (7), kırmızı (×100) → 47 × 100 = 4700 Ω = 4,7 kΩ.</p>
+    <p>Renk sırası gökkuşağına benzer: siyah 0, kahverengi 1, kırmızı 2, turuncu 3, sarı 4, yeşil 5, mavi 6, mor 7, gri 8, beyaz 9.</p>
+    <details class="more"><summary>Daha fazla: beş şeritli dirençler</summary>
+      <p>Hassas (metal film) dirençlerde üç rakam şeridi, bir çarpan ve bir tolerans şeridi bulunur; kahverengi tolerans ±%1 demektir. Çarpan şeridi altın olursa ×0,1, gümüş olursa ×0,01 anlamına gelir.</p>
+      <p>Emin olamadığınızda multimetreyle ölçün: deneydeki gibi direncin üzerine bilinen bir gerilim uygulanır, akım ölçülür ve R = V / I hesaplanır.</p>
+    </details>
+    <p class="try">“Değeri bul” kipinde direnci okuyup doğru değeri seçin. “Renkleri seç” kipinde verilen değer için şeritleri tablodan boyayın ve “Kontrol et”e basın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Topluluğa yarışma olarak oynatın: ilk doğru cevabı veren puanı alır.</li>
+    <li>En sık hata: çarpanı rakam gibi okumak. Kırmızı çarpan “2” değil, “×100”dür.</li>
+    <li>Cevaptan sonra küçük devre direnci 1 V ile ölçer: ohmmetre de böyle çalışır.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="3" data-demo="c3seriParalel" id="seri-paralel">
+  <div class="text">
+    <h2>Seri ve paralel bağlantı</h2>
+    <p class="lead">Dirençleri art arda dizerseniz akımın yolu zorlaşır; yan yana koyarsanız akıma yeni yollar açılır.</p>
+    <p><strong>Seri</strong> bağlı dirençlerden aynı akım geçer ve dirençler toplanır: iki 1 kΩ'luk direnç seri bağlanınca 2 kΩ gibi davranır. Pilin gerilimi dirençler arasında paylaşılır.</p>
+    <p><strong>Paralel</strong> bağlı dirençlerin iki ucu ortaktır, hepsinin üzerinde aynı gerilim vardır. Akım kollara bölünür; küçük dirençli kola daha çok akım gider. Her yeni kol akıma ek bir yol açtığı için toplam direnç azalır: paralel grubun direnci, içindeki en küçük dirençten bile küçüktür.</p>
+    <p>Bir direnç ağının tamamı, pilin gözünden tek bir dirence eşittir. Buna <strong>eşdeğer direnç</strong> denir. Pil, eşdeğeri aynı olan iki devreyi birbirinden ayıramaz.</p>
+    <p class="formula">Seri: R = R1 + R2 + …<br>Paralel: 1/R = 1/R1 + 1/R2 + …</p>
+    <details class="more"><summary>Daha fazla: paralel formülü nereden gelir?</summary>
+      <p>Paralel kollarda gerilim ortaktır, akımlar toplanır: I = V/R1 + V/R2 + … İki taraf V'ye bölünürse 1/R = 1/R1 + 1/R2 + … çıkar. 1/R'ye iletkenlik denir; paralelde iletkenlikler toplanır.</p>
+      <p>İki direnç için kısayol: R = R1 · R2 / (R1 + R2). Eşit n direnç paralel bağlıysa R/n: 1 kΩ || 1 kΩ = 500 Ω. "||" işareti "paralel" diye okunur.</p>
+      <p>Deneydeki "Ölçüm" satırı formülü sınar: pilin gerilimini ampermetrenin gösterdiği akıma böler. İkisi her zaman aynı çıkar.</p>
+    </details>
+    <p class="try">Bir direnç ekleyin ve onu "Paralel" yapın. Akım noktalarının kollara bölünüşünü, her direncin altındaki akımı ve eşdeğer direncin küçülüşünü izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Seride en büyük direnç baskındır, paralelde en küçük direnç.</li>
+    <li>Soru: 1 kΩ'luk dirence paralel 1 MΩ eklersek ne olur? (Neredeyse hiçbir şey; eşdeğer yaklaşık 999 Ω olur.)</li>
+    <li>Evdeki prizler paralel bağlıdır: her cihaz aynı şebeke gerilimini görür, biri kapanınca diğerleri çalışmaya devam eder.</li>
+    <li>"Hepsi seri" ve "Hepsi paralel" düğmeleriyle aynı dirençlerin iki uç durumunu karşılaştırın.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="3" data-demo="c3bolucu" id="gerilim-bolucu">
+  <div class="text">
+    <h2>Gerilim bölücü</h2>
+    <p class="lead">Seri bağlı iki direnç, bir gerilimi istediğiniz oranda küçültür.</p>
+    <p>Seri dirençlerden aynı akım geçer, gerilim de dirençlerle orantılı paylaşılır. İki direncin birleştiği noktadan alınan çıkış, girişin belli bir kesridir.</p>
+    <p><strong>Potansiyometre</strong> bunun ayarlanabilir hâlidir: iki ucu arasında sabit bir direnç ve onun üzerinde kayan bir orta uç (sürgü) vardır. Sürgü kaydıkça üst ve alt parçanın oranı değişir. Eski radyolardaki ses düğmeleri böyle çalışır.</p>
+    <p>Bölücünün çıkışına bir <strong>yük</strong> bağlayınca iş değişir. Yük, alt parçaya paralel bağlanır; alt parçanın direnci küçülür, çıkış düşer. Buna <strong>yükleme etkisi</strong> denir. Yük direnci bölücünün dirençlerinden çok büyükse (on kat ve üstü) etki küçüktür; onlara yakınsa çıkış belirgin biçimde düşer.</p>
+    <p class="formula">Vç = Vg · R2 / (R1 + R2)</p>
+    <details class="more"><summary>Daha fazla: bölücü neden güç kaynağı değildir?</summary>
+      <p>Formül çıkıştan akım çekilmediğini varsayar. Yük RL bağlanınca R2'nin yerine R2 || RL yazılır: Vç = Vg · (R2 || RL) / (R1 + R2 || RL). Çıkış yüke göre değişir, üstelik bölücü dirençleri sürekli boşa akım harcar.</p>
+      <p>Bu yüzden bir motoru ya da başka bir devreyi beslemek için gerilim bölücü kullanılmaz. Bölücü, neredeyse hiç akım çekmeyen bir girişe (bir ölçüm girişine ya da opamp girişine) ayarlı bir gerilim vermek için idealdir.</p>
+      <p>Yükleme etkisinin şık çözümü 8. bölümde: opamp ile kurulan gerilim izleyici, bölücüyü yükten ayırır.</p>
+    </details>
+    <p class="try">Konumu değiştirin, sonra "Yük bağla"ya basıp yük direncini küçültün. Yüksüz ve yüklü çıkışı karşılaştırın; grafikte eğrinin nasıl çöktüğüne bakın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Potansiyometre şemada fareyle sürüklenerek de çevrilebilir.</li>
+    <li>Soru: 10 kΩ'luk bölücüye 1 MΩ'luk yük bağlanırsa? (Fark binde birkaç düzeyinde kalır.)</li>
+    <li>Arduino'da potansiyometre okumak bir gerilim bölücüdür: analog giriş çok az akım çektiği için okuma bozulmaz.</li>
+    <li>Yükleme etkisi en çok potansiyometre ortadayken görünür: alt parça en büyük ve üst parça da büyük.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="3" data-demo="c3kcl" id="kcl">
+  <div class="text">
+    <h2>Kirchhoff'un akım yasası</h2>
+    <p class="lead">Bir düğüme ne kadar akım girerse, o kadarı çıkar.</p>
+    <p>Tellerin birleştiği noktaya <strong>düğüm</strong> denir. Yük bir düğümde birikemez; bu yüzden düğüme giren akımların toplamı, çıkanların toplamına eşittir. Akımlara işaret verirsek (giren artı, çıkan eksi) hepsinin toplamı sıfırdır. Gustav Kirchhoff bu kuralı 1845'te yazdı; adı <strong>akım yasası</strong>, kısaca KCL.</p>
+    <p>Bir su kavşağı düşünün: kavşağa saniyede ne kadar su giriyorsa o kadarı çıkar. Boru şişmez, su kaybolmaz.</p>
+    <p>Deneydeki X düğümüne dört kol bağlı. Her koldaki ampermetre, düğüme doğru akan akımı artı, düğümden çıkanı eksi gösterir. V2'yi küçültürseniz o koldaki akım yön değiştirir ve artık düğümden çıkar. Sayılar değişir, toplam hep sıfır kalır.</p>
+    <p class="formula">I1 + I2 + I3 + I4 = 0</p>
+    <details class="more"><summary>Daha fazla: düğüm gerilimi yöntemi ve Thevenin eşdeğeri</summary>
+      <p>Bir devreyi çözmek için her düğümde KCL yazılır ve kol akımları Ohm kanunuyla düğüm gerilimleri cinsinden ifade edilir. Bilinmeyen düğüm sayısı kadar denklem çıkar. Bu, <strong>düğüm gerilimi yöntemidir</strong>. Deneyde "Düğüm denklemleri"ni seçince adımları güncel değerlerle görürsünüz. Bu sitedeki simülatör de her devreyi bu yöntemin genelleştirilmiş hâliyle (değiştirilmiş düğüm analizi, MNA) çözer.</p>
+      <p><strong>Thevenin teoremi</strong>: dirençler ve kaynaklardan oluşan bir devre, iki ucundan bakıldığında tek bir gerilim kaynağına (Vth) seri bağlı tek bir dirence (Rth) eşdeğerdir. Vth uçların açık devre gerilimidir; Rth = Vth / Isc, burada Isc uçlar kısa devre edilince akan akımdır. "Thevenin" görünümünde R4 kolu yük sayılır, geri kalan devre Vth ve Rth'ye indirilir. Yük iki devrede de aynı akımı çeker.</p>
+    </details>
+    <p class="try">V2'yi azaltın ve A2'deki akımın işaret değiştirdiğini izleyin. S1'e tıklayıp R4 kolunu kesin; toplam yine sıfır. Sonra "Thevenin" görünümünü açın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Akımın yönünü baştan bilmek gerekmez: yanlış tahmin edilen akım hesapta eksi çıkar.</li>
+    <li>Soru: A1 ile A2'nin toplamı 5 mA, A3 1 mA gösteriyorsa A4 ne gösterir? (−4 mA.)</li>
+    <li>Düğüm tek bir nokta değildir: aralarında direnç olmayan bütün bağlı teller aynı düğümdür (şemada aynı renkte).</li>
+    <li>Thevenin, "bu iki uca ne bağlarsam ne olur?" sorusunu tek adımda cevaplar.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="3" data-demo="c3kvl" id="kvl">
+  <div class="text">
+    <h2>Kirchhoff'un gerilim yasası</h2>
+    <p class="lead">Devrede hangi yoldan dolaşırsanız dolaşın, başladığınız yere dönünce gerilim değişimlerinin toplamı sıfırdır.</p>
+    <p>Devredeki kapalı yollara <strong>çevre</strong> denir. Bir çevrede yürüyen bir gezgin düşünün: pilin eksi ucundan artı ucuna geçerken gerilim yükselir, akım yönünde bir direnci geçerken düşer. Başladığı noktaya döndüğünde yine aynı gerilimdedir; yükselişlerle düşüşlerin toplamı sıfırdır. Bu, Kirchhoff'un <strong>gerilim yasasıdır</strong>, kısaca KVL.</p>
+    <p>Dağ yürüyüşüne benzer: tırmanır, inersiniz; başladığınız yere dönünce rakımınız yine aynıdır. Grafik, gezginin yol boyunca bulunduğu yerin gerilimini çiziyor. Devredeki üç çevreden hangisini seçerseniz seçin, toplam sıfır çıkar.</p>
+    <p class="formula">Çevre boyunca: ΣV = 0</p>
+    <details class="more"><summary>Daha fazla: işaret kuralı ve göz akımları</summary>
+      <p>Bir direnç üzerindeki gerilim düşümü I · R'dir ve akım yönündedir. Gezgin bir direnci akıma karşı geçerse gerilim yükselir. Akımın yönünü bilmiyorsanız bir yön tahmin edin; yanlışsa sonuç eksi çıkar.</p>
+      <p>Her göz için KVL yazmak, devre çözmenin ikinci klasik yoludur (göz akımları yöntemi). KCL düğümlerdeki akımları, KVL çevrelerdeki gerilimleri dengeler; ikisi birlikte her doğrusal devreyi çözmeye yeter.</p>
+      <p>KVL'nin kökü şudur: devredeki her noktanın tek bir gerilimi (potansiyeli) vardır. Kapalı bir yolun sonu başıyla aynı nokta olduğu için toplam değişim sıfırdır.</p>
+    </details>
+    <p class="try">Gezgini izleyin: her bileşende durup değişimi yazar. "Sağ çevre"yi seçip V2'yi artırın; R3'teki düşüşün yükselişe döndüğünü ve toplamın yine sıfır kaldığını görün.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Gezgin her bileşende biraz durur; o bileşenin yanına "+" ya da "−" değer yazılır.</li>
+    <li>Soru: Sol çevrede V1 = 9 V ve R1 üzerinde 4 V düşüyorsa R2 üzerinde kaç volt düşer? (5 V.)</li>
+    <li>R3'ün akımı V2'ye göre yön değiştirir: V2 düğüm geriliminden büyükse R3'ten geriye akım geçer.</li>
+    <li>Grafikteki kesikli çizgi başlangıç seviyesidir; eğri her zaman ona geri döner.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="3" data-demo="c3multimetre" id="multimetre">
+  <div class="text">
+    <h2>Multimetre kullanımı</h2>
+    <p class="lead">Gerilim paralel, akım seri ölçülür. Tersini yaparsanız ya yanlış okursunuz ya da sigorta atar.</p>
+    <p>Multimetre, kademe anahtarıyla seçilen üç alettir: <strong>voltmetre</strong>, <strong>ampermetre</strong> ve <strong>ohmmetre</strong>.</p>
+    <p><strong>Gerilim</strong> iki nokta arasındaki farktır; problar parçanın iki ucuna, ona paralel değdirilir. Voltmetrenin iç direnci çok büyüktür (çoğunlukla 10 MΩ), devreden neredeyse akım çekmez.</p>
+    <p><strong>Akım</strong> ölçmek için devre açılır, alet araya seri bağlanır. Ampermetrenin iç direnci neredeyse sıfırdır. Bir parçaya paralel bağlanırsa onu <strong>kısa devre</strong> eder ve çok büyük bir akım geçer; akım girişindeki <strong>sigorta</strong> bu yüzden vardır.</p>
+    <p><strong>Direnç</strong> yalnızca güç kapalıyken ölçülür: ohmmetre kendi küçük akımını gönderip gerilime bakar, devredeki pil bunu bozar. Kırmızı prob VΩ ya da mA girişine, siyah prob hep COM'a takılır.</p>
+    <details class="more"><summary>Daha fazla: gerçek aletlerde</summary>
+      <p>Çoğu multimetrede mA ve 10 A için ayrı girişler, her birinin önünde ayrı sigorta bulunur. En sık yapılan hata, akım ölçtükten sonra kırmızı probu akım girişinde unutup gerilim ölçmeye kalkmaktır: prob bu durumda ölçülen noktayı kısa devre eder. Ölçmeye başlamadan önce kademeyi ve girişi kontrol edin.</p>
+      <p>Bu deneydeki alet basitleştirilmiştir: voltmetre 10 MΩ'luk bir direnç, ampermetre 0 Ω ve 100 mA'lik bir sigorta, ohmmetre 1 mA'lik sabit bir akım kaynağı olarak modellenir.</p>
+      <p>Şebeke gerilimi (230 V) ölümcüldür; ölçmek eğitim ve o işe uygun ölçüm kategorisinde (CAT) bir alet ister.</p>
+    </details>
+    <p class="try">Kademeyi mA'ya alın ve "Devreyi açıp araya"yı seçin: akım doğru ölçülür. Sonra probları "R1'in iki ucu"na koyun ve sigortaya bakın. Direnç ölçmek için önce gücü kesin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce gerilim ölçün (V, R1'in iki ucu), sonra seyirciye "akımı nasıl ölçeriz?" diye sorun.</li>
+    <li>Ampermetreyi pilin iki ucuna bağlamak en kötüsüdür: pil kısa devre olur; lityum pillerde bu yangın riski demektir.</li>
+    <li>Voltmetre seri bağlanınca lamba söner ama alet bozulmaz; ekranda pil gerilimine yakın bir değer görünür.</li>
+    <li>Ohm kademesinde güç açıkken okunan değerin anlamsız olduğunu gösterin, sonra "Gücü kes"e basın.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="4" data-demo="c4cap" id="kondansator">
+  <div class="text">
+    <h2>Kondansatör</h2>
+    <p class="lead">Kondansatör, yükü iki levhada biriktiren küçük bir depodur; dolması da boşalması da zaman alır.</p>
+    <p>İki iletken levhanın arasında ince bir yalıtkan vardır. Pil, elektronları bir levhadan çekip ötekine iter: bir levha artı, öteki eksi yüklenir ve aralarında gerilim oluşur. Levhaların arasından akım geçmez; ama kondansatör dolarken ve boşalırken devrede akım akar.</p>
+    <p>Direnç bu akışı yavaşlatır. Kondansatör önce hızlı, sonra giderek yavaşlayarak dolar. Ne kadar süreceğini tek bir sayı söyler, <strong>zaman sabiti</strong>:</p>
+    <p class="formula">τ = R · C</p>
+    <p>Her τ süresinde kondansatör kalan yolun %63'ünü gider; yaklaşık 5τ sonra neredeyse tamamen dolmuştur. 10 kΩ ve 100 µF için τ tam 1 saniyedir.</p>
+    <details class="more"><summary>Daha fazla: formüller</summary>
+      <p>Kapasitenin birimi farad'dır (F). Levhalardaki yük Q = C · V; 100 µF'lık bir kondansatör 5 V'ta 500 µC yük tutar. Pratikte pikofarad (pF), nanofarad (nF) ve mikrofarad (µF) kullanılır.</p>
+      <p>Şarjda V(t) = V<sub>kaynak</sub> · (1 − e<sup>−t/τ</sup>), deşarjda V(t) = V<sub>0</sub> · e<sup>−t/τ</sup>. t = τ anında 1 − 1/e ≈ %63,2'ye ulaşılır, 5τ'da %99,3'e. Depolanan enerji E = ½ · C · V².</p>
+      <p>Elektrolitik kondansatörlerin artı ve eksi ucu vardır; ters bağlanırsa ısınıp bozulabilir.</p>
+    </details>
+    <p class="try">Anahtarı Şarj konumuna alın ve osiloskopta eğriyi izleyin: τ çizgisinde gerilim %63'e ulaşır. Sonra Deşarj'a alın; direnci ya da kapasiteyi değiştirip yeniden deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce levhalardaki yüklere dikkat çekin: + ve − sayısı kondansatör gerilimiyle birlikte artıyor.</li>
+    <li>Akım noktaları şarjın başında hızlı, sonra yavaşlıyor; gerilim farkı azaldıkça akım da azalıyor.</li>
+    <li>Soru: Direnci iki katına çıkarırsak dolma süresi ne olur? (İki katına çıkar; τ = R·C.)</li>
+    <li>Küçük τ değerlerinde deney ağır çekime geçer; denetim çubuğundaki not kaç kat yavaşlatıldığını söyler.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="4" data-demo="c4coil" id="bobin" data-model="basit">
+  <div class="text">
+    <h2>Bobin</h2>
+    <p class="lead">Bobin, içinden geçen akımın değişmesine direnir: akımı ne aniden başlatmak ister ne de aniden durdurmak.</p>
+    <p>Bobin, sarılmış bir teldir. Akım geçince çevresinde manyetik alan oluşur ve enerji bu alanda depolanır. Akım değişmeye çalışınca bobin buna karşı koyan bir gerilim üretir; anahtar kapanınca akım yavaş yavaş yükselir.</p>
+    <p>Asıl sürpriz anahtar açılınca gelir. Akım bir anda sıfıra inemez; bobin onu sürdürmek için gerilimini yükseltir. Anahtar ucunda beslemenin onlarca katı bir sıçrama oluşur: kontakta kıvılcım çıkar, anahtarlayan transistör bozulabilir.</p>
+    <p>Çözüm, bobine ters yönde bir <strong>serbest geçiş diyodu</strong> (flyback diyodu) bağlamaktır. Akım diyot üzerinden dönüp yavaşça söner; gerilim beslemeyi yalnızca bir diyot gerilimi kadar (1 V'tan az) aşar. Röle süren her devrede bu diyot vardır.</p>
+    <details class="more"><summary>Daha fazla: sayılar ve modelin sınırı</summary>
+      <p class="formula">V = L · ΔI / Δt</p>
+      <p>Endüktansın birimi henry'dir (H). Akım ne kadar hızlı değişirse bobin gerilimi o kadar büyür. Akım I iken depolanan enerji E = ½ · L · I².</p>
+      <p>Deneydeki röle bobini 0,5 H'lik bir endüktans ve 120 Ω'luk sargı direncinden oluşuyor. Anahtar kapanınca akım 12 V / 120 Ω = 100 mA'e, τ = L / R ≈ 4,2 ms zaman sabitiyle yükselir.</p>
+      <p>Dürüst bir not: ideal bir anahtar açıldığında akımın gidecek hiçbir yolu kalmaz ve hesap sonsuz gerilim verir. Gerçekte bu yolu kontaktaki kıvılcım (ark) ya da sürücü transistörün kırılması açar. Benzetimde açık anahtarın uçları arasına 2,2 kΩ'luk bir kaçak direnç koyduk; bu yüzden tepe değer yaklaşık 100 mA × 2,2 kΩ ≈ 220 V çıkıyor ve anahtar açıkken de birkaç miliamperlik akım görünüyor. Gerçek devrelerde sıçrama yüzlerce volta ulaşabilir.</p>
+    </details>
+    <p class="try">Anahtarı kapatın ve akımın yükselişini izleyin; sonra açın: osiloskopta sıçramayı, devrede kıvılcımı görün. Ardından serbest geçiş diyodunu ekleyip aynısını tekrarlayın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Deney 100 kat ağır çekimde: osiloskopta 1 bölme 5 ms.</li>
+    <li>Sarı iz (KN1) anahtarın üst ucundaki gerilim, açık sarı ince iz bobin akımı. Akım hiçbir zaman zıplamıyor; sıçrayan gerilim.</li>
+    <li>Diyot eklenince osiloskop ölçeği 5 V/bölmeye geçiyor; tepe değer 13 V'un altında kalıyor, akım ise daha yavaş sönüyor.</li>
+    <li>Soru: Diyot ters bağlansaydı ne olurdu? (Anahtar kapanınca kaynağı kısa devre ederdi.)</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="4" data-demo="c4ac" id="ac-frekans">
+  <div class="text">
+    <h2>AC ve frekans</h2>
+    <p class="lead">Prizdeki gerilim saniyede 50 tur atar: artıdan eksiye gider, geri gelir.</p>
+    <p>Pil hep aynı yönde iter (doğru akım, DC). Alternatif akımda (AC) gerilim bir sinüs dalgası çizer. Bir turun süresi <strong>periyot</strong> (T), saniyedeki tur sayısı <strong>frekans</strong>tır (f); birimi hertz (Hz).</p>
+    <p class="formula">f = 1 / T &nbsp;&nbsp;&nbsp;&nbsp; Vrms = Vp / √2</p>
+    <p>En yüksek nokta <strong>tepe değeri</strong>dir (Vp), en yüksekle en alçak arası tepeden tepeye değer (Vpp). Lambayı ne kadar ısıttığını <strong>RMS</strong> (etkin) değer söyler: aynı ısıyı veren DC gerilim.</p>
+    <p>Türkiye'de ve Avrupa'da şebeke 230 V, 50 Hz'tir. 230 V bir RMS değeridir; tepe değeri yaklaşık 325 V'tur.</p>
+    <p class="c4-warn">Şebeke gerilimi öldürücüdür; prizle eğitimsiz çalışılmaz. Buradaki deneyler düşük gerilimlidir.</p>
+    <details class="more"><summary>Daha fazla: neden √2?</summary>
+      <p>Güç gerilimin karesiyle orantılıdır. Sinüsün karesinin ortalaması, tepe değerin karesinin yarısıdır; etkin değer bu ortalamanın kareköküdür: Vp / √2. Deneyde La2 lambası, osiloskopta ölçülen RMS değerinde bir DC pille beslenir; iki lambanın ortalama gücü eşit çıkar.</p>
+      <p>Düşük frekansta AC lamba titrer: güç her periyotta iki kez sıfıra iner. 50 Hz'te lamba teli soğumaya fırsat bulamaz ve titreme kaybolur (benzetimde telin ısınma süresi 40 ms alındı).</p>
+      <p>Ses de bir titreşimdir; frekansın kulaktaki karşılığı perdedir. Müzik sitesinde dinleyin: <a href="https://muzik.koraytoksoz.com/#frekans" target="_blank" rel="noopener">Frekans ve genlik</a>.</p>
+    </details>
+    <p class="try">Frekansı 1 Hz'e indirip AC lambanın titreyişini izleyin, sonra "50 Hz (şebeke)" düğmesine basın. İki lambanın gücü hep eşit kalır.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>KN1 (sarı) AC kaynak, KN2 (camgöbeği) DC pil. Camgöbeği çizgi tam RMS seviyesinde duruyor.</li>
+    <li>Soru: 230 V'luk şebekenin tepe değeri kaç volt? (230 · √2 ≈ 325 V.)</li>
+    <li>50 Hz'te ekran tazelemesi titremeyi yakalayamayabilir; Ağır çekim düğmesi her şeyi 25 kat yavaşlatır.</li>
+    <li>Güvenlik notunu kısa ve net geçin; korkutmadan.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="4" data-demo="c4lpf" id="rc-filtre">
+  <div class="text">
+    <h2>RC filtre</h2>
+    <p class="lead">Bir direnç ve bir kondansatör, yavaş değişen sinyali geçirir, hızlı değişeni kısar.</p>
+    <p>Kondansatörün dolması zaman alır. Giriş yavaş değişiyorsa kondansatör yetişir ve çıkış girişi izler. Giriş çok hızlı gidip geliyorsa kondansatör dolmaya fırsat bulamaz: çıkış küçülür ve geride kalır. Bu devreye <strong>alçak geçiren filtre</strong> denir.</p>
+    <p>Sınırı <strong>kesim frekansı</strong> belirler:</p>
+    <p class="formula">fc = 1 / (2π · R · C)</p>
+    <p>Kesim frekansında çıkış, girişin %70,7'sine (−3 dB) düşer. Bunun üstünde frekans on katına çıktıkça çıkış on kat küçülür.</p>
+    <p>Tiz sesler yüksek frekanstır. Filtreyi sese uygularsanız tizler kısılır, ses boğuklaşır. Elektro gitarın ton düğmesi de bir RC alçak geçiren filtredir.</p>
+    <details class="more"><summary>Daha fazla: kazanç, faz ve ses</summary>
+      <p>Kazanç |V<sub>çıkış</sub> / V<sub>giriş</sub>| = 1 / √(1 + (f/fc)²), faz kayması −arctan(f/fc); kesimde −45°. Desibel cinsinden kazanç 20 · log<sub>10</sub>(oran). Grafikteki eğri formülden çizilmedi: her frekansta devre ayrıca benzetilip çıkış genliği ölçüldü.</p>
+      <p>Ses örneği tarayıcının Web Audio arayüzünde birinci dereceden dijital bir filtreden (IIR) geçiyor; katsayıları aynı RC devresinden hesaplanıyor ve kesim frekansı aynı. Web Audio'nun hazır BiquadFilter'ı ikinci derecedendir ve daha dik keser; RC'ye sadık kalmak için kullanılmadı.</p>
+      <p>Testere dişi sesteki tizler, notanın harmonikleridir. Harmoniklerin sesin rengini nasıl belirlediğini müzik sitesinde dinleyin: <a href="https://muzik.koraytoksoz.com/#tini" target="_blank" rel="noopener">Tını: aynı nota, farklı ses</a>.</p>
+    </details>
+    <p class="try">Frekansı kesim frekansına, sonra 10 kHz'e çıkarın: KN2 küçülür ve geride kalır. "Sesi çal"a basıp filtreyi açıp kapatın; direnci büyütünce tizlerin kısıldığını duyun.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>KN1 (sarı) giriş, KN2 (camgöbeği) çıkış. Kazanç ve faz her periyotta benzetimden ölçülüyor.</li>
+    <li>Kesim frekansında kazanç 0,707 ve faz −45°: grafikteki büyük nokta −3 dB çizgisine oturuyor.</li>
+    <li>Ses düğmesine basmadan önce salonun ses düzeyini kontrol edin; gürültü seçeneği tiz kaybını en açık duyuran örnek.</li>
+    <li>Soru: Kondansatörü iki katına çıkarırsak kesim frekansı ne olur? (Yarıya iner.)</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="5" data-demo="c5pn" id="pn-eklemi" data-model="basit">
+  <div class="text">
+    <h2>PN eklemi</h2>
+    <p class="lead">Diyotun bütün sırrı, farklı katkılanmış iki silisyum parçasının birleştiği ince bir sınırda saklı.</p>
+    <p>Saf silisyum zayıf bir iletkendir. İçine çok az <strong>fosfor</strong> katılırsa her fosfor atomu kristale bir fazla elektron bırakır: bu <strong>N tipi</strong> silisyumdur. <strong>Bor</strong> katılırsa her bor atomunda bir elektron eksik kalır. Bu eksikliğe <strong>boşluk</strong> denir; artı yüklü bir taşıyıcı gibi hareket eder: <strong>P tipi</strong>.</p>
+    <p>İki tip birleşince sınırdaki elektronlar karşıya geçip boşlukları doldurur. Geride yerinden kıpırdayamayan yüklü atomlar (iyonlar) kalır. Taşıyıcısı boşalmış bu şerit <strong>tükenme bölgesi</strong>dir; içindeki elektrik alanı yeni geçişleri durdurur.</p>
+    <p>P tarafına artı verirseniz (<strong>ileri kutuplama</strong>) engel alçalır, bölge daralır ve akım akar. Pili ters çevirirseniz (<strong>ters kutuplama</strong>) taşıyıcılar uçlara çekilir, bölge genişler, akım neredeyse sıfıra iner. Tek yönlü kapı budur.</p>
+    <details class="more"><summary>Daha fazla: neden yaklaşık 0,7 V?</summary>
+      <p>Dengede tükenme bölgesinin iki yanı arasında bir yerleşik gerilim oluşur; silisyumda katkı miktarına bağlı olarak 0,6–0,8 V civarındadır. Bu gerilim diyotun uçlarından voltmetreyle ölçülemez, çünkü metal temaslardaki gerilimler onu dengeler. Ama akımın gerçekten akması için dışarıdan ona yakın bir ileri gerilim vermek gerekir.</p>
+      <p>Bölgenin genişliği yaklaşık √(V<sub>bi</sub> − V) ile değişir: ters gerilim büyüdükçe genişler. Deneydeki çizim bu ilişkiyi kullanır; taşıyıcı sayıları ve boyutlar temsilîdir. Gerçek bir eklemde bölge mikrometreden incedir ve her santimetreküpte 10<sup>15</sup>–10<sup>18</sup> katkı atomu bulunur.</p>
+      <p>Ters kutuplamada çok küçük bir sızıntı akımı kalır. Ters gerilim çok büyürse eklem kırılmaya girer; Zener diyotlar bunu bilerek kullanır.</p>
+    </details>
+    <p class="try">Pil gerilimini artıya kaydırın ve eklemde birleşen taşıyıcıları izleyin. Sonra eksiye çekin: tükenme bölgesi genişler, akım söner.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce dengeyi gösterin: pil 0 V iken bile tükenme bölgesi var. "Eklemi baştan oluştur" düğmesi oluşumu yeniden oynatır.</li>
+    <li>Kare içindeki işaretler sabit iyonlar; açık halkalar boşluk, dolu noktalar elektron. Tükenme bölgesinde yalnız iyonlar kalır.</li>
+    <li>Soru: Akım hangi yönde? (Geleneksel akım P'den N'ye, yani anottan katoda; elektronlar ters yönde.)</li>
+    <li>Ters kutuplamada ampermetre pikoamper gösterir; bu modeldeki sızıntıdır, gerçek diyotlarda nanoamper düzeyindedir.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="5" data-demo="c5iv" id="diyot-iv" data-model="basit">
+  <div class="text">
+    <h2>Diyotun akım–gerilim eğrisi</h2>
+    <p class="lead">Diyot bir direnç gibi davranmaz: 0,6 V civarına kadar neredeyse hiç akım geçirmez, sonra kapıyı ardına kadar açar.</p>
+    <p>Grafikteki eğri, çözücünün diyotuna her gerilim tek tek uygulanarak çizildi. Silisyum diyotta akım <strong>üstel</strong> büyür: gerilimdeki her 60 mV'luk artış akımı yaklaşık on katına çıkarır. Bu yüzden iletimdeki bir diyotun gerilimi 0,6–0,7 V civarında neredeyse sabit kalır; akımı devredeki direnç belirler.</p>
+    <p>Ters yönde akım çok küçüktür. Doğrusal eksende sıfırdan ayırt edilemez; <strong>logaritmik</strong> eksene geçince görünür. Logaritmik eksende üstel bölge düz bir çizgiye dönüşür.</p>
+    <p><strong>Schottky diyot</strong> bir metal–yarı iletken eklemidir. Eşiği 0,2–0,4 V civarındadır ama ters kaçağı daha büyüktür.</p>
+    <details class="more"><summary>Daha fazla: Shockley denklemi</summary>
+      <p class="formula">I = I<sub>s</sub> · (e<sup>V/(n·V<sub>T</sub>)</sup> − 1)</p>
+      <p>I<sub>s</sub> doyma akımıdır (modeldeki silisyum diyotta 10 fA), n ideallik faktörüdür (1 ile 2 arası), V<sub>T</sub> = kT/q ısıl gerilimdir: 300 K'de ≈ 25,85 mV. Akımı on katına çıkarmak için n · V<sub>T</sub> · ln 10 ≈ 59,5 mV gerekir (n = 1).</p>
+      <p>"Shockley ile" göstergesi bu formülü devrede ölçülen gerilimle hesaplar; çözücünün bulduğu akımla karşılaştırın. Kesikli doğru <strong>yük doğrusudur</strong>: I = (V<sub>kaynak</sub> − V<sub>D</sub>) / R. Çalışma noktası, diyot eğrisinin bu doğruyla kesiştiği yerdir.</p>
+      <p>Gerçek diyotlarda ters sızıntı çoğunlukla nanoamper düzeyindedir ve belirli bir ters gerilimde kırılma olur; bu basitleştirilmiş model ikisini de içermez.</p>
+    </details>
+    <p class="try">Kaynak gerilimini yavaşça artırın: nokta 0,6 V civarında neredeyse dik tırmanır. Sonra "Logaritmik" eksene geçip ters yöndeki küçük akıma bakın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Voltmetre diyotun uçlarında, ampermetre yalnız diyot kolunda: grafikteki nokta bu iki okumadır.</li>
+    <li>Kaynağı 2 V'tan 10 V'a çıkarın: akım beş kattan fazla artar, diyot gerilimi ise yalnızca ~0,1 V değişir.</li>
+    <li>Soru: Diyotu doğrudan 5 V'luk bir pile bağlasak ne olur? (Akımı sınırlayan bir şey yok; diyot yanar. Seri direnç şart.)</li>
+    <li>Schottky'yi seçip iki eğriyi karşılaştırın: düşük eşik, daha büyük ters kaçak.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="5" data-demo="c5rect" id="dogrultucu" data-model="basit">
+  <div class="text">
+    <h2>Doğrultucu: AC'den DC'ye</h2>
+    <p class="lead">Şebeke gerilimi saniyede 50 kez yön değiştirir; elektronik devreler ise tek yönlü, sabit bir gerilim ister.</p>
+    <p><strong>Yarım dalga doğrultucuda</strong> tek diyot yalnızca pozitif yarım dalgaları geçirir. <strong>Köprü doğrultucuda</strong> dört diyot vardır: her yarım periyotta ikisi iletir ve akım yükten hep aynı yönde geçer.</p>
+    <p>Çıkış tek yönlüdür ama düz değildir. Yüke paralel bir <strong>filtre kondansatörü</strong> tepelerde dolar, aralarda yükü besler; geriye küçük bir <strong>dalgalanma</strong> kalır. Kondansatör büyüdükçe ya da yük akımı azaldıkça dalgalanma küçülür.</p>
+    <p>Kaynak bir <strong>trafonun</strong> 12 V tepe değerli çıkışıdır. 230 V şebekenin tepesi yaklaşık 325 V'tur ve ölümcüldür; trafo gerilimi güvenli düzeye indirir ve devreyi şebekeden yalıtır.</p>
+    <details class="more"><summary>Daha fazla: dalgalanma formülü</summary>
+      <p class="formula">V<sub>pp</sub> ≈ I / (f · C)</p>
+      <p>f, kondansatörün dolma sıklığıdır: yarım dalgada 50 Hz, köprüde 100 Hz; bu yüzden köprüde dalgalanma yarıya iner. Örneğin 10 mA yükte ve 1000 µF ile köprüde 10 mA / (100 Hz · 1000 µF) = 0,1 V. "Tahmin" göstergesi bu formülü ölçülen yük akımıyla hesaplar. Formül kondansatörün dolma süresini ihmal eden kaba bir tahmindir; ölçümle arasında küçük fark olur.</p>
+      <p>Diyot düşümleri de görünür: yarım dalgada çıkış tepesi kabaca 12 V − 0,7 V, köprüde iki diyot seri ilettiği için 12 V − 2 · 0,7 V olur. Kondansatör her tepede kısa ve büyük akım darbeleriyle dolar.</p>
+      <p>Deney gerçek zamanın 20'de 1'i hızında akar; osiloskopun zaman ekseni gerçek 50 Hz zamanını gösterir.</p>
+    </details>
+    <p class="try">"Tam dalga (köprü)" seçin, sonra kondansatörü bağlayın ve değerini büyütün. Osiloskopta KN2'nin düzleşmesini ve dalgalanma göstergesini izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>KN1 (sarı) trafo çıkışı, KN2 (camgöbeği) yük üzerindeki gerilim. İkisi aynı ölçekte (5 V/bölme).</li>
+    <li>Köprüde akım noktalarını gösterin, kollar sırayla çalışır: pozitif yarıda D1 ve D4, negatif yarıda D2 ve D3 iletir.</li>
+    <li>Soru: Yük direncini küçültürsek dalgalanma ne olur? (Yük akımı artar, kondansatör aralarda daha hızlı boşalır; dalgalanma büyür.)</li>
+    <li>Güvenlik: şebeke tarafıyla eğitimsiz çalışılmaz. Hazır trafo ya da adaptör kullanın.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="5" data-demo="c5ledz" id="led-zener" data-model="basit">
+  <div class="text">
+    <h2>LED renkleri ve Zener diyot</h2>
+    <p class="lead">LED'in rengi, onu yakmak için gereken gerilimi belirler. Zener diyot ise ters yönde iletip gerilimi sabit tutar.</p>
+    <p>LED'de eklemi geçen her elektron bir boşlukla birleşirken enerjisini bir <strong>foton</strong> olarak verir; fotonun enerjisi malzemenin <strong>bant aralığı</strong> kadardır. Mavi ışığın dalga boyu kısa, fotonu daha enerjilidir. Bu yüzden mavi LED ≈ 3 V, kırmızı ≈ 2 V ister; aynı besleme ve dirençle mavi LED daha az akım çeker.</p>
+    <p><strong>Zener diyot</strong> ters yönde belirli bir gerilimde (burada 5,1 V) iletmeye başlar ve o gerilimi korur. Seri bir dirençle basit bir <strong>regülatör</strong> olur: giriş 7–15 V arasında değişse de çıkış ≈ 5,1 V kalır. Yük, dirençten gelebilecek akımdan fazlasını isterse zener susar ve çıkış düşer.</p>
+    <details class="more"><summary>Daha fazla: bant aralığı ve regülatör hesabı</summary>
+      <p class="formula">E = h · c / λ ≈ 1239,84 / λ(nm) eV</p>
+      <p>Kırmızı 630 nm → 1,97 eV; mavi 470 nm → 2,64 eV. LED gerilimi en az bu kadar olmalıdır. Mavi InGaN LED'lerde gerilim, eklem ve seri direnç kayıpları yüzünden foton enerjisinin epey üstündedir. Buradaki yeşil, eski tip 565 nm'lik GaP yeşilidir; parlak saf yeşil (≈ 525 nm) InGaN LED'ler de ≈ 3 V ister.</p>
+      <p>Seri direnç seçimi: R<sub>S</sub> ≤ (V<sub>giriş,min</sub> − V<sub>Z</sub>) / (I<sub>yük,max</sub> + I<sub>Z,min</sub>). 7 V girişte ve 330 Ω ile dirençten en çok (7 − 5,1) / 330 ≈ 5,8 mA geçer; yük bundan fazlasını alamaz. Zenerin gücüne de dikkat: P = V<sub>Z</sub> · I<sub>Z</sub>.</p>
+      <p>Kırılmanın iki mekanizması vardır: yaklaşık 5 V'un altında kuantum tünellemesi (Zener etkisi), 6–7 V'un üstünde çığ etkisi. 5,1 V'luk diyotlarda ikisi birlikte rol oynar.</p>
+    </details>
+    <p class="try">Beslemeyi sıfırdan artırın: önce kırmızı, sonra yeşil, en son mavi yanar. Sonra "Zener regülatörü"ne geçin, girişi değiştirin ve yük direncini küçülterek regülasyonun nerede bozulduğunu bulun.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Üç kolda dirençler aynı (220 Ω); akım farkı yalnızca LED gerilimlerinden geliyor: (V − V<sub>LED</sub>) / R.</li>
+    <li>Soru: 3 V'luk bir pil mavi LED'i yakabilir mi? (Zar zor; akım çok küçük kalır.)</li>
+    <li>Zener tarafında grafikteki turuncu bölge, regülasyonun bittiği yük akımları. Girişi düşürünce sınır sola kayar.</li>
+    <li>S1'e tıklayarak yükü ayırın: bütün akım zenerden geçer; zener gücü en büyük değerine çıkar.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="6" data-demo="c6musluk" id="bjt-musluk" data-model="basit">
+  <div class="text">
+    <h2>Transistör bir musluktur</h2>
+    <p class="lead">Küçücük bir baz akımı, kendisinden yüz kat büyük bir kollektör akımını açıp kısabilir.</p>
+    <p><strong>BJT</strong> (iki kutuplu eklem transistörü) üç bacaklıdır: <strong>baz</strong> (B), <strong>kollektör</strong> (C) ve <strong>emetör</strong> (E). Bazdan akan küçük I<sub>B</sub> akımı, kollektörden emetöre akan büyük I<sub>C</sub> akımını kontrol eder. Çarpan, akım kazancı <strong>β</strong>'dır (veri kitapçıklarında <strong>hFE</strong>).</p>
+    <p class="formula">I<sub>C</sub> = β · I<sub>B</sub>   (aktif bölgede)</p>
+    <p>Musluğu düşünün: baz akımı vananın kolunu çevirir, kollektör akımı borudan akan sudur. Kol dönmezse musluk kapalıdır (<strong>kesim</strong>). Vana tamamen açılınca akımı artık yük sınırlar (<strong>doyum</strong>).</p>
+    <p>Benzetmenin sınırı: baz akımı da sürekli akar ve emetörden kollektör akımıyla birlikte çıkar: I<sub>E</sub> = I<sub>C</sub> + I<sub>B</sub>.</p>
+    <details class="more"><summary>Daha fazla: β sabit değildir</summary>
+      <p>Aynı tip iki transistörün β değeri arasında iki üç kat fark olabilir; β sıcaklıkla ve akımla da değişir. Veri kitapçıkları bu yüzden çoğunlukla bir aralık ya da en küçük değeri verir. İyi tasarımlar β'nın tam değerine güvenmez: anahtar olarak kullanırken bazı bolca süreriz, yükselteçte ise emetör direnciyle kazancı β'dan bağımsız hale getiririz. İki sonraki slaytta ikisini de göreceğiz.</p>
+      <p>Baz–emetör arası bir PN eklemidir, yani bir diyottur: iletimde üzerinde yaklaşık 0,6–0,7 V vardır. PNP transistörde akımların ve gerilimlerin yönü terstir. Bu deneyde çözücü basitleştirilmiş bir Ebers–Moll modeli kullanıyor.</p>
+    </details>
+    <p class="try">Baz akımını yavaşça artırın: kollektör akımı β katı büyür ve vana açılır. Bir noktadan sonra musluk tamamen açılır, grafikteki eğri düzleşir. Sonra β'yı değiştirip aynı şeyi deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Ampermetrelere dikkat çekin: baz akımı mikroamper, kollektör akımı miliamper. "I<sub>C</sub> / I<sub>B</sub>" göstergesi aktif bölgede β'ya eşit.</li>
+    <li>Akım noktalarına bakın: baz kolundaki noktalar neredeyse duruyor, kollektör kolundakiler koşuyor. Hız akımla orantılı.</li>
+    <li>Soru: β = 400 olsa musluk daha erken mi açılır? (Evet; doyum için gereken baz akımı azalır, ama doyumdaki akım aynı kalır.)</li>
+    <li>Tuzak: "Transistör akım üretir" yanılgısı. Enerji beslemeden gelir; transistör yalnızca ne kadarının geçeceğini ayarlar.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="6" data-demo="c6anahtar" id="bjt-anahtar" data-model="basit">
+  <div class="text">
+    <h2>Transistör anahtar olarak</h2>
+    <p class="lead">Bir mikrodenetleyici pini birkaç miliamper verebilir; bir motor yüzlerce miliamper ister. Aradaki köprü bir transistördür.</p>
+    <p>Arduino, ESP32 ya da Raspberry Pi Pico'nun pinleri mantık sinyali vermek için yapılmıştır, yük sürmek için değil. Motoru doğrudan pine bağlarsanız pin gerilimi çöker, motor dönmez ve pin zarar görebilir.</p>
+    <p>Çözüm: pin yalnızca transistörün bazını sürsün, motorun akımını transistör beslemeden çeksin. Anahtar olarak transistör ya <strong>kesimde</strong> (kapalı) ya <strong>doyumda</strong> (tam açık) olmalıdır. Arada, aktif bölgede kalırsa P = V<sub>CE</sub> · I<sub>C</sub> kadar ısınır.</p>
+    <p>Doyumu garantilemek için baza gereken akımın k katını veririz: fazla sürme (k ≈ 2–10). Ama k'yı abartırsanız bu kez pin zorlanır.</p>
+    <p class="formula">R<sub>B</sub> = (V<sub>pin</sub> − 0,7 V) / (k · I<sub>C</sub> / β)</p>
+    <details class="more"><summary>Daha fazla: diyot ve pin sınırları</summary>
+      <p>Motor aslında bir bobindir. Akımı aniden kesilince bobin, akımı sürdürmek için yüksek bir ters gerilim üretir ve transistörü delebilir. Motorun uçlarına ters bağlanan <strong>geri dönüş diyotu</strong> (flyback diyotu) bu akıma bir yol açar. Bu deneyde motor yalnızca direnciyle çözülüyor; bobinin etkisini PWM slaytında osiloskopta göreceksiniz.</p>
+      <p>Pin sınırları karta göre değişir. Arduino Uno'daki ATmega328P'de pin başına mutlak sınır 40 mA'dir, veri kitapçığı 20 mA civarını önerir. Raspberry Pi Pico'nun RP2040'ında pinler varsayılan olarak 4 mA için ayarlıdır ve en fazla 12 mA'ye çıkarılabilir. Deneyde pini 3,3 V'luk, 40 Ω iç dirençli bir kaynak olarak modelledik ve sınırı 10 mA aldık.</p>
+    </details>
+    <p class="try">Önce "Doğrudan bağla"ya basın: pin akımına ve pin gerilimine bakın. Sonra "Transistörle"ye dönün: transistör yarı açık ve ısınıyor. Hesaplayıcıda β'yı ve fazla sürmeyi seçip "Uygula"ya basın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Başlangıçta R<sub>B</sub> = 4,7 kΩ: transistör aktif bölgede, V<sub>CE</sub> birkaç volt, Q1 parlıyor. Bu, "anahtar" için en kötü durum.</li>
+    <li>Hesaplayıcı: ×1 ile hesaplanan direnç sınırda kalır (β'nın tam değerine güveniyoruz); ×5 ile rahat doyum. ×10'da pin akımı sınırı aşıyor; uyarıyı gösterin.</li>
+    <li>MCU kutusuna tıklayınca pin 0/1 olur; kesimde motor durur.</li>
+    <li>Soru: Güç LED'i seçiliyken neden geri dönüş diyotu yok? (LED bobin değil; ani kesilmede ters gerilim üretmez.)</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="6" data-demo="c6yukseltec" id="bjt-yukseltec" data-model="basit">
+  <div class="text">
+    <h2>Transistör yükselteç olarak</h2>
+    <p class="lead">Transistörü aktif bölgenin ortasında tutarsanız, bazdaki küçük dalgalanmalar kollektörde büyük dalgalanmalara dönüşür.</p>
+    <p><strong>Ortak emetörlü yükselteçte</strong> giriş baza girer, çıkış kollektörden alınır. Baz gerilimi biraz artınca kollektör akımı artar, R<sub>C</sub> üzerindeki gerilim büyür, kollektör gerilimi düşer. Çıkış, girişin büyütülmüş ve <strong>ters çevrilmiş</strong> kopyasıdır.</p>
+    <p class="formula">Kazanç ≈ − R<sub>C</sub> / R<sub>E</sub> = − 4,7 kΩ / 1 kΩ ≈ −4,7</p>
+    <p><strong>Kazanç</strong> neredeyse yalnızca iki direncin oranıdır. R<sub>E</sub>'ye paralel bir köprüleme kondansatörü (C<sub>E</sub>) eklerseniz kazanç yüzlerce kata çıkar; bedeli erken kırpılma ve β'ya duyarlılıktır.</p>
+    <p>Giriş çok büyürse transistör bir yanda <strong>kesime</strong>, öbür yanda <strong>doyuma</strong> girer ve dalganın tepeleri düzleşir: <strong>kırpılma</strong>.</p>
+    <details class="more"><summary>Daha fazla: öngerilim (bias) mantığı</summary>
+      <p>Transistörü sinyal gelmeden önce aktif bölgenin ortasına yerleştirmeye öngerilimleme denir. R1–R2 gerilim bölücüsü bazı yaklaşık 12 V · 10/(47 + 10) ≈ 2,1 V'ta tutar. Emetör bundan bir diyot düşümü aşağıdadır: V<sub>E</sub> ≈ 1,3–1,4 V, yani I<sub>E</sub> ≈ 1,3 mA. Kollektör 12 V − 4,7 kΩ · 1,3 mA ≈ 5,8 V'ta durur: iki yöne de salınmaya yer vardır.</p>
+      <p>R<sub>E</sub> kendi kendini düzelten bir geri beslemedir: akım artarsa V<sub>E</sub> artar, V<sub>BE</sub> azalır ve akım geri iner. Böylece çalışma noktası β'ya pek bağlı kalmaz. Kuplaj kondansatörleri DC'yi tutar, sinyali geçirir. C<sub>E</sub> varken kazanç yaklaşık R<sub>C</sub> / r<sub>e</sub> olur; r<sub>e</sub> ≈ 25 mV / I<sub>E</sub> ≈ 19 Ω olduğundan kazanç 200'ü aşar, ama doğrusal değildir.</p>
+    </details>
+    <p class="try">Giriş genliğini artırın: osiloskopta çıkışın büyüdüğünü ve ters döndüğünü görün. Yaklaşık 1 V'tan sonra tepeler düzleşir. Sonra genliği küçültüp köprüleme kondansatörünü açın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Osiloskopta sarı giriş, mavi çıkış. Biri tepedeyken öbürü çukurda: 180° faz farkı.</li>
+    <li>Kazanç göstergesi her periyotta ölçülen tepe-tepe oranı; R<sub>C</sub>/R<sub>E</sub> = 4,7'den biraz düşük çıkar (r<sub>e</sub> ve R1∥R2 yüzünden).</li>
+    <li>C<sub>E</sub> var konumunda 10–20 mV'luk giriş bile birkaç volt çıkış verir; 30 mV'ta kırpılma başlar.</li>
+    <li>Soru: Kırpılma hangi tepede önce başlıyor ve neden? (Çalışma noktası tam ortada değil.)</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="7" data-demo="c7mosfet" id="mosfet" data-model="basit">
+  <div class="text">
+    <h2>MOSFET: gerilimle açılan anahtar</h2>
+    <p class="lead">MOSFET'in kapısı neredeyse hiç akım çekmez; onu açan şey akım değil, gerilimdir.</p>
+    <p><strong>MOSFET</strong> (metal–oksit–yarı iletken alan etkili transistör) üç uçludur: <strong>kapı</strong> (G, gate), <strong>akaç</strong> (D, drain) ve <strong>kaynak</strong> (S, source). Kapı ince bir <strong>oksit</strong> katmanıyla yalıtılmıştır, küçük bir kondansatör gibidir; bu yüzden akım çekmez.</p>
+    <p>N kanal bir MOSFET'in kapısına pozitif gerilim verince elektronlar oksidin altına toplanır. Gerilim <strong>eşik gerilimini</strong> (V<sub>th</sub>) geçince bu ince katman kaynak ile akaç arasında bir <strong>kanal</strong> olur. Tam açık MOSFET küçük bir dirençtir: <strong>R<sub>DS(on)</sub></strong>.</p>
+    <p><strong>Logic level</strong> MOSFET'ler 3,3–5 V kapı geriliminde tam açılır; standart olanlar 10 V civarı ister ve 3,3 V'luk pinle yarı açık kalıp ısınır. P kanalda her şey terstir: kapı, kaynağa göre eksiye inince açılır.</p>
+    <details class="more"><summary>Daha fazla: kare yasası ve kapı kapasitesi</summary>
+      <p>Basit modelde, kanal sıkıştığında (doyum bölgesi) I<sub>D</sub> = K/2 · (V<sub>GS</sub> − V<sub>th</sub>)². Akaç gerilimi küçükken (doğrusal bölge) MOSFET bir dirençtir: R<sub>DS</sub> ≈ 1 / (K · (V<sub>GS</sub> − V<sub>th</sub>)). Kapı gerilimi arttıkça kanal kalınlaşır ve direnç düşer.</p>
+      <p>DC'de kapı akımı sıfırdır, ama kapı kapasitesi (güç MOSFET'lerinde nanofaradlar) her açılıp kapanmada doldurulup boşaltılır; hızlı anahtarlamada bunun için kısa ve büyük akım darbeleri gerekir. Gerçek MOSFET'lerde kaynak ile akaç arasında yapıdan gelen bir gövde diyotu da vardır (deneydeki modelde yok). İnce oksit statik elektrikle delinebilir; MOSFET'leri tutarken dikkat edin.</p>
+    </details>
+    <p class="try">Kapı gerilimini yavaşça artırın: eşik gerilimini geçince kesitte kanal oluşur ve lamba yanar. Kapı ampermetresine bakın. 3,3 V'ta türü "Standart"a çevirin, sonra P kanalı deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Kapı ampermetresi pikoamper gösteriyor: çözücüdeki sayısal kaçak, gerçekte de nanoamperler düzeyinde.</li>
+    <li>Kesitte: kapıdaki + yükler, gövdedeki delikleri iter (tükenme bölgesi), eşikten sonra elektron kanalı oluşur.</li>
+    <li>Standart türde 3,3 V: MOSFET yarı açık (doyum bölgesi), R<sub>DS</sub> büyük, parıltı var. Logic level seçmenin nedeni bu.</li>
+    <li>Terim tuzağı: MOSFET'te "doyum", BJT'deki doyumun tersine yarı açık durumu anlatır; tam açık hali "doğrusal bölge"dir.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="7" data-demo="c7pwm" id="pwm" data-model="basit">
+  <div class="text">
+    <h2>PWM: hızlı aç-kapa ile ayar</h2>
+    <p class="lead">Bir LED'i yarı parlaklıkta yakmak için yarım gerilim gerekmez: onu çok hızlı yakıp söndürmek yeter.</p>
+    <p><strong>PWM</strong> (pulse width modulation, darbe genişlik modülasyonu) ile pin sabit bir frekansta açılıp kapanır. Açık kalınan sürenin periyoda oranına <strong>görev oranı</strong> (duty cycle, d) denir. Yükün gördüğü <strong>ortalama gerilim</strong>:</p>
+    <p class="formula">V<sub>ort</sub> = d · V<sub>besleme</sub></p>
+    <p>Göz hızlı yanıp sönmeyi ayırt edemez, ortalama parlaklığı görür; motorun kütlesi ve sargısı da akımı yumuşatır. MOSFET ya tam açık ya tam kapalı olduğu için neredeyse hiç ısınmaz.</p>
+    <p>Deneyde zaman ağır çekimde: şemadaki LED yanıp sönüyor, "gözün gördüğü" parlaklık ortalamayı izliyor.</p>
+    <details class="more"><summary>Daha fazla: frekans ve motor sargısı</summary>
+      <p>Arduino Uno'da <span class="mono">analogWrite(pin, 0…255)</span> PWM üretir; pinlerin çoğunda frekans yaklaşık 490 Hz, 5 ve 6 numaralı pinlerde yaklaşık 980 Hz'dir.</p>
+      <p>Motor seçeneğinde MOSFET kapanınca sargının akımı birden duramaz; geri dönüş diyotu üzerinden dolaşmaya devam eder. Bu sırada yükün gerilimi diyot gerilimi kadar eksiye iner; osiloskopta mavi iz sıfırın altına düşer. Düşük frekansta motor akımı her periyotta sıfıra yaklaşır (titreme, vınlama); yüksek frekansta akım düzleşir. Kapı ile toprak arasındaki 10 kΩ direnç, pin henüz ayarlanmamışken (ör. açılışta) MOSFET'i kapalı tutar.</p>
+    </details>
+    <p class="try">Görev oranını %20'ye, sonra %85'e çekin: darbe genişliği, ortalama çizgisi ve LED'in parlaklığı değişir. Sonra yükü motora çevirip frekansı değiştirin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Osiloskop: sarı PWM pini, mavi yükün üzerindeki gerilim (KN2+ ile KN2− arasındaki fark). Sarı kesikli çizgi, pin geriliminin bir periyot boyunca ölçülen ortalaması.</li>
+    <li>Ağır çekimi vurgulayın: gerçekte 1 kHz'de LED saniyede bin kez yanıp söner.</li>
+    <li>Motor + düşük frekans (20–50 Hz): akım her periyotta sönüyor; yüksek frekansta düzleşiyor. Diyot iletimdeyken KN2 eksiye iniyor.</li>
+    <li>Soru: %50 PWM ile LED, 2,5 V'luk sabit gerilimde de yarı parlak yanar mıydı? (Hayır; LED'in eşik gerilimi yüzünden 2,5 V'ta neredeyse hiç akım geçmez. PWM'in güzelliği bu.)</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="7" data-demo="c7karsilastir" id="bjt-mi-mosfet-mi" data-model="basit">
+  <div class="text">
+    <h2>BJT mi, MOSFET mi?</h2>
+    <p class="lead">İkisi de anahtar, ikisi de yükselteç olabilir; farkları nasıl sürüldükleri ve ne kadar ısındıklarıdır.</p>
+    <p>BJT akımla, MOSFET gerilimle kontrol edilir. BJT'yi açık tutmak için pin sürekli baz akımı vermelidir; MOSFET'in kapısı ise bir kez dolduktan sonra akım çekmez.</p>
+    <p>Tam açık bir BJT'nin üzerinde V<sub>CE(sat)</sub> kadar gerilim kalır ve kayıp yaklaşık V<sub>CE(sat)</sub> · I'dır. Tam açık bir MOSFET ise bir dirençtir ve kaybı I² · R<sub>DS(on)</sub>'dur. Güç MOSFET'lerinde R<sub>DS(on)</sub> miliohmlar düzeyinde olduğundan, amperler söz konusu olunca MOSFET çok daha az ısınır.</p>
+    <p>Deneyde aynı yük, aynı türden iki 3,3 V'luk pinle sürülüyor: biri BJT ile, öbürü logic level MOSFET ile. Yük akımını artırdıkça BJT'nin baz akımı yetmez hale gelir; transistör aktif bölgeye kayar, yük tam akımı alamaz ve BJT ısınır.</p>
+    <details class="more"><summary>Daha fazla: JFET ve diğerleri</summary>
+      <p><strong>JFET</strong> (eklem alan etkili transistör) da bir alan etkili transistördür, ama kapısı oksitle değil ters kutuplanmış bir PN eklemiyle yalıtılır. Kapıya gerilim verilmezken iletimdedir; kapıya ters gerilim verildikçe kanal daralır ve sonunda kapanır. Giriş akımı çok küçük, gürültüsü düşük olduğundan ses ön yükselteçlerinde ve ölçü aletlerinin girişlerinde kullanılır.</p>
+      <p>Yüksek gerilim ve yüksek güç için bir de IGBT vardır: girişi MOSFET gibi gerilimle sürülür, çıkışı BJT gibi iletir. Elektrikli araçların ve endüstriyel motor sürücülerinin inverterlerinde yaygındır.</p>
+    </details>
+    <p class="try">Yük akımını 2 A'e çıkarın; iki tarafın kayıp gücünü ve transistörlerin parıltısını karşılaştırın. Sonra "Hangisini seçerdin?" sekmesindeki senaryoları çözün.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>0,5 A'de iki taraf da doyumda/açık; BJT'nin kaybı yine de MOSFET'in birkaç katı.</li>
+    <li>2 A'de BJT'nin baz akımı (yaklaşık 10 mA) yalnızca 1 A civarına yetiyor: aktif bölge, birkaç volt V<sub>CE</sub>, watt düzeyinde ısı. MOSFET ise sakin.</li>
+    <li>Tablo sekmesi: "Tipik kullanım" satırına özellikle değinin. Bilmecede "İkisi de olur" cevabını tartışmaya açın.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="8" data-demo="c8Nedir" id="opamp-nedir" data-model="basit">
+  <div class="text">
+    <h2>Opamp nedir?</h2>
+    <p class="lead">Opamp, iki girişi arasındaki farkı yüz bin kez büyüten bir yükselteçtir.</p>
+    <p><strong>Opamp</strong> (işlemsel yükselteç, İngilizce <em>operational amplifier</em>) iki girişe ve bir çıkışa sahiptir: + (evirmeyen) ve − (eviren) giriş. Çıkış, iki giriş arasındaki farkın A katıdır:</p>
+    <p class="formula">V<sub>çıkış</sub> = A · (V+ − V−)<br>A ≈ 100 000</p>
+    <p>Fark yalnızca 1 mV olsa bile A · fark 100 V eder. Çıkış oraya gidemez; beslemenin sınırına, yani <strong>ray</strong>a yapışır.</p>
+    <p>Çıkışı − girişe geri bağlayınca (negatif <strong>geri besleme</strong>) opamp kendini dengeler. İki altın kural:</p>
+    <ol>
+      <li><strong>Girişlerden akım akmaz.</strong></li>
+      <li>Geri besleme varken opamp, çıkışını <strong>V+ = V−</strong> olacak şekilde ayarlar.</li>
+    </ol>
+    <details class="more"><summary>Daha fazla: kurallar neden tutuyor?</summary>
+      <p>Geri beslemede − giriş çıkışın kendisidir: V<sub>ç</sub> = A · (V+ − V<sub>ç</sub>), yani V<sub>ç</sub> = V+ · A / (1 + A). A = 100 000 iken çıkış, V+'nın %99,999'udur. İki giriş arasında yalnızca V<sub>ç</sub> / A kadar, mikrovoltlarca fark kalır. Deneyde bunu ölçebilirsiniz.</p>
+      <p>Gerçek opamp girişleri pikoamper ile nanoamper düzeyinde akım çeker; çoğu devrede bunu sıfır saymak hata yaptırmaz. Sembolde besleme uçları çoğu zaman çizilmez ama her opampın beslemesi vardır. Deneydeki opamp ±12 V ile beslenir ve çıkışı raylara 1,5 V'tan fazla yaklaşamaz (basitleştirilmiş model). İnce ayar kaydırıcısıyla çıkışın gerçekten A · fark olduğu dar bölgeyi bulabilirsiniz.</p>
+    </details>
+    <p class="try">V+ ile V− kaydırıcılarını birbirinin üstünden geçirin: çıkış bir raydan ötekine atlar. Sonra «Geri besleme bağla»ya basın; ölçülen V−, V+'yı izler.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>"A · fark" göstergesine dikkat çekin: kilovoltlar yazıyor ama çıkış ±10,5 V'ta kalıyor. Opamp kendi beslemesinin dışına çıkamaz.</li>
+    <li>Soru: 2 V ile 2,001 V arasındaki fark çıkışta ne yapar? (1 mV × 100 000 = 100 V → üst raya yapışır.)</li>
+    <li>İnce ayar kaydırıcısıyla ±100 µV civarındaki dik bölgeyi gösterin; grafikteki altın şerit doğrusal bölgedir.</li>
+    <li>Geri beslemede nokta kendiliğinden o dar bölgeye oturur. Kurallar yalnızca negatif geri beslemede geçerli; karşılaştırıcıda (sonraki slayt) 2. kural geçerli değil.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="8" data-demo="c8Karsilastirici" id="karsilastirici" data-model="basit">
+  <div class="text">
+    <h2>Karşılaştırıcı</h2>
+    <p class="lead">Geri beslemesiz bir opamp tek bir soru sorar: hangi giriş daha yüksek?</p>
+    <p>+ giriş − girişten biraz yüksekse çıkış üst raya, alçaksa alt raya gider. Bu kullanıma <strong>karşılaştırıcı</strong> (İngilizce <em>comparator</em>) denir.</p>
+    <p>Deneyde + girişte bir ışık sensörü var. <strong>LDR</strong> (ışığa bağımlı direnç) aydınlıkta yaklaşık 1 kΩ, karanlıkta yüzlerce kiloohm olur. 10 kΩ'luk dirençle kurduğu bölücü sayesinde ışık azaldıkça KN1 gerilimi yükselir. − girişe ise potansiyometreyle ayarlanan <strong>eşik</strong> gerilimi (KN2) gelir.</p>
+    <p>KN1 eşiği geçince çıkış 5 V'a fırlar ve LED yanar. Bahçe lambalarındaki alacakaranlık sensörleri bu fikirle çalışır; eşik, lambanın ne kadar karanlıkta yanacağını seçer.</p>
+    <details class="more"><summary>Daha fazla: titreme ve histerezis</summary>
+      <p>Işık tam eşiğin üzerindeyken küçük dalgalanmalar (bulut, lamba titremesi, elektriksel gürültü) çıkışı hızla açıp kapatır. «Gürültü» düğmesiyle bunu osiloskopta görebilirsiniz.</p>
+      <p>Çözüm <strong>histerezis</strong>tir: çıkıştan + girişe büyük bir dirençle küçük bir pozitif geri besleme verilir. Böylece açılma eşiği kapanma eşiğinden biraz yüksek olur ve sınırdaki gürültü çıkışı oynatamaz. Bu devreye Schmitt tetikleyici denir.</p>
+      <p>Gerçek projelerde LM393 gibi karşılaştırma için üretilmiş entegreler de kullanılır. Bunların çoğunun çıkışı açık kollektörlüdür ve bir çekme (pull-up) direnci ister.</p>
+    </details>
+    <p class="try">Işık kaydırıcısını oda ışığından geceye indirin ya da «Gün batımı»na basın: KN1, KN2'yi geçtiği anda LED yanar. Sonra eşiği değiştirip yeniden deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Osiloskopta üç çizgi var: sarı sensör, mavi eşik, pembe çıkış. Sarı mavinin üstüne çıktığı an pembe 0'dan 5 V'a sıçrıyor; arası yok.</li>
+    <li>Soru: lambanın daha erken (daha aydınlıkken) yanmasını istiyorsak eşiği artırmalı mı, azaltmalı mı? (Azaltmalı: KN1 daha düşük gerilimde eşiği geçer.)</li>
+    <li>LDR değerleri gerçekçidir (GL5528 sınıfı); 10 lux civarında ~15 kΩ.</li>
+    <li>"Gürültü" ile LED'in sınırda titremesini gösterip histerezise köprü kurun.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="8" data-demo="c8Yukseltec" id="opamp-yukseltec" data-model="basit">
+  <div class="text">
+    <h2>Eviren ve evirmeyen yükselteç</h2>
+    <p class="lead">İki dirençle opampın dev kazancını tam istediğiniz değere indirirsiniz: 5 kat, 10 kat, 47 kat.</p>
+    <p>R<sub>f</sub> direnci çıkışın bir kısmını − girişe geri yollar. Opamp V+ = V− kuralını sağlarken <strong>kazanç</strong> yalnızca dirençlerin oranına bağlı kalır.</p>
+    <p><strong>Eviren</strong> devrede + giriş toprakta olduğu için − giriş de 0 V'ta tutulur (<strong>sanal toprak</strong>); çıkış ters işaretlidir. <strong>Evirmeyen</strong> devrede sinyal doğrudan + girişe gelir; çıkış aynı yöndedir.</p>
+    <p class="formula">Eviren: K = −R<sub>f</sub> / R<sub>in</sub><br>Evirmeyen: K = 1 + R<sub>f</sub> / R<sub>g</sub></p>
+    <p>Çıkış besleme gerilimini aşamaz. Kazanç ya da genlik fazla olunca sinüsün tepeleri raylarda düz kesilir: <strong>kırpılma</strong>; seste bozulma olarak duyulur.</p>
+    <details class="more"><summary>Daha fazla: formüller nereden geliyor?</summary>
+      <p>Eviren devrede − giriş 0 V'ta olduğundan R<sub>in</sub>'den geçen akım I = V<sub>giriş</sub> / R<sub>in</sub>. Bu akım R<sub>f</sub>'den de geçer: V<sub>çıkış</sub> = 0 − I · R<sub>f</sub> = −V<sub>giriş</sub> · R<sub>f</sub> / R<sub>in</sub>. Opampın kendi A değeri sonuca neredeyse hiç girmez; kazancı dirençler belirler.</p>
+      <p>Evirmeyen devrede R<sub>f</sub> ile R<sub>g</sub> bir gerilim bölücüdür: V− = V<sub>çıkış</sub> · R<sub>g</sub> / (R<sub>f</sub> + R<sub>g</sub>). V− = V+ = V<sub>giriş</sub> olduğundan V<sub>çıkış</sub> = V<sub>giriş</sub> · (1 + R<sub>f</sub> / R<sub>g</sub>). Evirmeyen yükseltecin giriş direnci çok yüksektir; eviren yükseltecinki R<sub>in</sub> kadardır.</p>
+      <p>Deneydeki opamp çıkışı raylara 1,5 V'tan fazla yaklaşamaz; ±12 V beslemede çıkış en fazla ±10,5 V olur (basitleştirilmiş model). Beslemeyi değiştirip kırpılma sınırının nasıl kaydığına bakın.</p>
+    </details>
+    <p class="try">R<sub>f</sub>'yi büyütün: çıkış (KN2) büyür ve girişe (KN1) göre ters döner. Tepeler raya değince ölçülen kazanç formülden ayrılır. Sonra «Evirmeyen»e geçin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Tellerin renklerine bakın: eviren devrede giriş kırmızıyken (pozitif) çıkış mavi (negatif); sinyal ters dönüyor.</li>
+    <li>Kazanç paneli iki sayı veriyor: formül ve osiloskoptan ölçülen. Kırpılma yokken ikisi aynı; bu, kuralların ne kadar iyi çalıştığının kanıtı.</li>
+    <li>Soru: 1 V tepe girişle ±12 V beslemede kırpılmadan en fazla kaç kat kazanç alınır? (Çıkış en fazla 10,5 V: yaklaşık 10 kat.)</li>
+    <li>Evirmeyen devrede R<sub>f</sub> çok küçükken kazanç 1'e yaklaşır: bu, sonraki slayttaki gerilim izleyicidir.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="8" data-demo="c8Toplayici" id="toplayici-izleyici" data-model="basit">
+  <div class="text">
+    <h2>Toplayıcı ve gerilim izleyici</h2>
+    <p class="lead">Sanal toprak bir buluşma noktasıdır: oraya akan akımlar toplanır. Bir ses mikserinin kalbi budur.</p>
+    <p><strong>Toplayıcı yükselteçte</strong> birkaç giriş, her biri kendi direnciyle, − girişe bağlanır. Akımları R<sub>f</sub>'de toplanır; çıkış girişlerin ağırlıklı toplamıdır (ters işaretli). Bir kanalın direncini küçültmek o kanalın sesini açar.</p>
+    <p class="formula">V<sub>çıkış</sub> = −R<sub>f</sub> · (V<sub>1</sub>/R<sub>1</sub> + V<sub>2</sub>/R<sub>2</sub>)</p>
+    <p>Deneyde 200 Hz'lik bir bas ile 1 kHz'lik bir tiz karışıyor; «Dinle» ile duyabilirsiniz.</p>
+    <p><strong>Gerilim izleyici</strong>, kazancı 1 olan evirmeyen yükselteçtir. Girişi akım çekmez, çıkışı yükü kendi beslemesinden sürer. <a href="#gerilim-bolucu">Gerilim bölücü</a> slaytında gördüğümüz <strong>yükleme etkisi</strong> böylece ortadan kalkar.</p>
+    <details class="more"><summary>Daha fazla: gerçek opampların sınırları</summary>
+      <p>Kanallar birbirini etkilemez, çünkü − giriş 0 V'ta tutulur: her kanalın akımı yalnızca kendi gerilimine ve direncine bağlıdır.</p>
+      <p><strong>Rail-to-rail:</strong> eski opampların çıkışı besleme raylarına 1–2 V yaklaşamaz. «Rail-to-rail» opamplar raya birkaç on milivolta kadar yaklaşır; tek pille çalışan devrelerde bu önemlidir.</p>
+      <p><strong>Kazanç–bant genişliği çarpımı:</strong> kazanç frekans arttıkça düşer. Bu çarpımı 1 MHz olan bir opampla 100 kat kazanç ancak 10 kHz civarına kadar alınır.</p>
+      <p><strong>Ofset gerilimi:</strong> girişler eşitken bile opamp birkaç milivoltluk bir fark varmış gibi davranır; yüksek kazançta bu hata da büyür. Çıkışın verebileceği akım da sınırlıdır, çoğunda birkaç on miliamper.</p>
+    </details>
+    <p class="try">Kanal seviyelerini değiştirip karışımı osiloskopta izleyin; ikisini birden sonuna kadar açın. Sonra «Gerilim izleyici»ye geçip yük direncini küçültün ve iki voltmetreyi karşılaştırın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Mikser ±5 V ile besleniyor; çıkış ±3,5 V'u geçemez. İki kanal birden yüksek olunca tepeler kırpılır, "Dinle" açıkken bu duyulur.</li>
+    <li>Soru: kanal 1'in seviyesini değiştirmek kanal 2'nin osiloskoptaki genliğini değiştirir mi? (Hayır: sanal toprak kanalları birbirinden yalıtır.)</li>
+    <li>İzleyici modunda iki bölücü aynı; tek fark opamp. Yük 1 kΩ'a inince düz bölücünün voltmetresi 1 V'un altına düşerken izleyicili devredeki 5 V'ta kalır.</li>
+    <li>"Opamp girişine akım" göstergesi 1. altın kuralı canlı gösteriyor. Yükün akımını opamp beslemeden çekiyor, bölücüden değil.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="9" data-demo="c9Not" id="transistorlu-not" data-model="basit">
+  <div class="text">
+    <h2>Transistörlü NOT kapısı</h2>
+    <p class="lead">Bir transistör ve iki direnç, girişini tersine çeviren bir mantık kapısı kurmaya yeter.</p>
+    <p>Dijital elektronikte gerilimi iki aralığa ayırırız: <strong>düşük gerilim 0</strong>, <strong>yüksek gerilim 1</strong> demektir.</p>
+    <p>Giriş 0 V iken baz akımı yoktur; transistör kesimdedir, anahtar açıktır. RC direnci çıkışı besleme gerilimine çeker: çıkış yüksek, yani 1. LED yanar.</p>
+    <p>Girişe 5 V verince baz akımı akar, transistör doyuma girer ve kollektörü neredeyse toprağa bağlar. Çıkış birkaç yüz milivolta iner: 0.</p>
+    <p>Devre her zaman girişin tersini verir. Bu bir <strong>NOT (DEĞİL) kapısı</strong>dır. Dirençlerle ve transistörlerle kurulan bu tür kapılara direnç–transistör mantığı (RTL) denir.</p>
+    <details class="more"><summary>Daha fazla: RTL neden kalmadı?</summary>
+      <p>Çıkış 0 iken RC'den sürekli akım akar: kabaca 5 V / 220 Ω ≈ 23 mA, yani her kapı için yaklaşık 0,1 W. Deneydeki "Besleme gücü" göstergesinde bunu ölçebilirsiniz. Bir kapı için sorun değil, ama milyonlarca kapıda yonga ısıdan erirdi. Bir sonraki slayttaki CMOS evirici bu sorunu çözer.</p>
+      <p>Tarih notu: Apollo rehberlik bilgisayarının (1960'lar) mantık devreleri RTL teknolojisiyle yapılmış NOR kapılarından kuruluydu.</p>
+      <p>Tablodaki 0,8 V ve 2 V sınırları, 5 V TTL ailesinin giriş eşikleridir. Nereden geldiklerini "Gürültü payları" slaytında göreceğiz.</p>
+    </details>
+    <p class="try">Giriş gerilimini 0 V'tan 5 V'a kaydırın. LED'i, çıkış rozetini ve tablonun dolmasını izleyin; ara değerlerde çıkışın ne olduğuna da bakın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce girişi 0 ve 5 V yapın: tablo dolsun, "NOT kapısı" cümlesi çıksın.</li>
+    <li>Sonra 1 V civarına getirin: transistör aktif bölgede, çıkış ne 0 ne 1. Soru: "Bu durumda kapı ne söylüyor?" (Hiçbir şey; tanımsız.)</li>
+    <li>Çıkış 0 iken besleme gücüne dikkat çekin; CMOS'a geçişin gerekçesi bu.</li>
+    <li>LED aslında yük: çıkış 1 iken LED'den akım çekildiği için çıkış 5 V'un biraz altında kalır.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="9" data-demo="c9Cmos" id="cmos-evirici" data-model="basit">
+  <div class="text">
+    <h2>CMOS evirici</h2>
+    <p class="lead">Bugünkü işlemcilerdeki NOT kapısı iki transistördür: biri çıkışı 1'e, öteki 0'a çeker.</p>
+    <p><strong>CMOS</strong> (Complementary MOS, tümleyen MOS) evirici bir P kanallı ve bir N kanallı MOSFET'ten oluşur. Kapıları birlikte girişe, akaçları birlikte çıkışa bağlıdır.</p>
+    <p>Giriş 0 iken PMOS açık, NMOS kapalıdır: çıkış beslemeye bağlanır, 1 olur. Giriş 1 iken tersi olur: çıkış toprağa bağlanır, 0 olur.</p>
+    <p>Her durumda iki transistörden biri kapalıdır; besleme ile toprak arasında yol yoktur. Bu yüzden CMOS kapı dururken <strong>neredeyse hiç akım çekmez</strong>. Akım yalnız geçiş sırasında, ikisinin de kısa süre iletimde olduğu bölgede akar.</p>
+    <p><strong>Aktarım eğrisi</strong> bunu tek resimde gösterir: girişin büyük kısmında çıkış tam 1 ya da tam 0, arada dik bir geçiş bölgesi.</p>
+    <details class="more"><summary>Daha fazla: güç, eşik ve tarih</summary>
+      <p>CMOS'u 1963'te Fairchild'da Frank Wanlass geliştirdi. Bugün neredeyse bütün sayısal tümleşik devreler CMOS'tur.</p>
+      <p>CMOS kapı dururken güç harcamaz, ama her geçişte çıkıştaki küçük kapasite (sonraki kapıların girişleri, teller) dolup boşalır. Bu dinamik güç kabaca P ≈ C · V² · f ile büyür: saat frekansı ve besleme gerilimi arttıkça güç artar. İşlemcilerin besleme gerilimini düşürmeye çalışmasının nedeni bu.</p>
+      <p>İki transistör eşit güçteyse eşik (çıkışın girişe eşit olduğu nokta) beslemenin yarısındadır. Bu deneydeki MOSFET'ler basit kare yasası modeliyle, tümleşik devre ölçeğinde hesaplandı (eşik gerilimi 1 V); eğri, aynı devrenin girişi taranarak çözücüyle çizildi.</p>
+    </details>
+    <p class="try">Giriş gerilimini yavaşça 0'dan 5 V'a kaydırın ya da Tara'ya basın. Hangi transistörün açıldığını, eğrideki noktayı ve besleme akımının yalnız geçişte tepe yaptığını izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Giriş 0 V ve 5 V'ta I<sub>DD</sub> göstergesine bakın: pikoamper düzeyi. RTL'deki on milliamperlerle karşılaştırın.</li>
+    <li>Geçiş bölgesinde (mor gölge) iki transistör de iletimde; akım tepe yapar. Soru: "Giriş yavaş değişirse ne olur?" (Kapı uzun süre bu bölgede kalır, boşa akım çeker; bu yüzden dijital sinyallerin kenarları hızlı olmalı.)</li>
+    <li>Kanal parıltısı = transistör açık. Açık olmak akım akması demek değil: giriş 0 iken PMOS açık ama yük olmadığı için akım yok.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="9" data-demo="c9Noise" id="gurultu-paylari" data-model="basit">
+  <div class="text">
+    <h2>Gürültü payları</h2>
+    <p class="lead">Bu gerilim 1 mi, 0 mı? Dijitalde cevap tek bir eşik değil, aralıklardır.</p>
+    <p>Teller gürültü toplar. Bu yüzden <strong>alıcı</strong> V<sub>IL</sub>'nin altını kesinlikle 0, V<sub>IH</sub>'nin üstünü kesinlikle 1 okur; aradaki yasak bölgede ne okuyacağı garanti değildir.</p>
+    <p><strong>Gönderici</strong> daha sıkı söz verir: 1 için en az V<sub>OH</sub>, 0 için en çok V<sub>OL</sub>. Aradaki fark <strong>gürültü payı</strong>dır:</p>
+    <p class="formula">NMH = VOH − VIH   ·   NML = VIL − VOL</p>
+    <p>5 V TTL'de pay iki tarafta da 0,4 V'tur. Gürültü bu paydan küçükse alıcı her biti doğru okur; çıkışında gürültüden iz kalmaz. Analogda her gürültü sonuca eklenir, dijitalde pay aşılana kadar hiçbiri. Dijitalin sağlamlığı buradan gelir.</p>
+    <details class="more"><summary>Daha fazla: standart değerler</summary>
+      <p><b>5 V TTL</b> (74LS gibi): V<sub>IL</sub> ≤ 0,8 V, V<sub>IH</sub> ≥ 2,0 V, V<sub>OL</sub> ≤ 0,4 V, V<sub>OH</sub> ≥ 2,4 V.</p>
+      <p><b>3,3 V LVCMOS</b> (JEDEC JESD8C): girişler aynı (0,8 V ve 2,0 V); çıkışlar küçük yükte (100 µA) V<sub>OL</sub> ≤ 0,2 V ve V<sub>OH</sub> ≥ V<sub>DD</sub> − 0,2 V. Aynı standarttaki LVTTL çıkışları 2 mA yükte V<sub>OH</sub> ≥ 2,4 V, V<sub>OL</sub> ≤ 0,4 V'tur.</p>
+      <p>Deneyde gönderici en kötü durum seviyelerinde (V<sub>OH</sub>, V<sub>OL</sub>) çalışıyor. Alıcı, çözücüyle hesaplanan iki CMOS eviricidir. TTL modunda ilk eviricinin transistör oranı, eşiği 74HCT gibi TTL uyumlu yongalarda olduğu gibi 1,4 V civarına getirecek biçimde seçildi. Gerçek eşik yasak bölgede bir yerdedir ve yongadan yongaya değişir; garanti edilen yalnız V<sub>IL</sub> ve V<sub>IH</sub>'dir. Bu yüzden pay aşıldığında hatalar hemen başlamayabilir, ama artık hiçbir şey garanti değildir.</p>
+    </details>
+    <p class="try">Gürültü genliğini artırın: gürültü alıcının eşiğine ulaşınca osiloskopta hatalı bitler turuncu yanar ve sayaç işler. Mantık ailesini değiştirin; test gerilimiyle bir değerin 1 mi 0 mı okunacağını sorun.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce seviye çubuğunu anlatın: gönderici sütunu çıkışın sözü, alıcı sütunu girişin kabulü; altın oklar gürültü payı.</li>
+    <li>Gürültüyü 0,3 V'ta bırakın: osiloskoptaki giriş titrek ama alıcı çıkışı tertemiz. "Gürültü nereye gitti?"</li>
+    <li>LVCMOS'a geçin: 3,3 V'ta bile 0'daki pay daha büyük (0,6 V), çünkü CMOS çıkışları raylara çok yakın.</li>
+    <li>Kaynaklar: TI "Logic Guide" / 74LS veri sayfaları; JEDEC JESD8C (3,3 V arayüz standardı).</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="9" data-demo="c9Nand" id="cmos-nand" data-model="basit">
+  <div class="text">
+    <h2>CMOS NAND kapısı</h2>
+    <p class="lead">Dört transistör, bir NAND kapısı. Her bilgisayar bu deseni milyarlarca kez tekrarlar.</p>
+    <p>Üstte iki PMOS <strong>paralel</strong> bağlıdır: girişlerden biri bile 0 olursa çıkışı 1'e çeker. Altta iki NMOS <strong>seri</strong> bağlıdır: çıkışı 0'a çekmeleri için ikisinin de açık olması, yani A ile B'nin ikisinin de 1 olması gerekir.</p>
+    <p>Sonuç: yalnız A = 1 ve B = 1 iken Y = 0. Bu, VE (AND) işleminin tersidir: <strong>NAND</strong> (VE DEĞİL). Evirici gibi burada da her durumda ya üst ya alt yol kapalıdır; kapı dururken akım çekmez.</p>
+    <p>Apple'ın 2020'de tanıttığı M1 yongasında <strong>16 milyar transistör</strong> var. Bunların hepsi mantık kapısı değil (önbellek gibi başka yapılar da var), ama temel desen aynı: tümleyen PMOS–NMOS çiftleri.</p>
+    <details class="more"><summary>Daha fazla: NOR, evrensellik ve kaynak</summary>
+      <p>NAND kapısı evrenseldir: yalnız NAND kullanarak NOT, AND, OR, hatta toplayıcı kurulabilir. Bunu sonraki bölümde bir bulmacayla deneyeceğiz.</p>
+      <p>NOR kapısı bunun tersidir: PMOS'lar seri, NMOS'lar paralel. Ama PMOS'ta yük taşıyan delikler elektronlardan daha yavaş hareket eder; seri PMOS'lu NOR aynı hız için daha büyük transistörler ister. Bu yüzden CMOS tasarımında NAND genellikle tercih edilir.</p>
+      <p>Transistör sayısı kaynağı: Apple Newsroom, "Apple unleashes M1", 10 Kasım 2020 — <a href="https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/" target="_blank" rel="noopener">apple.com/newsroom/2020/11/apple-unleashes-m1</a>.</p>
+    </details>
+    <p class="try">Devredeki A ve B kutularına ya da düğmelere tıklayın. Hangi transistörlerin açıldığını, Y çıkışını ve doğruluk tablosunun dolmasını izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Dört durumu sırayla gezin; tablo dolsun. Soru: "Çıkışı 0 yapmanın tek yolu ne?" (İki NMOS'un da açık olması.)</li>
+    <li>Besleme akımı göstergesi her durumda pikoamper düzeyinde: CMOS'un statik güç avantajı.</li>
+    <li>Kaynak: Apple Newsroom, 10 Kasım 2020, "16 billion transistors" (https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/).</li>
+    <li>4 transistör × 4 milyar ≈ 16 milyar: M1'deki transistörler kabaca 4 milyar NAND'a yeterdi; ama gerçek yonga yalnız NAND'dan oluşmaz, bunu sadece ölçek hissi için söyleyin.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="10" data-demo="c10Binary" id="ikili-sayilar">
+  <div class="text">
+    <h2>İkili sayılar: bitler ve anahtarlar</h2>
+    <p class="lead">Bir anahtar yalnız iki şey söyler: açık ya da kapalı. Sekiz anahtar yan yana gelince 256 farklı sayı yazılır.</p>
+    <p>Dijital devrede her tel ya 0 ya 1 taşır. Bu tek bilgiye <strong>bit</strong>, sekiz bitlik gruba <strong>bayt</strong> denir. Onluk sistemde her basamak bir sağdakinin 10 katıdır; <strong>ikili sayı</strong> sisteminde 2 katı: 1, 2, 4, 8, 16, 32, 64, 128.</p>
+    <p>Bir baytı okumak için açık anahtarların basamak değerlerini toplayın: 0010 1010 = 32 + 8 + 2 = 42. En büyük bayt 1111 1111 = 255'tir; sıfırla birlikte 256 değer eder.</p>
+    <p>Bir eklemek onluk sistemdeki gibi <strong>elde</strong> ile olur: 1 + 1 = 10, yani "0 yaz, 1 elde". Elde sağdan sola, birler dizisi boyunca dalga gibi ilerler. Bir sayıyı ikiyle çarpmak ise bütün bitleri bir basamak sola kaydırmaktır.</p>
+    <details class="more"><summary>Daha fazla: neden 2 tabanı, onaltılık ve negatif sayılar</summary>
+      <p>Bir teli yalnız iki seviyede kullanmak gürültüye karşı en sağlam yoldur: "yüksek mi, alçak mı?" sorusu, "on seviyeden hangisi?" sorusundan çok daha az yanılır (<a href="#gurultu-paylari">gürültü payları</a>).</p>
+      <p>Dört bit (yarım bayt, İngilizce <em>nibble</em>) 0–15 arası değer alır; bu, <strong>onaltılık</strong> (hex) sistemin tek basamağıdır: 0–9, sonra A–F. Bu yüzden 1010 0101 kısaca 0xA5 yazılır: A = 10, 5 = 5, 10 · 16 + 5 = 165.</p>
+      <p>Negatif sayılar için <strong>ikiye tümleyen</strong> kullanılır: en soldaki bitin değeri +128 yerine −128 sayılır. 8 bitle −128 ile +127 arası yazılır. Bir sayının eksilisi: bütün bitleri ters çevir, 1 ekle. Toplama devresi hiç değişmeden negatif sayılarla da çalışır.</p>
+    </details>
+    <p class="try">Anahtarlara tıklayın; ondalık ve onaltılık değerlerin değişmesini izleyin. +1 düğmesine basıp eldenin sağdan sola ilerleyişini görün ya da kutuya bir sayı yazın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Soru: "Sekiz anahtarla kaç farklı durum var?" 2 · 2 · … · 2 = 2⁸ = 256.</li>
+    <li>0111 1111'de +1'e basın: elde yedi basamak boyunca dalgalanır. 12. bölümdeki dalgalı elde toplayıcının habercisi.</li>
+    <li>255'te +1: taşma, sayı 0'a döner. Eski oyunlardaki "skor 255'ten sonra sıfırlandı" hatalarından söz edilebilir.</li>
+    <li>×2 sola kaydırma; işaretli değer satırında 128 ve üstünün negatif okunduğunu gösterin.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="10" data-demo="c10Gates" id="temel-kapilar">
+  <div class="text">
+    <h2>Temel mantık kapıları</h2>
+    <p class="lead">Mantık kapısı, girişlerindeki 0 ve 1'lere bakıp kuralına göre tek bir çıkış veren devredir.</p>
+    <p>Yedi temel kapı var. <strong>AND</strong> (VE) yalnız bütün girişler 1 iken 1 verir; <strong>OR</strong> (VEYA) en az biri 1 ise. <strong>NOT</strong> (DEĞİL) tek girişlidir, girişin tersini verir. NAND ve NOR, AND ve OR'un tersidir: semboldeki küçük daire (kabarcık) "ters çevir" demektir. <strong>XOR</strong> (özel VEYA) girişler farklıyken, XNOR aynıyken 1 verir.</p>
+    <p>Bir kapının bütün davranışı <strong>doğruluk tablosu</strong>na sığar. Kapı fikri anahtarlardan doğdu. Seri iki anahtar AND'dir: LED ancak ikisi de kapalıyken yanar. Paralel iki anahtar OR'dur. Bugünkü kapılarda anahtarların yerinde transistörler vardır (<a href="#cmos-nand">CMOS NAND</a>).</p>
+    <p>Sitede ABD'de yaygın ANSI sembolleri kullanılıyor; Avrupa'da sık görülen IEC dikdörtgen sembollerini ANSI / IEC seçimiyle bir kez görün.</p>
+    <details class="more"><summary>Daha fazla: Boole, Shannon ve IEC sembolleri</summary>
+      <p>George Boole 1854'te mantığı 0 ve 1'li bir cebirle yazdı. Claude Shannon 1937'deki yüksek lisans tezinde bu cebirin röle ve anahtar devrelerini birebir tarif ettiğini gösterdi; dijital devre tasarımı bu fikirden doğdu.</p>
+      <p>IEC sembollerinde kutunun içindeki işaret kuralı söyler: &amp; (AND), ≥1 (OR: en az bir giriş 1), =1 (XOR: tam olarak bir giriş 1), 1 (tampon ya da NOT). Çıkıştaki daire yine "ters çevir" demektir.</p>
+      <p>XOR ve XNOR'un anahtar karşılığı merdiven lambasıdır: iki <strong>vavien</strong> (iki yollu) anahtar. Aradaki teller düz bağlanınca XNOR, çapraz bağlanınca XOR elde edilir. Hangisinin hangisi olduğu, anahtarın hangi konumuna "1" dediğinize bağlıdır.</p>
+    </details>
+    <p class="try">Bir kapı seçin, A ve B girişlerine ya da anahtarlara tıklayın. Çıkışı, tablodaki satırı ve LED'i karşılaştırın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>AND'de dört durumu gezin; sonra OR'a geçip aynı dört durumu tekrar edin. Soru: "Lamba hangi kapıda daha sık yanar?" (OR: 4 durumdan 3'ünde.)</li>
+    <li>NOT devresinde anahtar LED'i kısa devre eder; direnç akımı sınırlar. Transistörlü NOT kapısı slaytındaki RTL devresiyle aynı fikir.</li>
+    <li>XNOR = merdiven lambası: herkesin evinde olan bir mantık kapısı.</li>
+    <li>IEC'ye bir kez geçip geri dönün; sitenin geri kalanı ANSI.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="10" data-demo="c10DeMorgan" id="de-morgan">
+  <div class="text">
+    <h2>Boole cebiri ve De Morgan</h2>
+    <p class="lead">Birbirine hiç benzemeyen iki ifade aynı devre olabilir. Bunun en kesin kanıtı doğruluk tablosudur.</p>
+    <p><strong>Boole cebiri</strong>nde değişkenler yalnız 0 ya da 1 olur. "·" VE, "+" VEYA, kesme işareti (A') ya da üst çizgi DEĞİL demektir. Kurallar sıradan cebire benzer ama sürprizleri var: A + A·B = A (yutma kuralı).</p>
+    <p>İki ifade, bütün giriş birleşimlerinde (n değişken için 2ⁿ satır) aynı sonucu veriyorsa eşittir. En kullanışlı iki kural <strong>De Morgan</strong> kurallarıdır:</p>
+    <p class="formula">(A·B)' = A' + B'   ·   (A + B)' = A'·B'</p>
+    <p>"İkisi birden değil" demek, "en az biri değil" demektir. Şemada: çıkıştaki kabarcığı girişlere itince AND, OR'a dönüşür (OR da AND'e). Buna <strong>kabarcık itme</strong> denir.</p>
+    <details class="more"><summary>Daha fazla: kurallar listesi</summary>
+      <p>Değişme: A·B = B·A. Birleşme: (A·B)·C = A·(B·C). Dağılma: A·(B + C) = A·B + A·C ve sıradan cebirde olmayan A + B·C = (A + B)·(A + C). Tümleme: A·A' = 0, A + A' = 1. Kendisiyle: A·A = A, A + A = A. Yutma: A + A·B = A, A·(A + B) = A.</p>
+      <p>Kurallar 19. yüzyıl İngiliz matematikçisi Augustus De Morgan'ın adını taşır. Tuzak örneği unutmayın: (A·B)' ile A'·B' eşit değildir; tersini alırken "·" işaretini "+" yapmak gerekir.</p>
+      <p>Kabarcık itmenin pratik değeri: NAND'dan başka kapı olmayan bir yongada OR gerekirse, girişleri ters çevirip NAND kullanmak yeter. Sonraki slaytın bulmacasında bu işe yarayacak.</p>
+    </details>
+    <p class="try">Bir örnek seçin ya da kendi ifadenizi yazın; farklı satırlar işaretlenir. Kabarcık itme kaydırıcısını sürükleyin: kapı biçim değiştirir, çıkış aynı kalır.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce "Tuzak"ı açın: çoğu kişi (A·B)' = A'·B' sanır. Tablo iki satırda farkı gösterir.</li>
+    <li>Kendi ifadesini yazdırın: "A + B·C" ile "(A + B)·(A + C)" eşittir; sıradan cebirde değildir.</li>
+    <li>Kabarcık itmede A = 1, B = 0 seçip kaydırıcıyı uçtan uca sürükleyin: Y hiç değişmez.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="10" data-demo="c10Nand" id="nand-evrensel">
+  <div class="text">
+    <h2>NAND evrenseldir</h2>
+    <p class="lead">Elinizde tek tür kapı olsa, yalnız NAND, yine de her mantık devresini kurabilirdiniz.</p>
+    <p>Her mantık işlevi AND, OR ve NOT ile yazılabilir. Bu üçü de NAND'dan yapılabildiği için NAND <strong>evrensel kapı</strong>dır. NOR da öyledir.</p>
+    <p>Bulmaca: yalnız NAND kapıları kullanarak hedef kapıyı kurun. NOT ile başlayın: bir NAND'ın iki girişine aynı sinyali verirseniz ne olur? Sonra AND (NAND'ın arkasına bir NOT), sonra OR (De Morgan'ı hatırlayın), en son XOR.</p>
+    <p>Kurduğunuz devre her değişiklikte bütün giriş birleşimlerinde denenir ve doğruluk tablosu hedefle karşılaştırılır. Hedef en az kapı: NOT 1, AND 2, OR 3, XOR 4 kapıyla kurulabilir.</p>
+    <p>Gerçek yongalarda bu önemlidir: aynı küçük hücre binlerce kez kopyalanır, kapı sayısı azaldıkça devre küçülür.</p>
+    <details class="more"><summary>Daha fazla: çözümlerin cebiri ve Apollo</summary>
+      <p>NOT: (A·A)' = A'. AND: ((A·B)')' = A·B. OR: (A'·B')' = A + B (De Morgan). XOR: önce N = (A·B)', sonra Y = ((A·N)' · (B·N)')'. Dört kapı; ilk kapının çıkışı iki kapıya birden gider.</p>
+      <p>Apollo uzay programının rehberlik bilgisayarındaki mantık devrelerinin tamamı tek tür kapıdan, üç girişli NOR kapılarından kuruluydu. Tek bir yonga türü üretmek ve sınamak, güvenilirliği artırıyordu.</p>
+      <p>Bu bulmacada bir kapının çıkışını kendi girişlerine geri dolaştırmak (geri besleme) kapalı. O yol hafızaya çıkar: 13. bölümde iki kapıyla bir bit saklayacağız.</p>
+    </details>
+    <p class="try">NOT hedefiyle başlayın: boş bir yuvaya dokunup NAND ekleyin. A ucuna, sonra kapının bir girişine dokunarak tel çekin; çıkışı Y'ye bağlayın. Tablo baştan sona ✓ olunca sonraki hedefe geçin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Topluluğa önce NOT'u sorun; birisi "iki girişi birleştir" diyene kadar bekleyin.</li>
+    <li>OR'da ipucu: "OR, ters girişli NAND'dır" (önceki slayttaki kabarcık itme).</li>
+    <li>XOR'u 4 kapıda bulmak zordur; 5 kapılı çözümler de doğrudur, sayaç bunu söyler. Takılan olursa "Çözümü göster".</li>
+    <li>Bağlı bir girişe dokunmak teli söker; döngü kurulmak istenirse uyarı çıkar.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="10" data-demo="c10Perceptron" id="perceptron-xor">
+  <div class="text">
+    <h2>Yapay zekâ köprüsü: perceptron ve XOR</h2>
+    <p class="lead">Bir yapay nöron da bir mantık kapısıdır: girişleri ağırlıklarla toplar, toplam eşiği geçerse 1 verir.</p>
+    <p><strong>Perceptron</strong> iki girişi w1 ve w2 ağırlıklarıyla çarpar, b'yi ekler; sonuç 0 ya da büyükse çıkış 1, değilse 0. Grafikte bu kural bir doğrudur: bir yanı 1, öbür yanı 0.</p>
+    <p>"Öğren"e basınca perceptron her yanlışında ağırlıklarını hatasının yönünde biraz kaydırır. AND ve OR'da birkaç turda hiç hata kalmaz.</p>
+    <p>XOR'da 1 olan noktalar çaprazdadır: (0,1) ve (1,0). Onları ayıran tek bir doğru yoktur; öğrenme hiç durmaz. Çözüm iki katman: OR ve NAND nöronları iki doğru çizer, AND nöronu aradaki şeridi seçer. Derin öğrenmenin özü de budur. Aynı konu yapay zekâ sitesinde: <a href="https://yz.koraytoksoz.com/#xor-tek-noron" target="_blank" rel="noopener">XOR: tek nöronun duvarı</a>.</p>
+    <details class="more"><summary>Daha fazla: öğrenme kuralı ve tarih</summary>
+      <p class="formula">w ← w + η · (hedef − çıkış) · x   ·   b ← b + η · (hedef − çıkış)</p>
+      <p>Deneyde η = 0,25. Noktalar tek doğruyla ayrılabiliyorsa bu kuralın sonlu sayıda adımda durduğu kanıtlanmıştır (perceptron yakınsama teoremi). Ayrılamıyorsa ağırlıklar sonsuza dek döner.</p>
+      <p>Frank Rosenblatt perceptronu 1958'de yayımladı. Marvin Minsky ve Seymour Papert 1969'daki <em>Perceptrons</em> kitabında tek katmanlı perceptronların XOR gibi doğrusal olarak ayrılamayan işlevleri hesaplayamadığını matematiksel olarak gösterdi. Çok katmanlı ağları eğitmenin yolu, geri yayılım (backpropagation), 1986'da Rumelhart, Hinton ve Williams'ın makalesiyle yaygınlaştı.</p>
+    </details>
+    <p class="try">AND seçip "Öğren"e basın; doğrunun noktaları ayırmasını izleyin. Sonra XOR'u deneyin: hata hiç sıfırlanmaz. "İki katman" ile çözümü görün.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce elle: w1 = w2 = 1, b = −1,5 AND'dir; b = −0,5 OR'dur. Eşiği kaydırmak kapının türünü değiştirir.</li>
+    <li>XOR'da tur başına hata çubukları hiç sıfıra inmez; "neden?" diye sorun. Cevap: tek doğru çapraz noktaları ayıramaz.</li>
+    <li>İki katmanlı devre, NAND bulmacasındaki fikirle aynı: basit parçalar üst üste konunca her işlev kurulur.</li>
+    <li>Minsky–Papert kitabı tek katmanlı ağların sınırını gösterdi; çok katmanlı ağların yapamayacağını söylemedi.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="11" data-demo="c11Minterm" id="minterm">
+  <div class="text">
+    <h2>Doğruluk tablosundan ifadeye</h2>
+    <p class="lead">Doğruluk tablosu devreyi kurmak için gereken her şeyi zaten söyler: çıkışın 1 olduğu her satır bir VE kapısı demektir.</p>
+    <p>Üç girişli bir devrenin (A, B, C) 8 olası girişi vardır. Doğruluk tablosu her biri için çıkışın 0 mı 1 mi olacağını yazar.</p>
+    <p>Çıkışın 1 olduğu her satır için o satırı, yalnız onu tanıyan bir VE terimi yazılır: 1 olan giriş olduğu gibi (A), 0 olan girişin tersi (A') alınır. A = 0, B = 1, C = 1 satırının terimi <b class="mono">A'BC</b>'dir; yalnız bu girişte 1 olur. Bu terimlere <strong>minterm</strong> denir.</p>
+    <p>Mintermler VEYA ile birleşince ifade hazırdır: <strong>çarpımların toplamı</strong> (SOP, sum of products). Bu <strong>kanonik</strong> biçim her zaman doğrudur, ama uzundur: her yeni 1 satırı devreye bir VE kapısı daha ekler.</p>
+    <p>Bunu kısaltabilir miyiz? Evet; nasıl yapılacağını <a href="#karnaugh">Karnaugh haritası</a> gösterecek.</p>
+    <details class="more"><summary>Daha fazla: yazım, sayılar ve POS</summary>
+      <p>A' yerine Ā ya da ¬A de yazılır; hepsi "A değil" demektir. Çarpım (·) VE, toplam (+) VEYA'dır: A'BC = A'·B·C.</p>
+      <p>Mintermler satır numarasıyla da anılır: A'BC = 011 = m<sub>3</sub>. Çoğunluk fonksiyonu kısaca Y = Σm(3, 5, 6, 7) diye yazılır.</p>
+      <p>Aynı tablo 0 satırlarından da kurulabilir: her 0 satırı için bir VEYA terimi (maxterm), hepsinin VE'si. Buna toplamların çarpımı (POS) denir.</p>
+      <p>n girişli bir tablonun 2<sup>n</sup> satırı, her satırın iki olası çıkışı vardır. Bu yüzden 3 girişle 2<sup>8</sup> = 256 farklı fonksiyon yazılabilir; her birinin kanonik SOP'u tektir.</p>
+    </details>
+    <p class="try">Doğruluk tablosunun Y sütunundaki değerlere tıklayın. Her 1 satırının mintermini, ifadenin uzamasını ve devreye yeni bir VE kapısı eklendiğini izleyin. Sonra devredeki A, B, C girişlerine tıklayıp çıkışın tablodaki satırla aynı olduğunu görün.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Çoğunluk fonksiyonuyla başlayın: "Üç oydan en az ikisi evet ise sonuç evet." Tabloda dört 1 var, devrede dört VE kapısı.</li>
+    <li>Bir mintermi gösterin: A'BC yalnız 011 satırında 1 olur; başka hiçbir girişte değil. Renkler tablo satırı, ifadedeki terim ve devredeki kapı arasında aynı.</li>
+    <li>"Hepsi 0"a basıp tek tek 1 ekleyin: kapı sayısı ve kapı girişi sayısı büyüyor. Soru: "8 satırın hepsi 1 olursa kaç kapı?" (3 DEĞİL + 8 VE + 1 VEYA; oysa Y = 1 hiç kapı istemez.)</li>
+    <li>Alttaki öneri satırı en basit hâlini Quine–McCluskey ile hesaplıyor; nasıl bulunduğu bir sonraki slaytta.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="11" data-demo="c11Kmap" id="karnaugh">
+  <div class="text">
+    <h2>Karnaugh haritası</h2>
+    <p class="lead">Doğruluk tablosunu bir haritaya dizince sadeleştirme bir boyama oyununa dönüşür.</p>
+    <p><strong>Karnaugh haritası</strong> tablonun her satırını bir hücreye koyar. Satırlar ve sütunlar <strong>Gray kodu</strong> sırasıyla dizilir: 00, 01, 11, 10. Böylece yan yana iki hücrenin girişleri yalnız bir bitte farklıdır.</p>
+    <p>Yan yana iki 1, o tek farklı değişkenin sonucu etkilemediğini söyler: A'BC + ABC = BC. Bu yüzden komşu 1'leri <strong>gruplarız</strong>. Grup dikdörtgen olmalı ve 1, 2, 4, 8 ya da 16 hücre içermelidir. Grup ikiye katlandıkça terimden bir değişken daha düşer.</p>
+    <p>Harita kenarlarda <strong>sarmalanır</strong>: en sağ sütun en solun, en alt satır en üstün komşusudur; dört köşe de birbirine komşudur. <strong>X</strong> (önemsiz) hücreler işe yararsa gruba katılır, yaramazsa dışarıda kalır.</p>
+    <p>Bütün 1'leri olabildiğince az ve olabildiğince büyük grupla örtün. Her grup bir VE terimidir; hepsinin VEYA'sı en basit ifadedir.</p>
+    <details class="more"><summary>Daha fazla: kurallar, tarih, algoritma</summary>
+      <p>Haritayı 1953'te Bell Laboratuvarları'nda Maurice Karnaugh yayımladı; bir yıl önce Edward Veitch'in önerdiği diyagramı geliştirmişti. Gray kodu adını yine Bell Laboratuvarları'ndan Frank Gray'den alır.</p>
+      <p>Bir grubun terimi, grup içinde değişmeyen değişkenlerden oluşur: hep 1 olan olduğu gibi, hep 0 olan tersiyle yazılır. 2<sup>k</sup> hücrelik bir grup, n değişkenli haritada n − k harflik bir terim verir.</p>
+      <p>Daha fazla büyütülemeyen gruplara <strong>asal çarpan</strong> (prime implicant) denir. Bir 1'i yalnız tek bir asal çarpan örtüyorsa o çarpan mutlaka ifadeye girer. "Çöz" düğmesi bu adımları Quine–McCluskey yöntemiyle, haritaya bakmadan, tablodan yapar.</p>
+      <p>Beş ve daha çok değişkende harita göze karışık gelir. Gerçek tasarım araçları çok büyük fonksiyonlar için Espresso gibi sezgisel algoritmalar kullanır.</p>
+    </details>
+    <p class="try">Grup çiz modunda bir dikdörtgen sürükleyin; geçersizse nedeni hemen yazılır. Kenardan sarmalanan bir grup için hücrelere tek tek dokunup "Grubu ekle"ye basın. Sonra "Çöz" ile kendi ifadenizi en basitiyle karşılaştırın. "Neden Gray kodu?" komşu hücrelerde hangi bitin değiştiğini gösterir.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Ortadaki dört 1'i sürükleyerek gruplayın: BD. "B ve D hep 1, A ve C değişiyor; demek ki A ve C önemsiz."</li>
+    <li>Köşeleri gösterin: m0, m2, m8, m10 dört köşe, ama sarmalama sayesinde 2×2 bir grup: B'D'. Haritayı bir simit (torus) gibi düşünün.</li>
+    <li>m15 X: dahil edince grup büyür. Dahil etmeseydik BD yerine ABD' gibi daha uzun terimler gerekirdi.</li>
+    <li>"Neden Gray kodu?" ile İkili sıraya geçin: 01 ile 10 yan yana ama iki bit farklı. Burada yan yana iki hücreyi seçmek geçersiz grup verir. Soru: "Haritanın işe yaraması neden sıraya bağlı?"</li>
+    <li>Yaygın hatalar: üçlü grup (2'nin kuvveti değil), L biçimli grup, 0 içeren grup. Hepsini deneyip mesajları gösterin.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="11" data-demo="c11Seg" id="yedi-segment">
+  <div class="text">
+    <h2>Uygulama: 7 segment kod çözücü</h2>
+    <p class="lead">Hesap makinesindeki her rakam yedi çubuktan oluşur. Hangisinin yanacağına dört bitlik bir sayı karar verir.</p>
+    <p><strong>7 segment gösterge</strong>de a'dan g'ye yedi segment vardır. Dört bitlik giriş (A en anlamlı bit) 0'dan 15'e kadar sayabilir, ama göstermek istediğimiz yalnız 0–9 rakamlarıdır. Her segment, dört girişin ayrı bir mantık fonksiyonudur: yedi segment için yedi Karnaugh haritası.</p>
+    <p>Devreye hiç 10–15 gelmeyecekse oradaki çıkışlar bizi ilgilendirmez: bunlar <strong>önemsiz</strong> (X) hücrelerdir. X'ler gruplara katılınca gruplar büyür, ifadeler kısalır, kapı sayısı düşer.</p>
+    <p>Ekran tablodan değil, yedi segmentin en basit ifadelerinden canlı hesaplanır. Peki yine de 10–15 girilirse? Devre bir şey yakar: X hücrelerine o anda verilen değerler neyse o. Şekiller tuhaftır ama dürüsttür; tasarım bu girişler için hiçbir söz vermedi.</p>
+    <details class="more"><summary>Daha fazla: BCD ve gerçek yongalar</summary>
+      <p>Her ondalık rakamı dört bitle yazmaya BCD (ikili kodlu ondalık) denir. 74LS47 ve 74LS48 gibi hazır BCD–7 segment kod çözücü yongaları bu işi tek kılıfta yapar; onlar da 10–15 için veri sayfasında çizili tuhaf şekiller gösterir, 15'te ekran söner.</p>
+      <p>Ortak katotlu göstergede segment 1 ile yanar; ortak anotluda segmentin ucu 0'a çekilince yanar (aktif düşük). 74LS47 ortak anotlu göstergeler içindir.</p>
+      <p>6 ile 9'un "kuyruklu" (a ve d segmentleri yanık) ya da kuyruksuz yazılması bir tasarım kararıdır; bu deneyde ikisi de kuyruklu, 7 ise üç segmentle yazılıyor (Logic.SEG7 tablosu).</p>
+    </details>
+    <p class="try">Bitlere tıklayarak ya da +1 ile girişi değiştirin. Bir segment seçin (ekrandaki çubuğa da tıklayabilirsiniz) ve haritada Çöz'e basın. Sonra "X'siz (0)" seçeneğine geçip ifadenin ne kadar uzadığına bakın. 10–15 girişlerinde ekranın ne gösterdiğini izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Say'a basıp 0'dan 15'e kadar sayın: 0–9 doğru rakamlar, 10–15'te tuhaf şekiller. "Bunlar hata mı?" Hayır; X'e "ne olursa olsun" dedik, devre de en ucuz olanı seçti.</li>
+    <li>a segmentinde X serbestken ifade 6 harf, X'siz 11 harf: neredeyse yarı yarıya. Yedi segmentin toplamı ifade listesinin altında: X'ler kapı tasarrufu demek.</li>
+    <li>X'siz moda geçin: 10–15'te ekran tamamen söner, ama ifadeler uzar. Mühendislik ödünleşimi: güvenli davranış mı, ucuz devre mi?</li>
+    <li>Ekran, segment ifadelerinin Logic.evaluate ile hesaplanmasından çıkıyor; "0–9 rakamları 70/70" satırı bunun tabloyla denetimi.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="12" data-demo="c12Adder" id="tam-toplayici">
+  <div class="text">
+    <h2>Yarım ve tam toplayıcı</h2>
+    <p class="lead">Bilgisayarın yaptığı her hesap, iki biti toplayan küçük bir kapı devresine dayanır.</p>
+    <p>İkili sistemde yalnız iki rakam var: 0 ve 1. 1 + 1 iki eder ve ikili sistemde iki "10" diye yazılır: sütuna 0 yazılır, 1 <strong>elde</strong> olarak sola geçer. Onluk sistemde 7 + 5 = 12 yazarken 2'yi yazıp 1'i elde tutmakla aynı şey.</p>
+    <p><strong>Yarım toplayıcı</strong> iki biti toplar. Toplam biti S, A ile B'nin XOR'udur: ikisinden yalnız biri 1 ise 1. Elde biti Cout ise AND'dir: yalnız ikisi de 1 iken elde oluşur.</p>
+    <p>Çok bitli toplamada her sütuna bir de sağdaki sütundan gelen elde eklenir; üç bit toplamak gerekir. <strong>Tam toplayıcı</strong> bunu iki yarım toplayıcı ve bir OR kapısıyla yapar: önce A ile B toplanır, sonra sonuca gelen elde Cin eklenir.</p>
+    <p class="formula">S = A ⊕ B ⊕ Cin &nbsp;·&nbsp; Cout = A·B + Cin·(A ⊕ B)</p>
+    <details class="more"><summary>Daha fazla: neden OR yeterli?</summary>
+      <p>İki yarım toplayıcı aynı anda elde üretemez. İlki elde üretiyorsa A = B = 1'dir; o zaman A ⊕ B = 0 olur ve ikinci yarım toplayıcının girişlerinden biri 0 olduğu için o elde üretemez. İki elde hiçbir zaman birlikte 1 olmadığından onları birleştirmek için OR yeterlidir (XOR da aynı sonucu verirdi).</p>
+      <p>Tam toplayıcının doğruluk tablosuna dikkatle bakın: Cout S, üç girişteki 1'lerin <em>sayısını</em> ikili olarak yazar: hiç 1 yoksa 00, bir tane 01, iki tane 10, üç tane 11. Toplayıcı aslında bir "1 sayacı"dır.</p>
+      <p>Aynı mantık onluk toplamada da geçerli: her sütunda iki rakam ve en fazla 1 elde toplanır, sonuç hiçbir zaman 19'u aşmaz; bu yüzden elde de hep 0 ya da 1'dir.</p>
+    </details>
+    <p class="try">Devredeki A ve B kutularına tıklayın: 1 + 1'de S'nin 0, Cout'un 1 olduğunu görün. Sonra "Tam toplayıcı"ya geçin ve Cin'i de 1 yapın: 1 + 1 + 1 = 11.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce tahtaya onluk bir toplama yazın (7 + 5): "2 yaz, 1 elde". Sonra aynı şeyi ikili yapın: 1 + 1 = 10.</li>
+    <li>Soru: "Yarım toplayıcının çıkışları hangi iki kapıya benziyor?" S → XOR, Cout → AND. Doğruluk tablosunda sütunları karşılaştırın.</li>
+    <li>Tam toplayıcıda iki yarım toplayıcıyı kesikli çerçevelerle gösterin. Neden "yarım" dendiğini sorun: gelen eldeyi hesaba katamıyor.</li>
+    <li>Doğruluk tablosundaki "onluk" sütunu: girişlerdeki 1'lerin sayısı. Bu, sonraki slayttaki 4 bitlik toplayıcının yapı taşı.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="12" data-demo="c12Ripple" id="dort-bit-toplayici">
+  <div class="text">
+    <h2>4 bitlik toplayıcı: elde dalgası</h2>
+    <p class="lead">Dört tam toplayıcıyı zincirleyin: 4 bitlik sayıları toplayan bir devre olur. Ama elde, kapıdan kapıya yürümek zorundadır.</p>
+    <p>Her tam toplayıcı (TT) bir sütunu toplar ve eldesini soldaki komşusuna verir, tıpkı kâğıt üzerinde sağdan sola toplarken olduğu gibi. Bu yapıya <strong>dalgalı elde toplayıcı</strong> (ripple-carry) denir.</p>
+    <p>Gerçek kapılar anında çalışmaz: çıkış, girişten biraz sonra değişir. Buna <strong>yayılma gecikmesi</strong> denir. Deneyde her kapının gecikmesi bir birimdir. Bir sütunun eldesi, sağdaki sütunun eldesi gelmeden kesinleşemez; bu yüzden elde, devrede bir dalga gibi sağdan sola ilerler.</p>
+    <p>Sonuç oturana kadar çıkışta yanlış ara değerler görünür. Toplayıcıyı kullanan sistem, en kötü durumdaki <strong>oturma süresini</strong> beklemek zorundadır; bu süre, işlemcinin saat hızına bir üst sınır koyar.</p>
+    <p>4 bitle en çok 15 yazılır, iki sayının toplamı ise 30'a kadar çıkabilir. Toplam 15'i aşınca 5. bit C4 1 olur: buna <strong>taşma</strong> denir.</p>
+    <details class="more"><summary>Daha fazla: ileri bakışlı elde ve işlemciler</summary>
+      <p><strong>İleri bakışlı elde</strong> (carry-lookahead) eldeyi beklemek yerine önceden hesaplar. Her sütun için iki sinyal bulunur: <em>üret</em> G = A·B (bu sütun kendisi elde üretir) ve <em>yay</em> P = A ⊕ B (gelen eldeyi geçirir). Sonra C1 = G0 + P0·C0, C2 = G1 + P1·G0 + P1·P0·C0 gibi ifadeler bütün sütunlar için aynı anda, birkaç kapı katmanında hesaplanır. Bedeli daha çok kapıdır.</p>
+      <p>Bu deneydeki toplayıcıda elde her sütunda iki kapıdan (AND ve OR) geçer. 64 bitlik bir dalgalı toplayıcıda en kötü durumda elde 128 kapıdan geçmek zorunda kalırdı. İşlemciler her saat vuruşunda toplama yaptığı için ileri bakışlı ya da benzeri hızlı toplayıcılar kullanır. Klasik 74HC283 yongası da 4 bitlik bir toplayıcıdır ve içinde ileri bakışlı elde kullanır.</p>
+      <p>Bir kapının gecikmesi 74HC serisi yongalarda birkaç nanosaniye, modern işlemcilerin içinde ise pikosaniyeler mertebesindedir.</p>
+    </details>
+    <p class="try">"En kötü durum" düğmesine basın: 1111 + 0001'de elde bitleri C1'den C4'e sırayla değişir. Lojik analizörde merdiveni ve ölçülen oturma süresini izleyin. Sonra hızı düşürün, kendi sayılarınızı deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce kâğıtta 1111 + 0001 toplamasını yaptırın: her sütunda "0 yaz, 1 elde". Elde sağdan sola dört kez yürüyor; devre de aynısını yapıyor.</li>
+    <li>Lojik analizörde C1…C4 bir merdiven çiziyor: her basamak iki kapı gecikmesi (AND + OR). Oturma süresi simülasyondan ölçülür; soru: "8 bitlik toplayıcıda ne olurdu?"</li>
+    <li>"Çıkışta görülen ara değerler" satırını gösterin: 15 → 14 → 12 → 8 → … Devre bir süre gerçekten yanlış sonuç veriyor; saat bu yüzden gerekli (sonraki bölüm).</li>
+    <li>"Rastgele" ile birkaç deneme: çoğu toplama en kötü durumdan çok daha çabuk oturur; ama tasarım en kötüye göre yapılır.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="12" data-demo="c12MuxDec" id="mux-kod-cozucu">
+  <div class="text">
+    <h2>Çoklayıcı ve kod çözücü</h2>
+    <p class="lead">Bir kapı devresi, birçok veriden birini seçebilir ya da birçok hedeften birini adresleyebilir.</p>
+    <p><strong>Çoklayıcı</strong> (MUX, multiplexer) bir veri seçicidir. Dört veri girişinden (D0–D3) hangisinin çıkışa geçeceğini iki seçim biti belirler. Seçim bitleri ikili bir sayıdır: S1 S0 = 10 ise 2, yani D2 seçilir. Devredeki her AND kapısı bir anahtar gibidir; seçim bitleri bunlardan yalnız birini açar.</p>
+    <p><strong>Kod çözücü</strong> (decoder) 2 bitlik bir adres alır ve dört çıkışından yalnız birini 1 yapar. Bilgisayar belleğinde her hücrenin bir adresi vardır; kod çözücü, işlemcinin gönderdiği adresten tek bir hücreyi seçer. Buna <strong>adres çözme</strong> denir. Deneydeki dört hücrede "KAPI" kelimesinin harfleri saklı.</p>
+    <p>Her iki devrede de kural aynı: n seçim biti 2ⁿ yoldan birini seçer. 3 bit 8, 10 bit 1024 yol demektir.</p>
+    <details class="more"><summary>Daha fazla: MUX ile her fonksiyon, gerçek yongalar</summary>
+      <p>Bir MUX ile her mantık fonksiyonu kurulabilir: değişkenleri seçim girişlerine, doğruluk tablosunun çıkış sütununu veri girişlerine bağlayın. 4:1 MUX böylece iki değişkenli her fonksiyonu hesaplar. FPGA yongalarındaki "arama tabloları" (LUT) bu fikre dayanır.</p>
+      <p>Gerçek kod çözücülerde genellikle bir de etkinleştirme (enable) girişi bulunur; bununla birden çok yonga arasından biri seçilir. Örnek yongalar: 74HC138 (3'ten 8'e kod çözücü), 74HC153 (iki adet 4:1 MUX).</p>
+      <p>Hücrelerdeki baytlar ASCII kodlarıdır: K = 75 (01001011), A = 65, P = 80, I = 73.</p>
+    </details>
+    <p class="try">S1 ve S0 kutularına tıklayın ve seçilen yolun yandığını izleyin. D girişlerini değiştirin: yalnız seçilen girişin Y'yi etkilediğini görün. Sonra "Kod çözücü"ye geçip adresi değiştirin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>MUX: bir televizyonun kanal seçicisi ya da demiryolu makası gibi. Seçilmeyen D girişlerine tıklayın: Y değişmiyor.</li>
+    <li>Soru: "Seçim bitleri 11 ise hangi VE kapısının üç girişi de 1 olabilir?" Bakır parıltı tek yolu gösteriyor.</li>
+    <li>Kod çözücü: adres 00, 01, 10, 11 sırasıyla K, A, P, I okur. Bellek yongaları milyarlarca hücreyi aynı ilkeyle seçer (satır ve sütun kod çözücüleriyle).</li>
+    <li>Bağlantı: işlemcideki yazmaç seçimi MUX, bellek adresleme kod çözücü ile yapılır; son bölümdeki "bilgisayar" bunların hepsini birleştirir.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="13" data-demo="c13Sr" id="sr-latch">
+  <div class="text">
+    <h2>Geri besleme ile hafıza: SR latch</h2>
+    <p class="lead">İki NOR kapısının çıkışını birbirinin girişine bağlayın: devre, verdiğiniz son komutu hatırlar.</p>
+    <p>Şimdiye kadarki kapılarda çıkış yalnız o anki girişlere bağlıydı. Burada her kapının çıkışı ötekinin girişine döner; buna <strong>geri besleme</strong> denir.</p>
+    <p><strong>S</strong> (set, kur) bir an 1 olunca Q = 1 olur. S yeniden 0 olsa da Q 1'de kalır, çünkü Q' = 0 değeri Q'yu 1'de tutar. <strong>R</strong> (reset, sıfırla) Q'yu 0 yapar. İkisi de 0 iken devre son durumu korur: bu bir bitlik hafızadır, adı <strong>latch</strong> (mandal).</p>
+    <p>S = R = 1 <strong>yasak</strong> durumdur: iki çıkış da 0 olur, Q ile Q' artık birbirinin tersi değildir. Asıl sorun ikisi aynı anda bırakılınca çıkar: iki kapı aynı anda 1'e, sonra aynı anda 0'a geçer ve yarış başlar.</p>
+    <details class="more"><summary>Daha fazla: salınım, metastabilite ve denklemler</summary>
+      <p>Devrenin denklemleri: Q = (R + Q')' ve Q' = (S + Q)'. Benzetimde her kapının yayılma gecikmesi 1 birimdir (burada 1 birim = 0,25 s, zaman yavaşlatıldı).</p>
+      <p>Benzetimde iki kapının gecikmesi tıpatıp aynı olduğu için salınım sonsuza kadar sürer. Gerçek kapılarda gecikmeler hiçbir zaman tam eşit değildir ve gürültü vardır; salınım söner ve latch 0'a ya da 1'e düşer. Hangisine düşeceği önceden bilinemez. Çıkış bazen 0 ile 1 arasında bir ara gerilimde, süresi öngörülemeyen bir zaman asılı kalır: buna <strong>metastabilite</strong> (yarı kararlılık) denir. Bu yüzden tasarımlarda S = R = 1 kullanılmaz.</p>
+      <p>Aynı devre iki NAND kapısıyla da kurulur; o zaman girişler ters mantıklıdır: S' ve R' 0 iken etkindir.</p>
+    </details>
+    <p class="try">S'ye tıklayın ve Q'nun yandığını görün; S'yi yeniden 0 yapın: Q yanık kalır. R ile sıfırlayın. Sonra S ile R'yi birlikte 1 yapıp "S ve R'yi birlikte bırak"a basın ve zamanlama diyagramını izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce S'ye basıp bırakın; Q yanık kalırken sorun: "Girişlerin ikisi de 0. Neden Q hâlâ 1?" Cevap: Q' = 0, üstteki NOR'a geri dönüyor.</li>
+    <li>Zamanlama diyagramında S yükseldikten sonra önce Q' düşüyor, bir gecikme sonra Q yükseliyor: geri besleme döngüsü iki kapı gecikmesi sürer.</li>
+    <li>Yasak durum: S = R = 1'de iki LED de sönük. Birlikte bırakınca salınım. Gerçek devrede bunun rastgele bir sonuca (ya da metastabiliteye) varacağını vurgulayın; S ya da R'ye tek başına basmak salınımı durdurur.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="13" data-demo="c13Dff" id="d-flipflop">
+  <div class="text">
+    <h2>D latch ve D flip-flop</h2>
+    <p class="lead">Hafızaya ne zaman yazılacağını saat belirler: latch saat 1 iken dinler, flip-flop yalnız saatin yükseldiği anda bakar.</p>
+    <p>SR latch'in yasak durumundan kurtulmanın yolu tek bir veri girişi kullanmaktır: <strong>D</strong> (data, veri). Bir <strong>D latch</strong>'te EN (etkin) 1 iken çıkış D'yi izler; latch "saydamdır". EN 0 olunca son değeri tutar.</p>
+    <p><strong>Kenar tetiklemeli D flip-flop</strong> ise saatin <strong>yükselen kenarında</strong>, yani 0'dan 1'e geçtiği anda D'ye bakar ve bu değeri bir sonraki yükselen kenara kadar tutar. Saat 1 iken D ne kadar değişirse değişsin Q etkilenmez.</p>
+    <p>Deneyde ikisi aynı D'yi ve aynı <strong>saat sinyalini</strong> alıyor. Bilgisayarlar flip-flop'u tercih eder: bütün devre aynı saat kenarında bir adım ilerler, kapıların ara değerleri hafızaya sızmaz.</p>
+    <details class="more"><summary>Daha fazla: kurulma süresi ve içyapı</summary>
+      <p>Flip-flop D'yi güvenle okuyabilmek için D'nin kenardan biraz önce (<strong>kurulma süresi</strong>, setup, t<sub>su</sub>) ve biraz sonra (tutma süresi, hold, t<sub>h</sub>) sabit kalmasını ister. Bu kurala uyulmazsa çıkış metastabil kalabilir. Gerçek HC serisi flip-flop'larda bu süreler nanosaniyeler düzeyindedir.</p>
+      <p>Deneyde "Kurulma süresi" açıkken D, yükselen kenardan önceki 3 birim (0,3 s) içinde değişirse flip-flop çıkışı belirsiz (taralı, x) gösterilir; bir sonraki temiz kenarda düzelir. Benzetimde 1 birim = 0,1 s.</p>
+      <p>Kenar tetiklemeli flip-flop çoğu zaman iki latch'in arka arkaya bağlanmasıyla yapılır (master–slave): ilki saat 0 iken, ikincisi saat 1 iken saydamdır. Böylece veri yalnız saatin yükseldiği anda içeri geçer.</p>
+    </details>
+    <p class="try">Saat çalışırken D'ye tıklayın. Saat 1 iken (sarı "saydam" bölge) değiştirirseniz Q latch hemen değişir, Q flip-flop bir sonraki yükselen kenarı (bakır ok) bekler. "Durdu"ya alıp "Saat darbesi"yle adım adım deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Diyagramdaki kesikli dikey çizgiler yükselen kenarlar: Q FF yalnız bu çizgilerde değişir. Q latch ise sarı bölgelerin tamamında D'yi kopyalar.</li>
+    <li>Soru: "Saat 1 iken D'yi iki kez değiştirirsem flip-flop ne yapar?" (Hiçbir şey; yalnız kenardaki değer önemli.)</li>
+    <li>Kurulma süresi düğmesini açıp D'yi kenardan hemen önce değiştirmeyi deneyin: taralı x bölgesi metastabilitenin benzetimdeki karşılığı.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="13" data-demo="c13Counter" id="sayac">
+  <div class="text">
+    <h2>T flip-flop ve sayaç</h2>
+    <p class="lead">Her saat kenarında durum değiştiren bir flip-flop frekansı ikiye böler; dördünü zincirleyin, 0'dan 15'e sayan bir sayaç olur.</p>
+    <p><strong>T flip-flop</strong>'ta (toggle, değiştir) T = 1 iken her yükselen kenarda Q tersine döner. Çıkışın bir tam periyodu iki saat periyodu sürer: frekansı saatinkinin yarısıdır, f/2.</p>
+    <p><strong>JK flip-flop</strong> SR latch'in kenar tetiklemeli ve yasaksız hâlidir: J kurar, K sıfırlar, J = K = 1 iken değiştirir. J ile K'yı birlikte 1'e bağlayınca T flip-flop elde edilir.</p>
+    <p>Deneyde her basamağın saati bir öncekinin Q' çıkışına bağlı. Q0 her darbede, Q1 iki darbede, Q2 dört darbede bir değişir. Q3 Q2 Q1 Q0 birlikte bir <strong>ikili sayı</strong> okur: bu bir <strong>sayaç</strong>. 1111 (15) sonrasında hepsi 0'a döner: 4 bit, 16 durum.</p>
+    <details class="more"><summary>Daha fazla: dalgalı ve eşzamanlı sayaç</summary>
+      <p>Bu deneydeki sayaç <strong>dalgalı</strong> (asenkron) sayaçtır: değişim basamaktan basamağa yayılır, her flip-flop bir gecikme ekler. 0111'den 1000'e geçerken çıkış kısa bir an 0110, 0100 ve 0000 ara değerlerinden geçer; onlu gösterge bu yüzden bir an titreyebilir.</p>
+      <p><strong>Eşzamanlı</strong> (senkron) sayaçta bütün flip-flop'lar aynı saati alır. i. basamağın T girişi VE kapılarıyla hesaplanır: T<sub>i</sub> = Q<sub>0</sub> · Q<sub>1</sub> · … · Q<sub>i−1</sub>. Bütün bitler aynı anda değişir, ara değer oluşmaz. n bitlik bir sayaç 2<sup>n</sup> durum sayar.</p>
+      <p>Hazır entegre örnekleri: 74HC393 (iki adet 4 bitlik dalgalı sayaç) ve 74HC161 (4 bitlik eşzamanlı sayaç).</p>
+    </details>
+    <p class="try">Saat hızını artırın ve zamanlama diyagramında her satırın bir öncekinin yarı frekansında olduğunu (f/2, f/4, …) görün. Sonra saati durdurup "Saat darbesi"yle tek tek sayın: 15'ten sonra ne oluyor?</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Diyagramın sonundaki f/2, f/4, f/8, f/16 etiketleri ölçülüyor: iki yükselen kenar arasındaki saat darbeleri sayılıyor. Hızı değiştirince oranlar değişmiyor.</li>
+    <li>LED'leri Q3'ten Q0'a ikili sayı olarak okuyun; şemada Q0 (en düşük basamak) en baştadır.</li>
+    <li>JK tablosu deneyde bir JK flip-flop benzetimiyle her J, K için hesaplanıyor. Soru: "T flip-flop'u JK ile nasıl kurarsınız?"</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="13" data-demo="c13Shift" id="kaydirmali-yazmac">
+  <div class="text">
+    <h2>Kaydırmalı yazmaç ve kayan ışık</h2>
+    <p class="lead">D flip-flop'ları zincir gibi bağlayın: her saat kenarında bitler bir basamak ilerler.</p>
+    <p>Her flip-flop'un D girişi bir öncekinin Q çıkışına bağlı. Saat yükseldiğinde hepsi aynı anda örnek alır; bitler kova zinciri gibi el değiştirir. Bu yapıya <strong>kaydırmalı yazmaç</strong> (shift register) denir: tek telden sırayla gelen bitleri paralel çıkışlara çevirir.</p>
+    <p>Son çıkışı başa bağlarsanız veri kaybolmaz: <strong>halka sayacında</strong> tek bir 1 dönüp durur, kayan ışık olur. Geri beslemeye bir NOT kapısı eklerseniz <strong>Johnson sayacı</strong> olur: önce 1'ler dolar, sonra 0'lar; 4 flip-flop ile 8 farklı durum.</p>
+    <p>Arduino ile çok sayıda LED sürmek için kullanılan <strong>74HC595</strong> de 8 bitlik bir kaydırmalı yazmaçtır: 3 pinle (veri, kaydırma saati, mandal) 8 çıkış sürer, zincirlenerek daha fazlasını.</p>
+    <details class="more"><summary>Daha fazla: 74HC595 nasıl kullanılır?</summary>
+      <p>74HC595'te bitler DS (14. pin) girişinden, SH_CP (11. pin) kaydırma saatinin her yükselen kenarında içeri kayar. Kaydırma sırasında çıkışlar titremesin diye 8 bit önce içerideki yazmaçta toplanır; ST_CP (12. pin) mandal saatine verilen tek bir darbe hepsini birden Q0–Q7 çıkışlarına aktarır.</p>
+      <p>Q7' (9. pin) kaydırılan son biti dışarı verir; bunu sonraki entegrenin DS girişine bağlayınca iki entegre 16 bitlik tek bir yazmaç gibi çalışır. Arduino'daki <span class="mono">shiftOut()</span> işlevi veri ve saat pinini bu sırayla sürer.</p>
+      <p>Kaydırmalı yazmaçlar seri iletişimin de temelidir: SPI ve UART gibi arabirimler baytları bu yolla tek tele dizer ve öbür uçta yeniden toplar.</p>
+    </details>
+    <p class="try">Veri girişine tıklayıp 1 yapın, birkaç darbe sonra yeniden 0 yapın: bitin Q0'dan Q3'e kaydığını izleyin. Sonra "Halka sayacı"nı ve "Johnson sayacı"nı seçin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Seri girişte birkaç bitlik bir desen yazın (ör. 1, 0, 1): desen LED'lerde sırayla ilerler ve sonda dışarı düşer.</li>
+    <li>Halka sayacında Q0 açılışta 1 yapıldı; geri besleme onu sonsuza kadar döndürür. "Tekrar" göstergesi desenin kaç darbede bir yinelendiğini ölçer (4).</li>
+    <li>Johnson sayacı 4 flip-flop ile 8 durum verir (halka sayacının iki katı). Soru: "8 LED'i Arduino'nun 3 pininden nasıl süreriz?" → 74HC595.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="13" data-demo="c13bTrafik" id="trafik-lambasi">
+  <div class="text">
+    <h2>Durum makinesi: trafik lambası</h2>
+    <p class="lead">Trafik lambası, hangi adımda olduğunu hatırlayan küçük bir makinedir. İki flip-flop ve birkaç kapı yeter.</p>
+    <p>Lambanın dört <strong>durumu</strong> var: kırmızı, kırmızı + sarı, yeşil, sarı. Türkiye'deki sıra budur: kırmızıyla birlikte yanan sarı, yolun açılmak üzere olduğunu bildirir. Dört durum iki bitle yazılır; bu iki biti iki D flip-flop saklar.</p>
+    <p>Her <strong>saat sinyali</strong> darbesinde flip-flop'lar, kapıların hesapladığı sonraki durumu yakalar. Yeşil, yaya düğmesine basılana kadar yanar; sonra sarı ve kırmızı gelir, yayalar yürür. Kısa bir basışı iki NOR kapısından yapılmış bir <strong>SR latch</strong> hatırlar.</p>
+    <p>Bu desene <strong>durum makinesi</strong> denir: durum flip-flop'larda, kurallar kapılarda. Asansörler ve işlemcilerin denetim birimi de böyle çalışır.</p>
+    <p class="formula">D1 = Q0 · D0 = Q1' + Q0·W'</p>
+    <details class="more"><summary>Daha fazla: tasarım adımları</summary>
+      <p><b>1. Durumları kodla.</b> 00 kırmızı, 01 kırmızı + sarı, 11 yeşil, 10 sarı. Bu sıra bir <strong>Gray kodu</strong>dur: her geçişte yalnız bir bit değişir.</p>
+      <p><b>2. Durum tablosunu yaz, sonraki durumu çıkar.</b> Tablodan Q1'in sonraki değerinin her durumda Q0'a eşit olduğu görülür: D1 = Q0. Q0'ın sonraki değeri kırmızı ve kırmızı + sarıda 1, sarıda 0; yeşilde ise istek yoksa 1, varsa 0. Karnaugh haritasıyla D0 = Q1' + Q0·W' bulunur.</p>
+      <p><b>3. Çıkışları çöz.</b> Kırmızı = Q1', sarı = Q1 ⊕ Q0, yeşil = Q1·Q0, yaya yeşili = (Q1 + Q0)'. Lambalar yalnız duruma bağlı olduğu için bu bir <strong>Moore makinesi</strong>dir.</p>
+      <p>Gerçek kavşak denetleyicilerinde her durum farklı sürer: kırmızı uzun, sarı kısadır. Bunun için durum makinesine bir sayaç eklenir; sayaç dolunca bir sonraki duruma geçilir. Burada her durum bir saat periyodu sürer.</p>
+      <p>Işıkların anlamı: Trafik İşaretleri Hakkında Yönetmelik, Madde 9 ("Kırmızı ışıkla birlikte yanması, yolun trafiğe açılmak üzere olduğunu bildirir").</p>
+    </details>
+    <p class="try">Yeşil yanarken "Yaya düğmesi"ne basın: W isteği yanar, sonraki saat darbesinde sarıya geçilir. Diyagramı ve tabloda parlayan satırı izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce durum diyagramını gösterin: dört daire, oklar saat darbesiyle. Yeşildeki kendi üzerine dönen ok "istek yok" demek.</li>
+    <li>Soru: "Düğmeye basıp hemen bıraksam, lamba bunu nasıl hatırlar?" Cevap: SR latch (önceki slayt). Şemada W' ve W tellerini gösterin.</li>
+    <li>Gray kodu: her geçişte tek bit değiştiği için geçiş anında ara bir yanlış durum oluşmaz.</li>
+    <li>Tablodaki "Sonraki" sütunu kapı denklemlerinden hesaplanıyor; şemadaki flip-flop'lar da aynı değerleri yakalıyor.</li>
+    <li>Yönetmelik: Trafik İşaretleri Hakkında Yönetmelik, Madde 9, ışıklı işaretlerin anlamı.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="13" data-demo="c13b555" id="saat-555" data-model="basit">
+  <div class="text">
+    <h2>Saat sinyali: 555 zamanlayıcı</h2>
+    <p class="lead">Flip-flop'ları adım adım ilerleten şey saattir. En ünlü saat üreteci, 1971'de tasarlanan ve hâlâ üretilen 555 yongasıdır.</p>
+    <p><a href="#kapak">Kapaktaki</a> iki transistörlü devre de bir saatti: kendi kendine gidip gelen bir <strong>astable multivibratör</strong>. 555 aynı işi tek yongayla, daha kararlı yapar. İçinde iki <strong>karşılaştırıcı</strong> ve bir SR flip-flop var.</p>
+    <p>Kondansatör RA ve RB üzerinden dolar. Gerilimi ⅔ Vcc'ye ulaşınca flip-flop sıfırlanır: çıkış 0 olur, deşarj transistörü açılır ve kondansatör yalnız RB üzerinden boşalır. ⅓ Vcc'ye inince flip-flop kurulur, çıkış 1 olur ve döngü baştan başlar.</p>
+    <p>Eşikler beslemenin oranı olduğu için frekans besleme gerilimine neredeyse bağlı değildir.</p>
+    <p class="formula">f ≈ 1,44 / ((RA + 2·RB) · C)</p>
+    <details class="more"><summary>Daha fazla: formül, model ve tarihçe</summary>
+      <p>Kondansatör ⅓'ten ⅔'e dolarken hedefi Vcc'dir; aradaki süre ln 2 · τ olur. Bu yüzden t<sub>yüksek</sub> = 0,693 · (RA + RB) · C ve t<sub>düşük</sub> = 0,693 · RB · C. Periyot T = 0,693 · (RA + 2·RB) · C, frekans f = 1/T ≈ 1,44 / ((RA + 2·RB) · C). Görev oranı (çıkışın 1 olduğu pay) = (RA + RB) / (RA + 2·RB); her zaman %50'den büyüktür, çünkü dolma RA + RB, boşalma yalnız RB üzerinden olur. RB'ye paralel bir diyotla dolma yolu RB'yi atlar ve %50'nin altına inilebilir.</p>
+      <p><b>Benzetim modeli (basitleştirilmiş):</b> RA, RB, C, LED, yonganın içindeki 3 × 5 kΩ bölücü, deşarj transistörü ve çıkış katı devre çözücüde gerçekten çözülür; transistör ve çıkış katı anahtar olarak modellenir. Karşılaştırıcılar ve flip-flop ideal kabul edilir: her zaman adımında 6, 2 ve 5 numaralı bacakların gerilimine bakılıp anahtarlar kurulur. Hızlı salınımlar ekranda yavaşlatılarak gösterilir; ölçülen frekans benzetim zamanına göredir. Ölçülen değerin formülden küçük farkı anahtarların direncinden ve sayısal adımdan gelir.</p>
+      <p>5. bacak (CTRL) eşik bölücüsünün ⅔ noktasıdır; gürültüye karşı 10 nF ile toprağa bağlanır. 4. bacak (RESET) 0,7 V'un altına çekilirse çıkış 0 olur; burada beslemeye bağlı.</p>
+      <p>555'i Hans Camenzind, Signetics şirketi için 1971'de tasarladı. Bugün de pek çok üretici tarafından üretiliyor.</p>
+    </details>
+    <p class="try">"İç yapı"ya basıp karşılaştırıcıları ve flip-flop'u canlı izleyin. Sonra RB'yi ve C'yi değiştirin; ölçülen frekansı formülle karşılaştırın. Beslemeyi değiştirince frekans neredeyse aynı kalır.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Kapağa dönüş: iki transistörlü astable da aynı ilke, kondansatörün dolup boşalmasıyla zamanı ölçer. 555 bunu karşılaştırıcılarla daha kararlı yapar.</li>
+    <li>Osiloskopta sarı iz kondansatör: testere değil, iki üstel parçadan oluşan bir dalga; iki kesikli çizgi arasında kalıyor. Mavi iz çıkış: kare dalga, flip-flop'lar için saat.</li>
+    <li>Soru: "Besleme 5 V'tan 12 V'a çıkınca frekans neden değişmiyor?" Cevap: eşikler de aynı oranda büyüyor.</li>
+    <li>Soru: "Görev oranını %50'nin altına indirebilir miyiz?" Bu devreyle hayır; RB'ye paralel diyotla evet (Daha fazla).</li>
+    <li>Model basitleştirilmiş: karşılaştırıcı ve flip-flop ideal, gerçek 555 çıkışı beslemeden 1–2 V aşağıda kalır (bipolar NE555).</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="14" data-demo="c14cpu" id="mini-bilgisayar">
+  <div class="text">
+    <h2>Yapı taşlarından bilgisayara</h2>
+    <p class="lead">Sayaç, yazmaçlar, toplayıcı, bellek ve saat. Hepsini tek bir hatta bağlayın: program çalıştıran bir bilgisayar elde edersiniz.</p>
+    <p>Deneydeki 8 bitlik bilgisayar, ders kitaplarındaki SAP-1'in ("olabildiğince basit") bir benzeri. Her blok önceki bir slayttan:</p>
+    <ul>
+      <li><strong>Program sayacı</strong> bir <a href="#sayac">sayaç</a>: sıradaki komutun adresini tutar.</li>
+      <li><strong>Yazmaçlar</strong> yan yana <a href="#d-flipflop">D flip-flop'lar</a>.</li>
+      <li><strong>ALU</strong>, art arda iki <a href="#dort-bit-toplayici">4 bitlik toplayıcı</a>.</li>
+      <li><strong>Denetim birimi</strong> bir <a href="#mux-kod-cozucu">kod çözücü</a>: hangi bloğun konuşacağını seçer.</li>
+      <li><a href="#saat-555">Saat</a> hepsini birlikte ilerletir.</li>
+    </ul>
+    <p>Bloklar tek bir ortak hattı, <strong>veri yolunu</strong> paylaşır: her saat vuruşunda bir blok yazar, bir başkası okur. Her komut önce bellekten <strong>getirilir</strong> (T0, T1), sonra <strong>yürütülür</strong>. Bellekteki bir bayt ya komuttur (üst 4 bit işlem, alt 4 bit adres) ya da sayı.</p>
+    <details class="more"><summary>Daha fazla: komutlar, von Neumann, gerçek işlemciler</summary>
+      <p>Komutlar: <span class="mono">LDA x</span> (A ← Bellek[x]), <span class="mono">ADD x</span> (A ← A + Bellek[x]), <span class="mono">SUB x</span>, <span class="mono">STA x</span> (Bellek[x] ← A), <span class="mono">JMP x</span> (x'e atla), <span class="mono">JC x</span> (elde varsa atla), <span class="mono">OUT</span>, <span class="mono">HLT</span>. Kodlar Ben Eater'ın breadboard bilgisayarındakiyle aynı: LDA = 0001, ADD = 0010, SUB = 0011, STA = 0100, JMP = 0110, JC = 0111, OUT = 1110, HLT = 1111.</p>
+      <p>Çıkarma için ayrı bir devre yok. A − B = A + (B'nin bitleri ters) + 1 (ikiye tümleyen). SU sinyali B'nin bitlerini XOR kapılarıyla ters çevirir ve toplayıcının elde girişine 1 verir. 8 bit 0–255 arasını tutar; sonuç taşarsa elde bayrağı C = 1 olur. Fibonacci programı bu bayrağa bakıp (JC) 233'ten sonra durur, çünkü 144 + 233 = 377 sığmaz.</p>
+      <p>Program ve veri aynı bellekte durur: buna <strong>von Neumann mimarisi</strong> denir. Getir–çöz–yürüt döngüsü bugünkü işlemcilerde de aynıdır. Farkları ölçek: milyarlarca transistör (<a href="#cmos-nand">CMOS NAND</a>), 64 bitlik yazmaçlar, gigahertz düzeyinde saat ve aynı anda birkaç komutu farklı aşamalarda işleyen ardışık düzen (pipeline).</p>
+      <p>Kaynaklar: SAP-1, Albert Paul Malvino'nun <em>Digital Computer Electronics</em> kitabından; Ben Eater'ın "8-bit breadboard computer" video dizisi (eater.net/8bit).</p>
+    </details>
+    <p class="try">Adım'a iki kez basın: ilk komut getirilirken değer veri yolunda yürür. Sonra Çalıştır. 15. adresin bitlerine tıklayıp 3'ü değiştirin; 1. adresteki 0010'u (ADD) 0011 (SUB) yapın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce "5 + 3" programı: T0'da PC → MAR, T1'de RAM → IR ve PC artar. Bu iki adım her komutta aynı; "getir" kısmı.</li>
+    <li>Veri yolu kimse yazmıyorken kesikli gri: Z, yüksek empedans. Aynı anda iki blok yazarsa kısa devre olurdu; denetim birimi her vuruşta yalnız bir kaynak seçer.</li>
+    <li>Soru: "Program sayacı neden 4 bit?" (16 bellek adresi var: 2⁴ = 16.)</li>
+    <li>"Say" programı 255'ten sonra 0'a döner: 8 bitin sınırı. Fibonacci 1, 1, 2, 3, 5, … 233 yazar ve taşmada JC ile durur.</li>
+    <li>ALU'daki toplam, mantık benzetimindeki 8 tam toplayıcıdan geliyor; elle yazılmış bir "+" değil.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="14" data-demo="c14mcu" id="mikrodenetleyici" data-model="basit">
+  <div class="text">
+    <h2>Mikrodenetleyici</h2>
+    <p class="lead">Arduino kartındaki küçük siyah yonga, önceki slayttaki bilgisayarın hepsini taşır: işlemci, bellek, saat ve dış dünyaya açılan pinler.</p>
+    <p>Arduino Uno'nun kalbi <strong>ATmega328P</strong> mikrodenetleyicisidir: 8 bitlik bir işlemci, programın durduğu 32 KB flaş bellek, 2 KB RAM ve 16 MHz'lik bir saat. Pinleri 5 V ile çalışır.</p>
+    <p>Yazdığınız kod derlenip flaş belleğe yüklenir. İşlemci onu, mini bilgisayardaki gibi komut komut getirip yürütür. <span class="mono">digitalWrite(13, HIGH)</span> bir yazmacın tek bir bitini 1 yapar. O bit pinin <strong>çıkış katını</strong> sürer: bir PMOS ve bir NMOS'tan oluşan bir <a href="#cmos-evirici">CMOS evirici</a>. Kodla yanan LED'in arkasında, bu sitede gördüğümüz transistörler var.</p>
+    <p>Pin bir güç kaynağı değildir. ATmega328P'de pin başına mutlak sınır 40 mA, önerilen 20 mA civarı. LED'e bu yüzden <a href="#led-direnci">seri direnç</a> koyarız; motor gibi büyük yükleri bir <a href="#bjt-anahtar">transistörle</a> süreriz.</p>
+    <details class="more"><summary>Daha fazla: PWM, hız ve model</summary>
+      <p><span class="mono">analogWrite</span> gerçek bir analog gerilim üretmez, <a href="#pwm">PWM</a> üretir: pin çok hızlı açılıp kapanır, göz ortalamayı görür. Uno'da yalnız 3, 5, 6, 9, 10 ve 11 numaralı pinler PWM verebilir; 13. pin veremez. 9. pinde frekans yaklaşık 490 Hz'dir (5 ve 6'da yaklaşık 980 Hz).</p>
+      <p>16 MHz'te bir saat çevrimi 62,5 ns sürer. ATmega328P komutlarının çoğu tek çevrimde biter; ama <span class="mono">digitalWrite</span> işlevi pin numarasını çözdüğü için birkaç mikrosaniye sürer. Deneyde bu yüzden yalnız <span class="mono">delay</span> satırları zaman alır.</p>
+      <p>Kartın üstündeki "L" LED'i de 13. pine bağlıdır (Uno R3'te arada bir tampon opamp var). Deneyde pini 5 V'luk, 25 Ω iç dirençli bir kaynak olarak modelledik: veri kitapçığına göre 20 mA çekilirken pin gerilimi en az 4,2 V kalır. Çıkış katındaki MOSFET'ler bu açık direnci verecek şekilde basitleştirildi.</p>
+    </details>
+    <p class="try">Yanık ve sönük kalma sürelerini kısaltın: koddaki delay sayıları değişir. "Pinin içine bak" ile hangi transistörün açık olduğunu izleyin. Seri direnci 47 Ω'a indirip pin akımı uyarısına bakın; sonra "Yavaşça parlama"yı seçin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Satır vurgusu: delay satırında bekler, diğer satırlar anında geçer (gerçek kartta mikrosaniyeler).</li>
+    <li>"Pinin içi" görünümünde HIGH = iç sinyal 0 = PMOS açık. Evirici olduğu için iç sinyal ters. Akım 5 V'tan PMOS üzerinden pine akıyor; LOW'da pin NMOS ile toprağa bağlanıyor.</li>
+    <li>Soru: "13. pine 47 Ω ile LED bağlarsak ne olur?" (≈ 40 mA: mutlak sınır. Pin bir süre dayanabilir ama yonga zarar görebilir.)</li>
+    <li>Yavaşça parlama 9. pinde, çünkü 13. pin PWM veremez. Ekrandaki LED kare kare açılıp kapanıyor; gerçek pin 490 Hz'de.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="14" data-demo="c14safe" id="guvenlik">
+  <div class="text">
+    <h2>Güvenlik</h2>
+    <p class="lead">Bu sitedeki deneyler birkaç voltluktur ve zararsızdır. İki istisnayı bilin: priz ve kısa devre edilen pil.</p>
+    <p><strong>Şebeke gerilimi öldürür.</strong> Türkiye'de prizde 230 V, 50 Hz alternatif gerilim var. Elden ele, göğüsten geçen birkaç on miliamper kalbin ritmini bozabilir. Aynı vücut direncinde akım gerilimle orantılıdır: 5 V'luk USB'ye kuru elle dokunmak hissedilmez bile.</p>
+    <p><strong>Kısa devre edilen pil yangın çıkarabilir.</strong> Uçlar bir telle birleşince akımı yalnız pilin küçük <strong>iç direnci</strong> sınırlar. Lityum iyon hücrede bu onlarca amper, pilin içinde yüzlerce watt ısı demektir; hücre <strong>termal kaçağa</strong> girip alev alabilir. <strong>Sigorta</strong> bunun için var.</p>
+    <ul>
+      <li>Şebekeyle eğitimsiz çalışmayın; prize bağlı cihazın içini açmayın.</li>
+      <li>Deneyleri pil, USB ya da hazır adaptörle yapın.</li>
+      <li>Devreyi değiştirirken beslemeyi ayırın.</li>
+      <li>Li-ion pili metal eşyayla taşımayın; ısınan ya da şişen pili hemen ayırın.</li>
+    </ul>
+    <details class="more"><summary>Daha fazla: vücut direnci, eşikler ve modeller</summary>
+      <p>IEC 60479-1'e göre elden ele vücut empedansı gerilime ve temasa bağlıdır. Düşük gerilimde kuru deri ve küçük temasla yüz kiloohm düzeyine çıkabilir; 230 V'ta deri kısa sürede delinir ve geniş temasta 1–2 kΩ civarına iner.</p>
+      <p>50 Hz AC için kabaca: 0,5 mA civarı algılama eşiği, 10 mA civarı "bırakabilme" sınırı; 30 mA'in üstünde kalp ritmi bozulabilir (ventriküler fibrilasyon). Ev tesisatlarında 30 mA'lik kaçak akım rölesi bu yüzden kullanılır. DC'de eşikler daha yüksektir; deneyde karşılaştırma için AC eşiklerini kullandık, şebekeyi etkin (RMS) değeriyle çözdük.</p>
+      <p>Pil modelleri yaklaşıktır: 18650 Li-ion 3,7 V ve 0,05 Ω (yüksek akımlı hücrelerde daha da düşük), AA alkalin 1,5 V ve ≈ 0,15 Ω, 9 V alkalin ≈ 1,5 Ω. Gerçek kısa devrede gerilim ve iç direnç zamanla değişir. Sıcaklık tahmini kabadır: ısı kapasitesi ≈ 1 J/(g·K), çevreye ısı kaybı yaklaşık 2 dakikalık zaman sabitiyle. Birçok Li-ion hücrede ya da pil paketinde koruma devresi bulunur, ama buna güvenmeyin.</p>
+    </details>
+    <p class="try">"Kısa devre yap"a basın: sigorta atar. "Sigorta yok"u seçip akımı ve termometreyi izleyin; AA ve 9 V pille karşılaştırın. Sonra "Vücut direnci"nde kaynağı şebekeye çevirin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Korkutmadan: bu sitedeki her şey düşük gerilim. Tehlike iki yerde: priz ve enerji yoğun piller.</li>
+    <li>Li-ion kısa devresi: akım onlarca amper; ısının çoğu pilin kendi içinde (I² · R iç). 9 V pilde iç direnç büyük, akım birkaç amper.</li>
+    <li>Soru: "Neden kuşlar yüksek gerilim hattında çarpılmaz?" (Vücutlarından akım geçecek bir gerilim farkı yok; tek tele basıyorlar.)</li>
+    <li>Vücut direnci kaydırıcısı: kuru deri 100 kΩ civarı, ıslak deri 1 kΩ civarı. 230 V'ta 1 kΩ: 230 mA, ölümcül bölgenin çok üstü.</li>
+    <li>Kaynak: IEC 60479-1 (akımın insan vücudu üzerindeki etkileri).</li>
+  </ul></aside>
+</section>
+
+<section class="slide center cover" data-chapter="14" data-demo="cover" data-variant="outro" id="son" data-title="Kapanış">
+  <div class="stage bare"></div>
+  <div class="cover-text">
+    <h2 style="font-size:clamp(2.4rem,5vw,4.6rem)">Bir elektrondan<br>bir bilgisayara</h2>
+    <p>Bir elektronun itilmesiyle başladık: gerilim, akım, direnç. Transistörü bir anahtara, anahtarları kapılara, kapıları toplayıcıya ve hafızaya çevirdik; sonunda hepsi program çalıştıran bir bilgisayar oldu. Artık koda uyan bir LED'in arkasında ne olduğunu, en alttaki transistöre kadar biliyorsunuz.</p>
+    <p class="c14-sites-h">Aynı yolla, oynayarak öğrenmek için:</p>
+    <div class="cover-meta c14-sites">
+      <a href="https://yz.koraytoksoz.com" target="_blank" rel="noopener"><b>Nörondan Dil Modeline</b><span>yapay zekâ</span></a>
+      <a href="https://sdr.koraytoksoz.com" target="_blank" rel="noopener"><b>Dalgadan Sayıya</b><span>yazılım tanımlı radyo</span></a>
+      <a href="https://anten.koraytoksoz.com" target="_blank" rel="noopener"><b>Kablodan Boşluğa</b><span>antenler</span></a>
+      <a href="https://muzik.koraytoksoz.com" target="_blank" rel="noopener"><b>Titreşimden Şarkıya</b><span>müzik ve ses</span></a>
+    </div>
+    <div class="cover-meta">
+      <a class="gh-link" href="https://github.com/ktoksoz/elektrondan-bilgisayara" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>Kaynak kodu GitHub'da</span></a>
+      <a class="lic" href="https://creativecommons.org/licenses/by/4.0/deed.tr" target="_blank" rel="license noopener" title="İçerik: Creative Commons Atıf 4.0">
+        <img src="img/cc-cc.svg" alt="Creative Commons" width="21" height="21"><img src="img/cc-by.svg" alt="Atıf" width="21" height="21">
+        <span>İçerik CC BY 4.0 · Kod MIT</span>
+      </a>
+    </div>
+    <p class="license">© 2026 Koray Toksöz</p>
+  </div>
+  <aside class="notes"><ul><li>Kapanış: yolculuğu tek cümlede özetleyin (elektron → transistör → kapı → hafıza → bilgisayar).</li><li>Kardeş siteler aynı yapıda: yapay zekâ, SDR, antenler, müzik. Hepsi tarayıcıda, oynayarak.</li></ul></aside>
+</section>
+
+<!--SLAYTLAR:SON-->
+
+</main>
+
+<div id="notes" role="dialog" aria-label="Sunucu notları"></div>
+<div id="overview" role="dialog" aria-label="Tüm slaytlar"></div>
+
+<nav id="bar" aria-label="Slayt gezinmesi">
+  <div class="chapter-name"></div>
+  <button class="iconbtn" id="btn-prev" aria-label="Önceki slayt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <div id="progress"></div>
+  <button class="iconbtn" id="btn-next" aria-label="Sonraki slayt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+  <span class="counter"></span>
+  <button class="iconbtn" id="btn-voice" aria-label="Sesli anlatım (A)" title="Sesli anlatım (A)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10v4h4l5 4V6L8 10z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button>
+  <button class="iconbtn" id="btn-text" aria-label="Açıklama metnini gizle (T)" title="Metni gizle (T)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h10M4 10h10M4 14h7M18 5v14"/></svg></button>
+  <button class="iconbtn" id="btn-notes" aria-label="Sunucu notları (N)" title="Sunucu notları (N)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l3 3v15H6z"/><path d="M9 11h6M9 15h6"/></svg></button>
+  <button class="iconbtn" id="btn-overview" aria-label="Tüm slaytlar (O)" title="Tüm slaytlar (O)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg></button>
+</nav>
+
+<script src="js/strings.js?v=1"></script>
+<script src="js/circuit.js?v=1"></script>
+<script src="js/logic.js?v=1"></script>
+<script src="js/lib.js?v=1"></script>
+<script src="js/schematic.js?v=1"></script>
+<script src="js/scope.js?v=1"></script>
+<!--BETİKLER:BAŞ-->
+<script src="js/circuits/ch01.js?v=1"></script>
+<script src="js/circuits/ch03.js?v=1"></script>
+<script src="js/circuits/ch04.js?v=1"></script>
+<script src="js/circuits/ch05.js?v=1"></script>
+<script src="js/circuits/ch06.js?v=1"></script>
+<script src="js/circuits/ch08.js?v=1"></script>
+<script src="js/circuits/ch09.js?v=1"></script>
+<script src="js/circuits/ch10.js?v=1"></script>
+<script src="js/circuits/ch11.js?v=1"></script>
+<script src="js/circuits/ch12.js?v=1"></script>
+<script src="js/circuits/ch13.js?v=1"></script>
+<script src="js/circuits/ch13b.js?v=1"></script>
+<script src="js/circuits/ch14.js?v=1"></script>
+<script src="js/circuits/giris.js?v=1"></script>
+<script src="js/demos/ch01.js?v=1"></script>
+<script src="js/demos/ch03.js?v=1"></script>
+<script src="js/demos/ch04.js?v=1"></script>
+<script src="js/demos/ch05.js?v=1"></script>
+<script src="js/demos/ch06.js?v=1"></script>
+<script src="js/demos/ch08.js?v=1"></script>
+<script src="js/demos/ch09.js?v=1"></script>
+<script src="js/demos/ch10.js?v=1"></script>
+<script src="js/demos/ch11.js?v=1"></script>
+<script src="js/demos/ch12.js?v=1"></script>
+<script src="js/demos/ch13.js?v=1"></script>
+<script src="js/demos/ch13b.js?v=1"></script>
+<script src="js/demos/ch14.js?v=1"></script>
+<script src="js/demos/giris.js?v=1"></script>
+<!--BETİKLER:SON-->
+<script src="js/glossary.js?v=1"></script>
+<script src="js/app.js?v=1"></script>
+<script src="js/narrator.js?v=1"></script>
+<script src="js/guide.js?v=1"></script>
+</body>
+</html>

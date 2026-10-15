@@ -1,0 +1,23 @@
+<section class="slide" data-chapter="5" data-demo="c5iv" id="diyot-iv" data-model="basit">
+  <div class="text">
+    <h2>Diyotun akım–gerilim eğrisi</h2>
+    <p class="lead">Diyot bir direnç gibi davranmaz: 0,6 V civarına kadar neredeyse hiç akım geçirmez, sonra kapıyı ardına kadar açar.</p>
+    <p>Grafikteki eğri, çözücünün diyotuna her gerilim tek tek uygulanarak çizildi. Silisyum diyotta akım <strong>üstel</strong> büyür: gerilimdeki her 60 mV'luk artış akımı yaklaşık on katına çıkarır. Bu yüzden iletimdeki bir diyotun gerilimi 0,6–0,7 V civarında neredeyse sabit kalır; akımı devredeki direnç belirler.</p>
+    <p>Ters yönde akım çok küçüktür. Doğrusal eksende sıfırdan ayırt edilemez; <strong>logaritmik</strong> eksene geçince görünür. Logaritmik eksende üstel bölge düz bir çizgiye dönüşür.</p>
+    <p><strong>Schottky diyot</strong> bir metal–yarı iletken eklemidir. Eşiği 0,2–0,4 V civarındadır ama ters kaçağı daha büyüktür.</p>
+    <details class="more"><summary>Daha fazla: Shockley denklemi</summary>
+      <p class="formula">I = I<sub>s</sub> · (e<sup>V/(n·V<sub>T</sub>)</sup> − 1)</p>
+      <p>I<sub>s</sub> doyma akımıdır (modeldeki silisyum diyotta 10 fA), n ideallik faktörüdür (1 ile 2 arası), V<sub>T</sub> = kT/q ısıl gerilimdir: 300 K'de ≈ 25,85 mV. Akımı on katına çıkarmak için n · V<sub>T</sub> · ln 10 ≈ 59,5 mV gerekir (n = 1).</p>
+      <p>"Shockley ile" göstergesi bu formülü devrede ölçülen gerilimle hesaplar; çözücünün bulduğu akımla karşılaştırın. Kesikli doğru <strong>yük doğrusudur</strong>: I = (V<sub>kaynak</sub> − V<sub>D</sub>) / R. Çalışma noktası, diyot eğrisinin bu doğruyla kesiştiği yerdir.</p>
+      <p>Gerçek diyotlarda ters sızıntı çoğunlukla nanoamper düzeyindedir ve belirli bir ters gerilimde kırılma olur; bu basitleştirilmiş model ikisini de içermez.</p>
+    </details>
+    <p class="try">Kaynak gerilimini yavaşça artırın: nokta 0,6 V civarında neredeyse dik tırmanır. Sonra "Logaritmik" eksene geçip ters yöndeki küçük akıma bakın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Voltmetre diyotun uçlarında, ampermetre yalnız diyot kolunda: grafikteki nokta bu iki okumadır.</li>
+    <li>Kaynağı 2 V'tan 10 V'a çıkarın: akım beş kattan fazla artar, diyot gerilimi ise yalnızca ~0,1 V değişir.</li>
+    <li>Soru: Diyotu doğrudan 5 V'luk bir pile bağlasak ne olur? (Akımı sınırlayan bir şey yok; diyot yanar. Seri direnç şart.)</li>
+    <li>Schottky'yi seçip iki eğriyi karşılaştırın: düşük eşik, daha büyük ters kaçak.</li>
+  </ul></aside>
+</section>

@@ -1,0 +1,24 @@
+<section class="slide" data-chapter="11" data-demo="c11Minterm" id="minterm">
+  <div class="text">
+    <h2>Doğruluk tablosundan ifadeye</h2>
+    <p class="lead">Doğruluk tablosu devreyi kurmak için gereken her şeyi zaten söyler: çıkışın 1 olduğu her satır bir VE kapısı demektir.</p>
+    <p>Üç girişli bir devrenin (A, B, C) 8 olası girişi vardır. Doğruluk tablosu her biri için çıkışın 0 mı 1 mi olacağını yazar.</p>
+    <p>Çıkışın 1 olduğu her satır için o satırı, yalnız onu tanıyan bir VE terimi yazılır: 1 olan giriş olduğu gibi (A), 0 olan girişin tersi (A') alınır. A = 0, B = 1, C = 1 satırının terimi <b class="mono">A'BC</b>'dir; yalnız bu girişte 1 olur. Bu terimlere <strong>minterm</strong> denir.</p>
+    <p>Mintermler VEYA ile birleşince ifade hazırdır: <strong>çarpımların toplamı</strong> (SOP, sum of products). Bu <strong>kanonik</strong> biçim her zaman doğrudur, ama uzundur: her yeni 1 satırı devreye bir VE kapısı daha ekler.</p>
+    <p>Bunu kısaltabilir miyiz? Evet; nasıl yapılacağını <a href="#karnaugh">Karnaugh haritası</a> gösterecek.</p>
+    <details class="more"><summary>Daha fazla: yazım, sayılar ve POS</summary>
+      <p>A' yerine Ā ya da ¬A de yazılır; hepsi "A değil" demektir. Çarpım (·) VE, toplam (+) VEYA'dır: A'BC = A'·B·C.</p>
+      <p>Mintermler satır numarasıyla da anılır: A'BC = 011 = m<sub>3</sub>. Çoğunluk fonksiyonu kısaca Y = Σm(3, 5, 6, 7) diye yazılır.</p>
+      <p>Aynı tablo 0 satırlarından da kurulabilir: her 0 satırı için bir VEYA terimi (maxterm), hepsinin VE'si. Buna toplamların çarpımı (POS) denir.</p>
+      <p>n girişli bir tablonun 2<sup>n</sup> satırı, her satırın iki olası çıkışı vardır. Bu yüzden 3 girişle 2<sup>8</sup> = 256 farklı fonksiyon yazılabilir; her birinin kanonik SOP'u tektir.</p>
+    </details>
+    <p class="try">Doğruluk tablosunun Y sütunundaki değerlere tıklayın. Her 1 satırının mintermini, ifadenin uzamasını ve devreye yeni bir VE kapısı eklendiğini izleyin. Sonra devredeki A, B, C girişlerine tıklayıp çıkışın tablodaki satırla aynı olduğunu görün.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Çoğunluk fonksiyonuyla başlayın: "Üç oydan en az ikisi evet ise sonuç evet." Tabloda dört 1 var, devrede dört VE kapısı.</li>
+    <li>Bir mintermi gösterin: A'BC yalnız 011 satırında 1 olur; başka hiçbir girişte değil. Renkler tablo satırı, ifadedeki terim ve devredeki kapı arasında aynı.</li>
+    <li>"Hepsi 0"a basıp tek tek 1 ekleyin: kapı sayısı ve kapı girişi sayısı büyüyor. Soru: "8 satırın hepsi 1 olursa kaç kapı?" (3 DEĞİL + 8 VE + 1 VEYA; oysa Y = 1 hiç kapı istemez.)</li>
+    <li>Alttaki öneri satırı en basit hâlini Quine–McCluskey ile hesaplıyor; nasıl bulunduğu bir sonraki slaytta.</li>
+  </ul></aside>
+</section>

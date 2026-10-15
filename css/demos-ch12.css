@@ -1,0 +1,106 @@
+/* 12. bölüm: kombinasyonel devreler */
+
+/* ortak */
+.c12-layer { position: absolute; inset: 0; }
+.c12-panel { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.c12-ptitle { font-family: var(--f-display); font-stretch: 85%; font-size: 0.75rem; color: var(--muted); }
+.c12-note { margin: 2px 0 0; font-family: var(--f-display); font-stretch: 92%; font-size: 0.86rem; color: var(--silk-2); line-height: 1.4; }
+.c12-note b { color: var(--copper-2); font-family: var(--f-mono); font-weight: 700; font-size: 0.95rem; }
+.c12-btns { display: inline-flex; gap: 8px; flex-wrap: wrap; }
+.c12-tog { font-family: var(--f-mono); min-width: 4.6em; }
+.c12-bit { font-family: var(--f-mono); font-weight: 700; font-variant-numeric: tabular-nums; }
+.c12-bit.b1 { color: var(--v1); }
+.c12-bit.b0 { color: var(--v0); }
+.c12-bit.bx { color: var(--muted); }
+table.truth.c12-tt td, table.truth.c12-tt th { padding: 3px 9px; }
+table.truth.c12-tt .c12-sep { width: 0; padding: 0 2px; border-left: 1px solid var(--line); }
+table.truth.c12-tt td.c12-dec { color: var(--copper-2); }
+table.truth.c12-tt td.c12-fn { color: var(--silk-2); text-align: left; font-size: 0.82rem; }
+table.truth.c12-tt8 td, table.truth.c12-tt8 th { padding: 1px 9px; font-size: 0.82rem; }
+
+/* 1) yarım ve tam toplayıcı */
+.c12-s1 { grid-template-rows: minmax(0, 1fr) auto; }
+.c12-bottom { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px 28px; align-items: start; }
+.c12-hand {
+  display: grid; grid-template-columns: 26px 40px 40px auto; align-items: end; justify-content: start;
+  font-family: var(--f-mono); font-size: 1.6rem; line-height: 1.15; column-gap: 0;
+}
+.c12-hc { display: flex; flex-direction: column; align-items: center; min-height: 1.2em; justify-content: flex-end; }
+.c12-hc small { font-family: var(--f-display); font-size: 0.66rem; color: var(--muted); font-weight: 600; line-height: 1; margin-top: 2px; }
+.c12-hc.c12-hl { align-items: flex-start; padding-left: 10px; font-family: var(--f-display); font-size: 0.8rem; color: var(--muted); justify-content: center; }
+.c12-hc.c12-carry { font-size: 1rem; }
+.c12-hc.c12-carry .c12-bit { color: var(--copper-2); }
+.c12-hc.c12-carry small { color: var(--copper); }
+.c12-plus { color: var(--silk-2); align-items: flex-start; }
+.c12-rule { grid-column: 1 / -1; width: 112px; height: 0; border-top: 2px solid var(--silk-2); margin: 4px 0 4px; }
+.c12-hc.c12-res .c12-bit { font-size: 1.85rem; }
+
+/* 2) 4 bitlik toplayıcı */
+.c12-s2 { grid-template-rows: minmax(0, 0.9fr) minmax(270px, 1.1fr); }
+.c12-row2 { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(250px, 1fr); gap: 14px; min-height: 0; }
+.c12-la { display: flex; flex-direction: column; padding-top: 22px; }
+.c12-la .pane-title { top: 2px; left: 2px; }
+.c12-side { display: flex; flex-direction: column; gap: 10px; min-width: 0; min-height: 0; }
+.c12-side .meters { gap: 6px 8px; }
+.c12-side .meter { min-width: 0; flex: 1 1 0; }
+.c12-side .meter b { font-size: 1.15rem; }
+.c12-unit { font-family: var(--f-display); font-stretch: 88%; font-size: 0.74rem; margin-left: 6px; opacity: 0.8; }
+.c12-gl { font-family: var(--f-mono); font-size: 0.72rem; padding: 0 7px; }
+.c12-seqhead { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.c12-sum {
+  display: grid; grid-template-columns: auto 18px repeat(5, 24px) auto; align-items: center; justify-content: start;
+  font-family: var(--f-mono); font-size: 1.22rem; line-height: 1.25; row-gap: 1px;
+  transition: opacity 0.2s;
+}
+.c12-sum > span { text-align: center; }
+.c12-sum .c12-sl { text-align: left; font-family: var(--f-display); font-stretch: 90%; font-size: 0.78rem; color: var(--muted); padding-right: 10px; }
+.c12-sum .c12-cy { font-size: 0.82rem; }
+.c12-sum .c12-cy .c12-bit.b1 { color: var(--copper-2); }
+.c12-sum .c12-cy .c12-bit.b0 { color: rgba(212, 147, 90, 0.5); }
+.c12-sum .c12-sd { text-align: left; padding-left: 12px; font-size: 0.95rem; color: var(--silk-2); white-space: nowrap; }
+.c12-sum .c12-sdR { color: var(--copper-2); font-weight: 700; }
+.c12-sum .c12-plus { text-align: center; }
+.c12-rule2 { grid-column: span 6; height: 0; border-top: 2px solid var(--silk-2); margin: 3px 0; }
+.c12-sum.busy .c12-sdR { color: var(--muted); }
+.c12-strow { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; margin-top: 4px; }
+.c12-status { font-family: var(--f-display); font-weight: 700; font-stretch: 92%; font-size: 0.84rem; padding: 2px 10px; border-radius: 5px; border: 1.5px solid; }
+.c12-status.ok { color: #b9cdff; border-color: rgba(76, 134, 255, 0.6); background: rgba(76, 134, 255, 0.12); }
+.c12-status.busy { color: var(--copper-2); border-color: var(--copper); background: rgba(212, 147, 90, 0.14); }
+.c12-flag { font-size: 0.8rem; }
+.c12-seq { margin: 0; font-family: var(--f-mono); font-size: 0.95rem; display: flex; flex-wrap: wrap; gap: 2px 6px; align-items: baseline; }
+.c12-seq .c12-arr { color: var(--muted); font-size: 0.8rem; }
+.c12-seq .c12-ini { color: var(--silk-2); }
+.c12-seq .c12-mid { color: var(--heat); }
+.c12-seq .c12-fin { color: var(--copper-2); font-weight: 800; font-size: 1.08rem; }
+.c12-stepper { display: inline-flex; align-items: center; gap: 4px; font-family: var(--f-mono); color: var(--silk-2); }
+.c12-stepper span { margin-right: 2px; font-weight: 700; }
+.c12-stepper .btn { min-width: 2.1em; padding-left: 0.5em; padding-right: 0.5em; }
+
+/* 3) MUX ve kod çözücü */
+.c12-s3 { grid-template-rows: minmax(0, 1fr) auto; }
+.c12-b3 { grid-template-columns: minmax(0, 1fr) auto; }
+.c12-info { display: flex; flex-direction: column; gap: 10px; }
+.c12-big { display: flex; flex-direction: column; gap: 6px; font-family: var(--f-display); font-stretch: 92%; font-size: 0.98rem; color: var(--silk); font-weight: 600; }
+.c12-ybox { font-family: var(--f-display); font-size: 1.1rem; color: var(--silk-2); }
+.c12-ybox .c12-bit { font-size: 1.35rem; }
+.c12-dline { display: flex; flex-wrap: wrap; gap: 6px; }
+.c12-dchip { font-family: var(--f-mono); font-size: 0.86rem; padding: 2px 8px; border-radius: 5px; border: 1px solid var(--line); color: var(--muted); }
+.c12-dchip.on { border-color: var(--copper-2); color: var(--copper-2); background: rgba(212, 147, 90, 0.14); }
+.c12-read { display: flex; flex-direction: column; gap: 2px; border-left: 2px solid var(--copper); padding-left: 10px; }
+.c12-read small { font-family: var(--f-display); font-stretch: 88%; font-size: 0.76rem; color: var(--muted); }
+.c12-read b { font-family: var(--f-mono); font-size: 1.2rem; color: var(--copper-2); }
+
+@media (max-width: 1280px) {
+  .c12-side { gap: 7px; }
+  .c12-sum { font-size: 1.08rem; }
+  .c12-side .meter b { font-size: 1.02rem; }
+}
+@media (max-width: 860px) {
+  .c12-s1 { grid-template-rows: 230px auto; }
+  .c12-bottom { grid-template-columns: 1fr; }
+  .c12-s2 { grid-template-rows: 210px auto; }
+  .c12-row2 { grid-template-columns: 1fr; grid-template-rows: auto 300px; }
+  .c12-row2 .c12-la { order: 2; }
+  .c12-s3 { grid-template-rows: 300px auto; }
+  .c12-b3 { grid-template-columns: 1fr; }
+}

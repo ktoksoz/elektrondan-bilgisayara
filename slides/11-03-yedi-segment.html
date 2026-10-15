@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="11" data-demo="c11Seg" id="yedi-segment">
+  <div class="text">
+    <h2>Uygulama: 7 segment kod çözücü</h2>
+    <p class="lead">Hesap makinesindeki her rakam yedi çubuktan oluşur. Hangisinin yanacağına dört bitlik bir sayı karar verir.</p>
+    <p><strong>7 segment gösterge</strong>de a'dan g'ye yedi segment vardır. Dört bitlik giriş (A en anlamlı bit) 0'dan 15'e kadar sayabilir, ama göstermek istediğimiz yalnız 0–9 rakamlarıdır. Her segment, dört girişin ayrı bir mantık fonksiyonudur: yedi segment için yedi Karnaugh haritası.</p>
+    <p>Devreye hiç 10–15 gelmeyecekse oradaki çıkışlar bizi ilgilendirmez: bunlar <strong>önemsiz</strong> (X) hücrelerdir. X'ler gruplara katılınca gruplar büyür, ifadeler kısalır, kapı sayısı düşer.</p>
+    <p>Ekran tablodan değil, yedi segmentin en basit ifadelerinden canlı hesaplanır. Peki yine de 10–15 girilirse? Devre bir şey yakar: X hücrelerine o anda verilen değerler neyse o. Şekiller tuhaftır ama dürüsttür; tasarım bu girişler için hiçbir söz vermedi.</p>
+    <details class="more"><summary>Daha fazla: BCD ve gerçek yongalar</summary>
+      <p>Her ondalık rakamı dört bitle yazmaya BCD (ikili kodlu ondalık) denir. 74LS47 ve 74LS48 gibi hazır BCD–7 segment kod çözücü yongaları bu işi tek kılıfta yapar; onlar da 10–15 için veri sayfasında çizili tuhaf şekiller gösterir, 15'te ekran söner.</p>
+      <p>Ortak katotlu göstergede segment 1 ile yanar; ortak anotluda segmentin ucu 0'a çekilince yanar (aktif düşük). 74LS47 ortak anotlu göstergeler içindir.</p>
+      <p>6 ile 9'un "kuyruklu" (a ve d segmentleri yanık) ya da kuyruksuz yazılması bir tasarım kararıdır; bu deneyde ikisi de kuyruklu, 7 ise üç segmentle yazılıyor (Logic.SEG7 tablosu).</p>
+    </details>
+    <p class="try">Bitlere tıklayarak ya da +1 ile girişi değiştirin. Bir segment seçin (ekrandaki çubuğa da tıklayabilirsiniz) ve haritada Çöz'e basın. Sonra "X'siz (0)" seçeneğine geçip ifadenin ne kadar uzadığına bakın. 10–15 girişlerinde ekranın ne gösterdiğini izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Say'a basıp 0'dan 15'e kadar sayın: 0–9 doğru rakamlar, 10–15'te tuhaf şekiller. "Bunlar hata mı?" Hayır; X'e "ne olursa olsun" dedik, devre de en ucuz olanı seçti.</li>
+    <li>a segmentinde X serbestken ifade 6 harf, X'siz 11 harf: neredeyse yarı yarıya. Yedi segmentin toplamı ifade listesinin altında: X'ler kapı tasarrufu demek.</li>
+    <li>X'siz moda geçin: 10–15'te ekran tamamen söner, ama ifadeler uzar. Mühendislik ödünleşimi: güvenli davranış mı, ucuz devre mi?</li>
+    <li>Ekran, segment ifadelerinin Logic.evaluate ile hesaplanmasından çıkıyor; "0–9 rakamları 70/70" satırı bunun tabloyla denetimi.</li>
+  </ul></aside>
+</section>

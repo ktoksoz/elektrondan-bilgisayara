@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="6" data-demo="c6musluk" id="bjt-musluk" data-model="basit">
+  <div class="text">
+    <h2>Transistör bir musluktur</h2>
+    <p class="lead">Küçücük bir baz akımı, kendisinden yüz kat büyük bir kollektör akımını açıp kısabilir.</p>
+    <p><strong>BJT</strong> (iki kutuplu eklem transistörü) üç bacaklıdır: <strong>baz</strong> (B), <strong>kollektör</strong> (C) ve <strong>emetör</strong> (E). Bazdan akan küçük I<sub>B</sub> akımı, kollektörden emetöre akan büyük I<sub>C</sub> akımını kontrol eder. Çarpan, akım kazancı <strong>β</strong>'dır (veri kitapçıklarında <strong>hFE</strong>).</p>
+    <p class="formula">I<sub>C</sub> = β · I<sub>B</sub>   (aktif bölgede)</p>
+    <p>Musluğu düşünün: baz akımı vananın kolunu çevirir, kollektör akımı borudan akan sudur. Kol dönmezse musluk kapalıdır (<strong>kesim</strong>). Vana tamamen açılınca akımı artık yük sınırlar (<strong>doyum</strong>).</p>
+    <p>Benzetmenin sınırı: baz akımı da sürekli akar ve emetörden kollektör akımıyla birlikte çıkar: I<sub>E</sub> = I<sub>C</sub> + I<sub>B</sub>.</p>
+    <details class="more"><summary>Daha fazla: β sabit değildir</summary>
+      <p>Aynı tip iki transistörün β değeri arasında iki üç kat fark olabilir; β sıcaklıkla ve akımla da değişir. Veri kitapçıkları bu yüzden çoğunlukla bir aralık ya da en küçük değeri verir. İyi tasarımlar β'nın tam değerine güvenmez: anahtar olarak kullanırken bazı bolca süreriz, yükselteçte ise emetör direnciyle kazancı β'dan bağımsız hale getiririz. İki sonraki slaytta ikisini de göreceğiz.</p>
+      <p>Baz–emetör arası bir PN eklemidir, yani bir diyottur: iletimde üzerinde yaklaşık 0,6–0,7 V vardır. PNP transistörde akımların ve gerilimlerin yönü terstir. Bu deneyde çözücü basitleştirilmiş bir Ebers–Moll modeli kullanıyor.</p>
+    </details>
+    <p class="try">Baz akımını yavaşça artırın: kollektör akımı β katı büyür ve vana açılır. Bir noktadan sonra musluk tamamen açılır, grafikteki eğri düzleşir. Sonra β'yı değiştirip aynı şeyi deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Ampermetrelere dikkat çekin: baz akımı mikroamper, kollektör akımı miliamper. "I<sub>C</sub> / I<sub>B</sub>" göstergesi aktif bölgede β'ya eşit.</li>
+    <li>Akım noktalarına bakın: baz kolundaki noktalar neredeyse duruyor, kollektör kolundakiler koşuyor. Hız akımla orantılı.</li>
+    <li>Soru: β = 400 olsa musluk daha erken mi açılır? (Evet; doyum için gereken baz akımı azalır, ama doyumdaki akım aynı kalır.)</li>
+    <li>Tuzak: "Transistör akım üretir" yanılgısı. Enerji beslemeden gelir; transistör yalnızca ne kadarının geçeceğini ayarlar.</li>
+  </ul></aside>
+</section>

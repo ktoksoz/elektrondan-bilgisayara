@@ -1,0 +1,25 @@
+<section class="slide" data-chapter="13" data-demo="c13b555" id="saat-555" data-model="basit">
+  <div class="text">
+    <h2>Saat sinyali: 555 zamanlayıcı</h2>
+    <p class="lead">Flip-flop'ları adım adım ilerleten şey saattir. En ünlü saat üreteci, 1971'de tasarlanan ve hâlâ üretilen 555 yongasıdır.</p>
+    <p><a href="#kapak">Kapaktaki</a> iki transistörlü devre de bir saatti: kendi kendine gidip gelen bir <strong>astable multivibratör</strong>. 555 aynı işi tek yongayla, daha kararlı yapar. İçinde iki <strong>karşılaştırıcı</strong> ve bir SR flip-flop var.</p>
+    <p>Kondansatör RA ve RB üzerinden dolar. Gerilimi ⅔ Vcc'ye ulaşınca flip-flop sıfırlanır: çıkış 0 olur, deşarj transistörü açılır ve kondansatör yalnız RB üzerinden boşalır. ⅓ Vcc'ye inince flip-flop kurulur, çıkış 1 olur ve döngü baştan başlar.</p>
+    <p>Eşikler beslemenin oranı olduğu için frekans besleme gerilimine neredeyse bağlı değildir.</p>
+    <p class="formula">f ≈ 1,44 / ((RA + 2·RB) · C)</p>
+    <details class="more"><summary>Daha fazla: formül, model ve tarihçe</summary>
+      <p>Kondansatör ⅓'ten ⅔'e dolarken hedefi Vcc'dir; aradaki süre ln 2 · τ olur. Bu yüzden t<sub>yüksek</sub> = 0,693 · (RA + RB) · C ve t<sub>düşük</sub> = 0,693 · RB · C. Periyot T = 0,693 · (RA + 2·RB) · C, frekans f = 1/T ≈ 1,44 / ((RA + 2·RB) · C). Görev oranı (çıkışın 1 olduğu pay) = (RA + RB) / (RA + 2·RB); her zaman %50'den büyüktür, çünkü dolma RA + RB, boşalma yalnız RB üzerinden olur. RB'ye paralel bir diyotla dolma yolu RB'yi atlar ve %50'nin altına inilebilir.</p>
+      <p><b>Benzetim modeli (basitleştirilmiş):</b> RA, RB, C, LED, yonganın içindeki 3 × 5 kΩ bölücü, deşarj transistörü ve çıkış katı devre çözücüde gerçekten çözülür; transistör ve çıkış katı anahtar olarak modellenir. Karşılaştırıcılar ve flip-flop ideal kabul edilir: her zaman adımında 6, 2 ve 5 numaralı bacakların gerilimine bakılıp anahtarlar kurulur. Hızlı salınımlar ekranda yavaşlatılarak gösterilir; ölçülen frekans benzetim zamanına göredir. Ölçülen değerin formülden küçük farkı anahtarların direncinden ve sayısal adımdan gelir.</p>
+      <p>5. bacak (CTRL) eşik bölücüsünün ⅔ noktasıdır; gürültüye karşı 10 nF ile toprağa bağlanır. 4. bacak (RESET) 0,7 V'un altına çekilirse çıkış 0 olur; burada beslemeye bağlı.</p>
+      <p>555'i Hans Camenzind, Signetics şirketi için 1971'de tasarladı. Bugün de pek çok üretici tarafından üretiliyor.</p>
+    </details>
+    <p class="try">"İç yapı"ya basıp karşılaştırıcıları ve flip-flop'u canlı izleyin. Sonra RB'yi ve C'yi değiştirin; ölçülen frekansı formülle karşılaştırın. Beslemeyi değiştirince frekans neredeyse aynı kalır.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Kapağa dönüş: iki transistörlü astable da aynı ilke, kondansatörün dolup boşalmasıyla zamanı ölçer. 555 bunu karşılaştırıcılarla daha kararlı yapar.</li>
+    <li>Osiloskopta sarı iz kondansatör: testere değil, iki üstel parçadan oluşan bir dalga; iki kesikli çizgi arasında kalıyor. Mavi iz çıkış: kare dalga, flip-flop'lar için saat.</li>
+    <li>Soru: "Besleme 5 V'tan 12 V'a çıkınca frekans neden değişmiyor?" Cevap: eşikler de aynı oranda büyüyor.</li>
+    <li>Soru: "Görev oranını %50'nin altına indirebilir miyiz?" Bu devreyle hayır; RB'ye paralel diyotla evet (Daha fazla).</li>
+    <li>Model basitleştirilmiş: karşılaştırıcı ve flip-flop ideal, gerçek 555 çıkışı beslemeden 1–2 V aşağıda kalır (bipolar NE555).</li>
+  </ul></aside>
+</section>

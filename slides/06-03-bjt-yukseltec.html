@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="6" data-demo="c6yukseltec" id="bjt-yukseltec" data-model="basit">
+  <div class="text">
+    <h2>Transistör yükselteç olarak</h2>
+    <p class="lead">Transistörü aktif bölgenin ortasında tutarsanız, bazdaki küçük dalgalanmalar kollektörde büyük dalgalanmalara dönüşür.</p>
+    <p><strong>Ortak emetörlü yükselteçte</strong> giriş baza girer, çıkış kollektörden alınır. Baz gerilimi biraz artınca kollektör akımı artar, R<sub>C</sub> üzerindeki gerilim büyür, kollektör gerilimi düşer. Çıkış, girişin büyütülmüş ve <strong>ters çevrilmiş</strong> kopyasıdır.</p>
+    <p class="formula">Kazanç ≈ − R<sub>C</sub> / R<sub>E</sub> = − 4,7 kΩ / 1 kΩ ≈ −4,7</p>
+    <p><strong>Kazanç</strong> neredeyse yalnızca iki direncin oranıdır. R<sub>E</sub>'ye paralel bir köprüleme kondansatörü (C<sub>E</sub>) eklerseniz kazanç yüzlerce kata çıkar; bedeli erken kırpılma ve β'ya duyarlılıktır.</p>
+    <p>Giriş çok büyürse transistör bir yanda <strong>kesime</strong>, öbür yanda <strong>doyuma</strong> girer ve dalganın tepeleri düzleşir: <strong>kırpılma</strong>.</p>
+    <details class="more"><summary>Daha fazla: öngerilim (bias) mantığı</summary>
+      <p>Transistörü sinyal gelmeden önce aktif bölgenin ortasına yerleştirmeye öngerilimleme denir. R1–R2 gerilim bölücüsü bazı yaklaşık 12 V · 10/(47 + 10) ≈ 2,1 V'ta tutar. Emetör bundan bir diyot düşümü aşağıdadır: V<sub>E</sub> ≈ 1,3–1,4 V, yani I<sub>E</sub> ≈ 1,3 mA. Kollektör 12 V − 4,7 kΩ · 1,3 mA ≈ 5,8 V'ta durur: iki yöne de salınmaya yer vardır.</p>
+      <p>R<sub>E</sub> kendi kendini düzelten bir geri beslemedir: akım artarsa V<sub>E</sub> artar, V<sub>BE</sub> azalır ve akım geri iner. Böylece çalışma noktası β'ya pek bağlı kalmaz. Kuplaj kondansatörleri DC'yi tutar, sinyali geçirir. C<sub>E</sub> varken kazanç yaklaşık R<sub>C</sub> / r<sub>e</sub> olur; r<sub>e</sub> ≈ 25 mV / I<sub>E</sub> ≈ 19 Ω olduğundan kazanç 200'ü aşar, ama doğrusal değildir.</p>
+    </details>
+    <p class="try">Giriş genliğini artırın: osiloskopta çıkışın büyüdüğünü ve ters döndüğünü görün. Yaklaşık 1 V'tan sonra tepeler düzleşir. Sonra genliği küçültüp köprüleme kondansatörünü açın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Osiloskopta sarı giriş, mavi çıkış. Biri tepedeyken öbürü çukurda: 180° faz farkı.</li>
+    <li>Kazanç göstergesi her periyotta ölçülen tepe-tepe oranı; R<sub>C</sub>/R<sub>E</sub> = 4,7'den biraz düşük çıkar (r<sub>e</sub> ve R1∥R2 yüzünden).</li>
+    <li>C<sub>E</sub> var konumunda 10–20 mV'luk giriş bile birkaç volt çıkış verir; 30 mV'ta kırpılma başlar.</li>
+    <li>Soru: Kırpılma hangi tepede önce başlıyor ve neden? (Çalışma noktası tam ortada değil.)</li>
+  </ul></aside>
+</section>

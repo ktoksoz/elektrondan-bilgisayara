@@ -1,0 +1,114 @@
+/* 14. bölüm: mini bilgisayar, mikrodenetleyici, güvenlik, kapanış */
+
+/* ---------- 14.1 mini bilgisayar: blok şeması | bellek ---------- */
+.split.c14-cpu { grid-template-columns: 1fr minmax(236px, 0.52fr); padding-bottom: 6px; }
+.c14-diag { min-height: 300px; }
+.c14-mem { container-type: inline-size; display: flex; flex-direction: column; min-height: 0; padding: 8px 6px 6px; border-radius: 8px; background: rgba(6, 21, 15, 0.5); box-shadow: inset 0 0 0 1px rgba(239, 238, 226, 0.1); }
+.c14-mem-h { display: flex; flex-direction: column; gap: 1px; padding: 0 6px 6px; }
+.c14-mem-h b { margin-right: 86px; }
+.c14-mem-h b { font-family: var(--f-display); font-stretch: 92%; font-size: 0.86rem; font-weight: 700; color: var(--silk); }
+.c14-mem-h small { font-family: var(--f-display); font-stretch: 88%; font-size: 0.72rem; color: var(--muted); }
+.c14-mem-rows { flex: 1; min-height: 0; display: grid; grid-template-rows: repeat(16, minmax(18px, 1fr)); gap: 1px; }
+.c14-row {
+  display: grid; grid-template-columns: 1.6em auto auto 1fr auto; gap: 0 5px; align-items: center;
+  padding: 0 5px; border-radius: 4px; font-family: var(--f-mono); font-size: 0.72rem; color: var(--muted);
+  transition: background 0.15s;
+}
+.c14-ad { text-align: right; color: var(--silk-2); }
+.c14-bits { display: inline-flex; gap: 2px; }
+.c14-bits.op { padding-right: 3px; border-right: 1px solid rgba(239, 238, 226, 0.14); }
+.c14-bit {
+  width: 16px; height: 17px; padding: 0; border-radius: 3px; cursor: pointer;
+  font-family: var(--f-mono); font-size: 0.66rem; line-height: 1;
+  background: rgba(76, 134, 255, 0.13); color: #8fa9e8; border: 1px solid rgba(76, 134, 255, 0.3);
+}
+.c14-bit.on { background: rgba(255, 79, 106, 0.24); color: #ffc2cb; border-color: rgba(255, 79, 106, 0.6); }
+.c14-bit:hover { border-color: var(--copper-2); }
+.c14-mn { color: var(--copper-2); font-weight: 600; white-space: nowrap; overflow: hidden; }
+.c14-dec { text-align: right; min-width: 2em; opacity: 0.75; }
+.c14-row.data .c14-mn { color: var(--silk); font-weight: 700; }
+@container (max-width: 262px) { .c14-dec { display: none; } .c14-bit { width: 15px; } }
+@container (min-width: 300px) { .c14-row { font-size: 0.8rem; } .c14-bit { width: 18px; height: 19px; font-size: 0.7rem; } }
+.c14-row.pc { background: rgba(212, 147, 90, 0.17); box-shadow: inset 3px 0 0 var(--copper); }
+.c14-row.mar { box-shadow: inset 0 0 0 1.5px rgba(95, 227, 255, 0.65); }
+.c14-row.pc.mar { box-shadow: inset 3px 0 0 var(--copper), inset 0 0 0 1.5px rgba(95, 227, 255, 0.65); }
+
+.c14-status { padding: 2px 16px 8px; display: flex; flex-direction: column; gap: 5px; }
+.c14-line { display: flex; align-items: baseline; gap: 10px; min-height: 2.7em; }
+.c14-phase {
+  flex: none; font-family: var(--f-mono); font-size: 0.78rem; font-weight: 700; white-space: nowrap;
+  padding: 2px 8px; border-radius: 4px; background: var(--copper); color: var(--mask);
+}
+.c14-desc { font-size: 0.9rem; line-height: 1.4; color: var(--silk-2); }
+.c14-desc b { color: var(--silk); }
+.c14-line2 { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 14px; }
+.c14-sigs { display: flex; flex-wrap: wrap; gap: 3px; }
+.c14-sig {
+  font-family: var(--f-mono); font-size: 0.66rem; font-weight: 700; padding: 1px 4px; border-radius: 3px;
+  color: var(--muted); border: 1px solid rgba(239, 238, 226, 0.14); cursor: help;
+}
+.c14-sig.on { background: var(--copper-2); border-color: var(--copper-2); color: var(--mask); }
+.c14-outs { font-family: var(--f-display); font-stretch: 90%; font-size: 0.82rem; color: var(--muted); }
+.c14-outs b { font-family: var(--f-mono); font-weight: 600; color: var(--silk); }
+
+/* ---------- 14.2 mikrodenetleyici: kod | kart ---------- */
+.split.c14-mcu { grid-template-columns: minmax(232px, 0.68fr) 1.32fr; }
+.btn.c14-zoom { position: absolute; left: 6px; top: 4px; z-index: 3; font-size: 0.84rem; padding: 0.38em 0.85em; }
+.btn.c14-zoom.on { background: var(--copper); color: var(--mask); border-color: var(--copper); }
+.c14-codepane { display: flex; flex-direction: column; min-height: 0; border-radius: 8px; background: #08160f; box-shadow: inset 0 0 0 1px rgba(239, 238, 226, 0.12); overflow: hidden; }
+.c14-code-h { font-family: var(--f-display); font-stretch: 88%; font-size: 0.75rem; color: var(--muted); padding: 7px 12px; border-bottom: 1px solid rgba(239, 238, 226, 0.08); }
+.c14-code { flex: 1; min-height: 0; overflow: auto; padding: 8px 0; font-family: var(--f-mono); font-size: 0.82rem; line-height: 1.55; color: var(--silk); font-variant-ligatures: none; }
+.c14-ln { display: flex; gap: 10px; padding: 0 10px 0 6px; white-space: pre; background: rgba(240, 176, 122, calc(var(--fl, 0) * 0.2)); }
+.c14-ln.cur { background: rgba(240, 176, 122, 0.2); box-shadow: inset 3px 0 0 var(--copper-2); }
+.c14-no { flex: none; width: 1.6em; text-align: right; color: rgba(134, 161, 148, 0.6); user-select: none; }
+.c14-kw { color: #ff8ad8; }
+.c14-fn { color: #5fe3ff; }
+.c14-k2 { color: var(--gold); }
+.c14-cm { color: var(--muted); font-style: italic; }
+.c14-num { color: var(--ch1, #ffd75e); background: rgba(255, 215, 94, 0.12); border-radius: 3px; padding: 0 2px; }
+.c14-vars { padding: 7px 12px; border-top: 1px solid rgba(239, 238, 226, 0.08); font-family: var(--f-mono); font-size: 0.74rem; color: var(--muted); }
+.c14-vars b { color: var(--silk); font-weight: 600; }
+.c14-right { position: relative; min-height: 0; min-width: 0; display: grid; }
+.c14-board { min-height: 220px; }
+.c14-params { display: contents; }
+.c14-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 0 16px 10px; }
+.c14-strip .meters { gap: 6px 8px; }
+.c14-strip .meter { min-width: 0; padding: 3px 9px 4px; }
+.c14-strip .meter b { font-size: 0.98rem; }
+.c14-strip .flag { flex: 1 1 260px; line-height: 1.35; padding: 5px 10px; }
+
+/* ---------- 14.3 güvenlik ---------- */
+.c14-view { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.split.c14-safe { grid-template-columns: 1.6fr minmax(190px, 0.6fr); }
+.c14-side { border-radius: 8px; background: rgba(6, 21, 15, 0.42); box-shadow: inset 0 0 0 1px rgba(239, 238, 226, 0.1); min-height: 240px; }
+.c14-side .pane-title { right: 8px; line-height: 1.25; }
+
+/* ---------- kapanış: kardeş siteler ---------- */
+.cover p.c14-sites-h { font-family: var(--f-display); font-stretch: 92%; font-size: 0.92rem; color: var(--copper-2); margin: 0 0 -0.3rem; }
+.cover-meta.c14-sites { margin-bottom: 0.4rem; }
+.cover-meta.c14-sites a { flex-direction: column; align-items: flex-start; gap: 0; padding: 6px 13px 7px; line-height: 1.25; }
+.cover-meta.c14-sites a b { font-weight: 700; font-size: 0.9rem; color: var(--silk); font-stretch: 100%; }
+.cover-meta.c14-sites a span { font-size: 0.74rem; color: var(--muted); }
+.cover-meta.c14-sites a:hover span { color: var(--copper-2); }
+
+@media (max-width: 860px) {
+  .split.c14-cpu, .split.c14-mcu, .split.c14-safe { grid-template-columns: 1fr; }
+  .c14-diag { min-height: 400px; }
+  .c14-mem-rows { grid-template-rows: repeat(16, 24px); }
+  .c14-bit { width: 19px; height: 20px; }
+  .c14-row { font-size: 0.74rem; }
+  .c14-codepane { max-height: 330px; }
+  .c14-board { min-height: 300px; }
+  .c14-right { min-height: 300px; }
+  .c14-side { min-height: 260px; }
+  .c14-safe > .pane:first-child { min-height: 280px; }
+  .cover-meta.c14-sites a { flex: 1 1 140px; }
+}
+
+@media (max-width: 860px) {
+  .c14-mem-h b { margin-right: 0; }
+  .slide[data-chapter="14"] .stage > .controls:last-child, .c14-view > .controls:last-child { padding-bottom: 24px; }
+}
+@media (max-width: 860px) {
+  .split.c14-cpu, .split.c14-mcu { padding-top: 38px; }
+}

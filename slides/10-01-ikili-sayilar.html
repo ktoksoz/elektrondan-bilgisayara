@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="10" data-demo="c10Binary" id="ikili-sayilar">
+  <div class="text">
+    <h2>İkili sayılar: bitler ve anahtarlar</h2>
+    <p class="lead">Bir anahtar yalnız iki şey söyler: açık ya da kapalı. Sekiz anahtar yan yana gelince 256 farklı sayı yazılır.</p>
+    <p>Dijital devrede her tel ya 0 ya 1 taşır. Bu tek bilgiye <strong>bit</strong>, sekiz bitlik gruba <strong>bayt</strong> denir. Onluk sistemde her basamak bir sağdakinin 10 katıdır; <strong>ikili sayı</strong> sisteminde 2 katı: 1, 2, 4, 8, 16, 32, 64, 128.</p>
+    <p>Bir baytı okumak için açık anahtarların basamak değerlerini toplayın: 0010 1010 = 32 + 8 + 2 = 42. En büyük bayt 1111 1111 = 255'tir; sıfırla birlikte 256 değer eder.</p>
+    <p>Bir eklemek onluk sistemdeki gibi <strong>elde</strong> ile olur: 1 + 1 = 10, yani "0 yaz, 1 elde". Elde sağdan sola, birler dizisi boyunca dalga gibi ilerler. Bir sayıyı ikiyle çarpmak ise bütün bitleri bir basamak sola kaydırmaktır.</p>
+    <details class="more"><summary>Daha fazla: neden 2 tabanı, onaltılık ve negatif sayılar</summary>
+      <p>Bir teli yalnız iki seviyede kullanmak gürültüye karşı en sağlam yoldur: "yüksek mi, alçak mı?" sorusu, "on seviyeden hangisi?" sorusundan çok daha az yanılır (<a href="#gurultu-paylari">gürültü payları</a>).</p>
+      <p>Dört bit (yarım bayt, İngilizce <em>nibble</em>) 0–15 arası değer alır; bu, <strong>onaltılık</strong> (hex) sistemin tek basamağıdır: 0–9, sonra A–F. Bu yüzden 1010 0101 kısaca 0xA5 yazılır: A = 10, 5 = 5, 10 · 16 + 5 = 165.</p>
+      <p>Negatif sayılar için <strong>ikiye tümleyen</strong> kullanılır: en soldaki bitin değeri +128 yerine −128 sayılır. 8 bitle −128 ile +127 arası yazılır. Bir sayının eksilisi: bütün bitleri ters çevir, 1 ekle. Toplama devresi hiç değişmeden negatif sayılarla da çalışır.</p>
+    </details>
+    <p class="try">Anahtarlara tıklayın; ondalık ve onaltılık değerlerin değişmesini izleyin. +1 düğmesine basıp eldenin sağdan sola ilerleyişini görün ya da kutuya bir sayı yazın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Soru: "Sekiz anahtarla kaç farklı durum var?" 2 · 2 · … · 2 = 2⁸ = 256.</li>
+    <li>0111 1111'de +1'e basın: elde yedi basamak boyunca dalgalanır. 12. bölümdeki dalgalı elde toplayıcının habercisi.</li>
+    <li>255'te +1: taşma, sayı 0'a döner. Eski oyunlardaki "skor 255'ten sonra sıfırlandı" hatalarından söz edilebilir.</li>
+    <li>×2 sola kaydırma; işaretli değer satırında 128 ve üstünün negatif okunduğunu gösterin.</li>
+  </ul></aside>
+</section>

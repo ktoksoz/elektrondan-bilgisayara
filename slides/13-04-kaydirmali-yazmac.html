@@ -1,0 +1,21 @@
+<section class="slide" data-chapter="13" data-demo="c13Shift" id="kaydirmali-yazmac">
+  <div class="text">
+    <h2>Kaydırmalı yazmaç ve kayan ışık</h2>
+    <p class="lead">D flip-flop'ları zincir gibi bağlayın: her saat kenarında bitler bir basamak ilerler.</p>
+    <p>Her flip-flop'un D girişi bir öncekinin Q çıkışına bağlı. Saat yükseldiğinde hepsi aynı anda örnek alır; bitler kova zinciri gibi el değiştirir. Bu yapıya <strong>kaydırmalı yazmaç</strong> (shift register) denir: tek telden sırayla gelen bitleri paralel çıkışlara çevirir.</p>
+    <p>Son çıkışı başa bağlarsanız veri kaybolmaz: <strong>halka sayacında</strong> tek bir 1 dönüp durur, kayan ışık olur. Geri beslemeye bir NOT kapısı eklerseniz <strong>Johnson sayacı</strong> olur: önce 1'ler dolar, sonra 0'lar; 4 flip-flop ile 8 farklı durum.</p>
+    <p>Arduino ile çok sayıda LED sürmek için kullanılan <strong>74HC595</strong> de 8 bitlik bir kaydırmalı yazmaçtır: 3 pinle (veri, kaydırma saati, mandal) 8 çıkış sürer, zincirlenerek daha fazlasını.</p>
+    <details class="more"><summary>Daha fazla: 74HC595 nasıl kullanılır?</summary>
+      <p>74HC595'te bitler DS (14. pin) girişinden, SH_CP (11. pin) kaydırma saatinin her yükselen kenarında içeri kayar. Kaydırma sırasında çıkışlar titremesin diye 8 bit önce içerideki yazmaçta toplanır; ST_CP (12. pin) mandal saatine verilen tek bir darbe hepsini birden Q0–Q7 çıkışlarına aktarır.</p>
+      <p>Q7' (9. pin) kaydırılan son biti dışarı verir; bunu sonraki entegrenin DS girişine bağlayınca iki entegre 16 bitlik tek bir yazmaç gibi çalışır. Arduino'daki <span class="mono">shiftOut()</span> işlevi veri ve saat pinini bu sırayla sürer.</p>
+      <p>Kaydırmalı yazmaçlar seri iletişimin de temelidir: SPI ve UART gibi arabirimler baytları bu yolla tek tele dizer ve öbür uçta yeniden toplar.</p>
+    </details>
+    <p class="try">Veri girişine tıklayıp 1 yapın, birkaç darbe sonra yeniden 0 yapın: bitin Q0'dan Q3'e kaydığını izleyin. Sonra "Halka sayacı"nı ve "Johnson sayacı"nı seçin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Seri girişte birkaç bitlik bir desen yazın (ör. 1, 0, 1): desen LED'lerde sırayla ilerler ve sonda dışarı düşer.</li>
+    <li>Halka sayacında Q0 açılışta 1 yapıldı; geri besleme onu sonsuza kadar döndürür. "Tekrar" göstergesi desenin kaç darbede bir yinelendiğini ölçer (4).</li>
+    <li>Johnson sayacı 4 flip-flop ile 8 durum verir (halka sayacının iki katı). Soru: "8 LED'i Arduino'nun 3 pininden nasıl süreriz?" → 74HC595.</li>
+  </ul></aside>
+</section>

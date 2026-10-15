@@ -1,0 +1,25 @@
+<section class="slide" data-chapter="11" data-demo="c11Kmap" id="karnaugh">
+  <div class="text">
+    <h2>Karnaugh haritası</h2>
+    <p class="lead">Doğruluk tablosunu bir haritaya dizince sadeleştirme bir boyama oyununa dönüşür.</p>
+    <p><strong>Karnaugh haritası</strong> tablonun her satırını bir hücreye koyar. Satırlar ve sütunlar <strong>Gray kodu</strong> sırasıyla dizilir: 00, 01, 11, 10. Böylece yan yana iki hücrenin girişleri yalnız bir bitte farklıdır.</p>
+    <p>Yan yana iki 1, o tek farklı değişkenin sonucu etkilemediğini söyler: A'BC + ABC = BC. Bu yüzden komşu 1'leri <strong>gruplarız</strong>. Grup dikdörtgen olmalı ve 1, 2, 4, 8 ya da 16 hücre içermelidir. Grup ikiye katlandıkça terimden bir değişken daha düşer.</p>
+    <p>Harita kenarlarda <strong>sarmalanır</strong>: en sağ sütun en solun, en alt satır en üstün komşusudur; dört köşe de birbirine komşudur. <strong>X</strong> (önemsiz) hücreler işe yararsa gruba katılır, yaramazsa dışarıda kalır.</p>
+    <p>Bütün 1'leri olabildiğince az ve olabildiğince büyük grupla örtün. Her grup bir VE terimidir; hepsinin VEYA'sı en basit ifadedir.</p>
+    <details class="more"><summary>Daha fazla: kurallar, tarih, algoritma</summary>
+      <p>Haritayı 1953'te Bell Laboratuvarları'nda Maurice Karnaugh yayımladı; bir yıl önce Edward Veitch'in önerdiği diyagramı geliştirmişti. Gray kodu adını yine Bell Laboratuvarları'ndan Frank Gray'den alır.</p>
+      <p>Bir grubun terimi, grup içinde değişmeyen değişkenlerden oluşur: hep 1 olan olduğu gibi, hep 0 olan tersiyle yazılır. 2<sup>k</sup> hücrelik bir grup, n değişkenli haritada n − k harflik bir terim verir.</p>
+      <p>Daha fazla büyütülemeyen gruplara <strong>asal çarpan</strong> (prime implicant) denir. Bir 1'i yalnız tek bir asal çarpan örtüyorsa o çarpan mutlaka ifadeye girer. "Çöz" düğmesi bu adımları Quine–McCluskey yöntemiyle, haritaya bakmadan, tablodan yapar.</p>
+      <p>Beş ve daha çok değişkende harita göze karışık gelir. Gerçek tasarım araçları çok büyük fonksiyonlar için Espresso gibi sezgisel algoritmalar kullanır.</p>
+    </details>
+    <p class="try">Grup çiz modunda bir dikdörtgen sürükleyin; geçersizse nedeni hemen yazılır. Kenardan sarmalanan bir grup için hücrelere tek tek dokunup "Grubu ekle"ye basın. Sonra "Çöz" ile kendi ifadenizi en basitiyle karşılaştırın. "Neden Gray kodu?" komşu hücrelerde hangi bitin değiştiğini gösterir.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Ortadaki dört 1'i sürükleyerek gruplayın: BD. "B ve D hep 1, A ve C değişiyor; demek ki A ve C önemsiz."</li>
+    <li>Köşeleri gösterin: m0, m2, m8, m10 dört köşe, ama sarmalama sayesinde 2×2 bir grup: B'D'. Haritayı bir simit (torus) gibi düşünün.</li>
+    <li>m15 X: dahil edince grup büyür. Dahil etmeseydik BD yerine ABD' gibi daha uzun terimler gerekirdi.</li>
+    <li>"Neden Gray kodu?" ile İkili sıraya geçin: 01 ile 10 yan yana ama iki bit farklı. Burada yan yana iki hücreyi seçmek geçersiz grup verir. Soru: "Haritanın işe yaraması neden sıraya bağlı?"</li>
+    <li>Yaygın hatalar: üçlü grup (2'nin kuvveti değil), L biçimli grup, 0 içeren grup. Hepsini deneyip mesajları gösterin.</li>
+  </ul></aside>
+</section>

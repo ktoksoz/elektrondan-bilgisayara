@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="10" data-demo="c10Perceptron" id="perceptron-xor">
+  <div class="text">
+    <h2>Yapay zekâ köprüsü: perceptron ve XOR</h2>
+    <p class="lead">Bir yapay nöron da bir mantık kapısıdır: girişleri ağırlıklarla toplar, toplam eşiği geçerse 1 verir.</p>
+    <p><strong>Perceptron</strong> iki girişi w1 ve w2 ağırlıklarıyla çarpar, b'yi ekler; sonuç 0 ya da büyükse çıkış 1, değilse 0. Grafikte bu kural bir doğrudur: bir yanı 1, öbür yanı 0.</p>
+    <p>"Öğren"e basınca perceptron her yanlışında ağırlıklarını hatasının yönünde biraz kaydırır. AND ve OR'da birkaç turda hiç hata kalmaz.</p>
+    <p>XOR'da 1 olan noktalar çaprazdadır: (0,1) ve (1,0). Onları ayıran tek bir doğru yoktur; öğrenme hiç durmaz. Çözüm iki katman: OR ve NAND nöronları iki doğru çizer, AND nöronu aradaki şeridi seçer. Derin öğrenmenin özü de budur. Aynı konu yapay zekâ sitesinde: <a href="https://yz.koraytoksoz.com/#xor-tek-noron" target="_blank" rel="noopener">XOR: tek nöronun duvarı</a>.</p>
+    <details class="more"><summary>Daha fazla: öğrenme kuralı ve tarih</summary>
+      <p class="formula">w ← w + η · (hedef − çıkış) · x   ·   b ← b + η · (hedef − çıkış)</p>
+      <p>Deneyde η = 0,25. Noktalar tek doğruyla ayrılabiliyorsa bu kuralın sonlu sayıda adımda durduğu kanıtlanmıştır (perceptron yakınsama teoremi). Ayrılamıyorsa ağırlıklar sonsuza dek döner.</p>
+      <p>Frank Rosenblatt perceptronu 1958'de yayımladı. Marvin Minsky ve Seymour Papert 1969'daki <em>Perceptrons</em> kitabında tek katmanlı perceptronların XOR gibi doğrusal olarak ayrılamayan işlevleri hesaplayamadığını matematiksel olarak gösterdi. Çok katmanlı ağları eğitmenin yolu, geri yayılım (backpropagation), 1986'da Rumelhart, Hinton ve Williams'ın makalesiyle yaygınlaştı.</p>
+    </details>
+    <p class="try">AND seçip "Öğren"e basın; doğrunun noktaları ayırmasını izleyin. Sonra XOR'u deneyin: hata hiç sıfırlanmaz. "İki katman" ile çözümü görün.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce elle: w1 = w2 = 1, b = −1,5 AND'dir; b = −0,5 OR'dur. Eşiği kaydırmak kapının türünü değiştirir.</li>
+    <li>XOR'da tur başına hata çubukları hiç sıfıra inmez; "neden?" diye sorun. Cevap: tek doğru çapraz noktaları ayıramaz.</li>
+    <li>İki katmanlı devre, NAND bulmacasındaki fikirle aynı: basit parçalar üst üste konunca her işlev kurulur.</li>
+    <li>Minsky–Papert kitabı tek katmanlı ağların sınırını gösterdi; çok katmanlı ağların yapamayacağını söylemedi.</li>
+  </ul></aside>
+</section>

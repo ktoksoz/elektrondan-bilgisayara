@@ -1,0 +1,23 @@
+<section class="slide" data-chapter="9" data-demo="c9Not" id="transistorlu-not" data-model="basit">
+  <div class="text">
+    <h2>Transistörlü NOT kapısı</h2>
+    <p class="lead">Bir transistör ve iki direnç, girişini tersine çeviren bir mantık kapısı kurmaya yeter.</p>
+    <p>Dijital elektronikte gerilimi iki aralığa ayırırız: <strong>düşük gerilim 0</strong>, <strong>yüksek gerilim 1</strong> demektir.</p>
+    <p>Giriş 0 V iken baz akımı yoktur; transistör kesimdedir, anahtar açıktır. RC direnci çıkışı besleme gerilimine çeker: çıkış yüksek, yani 1. LED yanar.</p>
+    <p>Girişe 5 V verince baz akımı akar, transistör doyuma girer ve kollektörü neredeyse toprağa bağlar. Çıkış birkaç yüz milivolta iner: 0.</p>
+    <p>Devre her zaman girişin tersini verir. Bu bir <strong>NOT (DEĞİL) kapısı</strong>dır. Dirençlerle ve transistörlerle kurulan bu tür kapılara direnç–transistör mantığı (RTL) denir.</p>
+    <details class="more"><summary>Daha fazla: RTL neden kalmadı?</summary>
+      <p>Çıkış 0 iken RC'den sürekli akım akar: kabaca 5 V / 220 Ω ≈ 23 mA, yani her kapı için yaklaşık 0,1 W. Deneydeki "Besleme gücü" göstergesinde bunu ölçebilirsiniz. Bir kapı için sorun değil, ama milyonlarca kapıda yonga ısıdan erirdi. Bir sonraki slayttaki CMOS evirici bu sorunu çözer.</p>
+      <p>Tarih notu: Apollo rehberlik bilgisayarının (1960'lar) mantık devreleri RTL teknolojisiyle yapılmış NOR kapılarından kuruluydu.</p>
+      <p>Tablodaki 0,8 V ve 2 V sınırları, 5 V TTL ailesinin giriş eşikleridir. Nereden geldiklerini "Gürültü payları" slaytında göreceğiz.</p>
+    </details>
+    <p class="try">Giriş gerilimini 0 V'tan 5 V'a kaydırın. LED'i, çıkış rozetini ve tablonun dolmasını izleyin; ara değerlerde çıkışın ne olduğuna da bakın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce girişi 0 ve 5 V yapın: tablo dolsun, "NOT kapısı" cümlesi çıksın.</li>
+    <li>Sonra 1 V civarına getirin: transistör aktif bölgede, çıkış ne 0 ne 1. Soru: "Bu durumda kapı ne söylüyor?" (Hiçbir şey; tanımsız.)</li>
+    <li>Çıkış 0 iken besleme gücüne dikkat çekin; CMOS'a geçişin gerekçesi bu.</li>
+    <li>LED aslında yük: çıkış 1 iken LED'den akım çekildiği için çıkış 5 V'un biraz altında kalır.</li>
+  </ul></aside>
+</section>

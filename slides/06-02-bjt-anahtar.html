@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="6" data-demo="c6anahtar" id="bjt-anahtar" data-model="basit">
+  <div class="text">
+    <h2>Transistör anahtar olarak</h2>
+    <p class="lead">Bir mikrodenetleyici pini birkaç miliamper verebilir; bir motor yüzlerce miliamper ister. Aradaki köprü bir transistördür.</p>
+    <p>Arduino, ESP32 ya da Raspberry Pi Pico'nun pinleri mantık sinyali vermek için yapılmıştır, yük sürmek için değil. Motoru doğrudan pine bağlarsanız pin gerilimi çöker, motor dönmez ve pin zarar görebilir.</p>
+    <p>Çözüm: pin yalnızca transistörün bazını sürsün, motorun akımını transistör beslemeden çeksin. Anahtar olarak transistör ya <strong>kesimde</strong> (kapalı) ya <strong>doyumda</strong> (tam açık) olmalıdır. Arada, aktif bölgede kalırsa P = V<sub>CE</sub> · I<sub>C</sub> kadar ısınır.</p>
+    <p>Doyumu garantilemek için baza gereken akımın k katını veririz: fazla sürme (k ≈ 2–10). Ama k'yı abartırsanız bu kez pin zorlanır.</p>
+    <p class="formula">R<sub>B</sub> = (V<sub>pin</sub> − 0,7 V) / (k · I<sub>C</sub> / β)</p>
+    <details class="more"><summary>Daha fazla: diyot ve pin sınırları</summary>
+      <p>Motor aslında bir bobindir. Akımı aniden kesilince bobin, akımı sürdürmek için yüksek bir ters gerilim üretir ve transistörü delebilir. Motorun uçlarına ters bağlanan <strong>geri dönüş diyotu</strong> (flyback diyotu) bu akıma bir yol açar. Bu deneyde motor yalnızca direnciyle çözülüyor; bobinin etkisini PWM slaytında osiloskopta göreceksiniz.</p>
+      <p>Pin sınırları karta göre değişir. Arduino Uno'daki ATmega328P'de pin başına mutlak sınır 40 mA'dir, veri kitapçığı 20 mA civarını önerir. Raspberry Pi Pico'nun RP2040'ında pinler varsayılan olarak 4 mA için ayarlıdır ve en fazla 12 mA'ye çıkarılabilir. Deneyde pini 3,3 V'luk, 40 Ω iç dirençli bir kaynak olarak modelledik ve sınırı 10 mA aldık.</p>
+    </details>
+    <p class="try">Önce "Doğrudan bağla"ya basın: pin akımına ve pin gerilimine bakın. Sonra "Transistörle"ye dönün: transistör yarı açık ve ısınıyor. Hesaplayıcıda β'yı ve fazla sürmeyi seçip "Uygula"ya basın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Başlangıçta R<sub>B</sub> = 4,7 kΩ: transistör aktif bölgede, V<sub>CE</sub> birkaç volt, Q1 parlıyor. Bu, "anahtar" için en kötü durum.</li>
+    <li>Hesaplayıcı: ×1 ile hesaplanan direnç sınırda kalır (β'nın tam değerine güveniyoruz); ×5 ile rahat doyum. ×10'da pin akımı sınırı aşıyor; uyarıyı gösterin.</li>
+    <li>MCU kutusuna tıklayınca pin 0/1 olur; kesimde motor durur.</li>
+    <li>Soru: Güç LED'i seçiliyken neden geri dönüş diyotu yok? (LED bobin değil; ani kesilmede ters gerilim üretmez.)</li>
+  </ul></aside>
+</section>

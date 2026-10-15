@@ -1,0 +1,23 @@
+<section class="slide" data-chapter="5" data-demo="c5rect" id="dogrultucu" data-model="basit">
+  <div class="text">
+    <h2>Doğrultucu: AC'den DC'ye</h2>
+    <p class="lead">Şebeke gerilimi saniyede 50 kez yön değiştirir; elektronik devreler ise tek yönlü, sabit bir gerilim ister.</p>
+    <p><strong>Yarım dalga doğrultucuda</strong> tek diyot yalnızca pozitif yarım dalgaları geçirir. <strong>Köprü doğrultucuda</strong> dört diyot vardır: her yarım periyotta ikisi iletir ve akım yükten hep aynı yönde geçer.</p>
+    <p>Çıkış tek yönlüdür ama düz değildir. Yüke paralel bir <strong>filtre kondansatörü</strong> tepelerde dolar, aralarda yükü besler; geriye küçük bir <strong>dalgalanma</strong> kalır. Kondansatör büyüdükçe ya da yük akımı azaldıkça dalgalanma küçülür.</p>
+    <p>Kaynak bir <strong>trafonun</strong> 12 V tepe değerli çıkışıdır. 230 V şebekenin tepesi yaklaşık 325 V'tur ve ölümcüldür; trafo gerilimi güvenli düzeye indirir ve devreyi şebekeden yalıtır.</p>
+    <details class="more"><summary>Daha fazla: dalgalanma formülü</summary>
+      <p class="formula">V<sub>pp</sub> ≈ I / (f · C)</p>
+      <p>f, kondansatörün dolma sıklığıdır: yarım dalgada 50 Hz, köprüde 100 Hz; bu yüzden köprüde dalgalanma yarıya iner. Örneğin 10 mA yükte ve 1000 µF ile köprüde 10 mA / (100 Hz · 1000 µF) = 0,1 V. "Tahmin" göstergesi bu formülü ölçülen yük akımıyla hesaplar. Formül kondansatörün dolma süresini ihmal eden kaba bir tahmindir; ölçümle arasında küçük fark olur.</p>
+      <p>Diyot düşümleri de görünür: yarım dalgada çıkış tepesi kabaca 12 V − 0,7 V, köprüde iki diyot seri ilettiği için 12 V − 2 · 0,7 V olur. Kondansatör her tepede kısa ve büyük akım darbeleriyle dolar.</p>
+      <p>Deney gerçek zamanın 20'de 1'i hızında akar; osiloskopun zaman ekseni gerçek 50 Hz zamanını gösterir.</p>
+    </details>
+    <p class="try">"Tam dalga (köprü)" seçin, sonra kondansatörü bağlayın ve değerini büyütün. Osiloskopta KN2'nin düzleşmesini ve dalgalanma göstergesini izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>KN1 (sarı) trafo çıkışı, KN2 (camgöbeği) yük üzerindeki gerilim. İkisi aynı ölçekte (5 V/bölme).</li>
+    <li>Köprüde akım noktalarını gösterin, kollar sırayla çalışır: pozitif yarıda D1 ve D4, negatif yarıda D2 ve D3 iletir.</li>
+    <li>Soru: Yük direncini küçültürsek dalgalanma ne olur? (Yük akımı artar, kondansatör aralarda daha hızlı boşalır; dalgalanma büyür.)</li>
+    <li>Güvenlik: şebeke tarafıyla eğitimsiz çalışılmaz. Hazır trafo ya da adaptör kullanın.</li>
+  </ul></aside>
+</section>

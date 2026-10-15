@@ -1,0 +1,28 @@
+<section class="slide" data-chapter="14" data-demo="c14safe" id="guvenlik">
+  <div class="text">
+    <h2>Güvenlik</h2>
+    <p class="lead">Bu sitedeki deneyler birkaç voltluktur ve zararsızdır. İki istisnayı bilin: priz ve kısa devre edilen pil.</p>
+    <p><strong>Şebeke gerilimi öldürür.</strong> Türkiye'de prizde 230 V, 50 Hz alternatif gerilim var. Elden ele, göğüsten geçen birkaç on miliamper kalbin ritmini bozabilir. Aynı vücut direncinde akım gerilimle orantılıdır: 5 V'luk USB'ye kuru elle dokunmak hissedilmez bile.</p>
+    <p><strong>Kısa devre edilen pil yangın çıkarabilir.</strong> Uçlar bir telle birleşince akımı yalnız pilin küçük <strong>iç direnci</strong> sınırlar. Lityum iyon hücrede bu onlarca amper, pilin içinde yüzlerce watt ısı demektir; hücre <strong>termal kaçağa</strong> girip alev alabilir. <strong>Sigorta</strong> bunun için var.</p>
+    <ul>
+      <li>Şebekeyle eğitimsiz çalışmayın; prize bağlı cihazın içini açmayın.</li>
+      <li>Deneyleri pil, USB ya da hazır adaptörle yapın.</li>
+      <li>Devreyi değiştirirken beslemeyi ayırın.</li>
+      <li>Li-ion pili metal eşyayla taşımayın; ısınan ya da şişen pili hemen ayırın.</li>
+    </ul>
+    <details class="more"><summary>Daha fazla: vücut direnci, eşikler ve modeller</summary>
+      <p>IEC 60479-1'e göre elden ele vücut empedansı gerilime ve temasa bağlıdır. Düşük gerilimde kuru deri ve küçük temasla yüz kiloohm düzeyine çıkabilir; 230 V'ta deri kısa sürede delinir ve geniş temasta 1–2 kΩ civarına iner.</p>
+      <p>50 Hz AC için kabaca: 0,5 mA civarı algılama eşiği, 10 mA civarı "bırakabilme" sınırı; 30 mA'in üstünde kalp ritmi bozulabilir (ventriküler fibrilasyon). Ev tesisatlarında 30 mA'lik kaçak akım rölesi bu yüzden kullanılır. DC'de eşikler daha yüksektir; deneyde karşılaştırma için AC eşiklerini kullandık, şebekeyi etkin (RMS) değeriyle çözdük.</p>
+      <p>Pil modelleri yaklaşıktır: 18650 Li-ion 3,7 V ve 0,05 Ω (yüksek akımlı hücrelerde daha da düşük), AA alkalin 1,5 V ve ≈ 0,15 Ω, 9 V alkalin ≈ 1,5 Ω. Gerçek kısa devrede gerilim ve iç direnç zamanla değişir. Sıcaklık tahmini kabadır: ısı kapasitesi ≈ 1 J/(g·K), çevreye ısı kaybı yaklaşık 2 dakikalık zaman sabitiyle. Birçok Li-ion hücrede ya da pil paketinde koruma devresi bulunur, ama buna güvenmeyin.</p>
+    </details>
+    <p class="try">"Kısa devre yap"a basın: sigorta atar. "Sigorta yok"u seçip akımı ve termometreyi izleyin; AA ve 9 V pille karşılaştırın. Sonra "Vücut direnci"nde kaynağı şebekeye çevirin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Korkutmadan: bu sitedeki her şey düşük gerilim. Tehlike iki yerde: priz ve enerji yoğun piller.</li>
+    <li>Li-ion kısa devresi: akım onlarca amper; ısının çoğu pilin kendi içinde (I² · R iç). 9 V pilde iç direnç büyük, akım birkaç amper.</li>
+    <li>Soru: "Neden kuşlar yüksek gerilim hattında çarpılmaz?" (Vücutlarından akım geçecek bir gerilim farkı yok; tek tele basıyorlar.)</li>
+    <li>Vücut direnci kaydırıcısı: kuru deri 100 kΩ civarı, ıslak deri 1 kΩ civarı. 230 V'ta 1 kΩ: 230 mA, ölümcül bölgenin çok üstü.</li>
+    <li>Kaynak: IEC 60479-1 (akımın insan vücudu üzerindeki etkileri).</li>
+  </ul></aside>
+</section>

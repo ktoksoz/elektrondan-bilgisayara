@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="8" data-demo="c8Karsilastirici" id="karsilastirici" data-model="basit">
+  <div class="text">
+    <h2>Karşılaştırıcı</h2>
+    <p class="lead">Geri beslemesiz bir opamp tek bir soru sorar: hangi giriş daha yüksek?</p>
+    <p>+ giriş − girişten biraz yüksekse çıkış üst raya, alçaksa alt raya gider. Bu kullanıma <strong>karşılaştırıcı</strong> (İngilizce <em>comparator</em>) denir.</p>
+    <p>Deneyde + girişte bir ışık sensörü var. <strong>LDR</strong> (ışığa bağımlı direnç) aydınlıkta yaklaşık 1 kΩ, karanlıkta yüzlerce kiloohm olur. 10 kΩ'luk dirençle kurduğu bölücü sayesinde ışık azaldıkça KN1 gerilimi yükselir. − girişe ise potansiyometreyle ayarlanan <strong>eşik</strong> gerilimi (KN2) gelir.</p>
+    <p>KN1 eşiği geçince çıkış 5 V'a fırlar ve LED yanar. Bahçe lambalarındaki alacakaranlık sensörleri bu fikirle çalışır; eşik, lambanın ne kadar karanlıkta yanacağını seçer.</p>
+    <details class="more"><summary>Daha fazla: titreme ve histerezis</summary>
+      <p>Işık tam eşiğin üzerindeyken küçük dalgalanmalar (bulut, lamba titremesi, elektriksel gürültü) çıkışı hızla açıp kapatır. «Gürültü» düğmesiyle bunu osiloskopta görebilirsiniz.</p>
+      <p>Çözüm <strong>histerezis</strong>tir: çıkıştan + girişe büyük bir dirençle küçük bir pozitif geri besleme verilir. Böylece açılma eşiği kapanma eşiğinden biraz yüksek olur ve sınırdaki gürültü çıkışı oynatamaz. Bu devreye Schmitt tetikleyici denir.</p>
+      <p>Gerçek projelerde LM393 gibi karşılaştırma için üretilmiş entegreler de kullanılır. Bunların çoğunun çıkışı açık kollektörlüdür ve bir çekme (pull-up) direnci ister.</p>
+    </details>
+    <p class="try">Işık kaydırıcısını oda ışığından geceye indirin ya da «Gün batımı»na basın: KN1, KN2'yi geçtiği anda LED yanar. Sonra eşiği değiştirip yeniden deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Osiloskopta üç çizgi var: sarı sensör, mavi eşik, pembe çıkış. Sarı mavinin üstüne çıktığı an pembe 0'dan 5 V'a sıçrıyor; arası yok.</li>
+    <li>Soru: lambanın daha erken (daha aydınlıkken) yanmasını istiyorsak eşiği artırmalı mı, azaltmalı mı? (Azaltmalı: KN1 daha düşük gerilimde eşiği geçer.)</li>
+    <li>LDR değerleri gerçekçidir (GL5528 sınıfı); 10 lux civarında ~15 kΩ.</li>
+    <li>"Gürültü" ile LED'in sınırda titremesini gösterip histerezise köprü kurun.</li>
+  </ul></aside>
+</section>

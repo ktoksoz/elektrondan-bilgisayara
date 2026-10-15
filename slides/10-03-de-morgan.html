@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="10" data-demo="c10DeMorgan" id="de-morgan">
+  <div class="text">
+    <h2>Boole cebiri ve De Morgan</h2>
+    <p class="lead">Birbirine hiç benzemeyen iki ifade aynı devre olabilir. Bunun en kesin kanıtı doğruluk tablosudur.</p>
+    <p><strong>Boole cebiri</strong>nde değişkenler yalnız 0 ya da 1 olur. "·" VE, "+" VEYA, kesme işareti (A') ya da üst çizgi DEĞİL demektir. Kurallar sıradan cebire benzer ama sürprizleri var: A + A·B = A (yutma kuralı).</p>
+    <p>İki ifade, bütün giriş birleşimlerinde (n değişken için 2ⁿ satır) aynı sonucu veriyorsa eşittir. En kullanışlı iki kural <strong>De Morgan</strong> kurallarıdır:</p>
+    <p class="formula">(A·B)' = A' + B'   ·   (A + B)' = A'·B'</p>
+    <p>"İkisi birden değil" demek, "en az biri değil" demektir. Şemada: çıkıştaki kabarcığı girişlere itince AND, OR'a dönüşür (OR da AND'e). Buna <strong>kabarcık itme</strong> denir.</p>
+    <details class="more"><summary>Daha fazla: kurallar listesi</summary>
+      <p>Değişme: A·B = B·A. Birleşme: (A·B)·C = A·(B·C). Dağılma: A·(B + C) = A·B + A·C ve sıradan cebirde olmayan A + B·C = (A + B)·(A + C). Tümleme: A·A' = 0, A + A' = 1. Kendisiyle: A·A = A, A + A = A. Yutma: A + A·B = A, A·(A + B) = A.</p>
+      <p>Kurallar 19. yüzyıl İngiliz matematikçisi Augustus De Morgan'ın adını taşır. Tuzak örneği unutmayın: (A·B)' ile A'·B' eşit değildir; tersini alırken "·" işaretini "+" yapmak gerekir.</p>
+      <p>Kabarcık itmenin pratik değeri: NAND'dan başka kapı olmayan bir yongada OR gerekirse, girişleri ters çevirip NAND kullanmak yeter. Sonraki slaytın bulmacasında bu işe yarayacak.</p>
+    </details>
+    <p class="try">Bir örnek seçin ya da kendi ifadenizi yazın; farklı satırlar işaretlenir. Kabarcık itme kaydırıcısını sürükleyin: kapı biçim değiştirir, çıkış aynı kalır.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce "Tuzak"ı açın: çoğu kişi (A·B)' = A'·B' sanır. Tablo iki satırda farkı gösterir.</li>
+    <li>Kendi ifadesini yazdırın: "A + B·C" ile "(A + B)·(A + C)" eşittir; sıradan cebirde değildir.</li>
+    <li>Kabarcık itmede A = 1, B = 0 seçip kaydırıcıyı uçtan uca sürükleyin: Y hiç değişmez.</li>
+  </ul></aside>
+</section>

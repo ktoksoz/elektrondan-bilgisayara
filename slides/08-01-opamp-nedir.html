@@ -1,0 +1,26 @@
+<section class="slide" data-chapter="8" data-demo="c8Nedir" id="opamp-nedir" data-model="basit">
+  <div class="text">
+    <h2>Opamp nedir?</h2>
+    <p class="lead">Opamp, iki girişi arasındaki farkı yüz bin kez büyüten bir yükselteçtir.</p>
+    <p><strong>Opamp</strong> (işlemsel yükselteç, İngilizce <em>operational amplifier</em>) iki girişe ve bir çıkışa sahiptir: + (evirmeyen) ve − (eviren) giriş. Çıkış, iki giriş arasındaki farkın A katıdır:</p>
+    <p class="formula">V<sub>çıkış</sub> = A · (V+ − V−)<br>A ≈ 100 000</p>
+    <p>Fark yalnızca 1 mV olsa bile A · fark 100 V eder. Çıkış oraya gidemez; beslemenin sınırına, yani <strong>ray</strong>a yapışır.</p>
+    <p>Çıkışı − girişe geri bağlayınca (negatif <strong>geri besleme</strong>) opamp kendini dengeler. İki altın kural:</p>
+    <ol>
+      <li><strong>Girişlerden akım akmaz.</strong></li>
+      <li>Geri besleme varken opamp, çıkışını <strong>V+ = V−</strong> olacak şekilde ayarlar.</li>
+    </ol>
+    <details class="more"><summary>Daha fazla: kurallar neden tutuyor?</summary>
+      <p>Geri beslemede − giriş çıkışın kendisidir: V<sub>ç</sub> = A · (V+ − V<sub>ç</sub>), yani V<sub>ç</sub> = V+ · A / (1 + A). A = 100 000 iken çıkış, V+'nın %99,999'udur. İki giriş arasında yalnızca V<sub>ç</sub> / A kadar, mikrovoltlarca fark kalır. Deneyde bunu ölçebilirsiniz.</p>
+      <p>Gerçek opamp girişleri pikoamper ile nanoamper düzeyinde akım çeker; çoğu devrede bunu sıfır saymak hata yaptırmaz. Sembolde besleme uçları çoğu zaman çizilmez ama her opampın beslemesi vardır. Deneydeki opamp ±12 V ile beslenir ve çıkışı raylara 1,5 V'tan fazla yaklaşamaz (basitleştirilmiş model). İnce ayar kaydırıcısıyla çıkışın gerçekten A · fark olduğu dar bölgeyi bulabilirsiniz.</p>
+    </details>
+    <p class="try">V+ ile V− kaydırıcılarını birbirinin üstünden geçirin: çıkış bir raydan ötekine atlar. Sonra «Geri besleme bağla»ya basın; ölçülen V−, V+'yı izler.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>"A · fark" göstergesine dikkat çekin: kilovoltlar yazıyor ama çıkış ±10,5 V'ta kalıyor. Opamp kendi beslemesinin dışına çıkamaz.</li>
+    <li>Soru: 2 V ile 2,001 V arasındaki fark çıkışta ne yapar? (1 mV × 100 000 = 100 V → üst raya yapışır.)</li>
+    <li>İnce ayar kaydırıcısıyla ±100 µV civarındaki dik bölgeyi gösterin; grafikteki altın şerit doğrusal bölgedir.</li>
+    <li>Geri beslemede nokta kendiliğinden o dar bölgeye oturur. Kurallar yalnızca negatif geri beslemede geçerli; karşılaştırıcıda (sonraki slayt) 2. kural geçerli değil.</li>
+  </ul></aside>
+</section>

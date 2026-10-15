@@ -1,0 +1,23 @@
+<section class="slide" data-chapter="4" data-demo="c4cap" id="kondansator">
+  <div class="text">
+    <h2>Kondansatör</h2>
+    <p class="lead">Kondansatör, yükü iki levhada biriktiren küçük bir depodur; dolması da boşalması da zaman alır.</p>
+    <p>İki iletken levhanın arasında ince bir yalıtkan vardır. Pil, elektronları bir levhadan çekip ötekine iter: bir levha artı, öteki eksi yüklenir ve aralarında gerilim oluşur. Levhaların arasından akım geçmez; ama kondansatör dolarken ve boşalırken devrede akım akar.</p>
+    <p>Direnç bu akışı yavaşlatır. Kondansatör önce hızlı, sonra giderek yavaşlayarak dolar. Ne kadar süreceğini tek bir sayı söyler, <strong>zaman sabiti</strong>:</p>
+    <p class="formula">τ = R · C</p>
+    <p>Her τ süresinde kondansatör kalan yolun %63'ünü gider; yaklaşık 5τ sonra neredeyse tamamen dolmuştur. 10 kΩ ve 100 µF için τ tam 1 saniyedir.</p>
+    <details class="more"><summary>Daha fazla: formüller</summary>
+      <p>Kapasitenin birimi farad'dır (F). Levhalardaki yük Q = C · V; 100 µF'lık bir kondansatör 5 V'ta 500 µC yük tutar. Pratikte pikofarad (pF), nanofarad (nF) ve mikrofarad (µF) kullanılır.</p>
+      <p>Şarjda V(t) = V<sub>kaynak</sub> · (1 − e<sup>−t/τ</sup>), deşarjda V(t) = V<sub>0</sub> · e<sup>−t/τ</sup>. t = τ anında 1 − 1/e ≈ %63,2'ye ulaşılır, 5τ'da %99,3'e. Depolanan enerji E = ½ · C · V².</p>
+      <p>Elektrolitik kondansatörlerin artı ve eksi ucu vardır; ters bağlanırsa ısınıp bozulabilir.</p>
+    </details>
+    <p class="try">Anahtarı Şarj konumuna alın ve osiloskopta eğriyi izleyin: τ çizgisinde gerilim %63'e ulaşır. Sonra Deşarj'a alın; direnci ya da kapasiteyi değiştirip yeniden deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce levhalardaki yüklere dikkat çekin: + ve − sayısı kondansatör gerilimiyle birlikte artıyor.</li>
+    <li>Akım noktaları şarjın başında hızlı, sonra yavaşlıyor; gerilim farkı azaldıkça akım da azalıyor.</li>
+    <li>Soru: Direnci iki katına çıkarırsak dolma süresi ne olur? (İki katına çıkar; τ = R·C.)</li>
+    <li>Küçük τ değerlerinde deney ağır çekime geçer; denetim çubuğundaki not kaç kat yavaşlatıldığını söyler.</li>
+  </ul></aside>
+</section>

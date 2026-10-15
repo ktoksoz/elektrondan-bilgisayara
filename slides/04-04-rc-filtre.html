@@ -1,0 +1,24 @@
+<section class="slide" data-chapter="4" data-demo="c4lpf" id="rc-filtre">
+  <div class="text">
+    <h2>RC filtre</h2>
+    <p class="lead">Bir direnç ve bir kondansatör, yavaş değişen sinyali geçirir, hızlı değişeni kısar.</p>
+    <p>Kondansatörün dolması zaman alır. Giriş yavaş değişiyorsa kondansatör yetişir ve çıkış girişi izler. Giriş çok hızlı gidip geliyorsa kondansatör dolmaya fırsat bulamaz: çıkış küçülür ve geride kalır. Bu devreye <strong>alçak geçiren filtre</strong> denir.</p>
+    <p>Sınırı <strong>kesim frekansı</strong> belirler:</p>
+    <p class="formula">fc = 1 / (2π · R · C)</p>
+    <p>Kesim frekansında çıkış, girişin %70,7'sine (−3 dB) düşer. Bunun üstünde frekans on katına çıktıkça çıkış on kat küçülür.</p>
+    <p>Tiz sesler yüksek frekanstır. Filtreyi sese uygularsanız tizler kısılır, ses boğuklaşır. Elektro gitarın ton düğmesi de bir RC alçak geçiren filtredir.</p>
+    <details class="more"><summary>Daha fazla: kazanç, faz ve ses</summary>
+      <p>Kazanç |V<sub>çıkış</sub> / V<sub>giriş</sub>| = 1 / √(1 + (f/fc)²), faz kayması −arctan(f/fc); kesimde −45°. Desibel cinsinden kazanç 20 · log<sub>10</sub>(oran). Grafikteki eğri formülden çizilmedi: her frekansta devre ayrıca benzetilip çıkış genliği ölçüldü.</p>
+      <p>Ses örneği tarayıcının Web Audio arayüzünde birinci dereceden dijital bir filtreden (IIR) geçiyor; katsayıları aynı RC devresinden hesaplanıyor ve kesim frekansı aynı. Web Audio'nun hazır BiquadFilter'ı ikinci derecedendir ve daha dik keser; RC'ye sadık kalmak için kullanılmadı.</p>
+      <p>Testere dişi sesteki tizler, notanın harmonikleridir. Harmoniklerin sesin rengini nasıl belirlediğini müzik sitesinde dinleyin: <a href="https://muzik.koraytoksoz.com/#tini" target="_blank" rel="noopener">Tını: aynı nota, farklı ses</a>.</p>
+    </details>
+    <p class="try">Frekansı kesim frekansına, sonra 10 kHz'e çıkarın: KN2 küçülür ve geride kalır. "Sesi çal"a basıp filtreyi açıp kapatın; direnci büyütünce tizlerin kısıldığını duyun.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>KN1 (sarı) giriş, KN2 (camgöbeği) çıkış. Kazanç ve faz her periyotta benzetimden ölçülüyor.</li>
+    <li>Kesim frekansında kazanç 0,707 ve faz −45°: grafikteki büyük nokta −3 dB çizgisine oturuyor.</li>
+    <li>Ses düğmesine basmadan önce salonun ses düzeyini kontrol edin; gürültü seçeneği tiz kaybını en açık duyuran örnek.</li>
+    <li>Soru: Kondansatörü iki katına çıkarırsak kesim frekansı ne olur? (Yarıya iner.)</li>
+  </ul></aside>
+</section>

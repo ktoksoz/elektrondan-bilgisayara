@@ -1,0 +1,23 @@
+<section class="slide" data-chapter="9" data-demo="c9Noise" id="gurultu-paylari" data-model="basit">
+  <div class="text">
+    <h2>Gürültü payları</h2>
+    <p class="lead">Bu gerilim 1 mi, 0 mı? Dijitalde cevap tek bir eşik değil, aralıklardır.</p>
+    <p>Teller gürültü toplar. Bu yüzden <strong>alıcı</strong> V<sub>IL</sub>'nin altını kesinlikle 0, V<sub>IH</sub>'nin üstünü kesinlikle 1 okur; aradaki yasak bölgede ne okuyacağı garanti değildir.</p>
+    <p><strong>Gönderici</strong> daha sıkı söz verir: 1 için en az V<sub>OH</sub>, 0 için en çok V<sub>OL</sub>. Aradaki fark <strong>gürültü payı</strong>dır:</p>
+    <p class="formula">NMH = VOH − VIH   ·   NML = VIL − VOL</p>
+    <p>5 V TTL'de pay iki tarafta da 0,4 V'tur. Gürültü bu paydan küçükse alıcı her biti doğru okur; çıkışında gürültüden iz kalmaz. Analogda her gürültü sonuca eklenir, dijitalde pay aşılana kadar hiçbiri. Dijitalin sağlamlığı buradan gelir.</p>
+    <details class="more"><summary>Daha fazla: standart değerler</summary>
+      <p><b>5 V TTL</b> (74LS gibi): V<sub>IL</sub> ≤ 0,8 V, V<sub>IH</sub> ≥ 2,0 V, V<sub>OL</sub> ≤ 0,4 V, V<sub>OH</sub> ≥ 2,4 V.</p>
+      <p><b>3,3 V LVCMOS</b> (JEDEC JESD8C): girişler aynı (0,8 V ve 2,0 V); çıkışlar küçük yükte (100 µA) V<sub>OL</sub> ≤ 0,2 V ve V<sub>OH</sub> ≥ V<sub>DD</sub> − 0,2 V. Aynı standarttaki LVTTL çıkışları 2 mA yükte V<sub>OH</sub> ≥ 2,4 V, V<sub>OL</sub> ≤ 0,4 V'tur.</p>
+      <p>Deneyde gönderici en kötü durum seviyelerinde (V<sub>OH</sub>, V<sub>OL</sub>) çalışıyor. Alıcı, çözücüyle hesaplanan iki CMOS eviricidir. TTL modunda ilk eviricinin transistör oranı, eşiği 74HCT gibi TTL uyumlu yongalarda olduğu gibi 1,4 V civarına getirecek biçimde seçildi. Gerçek eşik yasak bölgede bir yerdedir ve yongadan yongaya değişir; garanti edilen yalnız V<sub>IL</sub> ve V<sub>IH</sub>'dir. Bu yüzden pay aşıldığında hatalar hemen başlamayabilir, ama artık hiçbir şey garanti değildir.</p>
+    </details>
+    <p class="try">Gürültü genliğini artırın: gürültü alıcının eşiğine ulaşınca osiloskopta hatalı bitler turuncu yanar ve sayaç işler. Mantık ailesini değiştirin; test gerilimiyle bir değerin 1 mi 0 mı okunacağını sorun.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce seviye çubuğunu anlatın: gönderici sütunu çıkışın sözü, alıcı sütunu girişin kabulü; altın oklar gürültü payı.</li>
+    <li>Gürültüyü 0,3 V'ta bırakın: osiloskoptaki giriş titrek ama alıcı çıkışı tertemiz. "Gürültü nereye gitti?"</li>
+    <li>LVCMOS'a geçin: 3,3 V'ta bile 0'daki pay daha büyük (0,6 V), çünkü CMOS çıkışları raylara çok yakın.</li>
+    <li>Kaynaklar: TI "Logic Guide" / 74LS veri sayfaları; JEDEC JESD8C (3,3 V arayüz standardı).</li>
+  </ul></aside>
+</section>

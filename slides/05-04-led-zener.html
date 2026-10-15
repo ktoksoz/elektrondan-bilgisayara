@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="5" data-demo="c5ledz" id="led-zener" data-model="basit">
+  <div class="text">
+    <h2>LED renkleri ve Zener diyot</h2>
+    <p class="lead">LED'in rengi, onu yakmak için gereken gerilimi belirler. Zener diyot ise ters yönde iletip gerilimi sabit tutar.</p>
+    <p>LED'de eklemi geçen her elektron bir boşlukla birleşirken enerjisini bir <strong>foton</strong> olarak verir; fotonun enerjisi malzemenin <strong>bant aralığı</strong> kadardır. Mavi ışığın dalga boyu kısa, fotonu daha enerjilidir. Bu yüzden mavi LED ≈ 3 V, kırmızı ≈ 2 V ister; aynı besleme ve dirençle mavi LED daha az akım çeker.</p>
+    <p><strong>Zener diyot</strong> ters yönde belirli bir gerilimde (burada 5,1 V) iletmeye başlar ve o gerilimi korur. Seri bir dirençle basit bir <strong>regülatör</strong> olur: giriş 7–15 V arasında değişse de çıkış ≈ 5,1 V kalır. Yük, dirençten gelebilecek akımdan fazlasını isterse zener susar ve çıkış düşer.</p>
+    <details class="more"><summary>Daha fazla: bant aralığı ve regülatör hesabı</summary>
+      <p class="formula">E = h · c / λ ≈ 1239,84 / λ(nm) eV</p>
+      <p>Kırmızı 630 nm → 1,97 eV; mavi 470 nm → 2,64 eV. LED gerilimi en az bu kadar olmalıdır. Mavi InGaN LED'lerde gerilim, eklem ve seri direnç kayıpları yüzünden foton enerjisinin epey üstündedir. Buradaki yeşil, eski tip 565 nm'lik GaP yeşilidir; parlak saf yeşil (≈ 525 nm) InGaN LED'ler de ≈ 3 V ister.</p>
+      <p>Seri direnç seçimi: R<sub>S</sub> ≤ (V<sub>giriş,min</sub> − V<sub>Z</sub>) / (I<sub>yük,max</sub> + I<sub>Z,min</sub>). 7 V girişte ve 330 Ω ile dirençten en çok (7 − 5,1) / 330 ≈ 5,8 mA geçer; yük bundan fazlasını alamaz. Zenerin gücüne de dikkat: P = V<sub>Z</sub> · I<sub>Z</sub>.</p>
+      <p>Kırılmanın iki mekanizması vardır: yaklaşık 5 V'un altında kuantum tünellemesi (Zener etkisi), 6–7 V'un üstünde çığ etkisi. 5,1 V'luk diyotlarda ikisi birlikte rol oynar.</p>
+    </details>
+    <p class="try">Beslemeyi sıfırdan artırın: önce kırmızı, sonra yeşil, en son mavi yanar. Sonra "Zener regülatörü"ne geçin, girişi değiştirin ve yük direncini küçülterek regülasyonun nerede bozulduğunu bulun.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Üç kolda dirençler aynı (220 Ω); akım farkı yalnızca LED gerilimlerinden geliyor: (V − V<sub>LED</sub>) / R.</li>
+    <li>Soru: 3 V'luk bir pil mavi LED'i yakabilir mi? (Zar zor; akım çok küçük kalır.)</li>
+    <li>Zener tarafında grafikteki turuncu bölge, regülasyonun bittiği yük akımları. Girişi düşürünce sınır sola kayar.</li>
+    <li>S1'e tıklayarak yükü ayırın: bütün akım zenerden geçer; zener gücü en büyük değerine çıkar.</li>
+  </ul></aside>
+</section>

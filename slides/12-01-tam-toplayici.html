@@ -1,0 +1,23 @@
+<section class="slide" data-chapter="12" data-demo="c12Adder" id="tam-toplayici">
+  <div class="text">
+    <h2>Yarım ve tam toplayıcı</h2>
+    <p class="lead">Bilgisayarın yaptığı her hesap, iki biti toplayan küçük bir kapı devresine dayanır.</p>
+    <p>İkili sistemde yalnız iki rakam var: 0 ve 1. 1 + 1 iki eder ve ikili sistemde iki "10" diye yazılır: sütuna 0 yazılır, 1 <strong>elde</strong> olarak sola geçer. Onluk sistemde 7 + 5 = 12 yazarken 2'yi yazıp 1'i elde tutmakla aynı şey.</p>
+    <p><strong>Yarım toplayıcı</strong> iki biti toplar. Toplam biti S, A ile B'nin XOR'udur: ikisinden yalnız biri 1 ise 1. Elde biti Cout ise AND'dir: yalnız ikisi de 1 iken elde oluşur.</p>
+    <p>Çok bitli toplamada her sütuna bir de sağdaki sütundan gelen elde eklenir; üç bit toplamak gerekir. <strong>Tam toplayıcı</strong> bunu iki yarım toplayıcı ve bir OR kapısıyla yapar: önce A ile B toplanır, sonra sonuca gelen elde Cin eklenir.</p>
+    <p class="formula">S = A ⊕ B ⊕ Cin &nbsp;·&nbsp; Cout = A·B + Cin·(A ⊕ B)</p>
+    <details class="more"><summary>Daha fazla: neden OR yeterli?</summary>
+      <p>İki yarım toplayıcı aynı anda elde üretemez. İlki elde üretiyorsa A = B = 1'dir; o zaman A ⊕ B = 0 olur ve ikinci yarım toplayıcının girişlerinden biri 0 olduğu için o elde üretemez. İki elde hiçbir zaman birlikte 1 olmadığından onları birleştirmek için OR yeterlidir (XOR da aynı sonucu verirdi).</p>
+      <p>Tam toplayıcının doğruluk tablosuna dikkatle bakın: Cout S, üç girişteki 1'lerin <em>sayısını</em> ikili olarak yazar: hiç 1 yoksa 00, bir tane 01, iki tane 10, üç tane 11. Toplayıcı aslında bir "1 sayacı"dır.</p>
+      <p>Aynı mantık onluk toplamada da geçerli: her sütunda iki rakam ve en fazla 1 elde toplanır, sonuç hiçbir zaman 19'u aşmaz; bu yüzden elde de hep 0 ya da 1'dir.</p>
+    </details>
+    <p class="try">Devredeki A ve B kutularına tıklayın: 1 + 1'de S'nin 0, Cout'un 1 olduğunu görün. Sonra "Tam toplayıcı"ya geçin ve Cin'i de 1 yapın: 1 + 1 + 1 = 11.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce tahtaya onluk bir toplama yazın (7 + 5): "2 yaz, 1 elde". Sonra aynı şeyi ikili yapın: 1 + 1 = 10.</li>
+    <li>Soru: "Yarım toplayıcının çıkışları hangi iki kapıya benziyor?" S → XOR, Cout → AND. Doğruluk tablosunda sütunları karşılaştırın.</li>
+    <li>Tam toplayıcıda iki yarım toplayıcıyı kesikli çerçevelerle gösterin. Neden "yarım" dendiğini sorun: gelen eldeyi hesaba katamıyor.</li>
+    <li>Doğruluk tablosundaki "onluk" sütunu: girişlerdeki 1'lerin sayısı. Bu, sonraki slayttaki 4 bitlik toplayıcının yapı taşı.</li>
+  </ul></aside>
+</section>

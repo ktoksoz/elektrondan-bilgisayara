@@ -1,0 +1,26 @@
+<section class="slide" data-chapter="13" data-demo="c13bTrafik" id="trafik-lambasi">
+  <div class="text">
+    <h2>Durum makinesi: trafik lambası</h2>
+    <p class="lead">Trafik lambası, hangi adımda olduğunu hatırlayan küçük bir makinedir. İki flip-flop ve birkaç kapı yeter.</p>
+    <p>Lambanın dört <strong>durumu</strong> var: kırmızı, kırmızı + sarı, yeşil, sarı. Türkiye'deki sıra budur: kırmızıyla birlikte yanan sarı, yolun açılmak üzere olduğunu bildirir. Dört durum iki bitle yazılır; bu iki biti iki D flip-flop saklar.</p>
+    <p>Her <strong>saat sinyali</strong> darbesinde flip-flop'lar, kapıların hesapladığı sonraki durumu yakalar. Yeşil, yaya düğmesine basılana kadar yanar; sonra sarı ve kırmızı gelir, yayalar yürür. Kısa bir basışı iki NOR kapısından yapılmış bir <strong>SR latch</strong> hatırlar.</p>
+    <p>Bu desene <strong>durum makinesi</strong> denir: durum flip-flop'larda, kurallar kapılarda. Asansörler ve işlemcilerin denetim birimi de böyle çalışır.</p>
+    <p class="formula">D1 = Q0 · D0 = Q1' + Q0·W'</p>
+    <details class="more"><summary>Daha fazla: tasarım adımları</summary>
+      <p><b>1. Durumları kodla.</b> 00 kırmızı, 01 kırmızı + sarı, 11 yeşil, 10 sarı. Bu sıra bir <strong>Gray kodu</strong>dur: her geçişte yalnız bir bit değişir.</p>
+      <p><b>2. Durum tablosunu yaz, sonraki durumu çıkar.</b> Tablodan Q1'in sonraki değerinin her durumda Q0'a eşit olduğu görülür: D1 = Q0. Q0'ın sonraki değeri kırmızı ve kırmızı + sarıda 1, sarıda 0; yeşilde ise istek yoksa 1, varsa 0. Karnaugh haritasıyla D0 = Q1' + Q0·W' bulunur.</p>
+      <p><b>3. Çıkışları çöz.</b> Kırmızı = Q1', sarı = Q1 ⊕ Q0, yeşil = Q1·Q0, yaya yeşili = (Q1 + Q0)'. Lambalar yalnız duruma bağlı olduğu için bu bir <strong>Moore makinesi</strong>dir.</p>
+      <p>Gerçek kavşak denetleyicilerinde her durum farklı sürer: kırmızı uzun, sarı kısadır. Bunun için durum makinesine bir sayaç eklenir; sayaç dolunca bir sonraki duruma geçilir. Burada her durum bir saat periyodu sürer.</p>
+      <p>Işıkların anlamı: Trafik İşaretleri Hakkında Yönetmelik, Madde 9 ("Kırmızı ışıkla birlikte yanması, yolun trafiğe açılmak üzere olduğunu bildirir").</p>
+    </details>
+    <p class="try">Yeşil yanarken "Yaya düğmesi"ne basın: W isteği yanar, sonraki saat darbesinde sarıya geçilir. Diyagramı ve tabloda parlayan satırı izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce durum diyagramını gösterin: dört daire, oklar saat darbesiyle. Yeşildeki kendi üzerine dönen ok "istek yok" demek.</li>
+    <li>Soru: "Düğmeye basıp hemen bıraksam, lamba bunu nasıl hatırlar?" Cevap: SR latch (önceki slayt). Şemada W' ve W tellerini gösterin.</li>
+    <li>Gray kodu: her geçişte tek bit değiştiği için geçiş anında ara bir yanlış durum oluşmaz.</li>
+    <li>Tablodaki "Sonraki" sütunu kapı denklemlerinden hesaplanıyor; şemadaki flip-flop'lar da aynı değerleri yakalıyor.</li>
+    <li>Yönetmelik: Trafik İşaretleri Hakkında Yönetmelik, Madde 9, ışıklı işaretlerin anlamı.</li>
+  </ul></aside>
+</section>

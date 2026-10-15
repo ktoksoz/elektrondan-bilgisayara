@@ -1,0 +1,21 @@
+<section class="slide" data-chapter="13" data-demo="c13Sr" id="sr-latch">
+  <div class="text">
+    <h2>Geri besleme ile hafıza: SR latch</h2>
+    <p class="lead">İki NOR kapısının çıkışını birbirinin girişine bağlayın: devre, verdiğiniz son komutu hatırlar.</p>
+    <p>Şimdiye kadarki kapılarda çıkış yalnız o anki girişlere bağlıydı. Burada her kapının çıkışı ötekinin girişine döner; buna <strong>geri besleme</strong> denir.</p>
+    <p><strong>S</strong> (set, kur) bir an 1 olunca Q = 1 olur. S yeniden 0 olsa da Q 1'de kalır, çünkü Q' = 0 değeri Q'yu 1'de tutar. <strong>R</strong> (reset, sıfırla) Q'yu 0 yapar. İkisi de 0 iken devre son durumu korur: bu bir bitlik hafızadır, adı <strong>latch</strong> (mandal).</p>
+    <p>S = R = 1 <strong>yasak</strong> durumdur: iki çıkış da 0 olur, Q ile Q' artık birbirinin tersi değildir. Asıl sorun ikisi aynı anda bırakılınca çıkar: iki kapı aynı anda 1'e, sonra aynı anda 0'a geçer ve yarış başlar.</p>
+    <details class="more"><summary>Daha fazla: salınım, metastabilite ve denklemler</summary>
+      <p>Devrenin denklemleri: Q = (R + Q')' ve Q' = (S + Q)'. Benzetimde her kapının yayılma gecikmesi 1 birimdir (burada 1 birim = 0,25 s, zaman yavaşlatıldı).</p>
+      <p>Benzetimde iki kapının gecikmesi tıpatıp aynı olduğu için salınım sonsuza kadar sürer. Gerçek kapılarda gecikmeler hiçbir zaman tam eşit değildir ve gürültü vardır; salınım söner ve latch 0'a ya da 1'e düşer. Hangisine düşeceği önceden bilinemez. Çıkış bazen 0 ile 1 arasında bir ara gerilimde, süresi öngörülemeyen bir zaman asılı kalır: buna <strong>metastabilite</strong> (yarı kararlılık) denir. Bu yüzden tasarımlarda S = R = 1 kullanılmaz.</p>
+      <p>Aynı devre iki NAND kapısıyla da kurulur; o zaman girişler ters mantıklıdır: S' ve R' 0 iken etkindir.</p>
+    </details>
+    <p class="try">S'ye tıklayın ve Q'nun yandığını görün; S'yi yeniden 0 yapın: Q yanık kalır. R ile sıfırlayın. Sonra S ile R'yi birlikte 1 yapıp "S ve R'yi birlikte bırak"a basın ve zamanlama diyagramını izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce S'ye basıp bırakın; Q yanık kalırken sorun: "Girişlerin ikisi de 0. Neden Q hâlâ 1?" Cevap: Q' = 0, üstteki NOR'a geri dönüyor.</li>
+    <li>Zamanlama diyagramında S yükseldikten sonra önce Q' düşüyor, bir gecikme sonra Q yükseliyor: geri besleme döngüsü iki kapı gecikmesi sürer.</li>
+    <li>Yasak durum: S = R = 1'de iki LED de sönük. Birlikte bırakınca salınım. Gerçek devrede bunun rastgele bir sonuca (ya da metastabiliteye) varacağını vurgulayın; S ya da R'ye tek başına basmak salınımı durdurur.</li>
+  </ul></aside>
+</section>

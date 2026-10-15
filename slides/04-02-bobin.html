@@ -1,0 +1,23 @@
+<section class="slide" data-chapter="4" data-demo="c4coil" id="bobin" data-model="basit">
+  <div class="text">
+    <h2>Bobin</h2>
+    <p class="lead">Bobin, içinden geçen akımın değişmesine direnir: akımı ne aniden başlatmak ister ne de aniden durdurmak.</p>
+    <p>Bobin, sarılmış bir teldir. Akım geçince çevresinde manyetik alan oluşur ve enerji bu alanda depolanır. Akım değişmeye çalışınca bobin buna karşı koyan bir gerilim üretir; anahtar kapanınca akım yavaş yavaş yükselir.</p>
+    <p>Asıl sürpriz anahtar açılınca gelir. Akım bir anda sıfıra inemez; bobin onu sürdürmek için gerilimini yükseltir. Anahtar ucunda beslemenin onlarca katı bir sıçrama oluşur: kontakta kıvılcım çıkar, anahtarlayan transistör bozulabilir.</p>
+    <p>Çözüm, bobine ters yönde bir <strong>serbest geçiş diyodu</strong> (flyback diyodu) bağlamaktır. Akım diyot üzerinden dönüp yavaşça söner; gerilim beslemeyi yalnızca bir diyot gerilimi kadar (1 V'tan az) aşar. Röle süren her devrede bu diyot vardır.</p>
+    <details class="more"><summary>Daha fazla: sayılar ve modelin sınırı</summary>
+      <p class="formula">V = L · ΔI / Δt</p>
+      <p>Endüktansın birimi henry'dir (H). Akım ne kadar hızlı değişirse bobin gerilimi o kadar büyür. Akım I iken depolanan enerji E = ½ · L · I².</p>
+      <p>Deneydeki röle bobini 0,5 H'lik bir endüktans ve 120 Ω'luk sargı direncinden oluşuyor. Anahtar kapanınca akım 12 V / 120 Ω = 100 mA'e, τ = L / R ≈ 4,2 ms zaman sabitiyle yükselir.</p>
+      <p>Dürüst bir not: ideal bir anahtar açıldığında akımın gidecek hiçbir yolu kalmaz ve hesap sonsuz gerilim verir. Gerçekte bu yolu kontaktaki kıvılcım (ark) ya da sürücü transistörün kırılması açar. Benzetimde açık anahtarın uçları arasına 2,2 kΩ'luk bir kaçak direnç koyduk; bu yüzden tepe değer yaklaşık 100 mA × 2,2 kΩ ≈ 220 V çıkıyor ve anahtar açıkken de birkaç miliamperlik akım görünüyor. Gerçek devrelerde sıçrama yüzlerce volta ulaşabilir.</p>
+    </details>
+    <p class="try">Anahtarı kapatın ve akımın yükselişini izleyin; sonra açın: osiloskopta sıçramayı, devrede kıvılcımı görün. Ardından serbest geçiş diyodunu ekleyip aynısını tekrarlayın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Deney 100 kat ağır çekimde: osiloskopta 1 bölme 5 ms.</li>
+    <li>Sarı iz (KN1) anahtarın üst ucundaki gerilim, açık sarı ince iz bobin akımı. Akım hiçbir zaman zıplamıyor; sıçrayan gerilim.</li>
+    <li>Diyot eklenince osiloskop ölçeği 5 V/bölmeye geçiyor; tepe değer 13 V'un altında kalıyor, akım ise daha yavaş sönüyor.</li>
+    <li>Soru: Diyot ters bağlansaydı ne olurdu? (Anahtar kapanınca kaynağı kısa devre ederdi.)</li>
+  </ul></aside>
+</section>

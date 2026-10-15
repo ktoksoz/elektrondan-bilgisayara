@@ -1,0 +1,21 @@
+<section class="slide" data-chapter="2" data-demo="c1led" id="led-direnci" data-model="basit">
+  <div class="text">
+    <h2>LED'e direnç hesabı</h2>
+    <p class="lead">LED'i doğrudan pile bağlarsanız yanar. Önüne konan küçük bir direnç onu korur.</p>
+    <p>LED üzerinde, rengine göre neredeyse sabit bir gerilim kalır: kırmızıda yaklaşık 2 V, mavide ve beyazda yaklaşık 3 V. Bu <strong>ileri gerilim</strong>dir (V<sub>f</sub>). Beslemenin geri kalanı dirence düşer ve akımı direnç belirler:</p>
+    <p class="formula">R = (V<sub>s</sub> − V<sub>f</sub>) / I</p>
+    <p>Hesap çoğu zaman standart olmayan bir değer verir. Dirençler <strong>E12 serisi</strong> denen standart değerlerle satılır (10, 12, 15, 18, 22, 27, 33, 39, 47, 56, 68, 82 ve on katları). Bir üstteki değeri seçmek güvenlidir: akım biraz azalır, LED biraz sönükleşir ama zarar görmez.</p>
+    <details class="more"><summary>Daha fazla: dirençsiz LED neden yanar?</summary>
+      <p>LED bir diyottur: ileri gerilimin üstünde akımı gerilimle üstel olarak artar. Biraz fazla gerilim çok fazla akım demektir. Dirençsiz devrede akımı sınırlayan yalnızca LED'in ve pilin küçük iç dirençleridir; akım yüzlerce miliampere çıkar. Tipik bir 5 mm LED sürekli olarak yaklaşık 20–30 mA'e dayanır.</p>
+      <p>Direncin harcadığı gücü de kontrol edin: P = I²·R. 12 V ve 20 mA ile kırmızı LED'de direnç yaklaşık 0,2 W harcar; ¼ W'lık direnç sınırına yaklaşır.</p>
+      <p>Simülasyondaki LED modeli basitleştirilmiştir: ileri gerilim 10 mA'de verilen değerdir.</p>
+    </details>
+    <p class="try">Besleme gerilimini, LED rengini ve istenen akımı seçin; hesabı ve devrede ölçülen akımı karşılaştırın. Sonra “Direnci çıkar” düğmesine basın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Örnek: 5 V, kırmızı LED (2 V), 10 mA → 300 Ω; E12'de 330 Ω. Devrede ölçülen akım 9 mA civarı.</li>
+    <li>Arduino'da LED bağlarken 220 Ω ya da 330 Ω kullanılmasının nedeni bu hesap.</li>
+    <li>“Direnci çıkar” ile LED yanar. Soru: 3,3 V ve mavi LED'de dirençsiz ne olur? (Akım sınırı aşar ama anında yanmayabilir; yine de yapılmaz.)</li>
+  </ul></aside>
+</section>

@@ -1,0 +1,24 @@
+<section class="slide" data-chapter="8" data-demo="c8Toplayici" id="toplayici-izleyici" data-model="basit">
+  <div class="text">
+    <h2>Toplayıcı ve gerilim izleyici</h2>
+    <p class="lead">Sanal toprak bir buluşma noktasıdır: oraya akan akımlar toplanır. Bir ses mikserinin kalbi budur.</p>
+    <p><strong>Toplayıcı yükselteçte</strong> birkaç giriş, her biri kendi direnciyle, − girişe bağlanır. Akımları R<sub>f</sub>'de toplanır; çıkış girişlerin ağırlıklı toplamıdır (ters işaretli). Bir kanalın direncini küçültmek o kanalın sesini açar.</p>
+    <p class="formula">V<sub>çıkış</sub> = −R<sub>f</sub> · (V<sub>1</sub>/R<sub>1</sub> + V<sub>2</sub>/R<sub>2</sub>)</p>
+    <p>Deneyde 200 Hz'lik bir bas ile 1 kHz'lik bir tiz karışıyor; «Dinle» ile duyabilirsiniz.</p>
+    <p><strong>Gerilim izleyici</strong>, kazancı 1 olan evirmeyen yükselteçtir. Girişi akım çekmez, çıkışı yükü kendi beslemesinden sürer. <a href="#gerilim-bolucu">Gerilim bölücü</a> slaytında gördüğümüz <strong>yükleme etkisi</strong> böylece ortadan kalkar.</p>
+    <details class="more"><summary>Daha fazla: gerçek opampların sınırları</summary>
+      <p>Kanallar birbirini etkilemez, çünkü − giriş 0 V'ta tutulur: her kanalın akımı yalnızca kendi gerilimine ve direncine bağlıdır.</p>
+      <p><strong>Rail-to-rail:</strong> eski opampların çıkışı besleme raylarına 1–2 V yaklaşamaz. «Rail-to-rail» opamplar raya birkaç on milivolta kadar yaklaşır; tek pille çalışan devrelerde bu önemlidir.</p>
+      <p><strong>Kazanç–bant genişliği çarpımı:</strong> kazanç frekans arttıkça düşer. Bu çarpımı 1 MHz olan bir opampla 100 kat kazanç ancak 10 kHz civarına kadar alınır.</p>
+      <p><strong>Ofset gerilimi:</strong> girişler eşitken bile opamp birkaç milivoltluk bir fark varmış gibi davranır; yüksek kazançta bu hata da büyür. Çıkışın verebileceği akım da sınırlıdır, çoğunda birkaç on miliamper.</p>
+    </details>
+    <p class="try">Kanal seviyelerini değiştirip karışımı osiloskopta izleyin; ikisini birden sonuna kadar açın. Sonra «Gerilim izleyici»ye geçip yük direncini küçültün ve iki voltmetreyi karşılaştırın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Mikser ±5 V ile besleniyor; çıkış ±3,5 V'u geçemez. İki kanal birden yüksek olunca tepeler kırpılır, "Dinle" açıkken bu duyulur.</li>
+    <li>Soru: kanal 1'in seviyesini değiştirmek kanal 2'nin osiloskoptaki genliğini değiştirir mi? (Hayır: sanal toprak kanalları birbirinden yalıtır.)</li>
+    <li>İzleyici modunda iki bölücü aynı; tek fark opamp. Yük 1 kΩ'a inince düz bölücünün voltmetresi 1 V'un altına düşerken izleyicili devredeki 5 V'ta kalır.</li>
+    <li>"Opamp girişine akım" göstergesi 1. altın kuralı canlı gösteriyor. Yükün akımını opamp beslemeden çekiyor, bölücüden değil.</li>
+  </ul></aside>
+</section>

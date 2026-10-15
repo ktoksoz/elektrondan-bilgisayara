@@ -1,0 +1,23 @@
+<section class="slide" data-chapter="10" data-demo="c10Nand" id="nand-evrensel">
+  <div class="text">
+    <h2>NAND evrenseldir</h2>
+    <p class="lead">Elinizde tek tür kapı olsa, yalnız NAND, yine de her mantık devresini kurabilirdiniz.</p>
+    <p>Her mantık işlevi AND, OR ve NOT ile yazılabilir. Bu üçü de NAND'dan yapılabildiği için NAND <strong>evrensel kapı</strong>dır. NOR da öyledir.</p>
+    <p>Bulmaca: yalnız NAND kapıları kullanarak hedef kapıyı kurun. NOT ile başlayın: bir NAND'ın iki girişine aynı sinyali verirseniz ne olur? Sonra AND (NAND'ın arkasına bir NOT), sonra OR (De Morgan'ı hatırlayın), en son XOR.</p>
+    <p>Kurduğunuz devre her değişiklikte bütün giriş birleşimlerinde denenir ve doğruluk tablosu hedefle karşılaştırılır. Hedef en az kapı: NOT 1, AND 2, OR 3, XOR 4 kapıyla kurulabilir.</p>
+    <p>Gerçek yongalarda bu önemlidir: aynı küçük hücre binlerce kez kopyalanır, kapı sayısı azaldıkça devre küçülür.</p>
+    <details class="more"><summary>Daha fazla: çözümlerin cebiri ve Apollo</summary>
+      <p>NOT: (A·A)' = A'. AND: ((A·B)')' = A·B. OR: (A'·B')' = A + B (De Morgan). XOR: önce N = (A·B)', sonra Y = ((A·N)' · (B·N)')'. Dört kapı; ilk kapının çıkışı iki kapıya birden gider.</p>
+      <p>Apollo uzay programının rehberlik bilgisayarındaki mantık devrelerinin tamamı tek tür kapıdan, üç girişli NOR kapılarından kuruluydu. Tek bir yonga türü üretmek ve sınamak, güvenilirliği artırıyordu.</p>
+      <p>Bu bulmacada bir kapının çıkışını kendi girişlerine geri dolaştırmak (geri besleme) kapalı. O yol hafızaya çıkar: 13. bölümde iki kapıyla bir bit saklayacağız.</p>
+    </details>
+    <p class="try">NOT hedefiyle başlayın: boş bir yuvaya dokunup NAND ekleyin. A ucuna, sonra kapının bir girişine dokunarak tel çekin; çıkışı Y'ye bağlayın. Tablo baştan sona ✓ olunca sonraki hedefe geçin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Topluluğa önce NOT'u sorun; birisi "iki girişi birleştir" diyene kadar bekleyin.</li>
+    <li>OR'da ipucu: "OR, ters girişli NAND'dır" (önceki slayttaki kabarcık itme).</li>
+    <li>XOR'u 4 kapıda bulmak zordur; 5 kapılı çözümler de doğrudur, sayaç bunu söyler. Takılan olursa "Çözümü göster".</li>
+    <li>Bağlı bir girişe dokunmak teli söker; döngü kurulmak istenirse uyarı çıkar.</li>
+  </ul></aside>
+</section>

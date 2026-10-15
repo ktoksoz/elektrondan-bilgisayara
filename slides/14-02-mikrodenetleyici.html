@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="14" data-demo="c14mcu" id="mikrodenetleyici" data-model="basit">
+  <div class="text">
+    <h2>Mikrodenetleyici</h2>
+    <p class="lead">Arduino kartındaki küçük siyah yonga, önceki slayttaki bilgisayarın hepsini taşır: işlemci, bellek, saat ve dış dünyaya açılan pinler.</p>
+    <p>Arduino Uno'nun kalbi <strong>ATmega328P</strong> mikrodenetleyicisidir: 8 bitlik bir işlemci, programın durduğu 32 KB flaş bellek, 2 KB RAM ve 16 MHz'lik bir saat. Pinleri 5 V ile çalışır.</p>
+    <p>Yazdığınız kod derlenip flaş belleğe yüklenir. İşlemci onu, mini bilgisayardaki gibi komut komut getirip yürütür. <span class="mono">digitalWrite(13, HIGH)</span> bir yazmacın tek bir bitini 1 yapar. O bit pinin <strong>çıkış katını</strong> sürer: bir PMOS ve bir NMOS'tan oluşan bir <a href="#cmos-evirici">CMOS evirici</a>. Kodla yanan LED'in arkasında, bu sitede gördüğümüz transistörler var.</p>
+    <p>Pin bir güç kaynağı değildir. ATmega328P'de pin başına mutlak sınır 40 mA, önerilen 20 mA civarı. LED'e bu yüzden <a href="#led-direnci">seri direnç</a> koyarız; motor gibi büyük yükleri bir <a href="#bjt-anahtar">transistörle</a> süreriz.</p>
+    <details class="more"><summary>Daha fazla: PWM, hız ve model</summary>
+      <p><span class="mono">analogWrite</span> gerçek bir analog gerilim üretmez, <a href="#pwm">PWM</a> üretir: pin çok hızlı açılıp kapanır, göz ortalamayı görür. Uno'da yalnız 3, 5, 6, 9, 10 ve 11 numaralı pinler PWM verebilir; 13. pin veremez. 9. pinde frekans yaklaşık 490 Hz'dir (5 ve 6'da yaklaşık 980 Hz).</p>
+      <p>16 MHz'te bir saat çevrimi 62,5 ns sürer. ATmega328P komutlarının çoğu tek çevrimde biter; ama <span class="mono">digitalWrite</span> işlevi pin numarasını çözdüğü için birkaç mikrosaniye sürer. Deneyde bu yüzden yalnız <span class="mono">delay</span> satırları zaman alır.</p>
+      <p>Kartın üstündeki "L" LED'i de 13. pine bağlıdır (Uno R3'te arada bir tampon opamp var). Deneyde pini 5 V'luk, 25 Ω iç dirençli bir kaynak olarak modelledik: veri kitapçığına göre 20 mA çekilirken pin gerilimi en az 4,2 V kalır. Çıkış katındaki MOSFET'ler bu açık direnci verecek şekilde basitleştirildi.</p>
+    </details>
+    <p class="try">Yanık ve sönük kalma sürelerini kısaltın: koddaki delay sayıları değişir. "Pinin içine bak" ile hangi transistörün açık olduğunu izleyin. Seri direnci 47 Ω'a indirip pin akımı uyarısına bakın; sonra "Yavaşça parlama"yı seçin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Satır vurgusu: delay satırında bekler, diğer satırlar anında geçer (gerçek kartta mikrosaniyeler).</li>
+    <li>"Pinin içi" görünümünde HIGH = iç sinyal 0 = PMOS açık. Evirici olduğu için iç sinyal ters. Akım 5 V'tan PMOS üzerinden pine akıyor; LOW'da pin NMOS ile toprağa bağlanıyor.</li>
+    <li>Soru: "13. pine 47 Ω ile LED bağlarsak ne olur?" (≈ 40 mA: mutlak sınır. Pin bir süre dayanabilir ama yonga zarar görebilir.)</li>
+    <li>Yavaşça parlama 9. pinde, çünkü 13. pin PWM veremez. Ekrandaki LED kare kare açılıp kapanıyor; gerçek pin 490 Hz'de.</li>
+  </ul></aside>
+</section>

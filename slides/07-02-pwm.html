@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="7" data-demo="c7pwm" id="pwm" data-model="basit">
+  <div class="text">
+    <h2>PWM: hızlı aç-kapa ile ayar</h2>
+    <p class="lead">Bir LED'i yarı parlaklıkta yakmak için yarım gerilim gerekmez: onu çok hızlı yakıp söndürmek yeter.</p>
+    <p><strong>PWM</strong> (pulse width modulation, darbe genişlik modülasyonu) ile pin sabit bir frekansta açılıp kapanır. Açık kalınan sürenin periyoda oranına <strong>görev oranı</strong> (duty cycle, d) denir. Yükün gördüğü <strong>ortalama gerilim</strong>:</p>
+    <p class="formula">V<sub>ort</sub> = d · V<sub>besleme</sub></p>
+    <p>Göz hızlı yanıp sönmeyi ayırt edemez, ortalama parlaklığı görür; motorun kütlesi ve sargısı da akımı yumuşatır. MOSFET ya tam açık ya tam kapalı olduğu için neredeyse hiç ısınmaz.</p>
+    <p>Deneyde zaman ağır çekimde: şemadaki LED yanıp sönüyor, "gözün gördüğü" parlaklık ortalamayı izliyor.</p>
+    <details class="more"><summary>Daha fazla: frekans ve motor sargısı</summary>
+      <p>Arduino Uno'da <span class="mono">analogWrite(pin, 0…255)</span> PWM üretir; pinlerin çoğunda frekans yaklaşık 490 Hz, 5 ve 6 numaralı pinlerde yaklaşık 980 Hz'dir.</p>
+      <p>Motor seçeneğinde MOSFET kapanınca sargının akımı birden duramaz; geri dönüş diyotu üzerinden dolaşmaya devam eder. Bu sırada yükün gerilimi diyot gerilimi kadar eksiye iner; osiloskopta mavi iz sıfırın altına düşer. Düşük frekansta motor akımı her periyotta sıfıra yaklaşır (titreme, vınlama); yüksek frekansta akım düzleşir. Kapı ile toprak arasındaki 10 kΩ direnç, pin henüz ayarlanmamışken (ör. açılışta) MOSFET'i kapalı tutar.</p>
+    </details>
+    <p class="try">Görev oranını %20'ye, sonra %85'e çekin: darbe genişliği, ortalama çizgisi ve LED'in parlaklığı değişir. Sonra yükü motora çevirip frekansı değiştirin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Osiloskop: sarı PWM pini, mavi yükün üzerindeki gerilim (KN2+ ile KN2− arasındaki fark). Sarı kesikli çizgi, pin geriliminin bir periyot boyunca ölçülen ortalaması.</li>
+    <li>Ağır çekimi vurgulayın: gerçekte 1 kHz'de LED saniyede bin kez yanıp söner.</li>
+    <li>Motor + düşük frekans (20–50 Hz): akım her periyotta sönüyor; yüksek frekansta düzleşiyor. Diyot iletimdeyken KN2 eksiye iniyor.</li>
+    <li>Soru: %50 PWM ile LED, 2,5 V'luk sabit gerilimde de yarı parlak yanar mıydı? (Hayır; LED'in eşik gerilimi yüzünden 2,5 V'ta neredeyse hiç akım geçmez. PWM'in güzelliği bu.)</li>
+  </ul></aside>
+</section>

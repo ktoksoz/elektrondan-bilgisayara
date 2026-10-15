@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="3" data-demo="c3kcl" id="kcl">
+  <div class="text">
+    <h2>Kirchhoff'un akım yasası</h2>
+    <p class="lead">Bir düğüme ne kadar akım girerse, o kadarı çıkar.</p>
+    <p>Tellerin birleştiği noktaya <strong>düğüm</strong> denir. Yük bir düğümde birikemez; bu yüzden düğüme giren akımların toplamı, çıkanların toplamına eşittir. Akımlara işaret verirsek (giren artı, çıkan eksi) hepsinin toplamı sıfırdır. Gustav Kirchhoff bu kuralı 1845'te yazdı; adı <strong>akım yasası</strong>, kısaca KCL.</p>
+    <p>Bir su kavşağı düşünün: kavşağa saniyede ne kadar su giriyorsa o kadarı çıkar. Boru şişmez, su kaybolmaz.</p>
+    <p>Deneydeki X düğümüne dört kol bağlı. Her koldaki ampermetre, düğüme doğru akan akımı artı, düğümden çıkanı eksi gösterir. V2'yi küçültürseniz o koldaki akım yön değiştirir ve artık düğümden çıkar. Sayılar değişir, toplam hep sıfır kalır.</p>
+    <p class="formula">I1 + I2 + I3 + I4 = 0</p>
+    <details class="more"><summary>Daha fazla: düğüm gerilimi yöntemi ve Thevenin eşdeğeri</summary>
+      <p>Bir devreyi çözmek için her düğümde KCL yazılır ve kol akımları Ohm kanunuyla düğüm gerilimleri cinsinden ifade edilir. Bilinmeyen düğüm sayısı kadar denklem çıkar. Bu, <strong>düğüm gerilimi yöntemidir</strong>. Deneyde "Düğüm denklemleri"ni seçince adımları güncel değerlerle görürsünüz. Bu sitedeki simülatör de her devreyi bu yöntemin genelleştirilmiş hâliyle (değiştirilmiş düğüm analizi, MNA) çözer.</p>
+      <p><strong>Thevenin teoremi</strong>: dirençler ve kaynaklardan oluşan bir devre, iki ucundan bakıldığında tek bir gerilim kaynağına (Vth) seri bağlı tek bir dirence (Rth) eşdeğerdir. Vth uçların açık devre gerilimidir; Rth = Vth / Isc, burada Isc uçlar kısa devre edilince akan akımdır. "Thevenin" görünümünde R4 kolu yük sayılır, geri kalan devre Vth ve Rth'ye indirilir. Yük iki devrede de aynı akımı çeker.</p>
+    </details>
+    <p class="try">V2'yi azaltın ve A2'deki akımın işaret değiştirdiğini izleyin. S1'e tıklayıp R4 kolunu kesin; toplam yine sıfır. Sonra "Thevenin" görünümünü açın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Akımın yönünü baştan bilmek gerekmez: yanlış tahmin edilen akım hesapta eksi çıkar.</li>
+    <li>Soru: A1 ile A2'nin toplamı 5 mA, A3 1 mA gösteriyorsa A4 ne gösterir? (−4 mA.)</li>
+    <li>Düğüm tek bir nokta değildir: aralarında direnç olmayan bütün bağlı teller aynı düğümdür (şemada aynı renkte).</li>
+    <li>Thevenin, "bu iki uca ne bağlarsam ne olur?" sorusunu tek adımda cevaplar.</li>
+  </ul></aside>
+</section>

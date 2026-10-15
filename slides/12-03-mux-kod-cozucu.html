@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="12" data-demo="c12MuxDec" id="mux-kod-cozucu">
+  <div class="text">
+    <h2>Çoklayıcı ve kod çözücü</h2>
+    <p class="lead">Bir kapı devresi, birçok veriden birini seçebilir ya da birçok hedeften birini adresleyebilir.</p>
+    <p><strong>Çoklayıcı</strong> (MUX, multiplexer) bir veri seçicidir. Dört veri girişinden (D0–D3) hangisinin çıkışa geçeceğini iki seçim biti belirler. Seçim bitleri ikili bir sayıdır: S1 S0 = 10 ise 2, yani D2 seçilir. Devredeki her AND kapısı bir anahtar gibidir; seçim bitleri bunlardan yalnız birini açar.</p>
+    <p><strong>Kod çözücü</strong> (decoder) 2 bitlik bir adres alır ve dört çıkışından yalnız birini 1 yapar. Bilgisayar belleğinde her hücrenin bir adresi vardır; kod çözücü, işlemcinin gönderdiği adresten tek bir hücreyi seçer. Buna <strong>adres çözme</strong> denir. Deneydeki dört hücrede "KAPI" kelimesinin harfleri saklı.</p>
+    <p>Her iki devrede de kural aynı: n seçim biti 2ⁿ yoldan birini seçer. 3 bit 8, 10 bit 1024 yol demektir.</p>
+    <details class="more"><summary>Daha fazla: MUX ile her fonksiyon, gerçek yongalar</summary>
+      <p>Bir MUX ile her mantık fonksiyonu kurulabilir: değişkenleri seçim girişlerine, doğruluk tablosunun çıkış sütununu veri girişlerine bağlayın. 4:1 MUX böylece iki değişkenli her fonksiyonu hesaplar. FPGA yongalarındaki "arama tabloları" (LUT) bu fikre dayanır.</p>
+      <p>Gerçek kod çözücülerde genellikle bir de etkinleştirme (enable) girişi bulunur; bununla birden çok yonga arasından biri seçilir. Örnek yongalar: 74HC138 (3'ten 8'e kod çözücü), 74HC153 (iki adet 4:1 MUX).</p>
+      <p>Hücrelerdeki baytlar ASCII kodlarıdır: K = 75 (01001011), A = 65, P = 80, I = 73.</p>
+    </details>
+    <p class="try">S1 ve S0 kutularına tıklayın ve seçilen yolun yandığını izleyin. D girişlerini değiştirin: yalnız seçilen girişin Y'yi etkilediğini görün. Sonra "Kod çözücü"ye geçip adresi değiştirin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>MUX: bir televizyonun kanal seçicisi ya da demiryolu makası gibi. Seçilmeyen D girişlerine tıklayın: Y değişmiyor.</li>
+    <li>Soru: "Seçim bitleri 11 ise hangi VE kapısının üç girişi de 1 olabilir?" Bakır parıltı tek yolu gösteriyor.</li>
+    <li>Kod çözücü: adres 00, 01, 10, 11 sırasıyla K, A, P, I okur. Bellek yongaları milyarlarca hücreyi aynı ilkeyle seçer (satır ve sütun kod çözücüleriyle).</li>
+    <li>Bağlantı: işlemcideki yazmaç seçimi MUX, bellek adresleme kod çözücü ile yapılır; son bölümdeki "bilgisayar" bunların hepsini birleştirir.</li>
+  </ul></aside>
+</section>

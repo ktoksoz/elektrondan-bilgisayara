@@ -1,0 +1,23 @@
+<section class="slide" data-chapter="3" data-demo="c3seriParalel" id="seri-paralel">
+  <div class="text">
+    <h2>Seri ve paralel bağlantı</h2>
+    <p class="lead">Dirençleri art arda dizerseniz akımın yolu zorlaşır; yan yana koyarsanız akıma yeni yollar açılır.</p>
+    <p><strong>Seri</strong> bağlı dirençlerden aynı akım geçer ve dirençler toplanır: iki 1 kΩ'luk direnç seri bağlanınca 2 kΩ gibi davranır. Pilin gerilimi dirençler arasında paylaşılır.</p>
+    <p><strong>Paralel</strong> bağlı dirençlerin iki ucu ortaktır, hepsinin üzerinde aynı gerilim vardır. Akım kollara bölünür; küçük dirençli kola daha çok akım gider. Her yeni kol akıma ek bir yol açtığı için toplam direnç azalır: paralel grubun direnci, içindeki en küçük dirençten bile küçüktür.</p>
+    <p>Bir direnç ağının tamamı, pilin gözünden tek bir dirence eşittir. Buna <strong>eşdeğer direnç</strong> denir. Pil, eşdeğeri aynı olan iki devreyi birbirinden ayıramaz.</p>
+    <p class="formula">Seri: R = R1 + R2 + …<br>Paralel: 1/R = 1/R1 + 1/R2 + …</p>
+    <details class="more"><summary>Daha fazla: paralel formülü nereden gelir?</summary>
+      <p>Paralel kollarda gerilim ortaktır, akımlar toplanır: I = V/R1 + V/R2 + … İki taraf V'ye bölünürse 1/R = 1/R1 + 1/R2 + … çıkar. 1/R'ye iletkenlik denir; paralelde iletkenlikler toplanır.</p>
+      <p>İki direnç için kısayol: R = R1 · R2 / (R1 + R2). Eşit n direnç paralel bağlıysa R/n: 1 kΩ || 1 kΩ = 500 Ω. "||" işareti "paralel" diye okunur.</p>
+      <p>Deneydeki "Ölçüm" satırı formülü sınar: pilin gerilimini ampermetrenin gösterdiği akıma böler. İkisi her zaman aynı çıkar.</p>
+    </details>
+    <p class="try">Bir direnç ekleyin ve onu "Paralel" yapın. Akım noktalarının kollara bölünüşünü, her direncin altındaki akımı ve eşdeğer direncin küçülüşünü izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Seride en büyük direnç baskındır, paralelde en küçük direnç.</li>
+    <li>Soru: 1 kΩ'luk dirence paralel 1 MΩ eklersek ne olur? (Neredeyse hiçbir şey; eşdeğer yaklaşık 999 Ω olur.)</li>
+    <li>Evdeki prizler paralel bağlıdır: her cihaz aynı şebeke gerilimini görür, biri kapanınca diğerleri çalışmaya devam eder.</li>
+    <li>"Hepsi seri" ve "Hepsi paralel" düğmeleriyle aynı dirençlerin iki uç durumunu karşılaştırın.</li>
+  </ul></aside>
+</section>

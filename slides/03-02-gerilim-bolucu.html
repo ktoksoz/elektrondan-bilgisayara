@@ -1,0 +1,23 @@
+<section class="slide" data-chapter="3" data-demo="c3bolucu" id="gerilim-bolucu">
+  <div class="text">
+    <h2>Gerilim bölücü</h2>
+    <p class="lead">Seri bağlı iki direnç, bir gerilimi istediğiniz oranda küçültür.</p>
+    <p>Seri dirençlerden aynı akım geçer, gerilim de dirençlerle orantılı paylaşılır. İki direncin birleştiği noktadan alınan çıkış, girişin belli bir kesridir.</p>
+    <p><strong>Potansiyometre</strong> bunun ayarlanabilir hâlidir: iki ucu arasında sabit bir direnç ve onun üzerinde kayan bir orta uç (sürgü) vardır. Sürgü kaydıkça üst ve alt parçanın oranı değişir. Eski radyolardaki ses düğmeleri böyle çalışır.</p>
+    <p>Bölücünün çıkışına bir <strong>yük</strong> bağlayınca iş değişir. Yük, alt parçaya paralel bağlanır; alt parçanın direnci küçülür, çıkış düşer. Buna <strong>yükleme etkisi</strong> denir. Yük direnci bölücünün dirençlerinden çok büyükse (on kat ve üstü) etki küçüktür; onlara yakınsa çıkış belirgin biçimde düşer.</p>
+    <p class="formula">Vç = Vg · R2 / (R1 + R2)</p>
+    <details class="more"><summary>Daha fazla: bölücü neden güç kaynağı değildir?</summary>
+      <p>Formül çıkıştan akım çekilmediğini varsayar. Yük RL bağlanınca R2'nin yerine R2 || RL yazılır: Vç = Vg · (R2 || RL) / (R1 + R2 || RL). Çıkış yüke göre değişir, üstelik bölücü dirençleri sürekli boşa akım harcar.</p>
+      <p>Bu yüzden bir motoru ya da başka bir devreyi beslemek için gerilim bölücü kullanılmaz. Bölücü, neredeyse hiç akım çekmeyen bir girişe (bir ölçüm girişine ya da opamp girişine) ayarlı bir gerilim vermek için idealdir.</p>
+      <p>Yükleme etkisinin şık çözümü 8. bölümde: opamp ile kurulan gerilim izleyici, bölücüyü yükten ayırır.</p>
+    </details>
+    <p class="try">Konumu değiştirin, sonra "Yük bağla"ya basıp yük direncini küçültün. Yüksüz ve yüklü çıkışı karşılaştırın; grafikte eğrinin nasıl çöktüğüne bakın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Potansiyometre şemada fareyle sürüklenerek de çevrilebilir.</li>
+    <li>Soru: 10 kΩ'luk bölücüye 1 MΩ'luk yük bağlanırsa? (Fark binde birkaç düzeyinde kalır.)</li>
+    <li>Arduino'da potansiyometre okumak bir gerilim bölücüdür: analog giriş çok az akım çektiği için okuma bozulmaz.</li>
+    <li>Yükleme etkisi en çok potansiyometre ortadayken görünür: alt parça en büyük ve üst parça da büyük.</li>
+  </ul></aside>
+</section>

@@ -1,0 +1,297 @@
+[
+ {
+  "k": [
+   "pn eklem",
+   "eklem"
+  ],
+  "t": "PN eklemi",
+  "d": "P tipi ve N tipi yarı iletkenin aynı kristalde buluştuğu sınır. Diyotun, LED'in ve transistörlerin temel yapı taşıdır.",
+  "u": "https://en.wikipedia.org/wiki/P%E2%80%93n_junction",
+  "only": [
+   "pn-eklemi",
+   "diyot-iv",
+   "led-zener",
+   "dogrultucu",
+   "bjt-musluk"
+  ]
+ },
+ {
+  "k": [
+   "katkılan",
+   "katkı"
+  ],
+  "t": "Katkılama (doping)",
+  "d": "Saf yarı iletkene çok az miktarda başka element katarak iletkenliğini ve taşıyıcı türünü ayarlamak.",
+  "u": "https://en.wikipedia.org/wiki/Doping_(semiconductor)"
+ },
+ {
+  "k": [
+   "n tipi"
+  ],
+  "t": "N tipi yarı iletken",
+  "d": "Beş değerlikli (ör. fosfor) katkıyla fazladan serbest elektron kazanmış yarı iletken; çoğunluk taşıyıcısı elektrondur.",
+  "u": "https://en.wikipedia.org/wiki/Extrinsic_semiconductor"
+ },
+ {
+  "k": [
+   "p tipi"
+  ],
+  "t": "P tipi yarı iletken",
+  "d": "Üç değerlikli (ör. bor) katkıyla elektron eksikliği, yani boşluk kazanmış yarı iletken; çoğunluk taşıyıcısı boşluktur.",
+  "u": "https://en.wikipedia.org/wiki/Extrinsic_semiconductor"
+ },
+ {
+  "k": [
+   "boşluk"
+  ],
+  "t": "Boşluk (elektron deliği)",
+  "d": "Kristal bağında eksik kalan elektron. Komşu elektronlar onu doldurdukça yer değiştirir ve artı yüklü bir taşıyıcı gibi davranır.",
+  "u": "https://tr.wikipedia.org/wiki/Elektron_deliği",
+  "only": [
+   "pn-eklemi",
+   "diyot-iv",
+   "led-zener"
+  ]
+ },
+ {
+  "k": [
+   "tükenme bölge"
+  ],
+  "t": "Tükenme bölgesi",
+  "d": "PN ekleminin iki yanında serbest taşıyıcıların boşaldığı, yalnız sabit iyonların kaldığı ince bölge. İçindeki elektrik alanı taşıyıcıların geçişine engel olur.",
+  "u": "https://en.wikipedia.org/wiki/Depletion_region"
+ },
+ {
+  "k": [
+   "fosfor"
+  ],
+  "t": "Fosfor",
+  "d": "Beş değerlik elektronlu element. Silisyuma katılınca her atom bir serbest elektron verir (N tipi katkı).",
+  "u": "https://tr.wikipedia.org/wiki/Fosfor"
+ },
+ {
+  "k": [
+   "bor"
+  ],
+  "t": "Bor",
+  "d": "Üç değerlik elektronlu element. Silisyuma katılınca her atomda bir elektron eksik kalır, boşluk oluşur (P tipi katkı).",
+  "u": "https://tr.wikipedia.org/wiki/Bor",
+  "only": [
+   "pn-eklemi"
+  ]
+ },
+ {
+  "k": [
+   "iyon"
+  ],
+  "t": "İyon",
+  "d": "Elektron kazanmış ya da kaybetmiş, bu yüzden net elektrik yükü taşıyan atom. Kristaldeki katkı iyonları yerlerinden kıpırdayamaz.",
+  "u": "https://tr.wikipedia.org/wiki/İyon"
+ },
+ {
+  "k": [
+   "silisyum"
+  ],
+  "t": "Silisyum",
+  "d": "Elektronikte en çok kullanılan yarı iletken element (Si). Dört değerlik elektronuyla düzenli bir kristal kurar.",
+  "u": "https://tr.wikipedia.org/wiki/Silisyum"
+ },
+ {
+  "k": [
+   "elektrik alan"
+  ],
+  "t": "Elektrik alanı",
+  "d": "Yüklerin çevresinde oluşan, başka yüklere kuvvet uygulayan alan. Yönü artı yükten eksi yüke doğrudur.",
+  "u": "https://tr.wikipedia.org/wiki/Elektrik_alanı"
+ },
+ {
+  "k": [
+   "ileri kutupla"
+  ],
+  "t": "İleri kutuplama",
+  "d": "Diyotun P ucuna (anot) N ucuna (katot) göre artı gerilim vermek. Engel alçalır, akım akar.",
+  "u": "https://en.wikipedia.org/wiki/P%E2%80%93n_junction"
+ },
+ {
+  "k": [
+   "ters kutupla"
+  ],
+  "t": "Ters kutuplama",
+  "d": "Diyotun N ucunu P ucuna göre artı yapmak. Tükenme bölgesi genişler, yalnız çok küçük bir sızıntı akımı geçer.",
+  "u": "https://en.wikipedia.org/wiki/P%E2%80%93n_junction"
+ },
+ {
+  "k": [
+   "diyot"
+  ],
+  "t": "Diyot",
+  "d": "Akımı yalnızca bir yönde (anottan katoda) kolayca geçiren iki uçlu yarı iletken eleman.",
+  "u": "https://tr.wikipedia.org/wiki/Diyot"
+ },
+ {
+  "k": [
+   "anot"
+  ],
+  "t": "Anot",
+  "d": "Diyotta P tarafındaki uç. İleri kutuplamada geleneksel akım anottan girer.",
+  "u": "https://tr.wikipedia.org/wiki/Anot"
+ },
+ {
+  "k": [
+   "katot"
+  ],
+  "t": "Katot",
+  "d": "Diyotta N tarafındaki uç; sembolde çizgiyle, gövdede halka ile işaretlenir.",
+  "u": "https://tr.wikipedia.org/wiki/Katot"
+ },
+ {
+  "k": [
+   "üstel"
+  ],
+  "t": "Üstel büyüme",
+  "d": "Her eşit adımda aynı oranda katlanan büyüme. Diyotta gerilimdeki her ~60 mV'luk artış akımı yaklaşık on katına çıkarır.",
+  "u": "https://tr.wikipedia.org/wiki/Üstel_fonksiyon"
+ },
+ {
+  "k": [
+   "logaritmik"
+  ],
+  "t": "Logaritmik ölçek",
+  "d": "Eşit aralıkların eşit oranları (ör. 10 kat) gösterdiği eksen. Çok küçük ve çok büyük değerler aynı grafikte okunur.",
+  "u": "https://tr.wikipedia.org/wiki/Logaritmik_ölçek"
+ },
+ {
+  "k": [
+   "schottky"
+  ],
+  "t": "Schottky diyot",
+  "d": "Metal ile yarı iletkenin birleşiminden oluşan diyot. İleri gerilimi düşük (0,2–0,4 V), anahtarlaması hızlı, ters kaçağı daha büyüktür.",
+  "u": "https://tr.wikipedia.org/wiki/Schottky_diyot"
+ },
+ {
+  "k": [
+   "shockley"
+  ],
+  "t": "Shockley diyot denklemi",
+  "d": "Diyot akımını gerilime bağlayan formül: I = Is·(e^(V/(n·VT)) − 1). William Shockley'nin adını taşır.",
+  "u": "https://en.wikipedia.org/wiki/Shockley_diode_equation"
+ },
+ {
+  "k": [
+   "ısıl gerilim"
+  ],
+  "t": "Isıl gerilim (VT)",
+  "d": "VT = kT/q; oda sıcaklığında (300 K) yaklaşık 25,85 mV. Diyot ve transistör denklemlerinde ölçek görevi görür.",
+  "u": "https://en.wikipedia.org/wiki/Thermal_voltage"
+ },
+ {
+  "k": [
+   "yük doğrusu"
+  ],
+  "t": "Yük doğrusu",
+  "d": "Kaynak ve seri direncin izin verdiği akım–gerilim çiftlerinin doğrusu. Eleman eğrisiyle kesiştiği yer çalışma noktasıdır.",
+  "u": "https://en.wikipedia.org/wiki/Load_line_(electronics)"
+ },
+ {
+  "k": [
+   "köprü doğrultucu"
+  ],
+  "t": "Köprü doğrultucu",
+  "d": "Dört diyotla kurulan tam dalga doğrultucu. Her yarım periyotta iki diyot iletir; akım yükten hep aynı yönde geçer.",
+  "u": "https://en.wikipedia.org/wiki/Diode_bridge"
+ },
+ {
+  "k": [
+   "doğrultucu"
+  ],
+  "t": "Doğrultucu",
+  "d": "Alternatif akımı tek yönlü akıma çeviren devre; temel elemanı diyottur.",
+  "u": "https://tr.wikipedia.org/wiki/Doğrultucu"
+ },
+ {
+  "k": [
+   "filtre kondansatör"
+  ],
+  "t": "Filtre kondansatörü",
+  "d": "Doğrultucu çıkışına paralel bağlanan büyük kondansatör. Tepelerde dolar, aralarda yükü besleyerek gerilimi düzleştirir.",
+  "u": "https://en.wikipedia.org/wiki/Reservoir_capacitor"
+ },
+ {
+  "k": [
+   "dalgalanma"
+  ],
+  "t": "Dalgalanma (ripple)",
+  "d": "Doğrultulmuş ve filtrelenmiş DC gerilimin üzerinde kalan periyodik küçük değişim; tepeden tepeye (Vpp) ölçülür.",
+  "u": "https://en.wikipedia.org/wiki/Ripple_(electrical)"
+ },
+ {
+  "k": [
+   "trafo",
+   "transformatör"
+  ],
+  "t": "Transformatör (trafo)",
+  "d": "Manyetik olarak bağlı iki sargıyla AC gerilimi yükselten ya da düşüren eleman. Sargılar arasında elektriksel yalıtım da sağlar.",
+  "u": "https://tr.wikipedia.org/wiki/Transformatör"
+ },
+ {
+  "k": [
+   "led"
+  ],
+  "t": "LED (ışık yayan diyot)",
+  "d": "İleri yönde iletirken eklemde birleşen elektron ve boşlukların enerjisini ışık olarak veren diyot. Rengi malzemenin bant aralığına bağlıdır.",
+  "u": "https://tr.wikipedia.org/wiki/Işık_yayan_diyot"
+ },
+ {
+  "k": [
+   "foton"
+  ],
+  "t": "Foton",
+  "d": "Işığın enerji paketi. Enerjisi dalga boyuyla ters orantılıdır: E = h·c/λ.",
+  "u": "https://tr.wikipedia.org/wiki/Foton"
+ },
+ {
+  "k": [
+   "bant aralığ"
+  ],
+  "t": "Bant aralığı",
+  "d": "Bir yarı iletkende elektronun bağlı durumdan serbest duruma geçmesi için gereken en küçük enerji. Silisyumda ≈ 1,12 eV.",
+  "u": "https://tr.wikipedia.org/wiki/Bant_aralığı"
+ },
+ {
+  "k": [
+   "dalga boy"
+  ],
+  "t": "Dalga boyu",
+  "d": "Bir dalganın art arda iki tepesi arasındaki uzaklık. Görünür ışıkta yaklaşık 400 nm (mor) ile 700 nm (kırmızı) arasıdır.",
+  "u": "https://tr.wikipedia.org/wiki/Dalga_boyu"
+ },
+ {
+  "k": [
+   "zener"
+  ],
+  "t": "Zener diyot",
+  "d": "Ters yönde belirli bir kırılma geriliminde iletmek üzere üretilmiş diyot; o gerilimi sabit tutmak için kullanılır.",
+  "u": "https://tr.wikipedia.org/wiki/Zener_diyot"
+ },
+ {
+  "k": [
+   "regülatör"
+  ],
+  "t": "Gerilim regülatörü",
+  "d": "Giriş gerilimi ya da yük akımı değişse de çıkış gerilimini sabit tutan devre.",
+  "u": "https://en.wikipedia.org/wiki/Voltage_regulator"
+ },
+ {
+  "k": [
+   "kırılma"
+  ],
+  "t": "Ters kırılma",
+  "d": "Ters gerilim belirli bir değeri aşınca akımın birden artması. Düşük gerilimlerde tünelleme (Zener etkisi), yüksek gerilimlerde çığ etkisiyle olur.",
+  "u": "https://en.wikipedia.org/wiki/Zener_effect",
+  "only": [
+   "pn-eklemi",
+   "diyot-iv",
+   "led-zener"
+  ]
+ }
+]

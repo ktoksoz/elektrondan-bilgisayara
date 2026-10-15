@@ -1,0 +1,23 @@
+<section class="slide" data-chapter="12" data-demo="c12Ripple" id="dort-bit-toplayici">
+  <div class="text">
+    <h2>4 bitlik toplayıcı: elde dalgası</h2>
+    <p class="lead">Dört tam toplayıcıyı zincirleyin: 4 bitlik sayıları toplayan bir devre olur. Ama elde, kapıdan kapıya yürümek zorundadır.</p>
+    <p>Her tam toplayıcı (TT) bir sütunu toplar ve eldesini soldaki komşusuna verir, tıpkı kâğıt üzerinde sağdan sola toplarken olduğu gibi. Bu yapıya <strong>dalgalı elde toplayıcı</strong> (ripple-carry) denir.</p>
+    <p>Gerçek kapılar anında çalışmaz: çıkış, girişten biraz sonra değişir. Buna <strong>yayılma gecikmesi</strong> denir. Deneyde her kapının gecikmesi bir birimdir. Bir sütunun eldesi, sağdaki sütunun eldesi gelmeden kesinleşemez; bu yüzden elde, devrede bir dalga gibi sağdan sola ilerler.</p>
+    <p>Sonuç oturana kadar çıkışta yanlış ara değerler görünür. Toplayıcıyı kullanan sistem, en kötü durumdaki <strong>oturma süresini</strong> beklemek zorundadır; bu süre, işlemcinin saat hızına bir üst sınır koyar.</p>
+    <p>4 bitle en çok 15 yazılır, iki sayının toplamı ise 30'a kadar çıkabilir. Toplam 15'i aşınca 5. bit C4 1 olur: buna <strong>taşma</strong> denir.</p>
+    <details class="more"><summary>Daha fazla: ileri bakışlı elde ve işlemciler</summary>
+      <p><strong>İleri bakışlı elde</strong> (carry-lookahead) eldeyi beklemek yerine önceden hesaplar. Her sütun için iki sinyal bulunur: <em>üret</em> G = A·B (bu sütun kendisi elde üretir) ve <em>yay</em> P = A ⊕ B (gelen eldeyi geçirir). Sonra C1 = G0 + P0·C0, C2 = G1 + P1·G0 + P1·P0·C0 gibi ifadeler bütün sütunlar için aynı anda, birkaç kapı katmanında hesaplanır. Bedeli daha çok kapıdır.</p>
+      <p>Bu deneydeki toplayıcıda elde her sütunda iki kapıdan (AND ve OR) geçer. 64 bitlik bir dalgalı toplayıcıda en kötü durumda elde 128 kapıdan geçmek zorunda kalırdı. İşlemciler her saat vuruşunda toplama yaptığı için ileri bakışlı ya da benzeri hızlı toplayıcılar kullanır. Klasik 74HC283 yongası da 4 bitlik bir toplayıcıdır ve içinde ileri bakışlı elde kullanır.</p>
+      <p>Bir kapının gecikmesi 74HC serisi yongalarda birkaç nanosaniye, modern işlemcilerin içinde ise pikosaniyeler mertebesindedir.</p>
+    </details>
+    <p class="try">"En kötü durum" düğmesine basın: 1111 + 0001'de elde bitleri C1'den C4'e sırayla değişir. Lojik analizörde merdiveni ve ölçülen oturma süresini izleyin. Sonra hızı düşürün, kendi sayılarınızı deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce kâğıtta 1111 + 0001 toplamasını yaptırın: her sütunda "0 yaz, 1 elde". Elde sağdan sola dört kez yürüyor; devre de aynısını yapıyor.</li>
+    <li>Lojik analizörde C1…C4 bir merdiven çiziyor: her basamak iki kapı gecikmesi (AND + OR). Oturma süresi simülasyondan ölçülür; soru: "8 bitlik toplayıcıda ne olurdu?"</li>
+    <li>"Çıkışta görülen ara değerler" satırını gösterin: 15 → 14 → 12 → 8 → … Devre bir süre gerçekten yanlış sonuç veriyor; saat bu yüzden gerekli (sonraki bölüm).</li>
+    <li>"Rastgele" ile birkaç deneme: çoğu toplama en kötü durumdan çok daha çabuk oturur; ama tasarım en kötüye göre yapılır.</li>
+  </ul></aside>
+</section>

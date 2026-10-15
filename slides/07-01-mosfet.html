@@ -1,0 +1,21 @@
+<section class="slide" data-chapter="7" data-demo="c7mosfet" id="mosfet" data-model="basit">
+  <div class="text">
+    <h2>MOSFET: gerilimle açılan anahtar</h2>
+    <p class="lead">MOSFET'in kapısı neredeyse hiç akım çekmez; onu açan şey akım değil, gerilimdir.</p>
+    <p><strong>MOSFET</strong> (metal–oksit–yarı iletken alan etkili transistör) üç uçludur: <strong>kapı</strong> (G, gate), <strong>akaç</strong> (D, drain) ve <strong>kaynak</strong> (S, source). Kapı ince bir <strong>oksit</strong> katmanıyla yalıtılmıştır, küçük bir kondansatör gibidir; bu yüzden akım çekmez.</p>
+    <p>N kanal bir MOSFET'in kapısına pozitif gerilim verince elektronlar oksidin altına toplanır. Gerilim <strong>eşik gerilimini</strong> (V<sub>th</sub>) geçince bu ince katman kaynak ile akaç arasında bir <strong>kanal</strong> olur. Tam açık MOSFET küçük bir dirençtir: <strong>R<sub>DS(on)</sub></strong>.</p>
+    <p><strong>Logic level</strong> MOSFET'ler 3,3–5 V kapı geriliminde tam açılır; standart olanlar 10 V civarı ister ve 3,3 V'luk pinle yarı açık kalıp ısınır. P kanalda her şey terstir: kapı, kaynağa göre eksiye inince açılır.</p>
+    <details class="more"><summary>Daha fazla: kare yasası ve kapı kapasitesi</summary>
+      <p>Basit modelde, kanal sıkıştığında (doyum bölgesi) I<sub>D</sub> = K/2 · (V<sub>GS</sub> − V<sub>th</sub>)². Akaç gerilimi küçükken (doğrusal bölge) MOSFET bir dirençtir: R<sub>DS</sub> ≈ 1 / (K · (V<sub>GS</sub> − V<sub>th</sub>)). Kapı gerilimi arttıkça kanal kalınlaşır ve direnç düşer.</p>
+      <p>DC'de kapı akımı sıfırdır, ama kapı kapasitesi (güç MOSFET'lerinde nanofaradlar) her açılıp kapanmada doldurulup boşaltılır; hızlı anahtarlamada bunun için kısa ve büyük akım darbeleri gerekir. Gerçek MOSFET'lerde kaynak ile akaç arasında yapıdan gelen bir gövde diyotu da vardır (deneydeki modelde yok). İnce oksit statik elektrikle delinebilir; MOSFET'leri tutarken dikkat edin.</p>
+    </details>
+    <p class="try">Kapı gerilimini yavaşça artırın: eşik gerilimini geçince kesitte kanal oluşur ve lamba yanar. Kapı ampermetresine bakın. 3,3 V'ta türü "Standart"a çevirin, sonra P kanalı deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Kapı ampermetresi pikoamper gösteriyor: çözücüdeki sayısal kaçak, gerçekte de nanoamperler düzeyinde.</li>
+    <li>Kesitte: kapıdaki + yükler, gövdedeki delikleri iter (tükenme bölgesi), eşikten sonra elektron kanalı oluşur.</li>
+    <li>Standart türde 3,3 V: MOSFET yarı açık (doyum bölgesi), R<sub>DS</sub> büyük, parıltı var. Logic level seçmenin nedeni bu.</li>
+    <li>Terim tuzağı: MOSFET'te "doyum", BJT'deki doyumun tersine yarı açık durumu anlatır; tam açık hali "doğrusal bölge"dir.</li>
+  </ul></aside>
+</section>

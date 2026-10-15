@@ -1,0 +1,23 @@
+<section class="slide" data-chapter="8" data-demo="c8Yukseltec" id="opamp-yukseltec" data-model="basit">
+  <div class="text">
+    <h2>Eviren ve evirmeyen yükselteç</h2>
+    <p class="lead">İki dirençle opampın dev kazancını tam istediğiniz değere indirirsiniz: 5 kat, 10 kat, 47 kat.</p>
+    <p>R<sub>f</sub> direnci çıkışın bir kısmını − girişe geri yollar. Opamp V+ = V− kuralını sağlarken <strong>kazanç</strong> yalnızca dirençlerin oranına bağlı kalır.</p>
+    <p><strong>Eviren</strong> devrede + giriş toprakta olduğu için − giriş de 0 V'ta tutulur (<strong>sanal toprak</strong>); çıkış ters işaretlidir. <strong>Evirmeyen</strong> devrede sinyal doğrudan + girişe gelir; çıkış aynı yöndedir.</p>
+    <p class="formula">Eviren: K = −R<sub>f</sub> / R<sub>in</sub><br>Evirmeyen: K = 1 + R<sub>f</sub> / R<sub>g</sub></p>
+    <p>Çıkış besleme gerilimini aşamaz. Kazanç ya da genlik fazla olunca sinüsün tepeleri raylarda düz kesilir: <strong>kırpılma</strong>; seste bozulma olarak duyulur.</p>
+    <details class="more"><summary>Daha fazla: formüller nereden geliyor?</summary>
+      <p>Eviren devrede − giriş 0 V'ta olduğundan R<sub>in</sub>'den geçen akım I = V<sub>giriş</sub> / R<sub>in</sub>. Bu akım R<sub>f</sub>'den de geçer: V<sub>çıkış</sub> = 0 − I · R<sub>f</sub> = −V<sub>giriş</sub> · R<sub>f</sub> / R<sub>in</sub>. Opampın kendi A değeri sonuca neredeyse hiç girmez; kazancı dirençler belirler.</p>
+      <p>Evirmeyen devrede R<sub>f</sub> ile R<sub>g</sub> bir gerilim bölücüdür: V− = V<sub>çıkış</sub> · R<sub>g</sub> / (R<sub>f</sub> + R<sub>g</sub>). V− = V+ = V<sub>giriş</sub> olduğundan V<sub>çıkış</sub> = V<sub>giriş</sub> · (1 + R<sub>f</sub> / R<sub>g</sub>). Evirmeyen yükseltecin giriş direnci çok yüksektir; eviren yükseltecinki R<sub>in</sub> kadardır.</p>
+      <p>Deneydeki opamp çıkışı raylara 1,5 V'tan fazla yaklaşamaz; ±12 V beslemede çıkış en fazla ±10,5 V olur (basitleştirilmiş model). Beslemeyi değiştirip kırpılma sınırının nasıl kaydığına bakın.</p>
+    </details>
+    <p class="try">R<sub>f</sub>'yi büyütün: çıkış (KN2) büyür ve girişe (KN1) göre ters döner. Tepeler raya değince ölçülen kazanç formülden ayrılır. Sonra «Evirmeyen»e geçin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Tellerin renklerine bakın: eviren devrede giriş kırmızıyken (pozitif) çıkış mavi (negatif); sinyal ters dönüyor.</li>
+    <li>Kazanç paneli iki sayı veriyor: formül ve osiloskoptan ölçülen. Kırpılma yokken ikisi aynı; bu, kuralların ne kadar iyi çalıştığının kanıtı.</li>
+    <li>Soru: 1 V tepe girişle ±12 V beslemede kırpılmadan en fazla kaç kat kazanç alınır? (Çıkış en fazla 10,5 V: yaklaşık 10 kat.)</li>
+    <li>Evirmeyen devrede R<sub>f</sub> çok küçükken kazanç 1'e yaklaşır: bu, sonraki slayttaki gerilim izleyicidir.</li>
+  </ul></aside>
+</section>

@@ -1,0 +1,13 @@
+[
+  {"k": ["gerilim", "voltaj"], "t": "Gerilim (V)", "d": "İki nokta arasındaki elektriksel potansiyel farkı; yükleri iten \"basınç\". Birimi volt (V): bir coulomb yük başına bir joule enerji.", "u": "https://tr.wikipedia.org/wiki/Gerilim_(elektrik)"},
+  {"k": ["akım", "akımı"], "t": "Akım (I)", "d": "Bir noktadan birim zamanda geçen elektrik yükü. Birimi amper (A): saniyede bir coulomb.", "u": "https://tr.wikipedia.org/wiki/Elektrik_ak%C4%B1m%C4%B1"},
+  {"k": ["direnç", "direnci"], "t": "Direnç (R)", "d": "Bir malzemenin ya da bileşenin akıma karşı koyma derecesi. Birimi ohm (Ω). Aynı gerilimde direnç büyüdükçe akım küçülür.", "u": "https://tr.wikipedia.org/wiki/Diren%C3%A7_(elektrik)"},
+  {"k": ["ohm kanunu"], "t": "Ohm kanunu", "d": "Bir iletkendeki gerilim, akımla doğru orantılıdır: V = I · R. Georg Simon Ohm 1827'de yayımladı.", "u": "https://tr.wikipedia.org/wiki/Ohm_kanunu"},
+  {"k": ["georg simon ohm"], "t": "Georg Simon Ohm", "d": "Alman fizikçi (1789–1854). Gerilim, akım ve direnç arasındaki ilişkiyi deneylerle ortaya koydu; direncin birimi onun adını taşır.", "u": "https://tr.wikipedia.org/wiki/Georg_Simon_Ohm"},
+  {"k": ["ampermetre"], "t": "Ampermetre", "d": "Akım ölçen alet. Akımın tamamı içinden geçsin diye devreye seri bağlanır; iç direnci çok küçüktür.", "u": "https://tr.wikipedia.org/wiki/Ampermetre"},
+  {"k": ["miliamper"], "t": "Miliamper (mA)", "d": "Amperin binde biri. Bir LED tipik olarak 5–20 mA akımla çalışır.", "u": "https://tr.wikipedia.org/wiki/Amper"},
+  {"k": ["kiloohm"], "t": "Kiloohm (kΩ)", "d": "Bin ohm. Elektronikteki dirençlerin çoğu ohm ile megaohm arasındadır.", "u": "https://tr.wikipedia.org/wiki/Ohm"},
+  {"k": ["yarı iletken"], "t": "Yarı iletken", "d": "İletkenliği iletkenlerle yalıtkanlar arasında olan, katkılanarak ve sıcaklıkla değiştirilebilen malzeme. En yaygını silisyum.", "u": "https://tr.wikipedia.org/wiki/Yar%C4%B1_iletken"},
+  {"k": ["transistör"], "t": "Transistör", "d": "Küçük bir sinyalle büyük bir akımı kontrol eden yarı iletken bileşen. Anahtar ya da yükselteç olarak çalışır; bilgisayarların yapı taşıdır.", "u": "https://tr.wikipedia.org/wiki/Transist%C3%B6r"},
+  {"k": ["mantık kapı"], "t": "Mantık kapısı", "d": "Bir ya da daha fazla ikili girişten (0/1) tek bir ikili çıkış üreten devre: AND, OR, NOT, NAND, NOR, XOR, XNOR.", "u": "https://tr.wikipedia.org/wiki/Mant%C4%B1k_kap%C4%B1s%C4%B1"}
+]

@@ -1,0 +1,21 @@
+<section class="slide" data-chapter="13" data-demo="c13Counter" id="sayac">
+  <div class="text">
+    <h2>T flip-flop ve sayaç</h2>
+    <p class="lead">Her saat kenarında durum değiştiren bir flip-flop frekansı ikiye böler; dördünü zincirleyin, 0'dan 15'e sayan bir sayaç olur.</p>
+    <p><strong>T flip-flop</strong>'ta (toggle, değiştir) T = 1 iken her yükselen kenarda Q tersine döner. Çıkışın bir tam periyodu iki saat periyodu sürer: frekansı saatinkinin yarısıdır, f/2.</p>
+    <p><strong>JK flip-flop</strong> SR latch'in kenar tetiklemeli ve yasaksız hâlidir: J kurar, K sıfırlar, J = K = 1 iken değiştirir. J ile K'yı birlikte 1'e bağlayınca T flip-flop elde edilir.</p>
+    <p>Deneyde her basamağın saati bir öncekinin Q' çıkışına bağlı. Q0 her darbede, Q1 iki darbede, Q2 dört darbede bir değişir. Q3 Q2 Q1 Q0 birlikte bir <strong>ikili sayı</strong> okur: bu bir <strong>sayaç</strong>. 1111 (15) sonrasında hepsi 0'a döner: 4 bit, 16 durum.</p>
+    <details class="more"><summary>Daha fazla: dalgalı ve eşzamanlı sayaç</summary>
+      <p>Bu deneydeki sayaç <strong>dalgalı</strong> (asenkron) sayaçtır: değişim basamaktan basamağa yayılır, her flip-flop bir gecikme ekler. 0111'den 1000'e geçerken çıkış kısa bir an 0110, 0100 ve 0000 ara değerlerinden geçer; onlu gösterge bu yüzden bir an titreyebilir.</p>
+      <p><strong>Eşzamanlı</strong> (senkron) sayaçta bütün flip-flop'lar aynı saati alır. i. basamağın T girişi VE kapılarıyla hesaplanır: T<sub>i</sub> = Q<sub>0</sub> · Q<sub>1</sub> · … · Q<sub>i−1</sub>. Bütün bitler aynı anda değişir, ara değer oluşmaz. n bitlik bir sayaç 2<sup>n</sup> durum sayar.</p>
+      <p>Hazır entegre örnekleri: 74HC393 (iki adet 4 bitlik dalgalı sayaç) ve 74HC161 (4 bitlik eşzamanlı sayaç).</p>
+    </details>
+    <p class="try">Saat hızını artırın ve zamanlama diyagramında her satırın bir öncekinin yarı frekansında olduğunu (f/2, f/4, …) görün. Sonra saati durdurup "Saat darbesi"yle tek tek sayın: 15'ten sonra ne oluyor?</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Diyagramın sonundaki f/2, f/4, f/8, f/16 etiketleri ölçülüyor: iki yükselen kenar arasındaki saat darbeleri sayılıyor. Hızı değiştirince oranlar değişmiyor.</li>
+    <li>LED'leri Q3'ten Q0'a ikili sayı olarak okuyun; şemada Q0 (en düşük basamak) en baştadır.</li>
+    <li>JK tablosu deneyde bir JK flip-flop benzetimiyle her J, K için hesaplanıyor. Soru: "T flip-flop'u JK ile nasıl kurarsınız?"</li>
+  </ul></aside>
+</section>

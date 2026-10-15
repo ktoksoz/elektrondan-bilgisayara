@@ -1,0 +1,30 @@
+<section class="slide" data-chapter="14" data-demo="c14cpu" id="mini-bilgisayar">
+  <div class="text">
+    <h2>Yapı taşlarından bilgisayara</h2>
+    <p class="lead">Sayaç, yazmaçlar, toplayıcı, bellek ve saat. Hepsini tek bir hatta bağlayın: program çalıştıran bir bilgisayar elde edersiniz.</p>
+    <p>Deneydeki 8 bitlik bilgisayar, ders kitaplarındaki SAP-1'in ("olabildiğince basit") bir benzeri. Her blok önceki bir slayttan:</p>
+    <ul>
+      <li><strong>Program sayacı</strong> bir <a href="#sayac">sayaç</a>: sıradaki komutun adresini tutar.</li>
+      <li><strong>Yazmaçlar</strong> yan yana <a href="#d-flipflop">D flip-flop'lar</a>.</li>
+      <li><strong>ALU</strong>, art arda iki <a href="#dort-bit-toplayici">4 bitlik toplayıcı</a>.</li>
+      <li><strong>Denetim birimi</strong> bir <a href="#mux-kod-cozucu">kod çözücü</a>: hangi bloğun konuşacağını seçer.</li>
+      <li><a href="#saat-555">Saat</a> hepsini birlikte ilerletir.</li>
+    </ul>
+    <p>Bloklar tek bir ortak hattı, <strong>veri yolunu</strong> paylaşır: her saat vuruşunda bir blok yazar, bir başkası okur. Her komut önce bellekten <strong>getirilir</strong> (T0, T1), sonra <strong>yürütülür</strong>. Bellekteki bir bayt ya komuttur (üst 4 bit işlem, alt 4 bit adres) ya da sayı.</p>
+    <details class="more"><summary>Daha fazla: komutlar, von Neumann, gerçek işlemciler</summary>
+      <p>Komutlar: <span class="mono">LDA x</span> (A ← Bellek[x]), <span class="mono">ADD x</span> (A ← A + Bellek[x]), <span class="mono">SUB x</span>, <span class="mono">STA x</span> (Bellek[x] ← A), <span class="mono">JMP x</span> (x'e atla), <span class="mono">JC x</span> (elde varsa atla), <span class="mono">OUT</span>, <span class="mono">HLT</span>. Kodlar Ben Eater'ın breadboard bilgisayarındakiyle aynı: LDA = 0001, ADD = 0010, SUB = 0011, STA = 0100, JMP = 0110, JC = 0111, OUT = 1110, HLT = 1111.</p>
+      <p>Çıkarma için ayrı bir devre yok. A − B = A + (B'nin bitleri ters) + 1 (ikiye tümleyen). SU sinyali B'nin bitlerini XOR kapılarıyla ters çevirir ve toplayıcının elde girişine 1 verir. 8 bit 0–255 arasını tutar; sonuç taşarsa elde bayrağı C = 1 olur. Fibonacci programı bu bayrağa bakıp (JC) 233'ten sonra durur, çünkü 144 + 233 = 377 sığmaz.</p>
+      <p>Program ve veri aynı bellekte durur: buna <strong>von Neumann mimarisi</strong> denir. Getir–çöz–yürüt döngüsü bugünkü işlemcilerde de aynıdır. Farkları ölçek: milyarlarca transistör (<a href="#cmos-nand">CMOS NAND</a>), 64 bitlik yazmaçlar, gigahertz düzeyinde saat ve aynı anda birkaç komutu farklı aşamalarda işleyen ardışık düzen (pipeline).</p>
+      <p>Kaynaklar: SAP-1, Albert Paul Malvino'nun <em>Digital Computer Electronics</em> kitabından; Ben Eater'ın "8-bit breadboard computer" video dizisi (eater.net/8bit).</p>
+    </details>
+    <p class="try">Adım'a iki kez basın: ilk komut getirilirken değer veri yolunda yürür. Sonra Çalıştır. 15. adresin bitlerine tıklayıp 3'ü değiştirin; 1. adresteki 0010'u (ADD) 0011 (SUB) yapın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Önce "5 + 3" programı: T0'da PC → MAR, T1'de RAM → IR ve PC artar. Bu iki adım her komutta aynı; "getir" kısmı.</li>
+    <li>Veri yolu kimse yazmıyorken kesikli gri: Z, yüksek empedans. Aynı anda iki blok yazarsa kısa devre olurdu; denetim birimi her vuruşta yalnız bir kaynak seçer.</li>
+    <li>Soru: "Program sayacı neden 4 bit?" (16 bellek adresi var: 2⁴ = 16.)</li>
+    <li>"Say" programı 255'ten sonra 0'a döner: 8 bitin sınırı. Fibonacci 1, 1, 2, 3, 5, … 233 yazar ve taşmada JC ile durur.</li>
+    <li>ALU'daki toplam, mantık benzetimindeki 8 tam toplayıcıdan geliyor; elle yazılmış bir "+" değil.</li>
+  </ul></aside>
+</section>

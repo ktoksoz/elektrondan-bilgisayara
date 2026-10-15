@@ -1,0 +1,62 @@
+/* 8. bölüm: opamp deneyleri */
+
+.c8-split { grid-template-rows: 1.1fr 1fr; }
+.c8-bottom { display: grid; grid-template-columns: 1.35fr 1fr; gap: 14px; min-height: 0; min-width: 0; }
+.c8-bottom.c8-b2 { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr); }
+.c8-bottom.c8-b3 { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); }
+.c8-side { display: flex; flex-direction: column; justify-content: center; gap: 10px; min-width: 0; }
+.c8-col { display: flex; flex-direction: column; gap: 8px; min-height: 0; min-width: 0; }
+.c8-col > .pane { flex: 1; }
+.c8-grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.c8-grid2 .meter, .c8-col1 .meter { min-width: 0; }
+.c8-col1 { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.meter.c8-bad { border-color: var(--heat); }
+.c8-flag { margin: 0; align-self: flex-start; }
+
+/* osiloskobu bölmeye yay; tetik otomatik ve 0 V'ta, kaydırıcısı gizli (yer kazanmak için) */
+.c8-scopepane > .scope { position: absolute; inset: 0; }
+.c8-scopepane .scope-ctl > label { display: none; }
+.c8-scopepane .scope-ctl { gap: 6px 12px; padding-top: 6px; }
+
+/* gökyüzü: ışık düzeyinin görseli */
+.c8-sky { border-radius: 8px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(239, 238, 226, 0.14); min-height: 90px; }
+
+/* yükselteç kazanç paneli */
+.c8-fml { margin: 0; font-family: var(--f-mono); font-size: 0.84rem; color: var(--silk); line-height: 1.45; }
+.c8-fml sub { font-size: 0.75em; }
+.c8-hint { margin: 0; font-family: var(--f-display); font-stretch: 90%; font-size: 0.78rem; color: var(--muted); }
+
+/* kontroller */
+.c8-ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.c8-dis { opacity: 0.55; }
+.c8-dis input { cursor: not-allowed; }
+.c8-seglab { gap: 8px; }
+input[type="range"].c8-wide { width: 170px; }
+
+/* 8.4 katmanlar */
+.c8-mix { grid-template-rows: 1.05fr 1fr; }
+.c8-buf { grid-template-rows: minmax(0, 1fr) auto; }
+.c8-bufm { display: flex; flex-direction: column; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; }
+
+@media (max-width: 860px) {
+  .c8-split { grid-template-rows: minmax(250px, 1fr) auto; }
+  .c8-bottom, .c8-bottom.c8-b2, .c8-bottom.c8-b3 { grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .c8-bottom > .pane { min-height: 220px; }
+  .c8-col > .pane { min-height: 210px; flex: none; }
+  .c8-sky { min-height: 120px !important; }
+  .c8-mix { grid-template-rows: minmax(240px, 1fr) auto; }
+  .c8-scopepane { min-height: 0 !important; }
+  .c8-scopepane > .scope { position: static; }
+  .c8-scopepane .scope-screen { flex: none; height: 200px; }
+  .c8-buf { grid-template-rows: minmax(250px, 1fr) auto; }
+}
+
+/* osiloskop kanal adları: ortak stepper'daki renk kutusu adı taşısın */
+.c8-scopepane .swatch { width: auto; height: auto; padding: 1px 5px; font-style: normal; font-family: var(--f-mono); font-size: 0.72rem; font-weight: 700; color: #06150f; border-radius: 3px; }
+/* lejant */
+.c8-leg { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; font-family: var(--f-display); font-stretch: 90%; font-size: 0.8rem; color: var(--silk-2); }
+.c8-leg span { display: inline-flex; align-items: center; gap: 6px; }
+.c8-sw { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+.c8-legt { color: var(--muted); margin-left: auto; }
+.c8-split.c8-amp { grid-template-rows: 0.9fr 1.1fr; }
+@media (max-width: 860px) { .c8-split.c8-amp { grid-template-rows: minmax(230px, 1fr) auto; } }

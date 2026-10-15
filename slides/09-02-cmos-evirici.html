@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="9" data-demo="c9Cmos" id="cmos-evirici" data-model="basit">
+  <div class="text">
+    <h2>CMOS evirici</h2>
+    <p class="lead">Bugünkü işlemcilerdeki NOT kapısı iki transistördür: biri çıkışı 1'e, öteki 0'a çeker.</p>
+    <p><strong>CMOS</strong> (Complementary MOS, tümleyen MOS) evirici bir P kanallı ve bir N kanallı MOSFET'ten oluşur. Kapıları birlikte girişe, akaçları birlikte çıkışa bağlıdır.</p>
+    <p>Giriş 0 iken PMOS açık, NMOS kapalıdır: çıkış beslemeye bağlanır, 1 olur. Giriş 1 iken tersi olur: çıkış toprağa bağlanır, 0 olur.</p>
+    <p>Her durumda iki transistörden biri kapalıdır; besleme ile toprak arasında yol yoktur. Bu yüzden CMOS kapı dururken <strong>neredeyse hiç akım çekmez</strong>. Akım yalnız geçiş sırasında, ikisinin de kısa süre iletimde olduğu bölgede akar.</p>
+    <p><strong>Aktarım eğrisi</strong> bunu tek resimde gösterir: girişin büyük kısmında çıkış tam 1 ya da tam 0, arada dik bir geçiş bölgesi.</p>
+    <details class="more"><summary>Daha fazla: güç, eşik ve tarih</summary>
+      <p>CMOS'u 1963'te Fairchild'da Frank Wanlass geliştirdi. Bugün neredeyse bütün sayısal tümleşik devreler CMOS'tur.</p>
+      <p>CMOS kapı dururken güç harcamaz, ama her geçişte çıkıştaki küçük kapasite (sonraki kapıların girişleri, teller) dolup boşalır. Bu dinamik güç kabaca P ≈ C · V² · f ile büyür: saat frekansı ve besleme gerilimi arttıkça güç artar. İşlemcilerin besleme gerilimini düşürmeye çalışmasının nedeni bu.</p>
+      <p>İki transistör eşit güçteyse eşik (çıkışın girişe eşit olduğu nokta) beslemenin yarısındadır. Bu deneydeki MOSFET'ler basit kare yasası modeliyle, tümleşik devre ölçeğinde hesaplandı (eşik gerilimi 1 V); eğri, aynı devrenin girişi taranarak çözücüyle çizildi.</p>
+    </details>
+    <p class="try">Giriş gerilimini yavaşça 0'dan 5 V'a kaydırın ya da Tara'ya basın. Hangi transistörün açıldığını, eğrideki noktayı ve besleme akımının yalnız geçişte tepe yaptığını izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Giriş 0 V ve 5 V'ta I<sub>DD</sub> göstergesine bakın: pikoamper düzeyi. RTL'deki on milliamperlerle karşılaştırın.</li>
+    <li>Geçiş bölgesinde (mor gölge) iki transistör de iletimde; akım tepe yapar. Soru: "Giriş yavaş değişirse ne olur?" (Kapı uzun süre bu bölgede kalır, boşa akım çeker; bu yüzden dijital sinyallerin kenarları hızlı olmalı.)</li>
+    <li>Kanal parıltısı = transistör açık. Açık olmak akım akması demek değil: giriş 0 iken PMOS açık ama yük olmadığı için akım yok.</li>
+  </ul></aside>
+</section>

@@ -1,0 +1,74 @@
+/* 13. bölüm (ikinci kısım): trafik lambası durum makinesi ve 555 saat üreteci */
+
+.c13b-ptitle { font-family: var(--f-display); font-stretch: 85%; font-size: 0.75rem; color: var(--muted); margin-bottom: 6px; }
+
+/* 1) trafik lambası */
+.c13b-traf { grid-template-rows: minmax(0, 1.18fr) minmax(0, 1fr); }
+.c13b-row1 { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; min-height: 0; }
+.c13b-diag { min-height: 0; }
+.c13b-tabwrap { display: flex; flex-direction: column; min-width: 0; min-height: 0; padding-top: 30px; }
+table.truth.c13b-tab { width: 100%; font-size: 0.82rem; }
+table.truth.c13b-tab th { padding: 3px 5px; font-size: 0.74rem; white-space: nowrap; }
+table.truth.c13b-tab td { white-space: nowrap; }
+table.truth.c13b-tab td { padding: 5px 6px; transition: background 0.2s; }
+table.truth.c13b-tab td.c13b-name { text-align: left; font-family: var(--f-display); font-stretch: 88%; color: var(--silk); white-space: nowrap; }
+.c13b-dots { display: inline-flex; gap: 3px; margin-right: 7px; vertical-align: -1px; }
+.c13b-dots i { width: 9px; height: 9px; border-radius: 50%; background: rgba(239, 238, 226, 0.1); box-shadow: inset 0 0 0 1px rgba(239, 238, 226, 0.18); }
+.c13b-dots i.on.r { background: #ff3b3b; box-shadow: 0 0 6px #ff3b3b; }
+.c13b-dots i.on.y { background: #ffc93b; box-shadow: 0 0 6px #ffc93b; }
+.c13b-dots i.on.g { background: #3dff86; box-shadow: 0 0 6px #3dff86; }
+.c13b-bits span { display: inline-block; min-width: 0.75em; }
+.c13b-bits span.b1 { color: var(--v1); }
+.c13b-bits span.b0 { color: var(--v0); }
+td.c13b-walk { color: #7dffb0; font-family: var(--f-display); }
+td.c13b-stop { color: var(--muted); font-family: var(--f-display); }
+table.truth.c13b-tab tr.cur td { background: rgba(212, 147, 90, 0.2); }
+table.truth.c13b-tab tr.cur td:first-child { box-shadow: inset 3px 0 0 var(--copper-2); }
+.c13b-req { margin: 10px 0 0; font-family: var(--f-display); font-stretch: 92%; font-size: 0.84rem; color: var(--silk-2); padding: 5px 10px; border-radius: 5px; border: 1px dashed var(--line); }
+.c13b-req.on { color: #1a1406; background: var(--gold); border: 1px solid var(--gold); }
+.c13b-note { margin: 8px 0 0; font-family: var(--f-display); font-stretch: 92%; font-size: 0.76rem; color: var(--muted); line-height: 1.35; }
+.c13b-schscroll { position: relative; min-height: 0; min-width: 0; display: flex; border-top: 1px dashed rgba(239, 238, 226, 0.14); }
+.c13b-schp { flex: 1; min-height: 0; }
+
+/* 2) 555 */
+.c13b-555 { grid-template-rows: minmax(0, 1.55fr) minmax(0, 1fr); }
+.c13b-555top { display: grid; grid-template-columns: minmax(0, 1fr) 176px; gap: 10px; min-height: 0; }
+.c13b-555sch { min-height: 0; }
+.c13b-side { display: flex; flex-direction: column; justify-content: center; gap: 10px; min-width: 0; padding-top: 28px; }
+.c13b-side .meters { display: grid; grid-template-columns: 1fr; gap: 7px; }
+.c13b-side .meter { min-width: 0; }
+.c13b-side .meter b { font-size: 0.98rem; white-space: nowrap; }
+.c13b-side .meter small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.c13b-time { align-self: flex-start; font-family: var(--f-mono); font-size: 0.72rem; }
+.c13b-scope { display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+.c13b-scope .scope-ctl { padding-top: 6px; }
+.stage .controls.c13b-ctl { gap: 8px 16px; }
+.stage .controls.c13b-ctl input[type="range"] { width: 104px; }
+.c13b-traf + .controls input[type="range"] { width: 110px; }
+
+@media (max-width: 1320px) and (min-width: 861px) {
+  .c13b-note { display: none; }
+  table.truth.c13b-tab { font-size: 0.76rem; }
+  table.truth.c13b-tab td { padding: 4px 4px; }
+  table.truth.c13b-tab th { padding: 3px 4px; }
+  .c13b-dots { margin-right: 4px; }
+  .c13b-dots i { width: 7px; height: 7px; }
+  .c13b-req { font-size: 0.78rem; }
+}
+
+@media (max-width: 860px) {
+  .c13b-traf { grid-template-rows: none; grid-auto-rows: auto; }
+  .c13b-row1 { grid-template-columns: 1fr; }
+  .c13b-diag { min-height: 330px; }
+  .c13b-tabwrap { padding-top: 0; }
+  /* geniş şema telefonda yatay kaydırılır */
+  .c13b-schscroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .c13b-schp { flex: none; width: 640px; height: 290px; }
+  .c13b-schp canvas { touch-action: pan-x pan-y !important; }
+  .c13b-555 { grid-template-rows: none; grid-auto-rows: auto; }
+  .c13b-555top { grid-template-columns: 1fr; }
+  .c13b-555sch { min-height: 380px; }
+  .c13b-side { padding-top: 0; }
+  .c13b-side .meters { grid-template-columns: 1fr 1fr; }
+  .c13b-scope { min-height: 300px; }
+}

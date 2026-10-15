@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="9" data-demo="c9Nand" id="cmos-nand" data-model="basit">
+  <div class="text">
+    <h2>CMOS NAND kapısı</h2>
+    <p class="lead">Dört transistör, bir NAND kapısı. Her bilgisayar bu deseni milyarlarca kez tekrarlar.</p>
+    <p>Üstte iki PMOS <strong>paralel</strong> bağlıdır: girişlerden biri bile 0 olursa çıkışı 1'e çeker. Altta iki NMOS <strong>seri</strong> bağlıdır: çıkışı 0'a çekmeleri için ikisinin de açık olması, yani A ile B'nin ikisinin de 1 olması gerekir.</p>
+    <p>Sonuç: yalnız A = 1 ve B = 1 iken Y = 0. Bu, VE (AND) işleminin tersidir: <strong>NAND</strong> (VE DEĞİL). Evirici gibi burada da her durumda ya üst ya alt yol kapalıdır; kapı dururken akım çekmez.</p>
+    <p>Apple'ın 2020'de tanıttığı M1 yongasında <strong>16 milyar transistör</strong> var. Bunların hepsi mantık kapısı değil (önbellek gibi başka yapılar da var), ama temel desen aynı: tümleyen PMOS–NMOS çiftleri.</p>
+    <details class="more"><summary>Daha fazla: NOR, evrensellik ve kaynak</summary>
+      <p>NAND kapısı evrenseldir: yalnız NAND kullanarak NOT, AND, OR, hatta toplayıcı kurulabilir. Bunu sonraki bölümde bir bulmacayla deneyeceğiz.</p>
+      <p>NOR kapısı bunun tersidir: PMOS'lar seri, NMOS'lar paralel. Ama PMOS'ta yük taşıyan delikler elektronlardan daha yavaş hareket eder; seri PMOS'lu NOR aynı hız için daha büyük transistörler ister. Bu yüzden CMOS tasarımında NAND genellikle tercih edilir.</p>
+      <p>Transistör sayısı kaynağı: Apple Newsroom, "Apple unleashes M1", 10 Kasım 2020 — <a href="https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/" target="_blank" rel="noopener">apple.com/newsroom/2020/11/apple-unleashes-m1</a>.</p>
+    </details>
+    <p class="try">Devredeki A ve B kutularına ya da düğmelere tıklayın. Hangi transistörlerin açıldığını, Y çıkışını ve doğruluk tablosunun dolmasını izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Dört durumu sırayla gezin; tablo dolsun. Soru: "Çıkışı 0 yapmanın tek yolu ne?" (İki NMOS'un da açık olması.)</li>
+    <li>Besleme akımı göstergesi her durumda pikoamper düzeyinde: CMOS'un statik güç avantajı.</li>
+    <li>Kaynak: Apple Newsroom, 10 Kasım 2020, "16 billion transistors" (https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/).</li>
+    <li>4 transistör × 4 milyar ≈ 16 milyar: M1'deki transistörler kabaca 4 milyar NAND'a yeterdi; ama gerçek yonga yalnız NAND'dan oluşmaz, bunu sadece ölçek hissi için söyleyin.</li>
+  </ul></aside>
+</section>

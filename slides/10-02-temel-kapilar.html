@@ -1,0 +1,22 @@
+<section class="slide" data-chapter="10" data-demo="c10Gates" id="temel-kapilar">
+  <div class="text">
+    <h2>Temel mantık kapıları</h2>
+    <p class="lead">Mantık kapısı, girişlerindeki 0 ve 1'lere bakıp kuralına göre tek bir çıkış veren devredir.</p>
+    <p>Yedi temel kapı var. <strong>AND</strong> (VE) yalnız bütün girişler 1 iken 1 verir; <strong>OR</strong> (VEYA) en az biri 1 ise. <strong>NOT</strong> (DEĞİL) tek girişlidir, girişin tersini verir. NAND ve NOR, AND ve OR'un tersidir: semboldeki küçük daire (kabarcık) "ters çevir" demektir. <strong>XOR</strong> (özel VEYA) girişler farklıyken, XNOR aynıyken 1 verir.</p>
+    <p>Bir kapının bütün davranışı <strong>doğruluk tablosu</strong>na sığar. Kapı fikri anahtarlardan doğdu. Seri iki anahtar AND'dir: LED ancak ikisi de kapalıyken yanar. Paralel iki anahtar OR'dur. Bugünkü kapılarda anahtarların yerinde transistörler vardır (<a href="#cmos-nand">CMOS NAND</a>).</p>
+    <p>Sitede ABD'de yaygın ANSI sembolleri kullanılıyor; Avrupa'da sık görülen IEC dikdörtgen sembollerini ANSI / IEC seçimiyle bir kez görün.</p>
+    <details class="more"><summary>Daha fazla: Boole, Shannon ve IEC sembolleri</summary>
+      <p>George Boole 1854'te mantığı 0 ve 1'li bir cebirle yazdı. Claude Shannon 1937'deki yüksek lisans tezinde bu cebirin röle ve anahtar devrelerini birebir tarif ettiğini gösterdi; dijital devre tasarımı bu fikirden doğdu.</p>
+      <p>IEC sembollerinde kutunun içindeki işaret kuralı söyler: &amp; (AND), ≥1 (OR: en az bir giriş 1), =1 (XOR: tam olarak bir giriş 1), 1 (tampon ya da NOT). Çıkıştaki daire yine "ters çevir" demektir.</p>
+      <p>XOR ve XNOR'un anahtar karşılığı merdiven lambasıdır: iki <strong>vavien</strong> (iki yollu) anahtar. Aradaki teller düz bağlanınca XNOR, çapraz bağlanınca XOR elde edilir. Hangisinin hangisi olduğu, anahtarın hangi konumuna "1" dediğinize bağlıdır.</p>
+    </details>
+    <p class="try">Bir kapı seçin, A ve B girişlerine ya da anahtarlara tıklayın. Çıkışı, tablodaki satırı ve LED'i karşılaştırın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>AND'de dört durumu gezin; sonra OR'a geçip aynı dört durumu tekrar edin. Soru: "Lamba hangi kapıda daha sık yanar?" (OR: 4 durumdan 3'ünde.)</li>
+    <li>NOT devresinde anahtar LED'i kısa devre eder; direnç akımı sınırlar. Transistörlü NOT kapısı slaytındaki RTL devresiyle aynı fikir.</li>
+    <li>XNOR = merdiven lambası: herkesin evinde olan bir mantık kapısı.</li>
+    <li>IEC'ye bir kez geçip geri dönün; sitenin geri kalanı ANSI.</li>
+  </ul></aside>
+</section>

@@ -1,0 +1,20 @@
+<section class="slide" data-chapter="7" data-demo="c7karsilastir" id="bjt-mi-mosfet-mi" data-model="basit">
+  <div class="text">
+    <h2>BJT mi, MOSFET mi?</h2>
+    <p class="lead">İkisi de anahtar, ikisi de yükselteç olabilir; farkları nasıl sürüldükleri ve ne kadar ısındıklarıdır.</p>
+    <p>BJT akımla, MOSFET gerilimle kontrol edilir. BJT'yi açık tutmak için pin sürekli baz akımı vermelidir; MOSFET'in kapısı ise bir kez dolduktan sonra akım çekmez.</p>
+    <p>Tam açık bir BJT'nin üzerinde V<sub>CE(sat)</sub> kadar gerilim kalır ve kayıp yaklaşık V<sub>CE(sat)</sub> · I'dır. Tam açık bir MOSFET ise bir dirençtir ve kaybı I² · R<sub>DS(on)</sub>'dur. Güç MOSFET'lerinde R<sub>DS(on)</sub> miliohmlar düzeyinde olduğundan, amperler söz konusu olunca MOSFET çok daha az ısınır.</p>
+    <p>Deneyde aynı yük, aynı türden iki 3,3 V'luk pinle sürülüyor: biri BJT ile, öbürü logic level MOSFET ile. Yük akımını artırdıkça BJT'nin baz akımı yetmez hale gelir; transistör aktif bölgeye kayar, yük tam akımı alamaz ve BJT ısınır.</p>
+    <details class="more"><summary>Daha fazla: JFET ve diğerleri</summary>
+      <p><strong>JFET</strong> (eklem alan etkili transistör) da bir alan etkili transistördür, ama kapısı oksitle değil ters kutuplanmış bir PN eklemiyle yalıtılır. Kapıya gerilim verilmezken iletimdedir; kapıya ters gerilim verildikçe kanal daralır ve sonunda kapanır. Giriş akımı çok küçük, gürültüsü düşük olduğundan ses ön yükselteçlerinde ve ölçü aletlerinin girişlerinde kullanılır.</p>
+      <p>Yüksek gerilim ve yüksek güç için bir de IGBT vardır: girişi MOSFET gibi gerilimle sürülür, çıkışı BJT gibi iletir. Elektrikli araçların ve endüstriyel motor sürücülerinin inverterlerinde yaygındır.</p>
+    </details>
+    <p class="try">Yük akımını 2 A'e çıkarın; iki tarafın kayıp gücünü ve transistörlerin parıltısını karşılaştırın. Sonra "Hangisini seçerdin?" sekmesindeki senaryoları çözün.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>0,5 A'de iki taraf da doyumda/açık; BJT'nin kaybı yine de MOSFET'in birkaç katı.</li>
+    <li>2 A'de BJT'nin baz akımı (yaklaşık 10 mA) yalnızca 1 A civarına yetiyor: aktif bölge, birkaç volt V<sub>CE</sub>, watt düzeyinde ısı. MOSFET ise sakin.</li>
+    <li>Tablo sekmesi: "Tipik kullanım" satırına özellikle değinin. Bilmecede "İkisi de olur" cevabını tartışmaya açın.</li>
+  </ul></aside>
+</section>

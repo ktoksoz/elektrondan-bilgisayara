@@ -1,0 +1,21 @@
+<section class="slide" data-chapter="13" data-demo="c13Dff" id="d-flipflop">
+  <div class="text">
+    <h2>D latch ve D flip-flop</h2>
+    <p class="lead">Hafızaya ne zaman yazılacağını saat belirler: latch saat 1 iken dinler, flip-flop yalnız saatin yükseldiği anda bakar.</p>
+    <p>SR latch'in yasak durumundan kurtulmanın yolu tek bir veri girişi kullanmaktır: <strong>D</strong> (data, veri). Bir <strong>D latch</strong>'te EN (etkin) 1 iken çıkış D'yi izler; latch "saydamdır". EN 0 olunca son değeri tutar.</p>
+    <p><strong>Kenar tetiklemeli D flip-flop</strong> ise saatin <strong>yükselen kenarında</strong>, yani 0'dan 1'e geçtiği anda D'ye bakar ve bu değeri bir sonraki yükselen kenara kadar tutar. Saat 1 iken D ne kadar değişirse değişsin Q etkilenmez.</p>
+    <p>Deneyde ikisi aynı D'yi ve aynı <strong>saat sinyalini</strong> alıyor. Bilgisayarlar flip-flop'u tercih eder: bütün devre aynı saat kenarında bir adım ilerler, kapıların ara değerleri hafızaya sızmaz.</p>
+    <details class="more"><summary>Daha fazla: kurulma süresi ve içyapı</summary>
+      <p>Flip-flop D'yi güvenle okuyabilmek için D'nin kenardan biraz önce (<strong>kurulma süresi</strong>, setup, t<sub>su</sub>) ve biraz sonra (tutma süresi, hold, t<sub>h</sub>) sabit kalmasını ister. Bu kurala uyulmazsa çıkış metastabil kalabilir. Gerçek HC serisi flip-flop'larda bu süreler nanosaniyeler düzeyindedir.</p>
+      <p>Deneyde "Kurulma süresi" açıkken D, yükselen kenardan önceki 3 birim (0,3 s) içinde değişirse flip-flop çıkışı belirsiz (taralı, x) gösterilir; bir sonraki temiz kenarda düzelir. Benzetimde 1 birim = 0,1 s.</p>
+      <p>Kenar tetiklemeli flip-flop çoğu zaman iki latch'in arka arkaya bağlanmasıyla yapılır (master–slave): ilki saat 0 iken, ikincisi saat 1 iken saydamdır. Böylece veri yalnız saatin yükseldiği anda içeri geçer.</p>
+    </details>
+    <p class="try">Saat çalışırken D'ye tıklayın. Saat 1 iken (sarı "saydam" bölge) değiştirirseniz Q latch hemen değişir, Q flip-flop bir sonraki yükselen kenarı (bakır ok) bekler. "Durdu"ya alıp "Saat darbesi"yle adım adım deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Diyagramdaki kesikli dikey çizgiler yükselen kenarlar: Q FF yalnız bu çizgilerde değişir. Q latch ise sarı bölgelerin tamamında D'yi kopyalar.</li>
+    <li>Soru: "Saat 1 iken D'yi iki kez değiştirirsem flip-flop ne yapar?" (Hiçbir şey; yalnız kenardaki değer önemli.)</li>
+    <li>Kurulma süresi düğmesini açıp D'yi kenardan hemen önce değiştirmeyi deneyin: taralı x bölgesi metastabilitenin benzetimdeki karşılığı.</li>
+  </ul></aside>
+</section>
