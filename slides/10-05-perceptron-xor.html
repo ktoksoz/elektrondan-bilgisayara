@@ -4,7 +4,7 @@
     <p class="lead">Bir yapay nöron da bir mantık kapısıdır: girişleri ağırlıklarla toplar, toplam eşiği geçerse 1 verir.</p>
     <p><strong>Perceptron</strong> iki girişi w1 ve w2 ağırlıklarıyla çarpar, b'yi ekler; sonuç 0 ya da büyükse çıkış 1, değilse 0. Grafikte bu kural bir doğrudur: bir yanı 1, öbür yanı 0.</p>
     <p>"Öğren"e basınca perceptron her yanlışında ağırlıklarını hatasının yönünde biraz kaydırır. AND ve OR'da birkaç turda hiç hata kalmaz.</p>
-    <p>XOR'da 1 olan noktalar çaprazdadır: (0,1) ve (1,0). Onları ayıran tek bir doğru yoktur; öğrenme hiç durmaz. Çözüm iki katman: OR ve NAND nöronları iki doğru çizer, AND nöronu aradaki şeridi seçer. Derin öğrenmenin özü de budur. Aynı konu yapay zekâ sitesinde: <a href="https://yz.koraytoksoz.com/#xor-tek-noron" target="_blank" rel="noopener">XOR: tek nöronun duvarı</a>.</p>
+    <p>XOR'da 1 olan noktalar çaprazdadır: (0,1) ve (1,0). Onları ayıran tek bir doğru yoktur; öğrenme hiç durmaz. Çözüm iki katman: OR ve NAND nöronları iki doğru çizer, AND nöronu aradaki şeridi seçer. Derin öğrenmenin özü de budur. Aynı konu yapay zekâ sitesinde: <a href="https://egitim.koraytoksoz.com/yz/#xor-tek-noron" target="_blank" rel="noopener">XOR: tek nöronun duvarı</a>.</p>
     <details class="more"><summary>Daha fazla: öğrenme kuralı ve tarih</summary>
       <p class="formula">w ← w + η · (hedef − çıkış) · x   ·   b ← b + η · (hedef − çıkış)</p>
       <p>Deneyde η = 0,25. Noktalar tek doğruyla ayrılabiliyorsa bu kuralın sonlu sayıda adımda durduğu kanıtlanmıştır (perceptron yakınsama teoremi). Ayrılamıyorsa ağırlıklar sonsuza dek döner.</p>

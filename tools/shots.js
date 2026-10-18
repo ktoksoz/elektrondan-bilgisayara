@@ -20,7 +20,7 @@ const wait = +(process.env.WAIT || 900);
     const page = await ctx.newPage();
     page.on("console", (m) => { if (m.type() === "error" || m.type() === "warning") problems.push(`[${w}] ${m.type()}: ${m.text()}`); });
     page.on("pageerror", (e) => problems.push(`[${w}] pageerror: ${e.message}`));
-    if (!process.env.GUIDE) await page.addInitScript(() => { try { localStorage.setItem("rehber.kapali", "1"); } catch (e) {} });
+    if (!process.env.GUIDE) await page.addInitScript(() => { try { localStorage.setItem("elektronik.rehber.kapali", "1"); } catch (e) {} });
     await page.goto(url, { waitUntil: "networkidle" });
     await page.evaluate(() => document.fonts.ready);
     const ids = await page.evaluate(() => [...document.querySelectorAll(".slide")].map((s) => s.id));

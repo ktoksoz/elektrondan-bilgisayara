@@ -13,7 +13,7 @@
   const T = STR.guide;
 
   let enabled = true;
-  try { enabled = localStorage.getItem("rehber.kapali") !== "1"; } catch (e) {}
+  try { enabled = localStorage.getItem("elektronik.rehber.kapali") !== "1"; } catch (e) {}
   const seen = new Set();
 
   // sentetik pointer olaylarında setPointerCapture hata vermesin
@@ -222,7 +222,7 @@
     if (!e.isTrusted) return;
     if ((e.key === "g" || e.key === "G") && !e.metaKey && !e.ctrlKey && !(e.target.matches && e.target.matches("input[type=text], input[type=number], textarea"))) {
       enabled = !enabled;
-      try { localStorage.setItem("rehber.kapali", enabled ? "0" : "1"); } catch (er) {}
+      try { localStorage.setItem("elektronik.rehber.kapali", enabled ? "0" : "1"); } catch (er) {}
       toast(enabled ? T.on : T.off);
       if (!enabled) stop();
       return;

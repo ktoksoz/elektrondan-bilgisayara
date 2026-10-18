@@ -19,7 +19,7 @@ const STEPS = +(process.env.STEPS || 25);
   const logs = [];
   page.on("console", (m) => { if (m.type() === "error" || m.type() === "warning") logs.push(m.type() + ": " + m.text()); });
   page.on("pageerror", (e) => logs.push("pageerror: " + e.message));
-  await page.addInitScript(() => { try { localStorage.setItem("rehber.kapali", "1"); } catch (e) {} });
+  await page.addInitScript(() => { try { localStorage.setItem("elektronik.rehber.kapali", "1"); } catch (e) {} });
   await page.goto(url, { waitUntil: "networkidle" });
   const ids = await page.evaluate(() => [...document.querySelectorAll(".slide")].map((s) => s.id));
   let bad = 0;

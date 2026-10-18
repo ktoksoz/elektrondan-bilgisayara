@@ -1,6 +1,6 @@
 # Elektrondan Bilgisayara
 
-**Canlı site: https://elektronik.koraytoksoz.com**
+**Canlı site: https://egitim.koraytoksoz.com/elektronik/** (eski adres https://elektronik.koraytoksoz.com buraya yönlendirilir; bütün eğitimler: https://egitim.koraytoksoz.com)
 
 Elektroniği gerilim ve akımdan başlayıp transistörlere, mantık kapılarına ve program çalıştıran küçük bir bilgisayara kadar slayt slayt anlatan, Türkçe, etkileşimli bir sunum sitesi. Her slaytta canlı bir devre var: anahtarlara tıklayın, değerleri değiştirin, akımın akışını izleyin; ekrandaki her sayı tarayıcıda çalışan devre çözücüden ya da mantık simülatöründen gelir.
 
@@ -130,6 +130,6 @@ Belirli iddialar için:
 
 İçeriği değiştirerek ya da olduğu gibi, ticari amaçla bile kullanabilirsiniz; tek şart atıf yapmak. Önerilen atıf:
 
-> Koray Toksöz, *Elektrondan Bilgisayara*, https://elektronik.koraytoksoz.com, CC BY 4.0
+> Koray Toksöz, *Elektrondan Bilgisayara*, https://egitim.koraytoksoz.com/elektronik/, CC BY 4.0
 
 Ayrıntılar ve üçüncü taraf bileşenler için [LICENSE](LICENSE) dosyasına bakın.

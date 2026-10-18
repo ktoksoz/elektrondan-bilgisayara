@@ -85,7 +85,7 @@
 
 /* ---------- kapanış: kardeş siteler ---------- */
 .cover p.c14-sites-h { font-family: var(--f-display); font-stretch: 92%; font-size: 0.92rem; color: var(--copper-2); margin: 0 0 -0.3rem; }
-.cover-meta.c14-sites { margin-bottom: 0.4rem; }
+.cover-meta.c14-sites { margin-bottom: 0.4rem; max-width: 36rem; }
 .cover-meta.c14-sites a { flex-direction: column; align-items: flex-start; gap: 0; padding: 6px 13px 7px; line-height: 1.25; }
 .cover-meta.c14-sites a b { font-weight: 700; font-size: 0.9rem; color: var(--silk); font-stretch: 100%; }
 .cover-meta.c14-sites a span { font-size: 0.74rem; color: var(--muted); }
