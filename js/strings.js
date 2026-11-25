@@ -8,7 +8,7 @@ window.STR = {
     "Elektrik nedir?",
     "Ohm kanunu ve güç",
     "Devre analizi",
-    "Zaman: kondansatör ve bobin",
+    "Kondansatör, bobin ve empedans",
     "Yarı iletkenler ve diyot",
     "Transistör: BJT",
     "Transistör: MOSFET",
@@ -123,6 +123,49 @@ STR.ch04 = {
   saw: "Testere dişi", noise: "Gürültü", fc: "Kesim frekansı", gain: "Kazanç (ölçülen)", phase: "Faz (ölçülen)",
   bode: "Kazanç – frekans", noAudio: "Bu tarayıcı Web Audio desteklemiyor",
   sch: "Devre", scope: "Osiloskop",
+};
+
+// ch04b: reaktans, fazör, empedans, hesaplayıcı, rezonans
+STR.ch04b = {
+  sch: "Devre", freq: "Frekans", amp: "Genlik (tepe)", waiting: "ölçülüyor…",
+  R: "Direnç", L: "Bobin", C: "Kondansatör", Rv: "R", Lv: "L", Cv: "C",
+  elemAria: "Eleman", slow: (k) => `Ağır çekim: ${k}× yavaş`, realtime: "Gerçek zaman",
+  // reaktans
+  xf: "Karşı koyma – frekans", xMeas: "Ölçülen Vp / Ip", xForm: "Formülden", lead: "Akımın gerilime göre fazı",
+  iTrace: "akım", iProbe: "akım probu",
+  ahead: "akım önde", behind: "akım geride", inPhase: "aynı fazda",
+  rVal: "Direnç değeri", cVal: "Kapasite", lVal: "Endüktans",
+  // fazör
+  phAria: "Dönen fazör okları ve izdüşümleriyle çizilen sinüs dalgaları",
+  run: "Döndür", freeze: "Durdur", speed: "Dönüş hızı",
+  phR: "Direnç", phC: "Kondansatör", phL: "Bobin", phRL: "R + L", phRC: "R + C",
+  frozenNote: "Durağan fazör diyagramı: V referans (0°)", vPh: "V (gerilim)", iPh: "I (akım)",
+  plane: "Karmaşık düzlem", wave: "Zaman", reAx: "Re", imAx: "Im (j)",
+  // kara kutu
+  box: "Kutu", boxAria: "Kara kutu", open: "Kutuyu aç", close: "Kutuyu kapat", sweep: "Frekansı tara", clear: "İzi sil",
+  zPlane: "Empedans düzlemi", zMag: "|Z| = Vp / Ip", zPh: "φ (faz farkı)", zRe: "R = |Z| cos φ", zIm: "X = |Z| sin φ",
+  dt: "Δt", boxQ: "?", inside: "içinde:",
+  boxes: {
+    A: "R 100 Ω + L 10 mH (seri)",
+    B: "R 100 Ω + C 1 µF (seri)",
+    C: "R 220 Ω ∥ C 1 µF (paralel)",
+    D: "R 47 Ω + L 10 mH + C 1 µF (seri)",
+  },
+  locus: "frekans artarken uç izi",
+  // hesaplayıcı
+  topoAria: "Bağlantı", topo: { seri: "Seri", paralel: "Paralel", "r-lc": "R + (L || C)", "rl-c": "(R + L) || C" },
+  useAria: "Devredeki elemanlar", zDiag: "Empedans düzlemi", phDiag: "Fazör diyagramı",
+  vView: "Gerilimler", iView: "Akımlar", res: "Sonuçlar",
+  zTot: "Z (toplam)", iTot: "I (kaynak)", pf: "Güç faktörü cos φ", power: "P · Q · S",
+  solver: "Çözücüde ölçülen", nature: { ind: "endüktif: akım geride", cap: "kapasitif: akım önde", res: "dirençsel: aynı fazda" },
+  inf: "∞ (açık devre)", bad: "Değer anlaşılamadı",
+  entryHint: "Kutuya da yazabilirsiniz: 4,7k · 100n · 22m",
+  atLeast: "En az bir eleman devrede kalmalı",
+  // rezonans
+  series: "Seri RLC", tank: "Paralel LC (tank)", modeAria: "Devre",
+  tune: "Ayar (C)", rS: "Direnç", rFeed: "Besleme direnci",
+  zf: "Empedans – frekans", f0: "f₀ (rezonans)", q: "Q", iAmp: "Akım (tepe)", vc: "KN2 (tepe)", zNow: "|Z|",
+  toF0: "Rezonansa git",
 };
 
 // ch05

@@ -1,0 +1,25 @@
+<section class="slide" data-chapter="4" data-demo="c4res" id="rezonans">
+  <div class="text">
+    <h2>Rezonans</h2>
+    <p class="lead">Bir frekansta bobinle kondansatörün reaktansları eşitlenir ve birbirini götürür.</p>
+    <p>X<sub>L</sub> frekansla büyür, X<sub>C</sub> küçülür. Kesiştikleri frekansta seri devredeki ters yönlü iki ok birbirini siler, geriye yalnızca R kalır: empedans en küçük, akım en büyük olur. Bu frekans <strong>rezonans frekansı</strong>dır:</p>
+    <p class="formula">f₀ = 1 / (2π · √(L · C))</p>
+    <p>Rezonansta bobinin ve kondansatörün gerilimleri kaynak geriliminin <strong>Q</strong> katına çıkar. Q, devrenin ne kadar seçici olduğunu da söyler: Q büyükse tepe sivri, geçirdiği bant dardır.</p>
+    <p class="formula">Q = √(L / C) / R &nbsp;&nbsp; bant genişliği B = f₀ / Q</p>
+    <p>Paralel LC (<strong>tank devresi</strong>) tersini yapar: rezonansta empedansı en büyüktür. Eski radyolar istasyonu böyle seçer: ayar düğmesi kondansatörü değiştirir, f₀ istasyonun frekansına oturur.</p>
+    <details class="more"><summary>Daha fazla: enerji salıncağı, tehlike, radyo</summary>
+      <p>Rezonansta enerji kondansatörün elektrik alanıyla bobinin manyetik alanı arasında gidip gelir, salıncakta potansiyel ve hareket enerjisinin yer değiştirmesi gibi. Kaynak yalnızca dirençte kaybolanı tamamlar. Frekansı değiştirince osiloskopta genliğin birkaç periyotta yavaş yavaş büyüdüğünü görürsünüz: salıncak da bir itişte tepeye çıkmaz.</p>
+      <p>Yüksek Q tehlikeli de olabilir: 10 V'luk bir kaynak, Q = 20 olan bir devrede kondansatöre 200 V uygular. Kondansatörün gerilim sınırı aşılmamalıdır.</p>
+      <p>Tank devresinde Q, besleme direnci ve bobin telinin direnciyle (burada 1 Ω) birlikte belirlenir. Grafikteki eğriler formülden çizilir; sarı nokta, benzetimde ölçülen empedanstır.</p>
+      <p>Radyo alıcısında seçicilik ve antenin rezonansı: <a href="https://egitim.koraytoksoz.com/sdr/" target="_blank" rel="noopener">Dalgadan Sayıya</a> ve <a href="https://egitim.koraytoksoz.com/anten/" target="_blank" rel="noopener">Kablodan Boşluğa</a>.</p>
+    </details>
+    <p class="try">"Rezonansa git"e basın: akım tepe yapar, KN2'deki kondansatör gerilimi kaynağı geçer. Direnci küçültüp tepenin sivrildiğini, sonra tank devresinde empedansın tepe yaptığını görün.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>L = 10 mH sabit; C ayar düğmesi. 1 µF'ta f₀ ≈ 1,59 kHz, √(L/C) = 100 Ω.</li>
+    <li>R = 10 Ω'da Q = 10: KN2 (camgöbeği) sarının 10 katı. Osiloskop ölçeği kendiliğinden büyür.</li>
+    <li>Frekansı f₀'ın biraz dışına çekip genliğin düşüşünü, sonra f₀'a dönüp yavaş yükselişi gösterin.</li>
+    <li>Soru: C dört katına çıkarsa f₀ ne olur? (Yarıya iner.)</li>
+  </ul></aside>
+</section>

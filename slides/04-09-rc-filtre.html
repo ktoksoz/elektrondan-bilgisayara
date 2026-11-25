@@ -8,6 +8,7 @@
     <p>Kesim frekansında çıkış, girişin %70,7'sine (−3 dB) düşer. Bunun üstünde frekans on katına çıktıkça çıkış on kat küçülür.</p>
     <p>Tiz sesler yüksek frekanstır. Filtreyi sese uygularsanız tizler kısılır, ses boğuklaşır. Elektro gitarın ton düğmesi de bir RC alçak geçiren filtredir.</p>
     <details class="more"><summary>Daha fazla: kazanç, faz ve ses</summary>
+      <p>Empedans diliyle: devre, R ile kondansatörün empedansından kurulmuş bir <a href="#empedans">gerilim bölücüdür</a>: V<sub>çıkış</sub> / V<sub>giriş</sub> = Z<sub>C</sub> / (R + Z<sub>C</sub>). Kesim frekansı, X<sub>C</sub>'nin R'ye eşit olduğu frekanstır; orada iki ok eşit boydadır ve faz −45° çıkar.</p>
       <p>Kazanç |V<sub>çıkış</sub> / V<sub>giriş</sub>| = 1 / √(1 + (f/fc)²), faz kayması −arctan(f/fc); kesimde −45°. Desibel cinsinden kazanç 20 · log<sub>10</sub>(oran). Grafikteki eğri formülden çizilmedi: her frekansta devre ayrıca benzetilip çıkış genliği ölçüldü.</p>
       <p>Ses örneği tarayıcının Web Audio arayüzünde birinci dereceden dijital bir filtreden (IIR) geçiyor; katsayıları aynı RC devresinden hesaplanıyor ve kesim frekansı aynı. Web Audio'nun hazır BiquadFilter'ı ikinci derecedendir ve daha dik keser; RC'ye sadık kalmak için kullanılmadı.</p>
       <p>Testere dişi sesteki tizler, notanın harmonikleridir. Harmoniklerin sesin rengini nasıl belirlediğini müzik sitesinde dinleyin: <a href="https://egitim.koraytoksoz.com/muzik/#tini" target="_blank" rel="noopener">Tını: aynı nota, farklı ses</a>.</p>

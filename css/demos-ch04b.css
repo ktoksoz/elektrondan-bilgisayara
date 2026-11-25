@@ -1,0 +1,43 @@
+/* 4. bölüm, ikinci yarı: reaktans, fazör, empedans, hesaplayıcı, rezonans */
+
+.c4b-row-box { grid-template-columns: 1fr 1.25fr; }
+.c4b-phasor { min-height: 0; }
+.meters.c4b-wide .meter b { font-size: 0.88rem; }
+
+/* hesaplayıcı */
+.split.c4b-calc { grid-template-rows: 1.05fr 1fr; }
+.c4b-row { grid-template-columns: 1fr 1fr; }
+.c4b-pseg { position: absolute; right: 4px; top: 2px; z-index: 3; transform: scale(0.84); transform-origin: top right; }
+.c4b-respane { overflow: auto; padding: 24px 2px 0; border-left: 1px dashed rgba(239, 238, 226, 0.14); }
+.c4b-res table { width: 100%; border-collapse: collapse; font-family: var(--f-mono); font-size: 0.74rem; color: var(--silk-2); line-height: 1.35; }
+.c4b-res th { text-align: left; font-weight: 700; color: var(--silk); padding: 4px 8px 4px 6px; white-space: nowrap; vertical-align: top; }
+.c4b-res td { padding: 4px 6px; border-top: 1px solid rgba(239, 238, 226, 0.08); }
+.c4b-res th { border-top: 1px solid rgba(239, 238, 226, 0.08); }
+.c4b-res tr.big td { color: var(--silk); font-size: 0.84rem; }
+.c4b-res tr.sol td, .c4b-res tr.sol th { color: var(--muted); font-weight: 500; }
+
+.stage .controls.c4b-ents { border-top: 0; padding-top: 0; gap: 8px 16px; }
+.stage .controls .c4b-entry { gap: 6px; }
+.c4b-entry .val { display: none; }
+.stage .controls.c4-tight .c4b-entry input[type="range"] { width: 78px; }
+.c4b-num {
+  width: 4.8em; font-family: var(--f-mono); font-size: 0.86rem; background: var(--mask-3); color: var(--silk);
+  border: 1px solid rgba(239, 238, 226, 0.25); border-radius: 5px; padding: 3px 6px;
+}
+.c4b-num:focus-visible { outline: 2px solid var(--copper-2); outline-offset: 1px; }
+.c4b-num.bad { border-color: var(--heat); color: #ffc08a; }
+.c4b-unit { font-family: var(--f-mono); font-size: 0.8rem; color: var(--muted); margin-left: -3px; }
+.c4b-entry.off { opacity: 0.4; }
+.c4b-use button:disabled { opacity: 0.55; cursor: default; }
+
+@media (max-width: 860px) {
+  .c4b-row-box, .c4b-row { grid-template-columns: 1fr; grid-auto-rows: minmax(240px, auto); }
+  .split.c4b-calc { grid-template-rows: none; grid-auto-rows: auto; }
+  .c4b-row > .pane { min-height: 250px; }
+  .c4b-respane { border-left: 0; border-top: 1px dashed rgba(239, 238, 226, 0.14); min-height: 0 !important; }
+  .c4b-phasor { min-height: 520px; }
+}
+.c4b-res th small { display: block; font-weight: 500; font-size: 0.68rem; color: var(--muted); }
+.c4b-res td span { display: inline-block; margin-right: 12px; }
+.c4b-res td span.b { color: var(--muted); }
+.c4b-res tr.big td span.b { color: var(--silk-2); }

@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="css/demos-ch01.css?v=202610151512">
 <link rel="stylesheet" href="css/demos-ch03.css?v=202610151512">
 <link rel="stylesheet" href="css/demos-ch04.css?v=202610151512">
+<link rel="stylesheet" href="css/demos-ch04b.css?v=202610151512">
 <link rel="stylesheet" href="css/demos-ch05.css?v=202610151512">
 <link rel="stylesheet" href="css/demos-ch06.css?v=202610151512">
 <link rel="stylesheet" href="css/demos-ch08.css?v=202610151512">
@@ -409,6 +410,133 @@
   </ul></aside>
 </section>
 
+<section class="slide" data-chapter="4" data-demo="c4react" id="reaktans">
+  <div class="text">
+    <h2>Reaktans</h2>
+    <p class="lead">Direnç her frekansta aynı direnir. Kondansatörle bobinin AC'ye karşı koyması ise frekansa bağlıdır.</p>
+    <p>Kondansatör, gerilim değiştikçe dolup boşalır. Gerilim ne kadar hızlı değişirse o kadar çok akım geçer: yüksek frekansta az, düşük frekansta çok karşı koyar, DC'yi hiç geçirmez. Bobin tersini yapar: akımın değişmesine direnir, yüksek frekansta akımı neredeyse keser.</p>
+    <p>Bu karşı koymaya <strong>reaktans</strong> (X) denir. Birimi dirençle aynıdır, ohm; tepe gerilimi tepe akımına bölerek ölçülür.</p>
+    <p class="formula">X<sub>C</sub> = 1 / (2π · f · C) &nbsp;&nbsp;&nbsp; X<sub>L</sub> = 2π · f · L</p>
+    <p>Dirençten farkı zamanlamadadır. Dirençte akım gerilimle aynı anda tepe yapar. Kondansatörde akım gerilimden çeyrek tur (90°) <strong>önce</strong>, bobinde çeyrek tur <strong>sonra</strong> tepe yapar.</p>
+    <details class="more"><summary>Daha fazla: neden 90°, neden ısınmaz?</summary>
+      <p>Kondansatörde akım, gerilimin değişim hızıyla orantılıdır: i = C · dv/dt. Sinüs en hızlı, sıfırdan geçerken değişir; akım tam o anda tepe yapar. Gerilimin tepesinde değişim durur, akım sıfırdır. Sonuç: akım çeyrek periyot öndedir.</p>
+      <p>Bobinde gerilim, akımın değişim hızıyla orantılıdır: v = L · di/dt. Aynı akıl yürütmeyle bu kez akım çeyrek periyot geride kalır.</p>
+      <p>Reaktans enerji harcamaz: bir çeyrek periyotta enerjiyi depolar (kondansatör elektrik alanında, bobin manyetik alanında), sonraki çeyrekte kaynağa geri verir. Ortalama güç sıfırdır; ısınan tek eleman dirençtir.</p>
+      <p>Osiloskobun sarı izi kaynak gerilimi (KN1), pembe iz kaynaktan çekilen akımdır (akım probu). Ölçülen değerler her periyotta benzetimden hesaplanır.</p>
+    </details>
+    <p class="try">Kondansatörü seçip frekansı artırın: akım büyür, ölçülen X<sub>C</sub> küçülür. Sonra bobine geçin ve aynısını deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Sarı: gerilim, pembe: akım. Kondansatörde pembe dalga sarıdan çeyrek periyot önce tepe yapıyor.</li>
+    <li>Sağdaki grafik log-log: XC eğimi aşağı, XL eğimi yukarı, R düz bir çizgi. Nokta, benzetimde ölçülen değer.</li>
+    <li>İngilizce ezber: "ELI the ICE man" (L'de E önce I, C'de I önce E).</li>
+    <li>Soru: Frekans iki katına çıkınca XC ne olur? (Yarıya iner.) XL? (İki katına çıkar.)</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="4" data-demo="c4phasor" id="fazor">
+  <div class="text">
+    <h2>Fazör: dönen ok</h2>
+    <p class="lead">Bir sinüs dalgası, dönen bir okun gölgesidir.</p>
+    <p>Bir oku başlangıç noktası etrafında sabit hızla, saat yönünün tersine döndürün. Ucunun yüksekliği zamanla bir sinüs çizer. Okun boyu <strong>genlik</strong>, saniyedeki tur sayısı <strong>frekans</strong>, okun başlangıçtaki açısı <strong>faz</strong>dır.</p>
+    <p>Aynı frekanstaki bütün dalgalar aynı hızla döner; aralarındaki açı hiç değişmez. Bu yüzden dönmeyi bir an dondurup okları tek resimde çizmek yeter. Bu resme <strong>fazör diyagramı</strong> denir. Yatay eksen gerçel (Re), dikey eksen sanal (Im) eksendir; açılar yatay eksenden, saat yönünün tersine ölçülür.</p>
+    <p class="formula">V = A ∠ θ &nbsp;&nbsp;&nbsp;(genlik ∠ faz)</p>
+    <p>Kondansatörde akımın oku gerilimin okundan 90° ileridedir, bobinde 90° geride. Direnç ile bobin bir aradaysa açı 0° ile −90° arasında bir yere düşer.</p>
+    <details class="more"><summary>Daha fazla: karmaşık sayılar ve j</summary>
+      <p>Fazörler karmaşık sayılarla yazılır. Elektrikte sanal birime i yerine <strong>j</strong> denir, çünkü i akım için kullanılır: j² = −1. Bir sayıyı j ile çarpmak, okunu 90° döndürmek demektir.</p>
+      <p>Aynı ok iki biçimde yazılır: kutupsal (A ∠ θ) ya da dikdörtgen (a + jb). Aralarındaki geçiş: a = A · cos θ, b = A · sin θ. Örnek: 2 ∠ 90° = j2; 5 ∠ 0° = 5.</p>
+      <p>Bu sitede gölge dikey eksene düşer ve sinüs çizer. Bazı kitaplar gölgeyi yatay eksene düşürüp kosinüs kullanır; yalnızca başlangıç referansı değişir, oklar arasındaki açılar aynı kalır.</p>
+      <p>Diyagramdaki ok boyları tepe değeridir. Güç hesaplarında çoğu zaman RMS fazör kullanılır: boylar √2'ye bölünür, açılar değişmez. Akım ve gerilim farklı birimlerdir; okları ayrı ölçeklerle çizilir.</p>
+    </details>
+    <p class="try">Durdur'a basın: oklar 0°'ye döner ve durağan diyagram kalır. Elemanı değiştirince akım okunun nereye döndüğünü izleyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Dalganın en solundaki nokta, okun ucunun o anki yüksekliği; dalga sağa doğru akıp gidiyor.</li>
+    <li>Durağan diyagram, sonraki slaytlardaki bütün vektör çizimlerinin dili. Burada iyice oturtun.</li>
+    <li>Soru: Akım oku gerilimin 90° önündeyse eleman ne? (Kondansatör.)</li>
+    <li>Değerler gösterim içindir (5 V, 2 A); bir sonraki slaytta gerçek ölçüm var.</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="4" data-demo="c4zbox" id="empedans">
+  <div class="text">
+    <h2>Empedans: AC'nin Ohm kanunu</h2>
+    <p class="lead">Empedans (Z), bir devrenin AC'ye toplam karşı koymasıdır: hem ne kadar karşı koyduğunu hem de akımı ne kadar kaydırdığını söyler.</p>
+    <p>DC'de V = I · R yetiyordu. AC'de akım hem küçülür hem kayar; ikisini birlikte taşımak için empedans bir <strong>vektördür</strong> (karmaşık sayı):</p>
+    <p class="formula">Z = R + jX &nbsp;&nbsp;&nbsp; |Z| = √(R² + X²)</p>
+    <p>Yatay bileşen R, enerjiyi ısıya çeviren dirençtir. Dikey bileşen X reaktanstır: bobin yukarı (+jX<sub>L</sub>), kondansatör aşağı (−jX<sub>C</sub>) çeker. Ohm kanunu aynen geçerlidir: <strong>V = I · Z</strong>.</p>
+    <p>Ölçmek için iki şey yeter: tepe gerilimi tepe akımına bölün (|Z| = Vp / Ip), aradaki zaman kaymasını açıya çevirin (φ = 360° · f · Δt).</p>
+    <details class="more"><summary>Daha fazla: admitans, uç izi, hoparlör</summary>
+      <p>Kutupsal ve dikdörtgen biçim arasında geçiş: R = |Z| cos φ, X = |Z| sin φ, φ = arctan(X / R). V = I · Z çarpımında boylar çarpılır, açılar toplanır.</p>
+      <p>Empedansın tersi <strong>admitans</strong>tır: Y = 1/Z, birimi siemens (S). Paralel bağlantıda admitanslar toplanır, tıpkı seride empedansların toplanması gibi.</p>
+      <p>Frekansı tararken Z okunun ucu bir iz bırakır. Seri RL ve RC'de iz dikey bir doğrudur: R sabit kalır, yalnızca X değişir. Paralel RC'de iz yarım çember çizer. Empedans analizörleri ve LCR metreler bir parçanın içini böyle tanır.</p>
+      <p>Hoparlörün üstündeki "8 Ω" da bir empedanstır. Hoparlör bobinli olduğu için gerçek empedansı frekansla değişir; 8 Ω bir anma değeridir.</p>
+      <p>Buradaki her nokta ölçümdür: kutunun içindeki elemanlar çözücüde benzetilir, gerilim ve akımın fazörleri her periyotta tek frekanslı Fourier dönüşümüyle (DFT) bulunur.</p>
+    </details>
+    <p class="try">Bir kutu seçip "Frekansı tara"ya basın ve Z okunun izini izleyin. Ok yukarı mı gidiyor, aşağı mı? Tahmininizi yapın, sonra "Kutuyu aç"a basın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>A: R + L (iz yukarı çıkar), B: R + C (iz aşağıdan sıfıra yaklaşır), C: R ∥ C (yarım çember), D: R + L + C (iz yatay ekseni f₀'da keser).</li>
+    <li>Kutuyu açmadan önce sınıfa tahmin ettirin; gerekçe: frekansla X büyüyorsa bobin, küçülüyorsa kondansatör.</li>
+    <li>Osiloskopta Δt'yi gösterin: pembe akım sarı gerilimin önünde mi, arkasında mı?</li>
+    <li>Soru: Z = 100 + j100 Ω ise φ kaç derece? (45°.)</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="4" data-demo="c4calc" id="empedans-hesap">
+  <div class="text">
+    <h2>Empedans hesaplayıcı</h2>
+    <p class="lead">R, L ve C'yi seri ya da paralel bağlayın, genlik ve frekansı girin: empedans vektör olarak çizilsin.</p>
+    <p>Seride akım her elemanda aynıdır ve <strong>empedanslar toplanır</strong>: oklar uç uca eklenir. Paralelde gerilim her elemanda aynıdır ve <strong>akımlar toplanır</strong>; bu yüzden paralelde 1/Z'ler toplanır.</p>
+    <p class="formula">Seri: Z = Z₁ + Z₂ &nbsp;&nbsp; Paralel: 1/Z = 1/Z₁ + 1/Z₂</p>
+    <p>Elemanların empedansları: Z<sub>R</sub> = R, Z<sub>L</sub> = jωL, Z<sub>C</sub> = 1/(jωC) = −j/(ωC); burada ω = 2πf. Kaynak gerilimi 0° referanstır, akım I = V / Z. φ artıysa devre <strong>endüktif</strong>tir (akım geride), eksiyse <strong>kapasitif</strong> (akım önde).</p>
+    <p>Yalnızca akımın gerilimle aynı fazdaki kısmı iş yapar. Etkin güç P = V<sub>rms</sub> · I<sub>rms</sub> · cos φ; cos φ'ye <strong>güç faktörü</strong> denir.</p>
+    <details class="more"><summary>Daha fazla: diyagramlar nasıl okunur, P, Q, S</summary>
+      <p>Empedans düzleminde yatay eksen R, dikey eksen jX'tir; iki eksen aynı ölçekle çizilir, açılar gerçektir. Seri bağlantıda her elemanın oku sırayla uç uca eklenir, toplamın ucu Z'dir. Paralel bağlantıda toplam Z'nin eşdeğer direnci (R<sub>eş</sub>) ve reaktansı (X<sub>eş</sub>) kesikli çizgilerle gösterilir.</p>
+      <p>Fazör diyagramında "Gerilimler" görünümü eleman gerilimlerini uç uca ekler; toplamları kaynak gerilimidir (Kirchhoff'un gerilim yasası, fazörlerle). "Akımlar" görünümü kol akımlarını ekler; toplamları kaynak akımıdır (KCL). İnce ok, öbür büyüklüğün yalnızca yönünü gösterir.</p>
+      <p>Görünür güç S = V<sub>rms</sub> · I<sub>rms</sub> (VA), tepkin güç Q = V<sub>rms</sub> · I<sub>rms</sub> · sin φ (VAR). Tepkin güç bobinle kondansatör arasında gidip gelir, ısıya dönüşmez ama kablolardan akım olarak geçer. Fabrikalar bu yüzden kondansatörle güç faktörünü düzeltir (kompanzasyon).</p>
+      <p>Hesap, ideal elemanlarla karmaşık sayılarla yapılır. Tablonun son satırı aynı devrenin çözücüdeki geçici rejim benzetiminden, her periyotta ölçülür; iki sonuç binde birkaç içinde aynı çıkar.</p>
+    </details>
+    <p class="try">Seri bağlantıda frekansı değiştirip Z okunun yatay eksene oturduğu frekansı bulun: orada X<sub>L</sub> = X<sub>C</sub>. Değerleri kutulara da yazabilirsiniz: 4,7k · 100n · 22m.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Varsayılan: 10 V, 1 kHz, 100 Ω, 22 mH, 1 µF seri. XL ≈ 138 Ω, XC ≈ 159 Ω: devre hafifçe kapasitif.</li>
+    <li>R, L, C düğmeleri seri ve paralelde elemanı devreden çıkarır (seride kısa devre, paralelde açık devre).</li>
+    <li>Paralele geçip "Akımlar"a basın: IL ve IC ters yönde, birbirini kısmen götürüyor.</li>
+    <li>Soru: Seri RLC'de kondansatör gerilimi kaynaktan büyük olabilir mi? (Evet; bir sonraki slayt.)</li>
+  </ul></aside>
+</section>
+
+<section class="slide" data-chapter="4" data-demo="c4res" id="rezonans">
+  <div class="text">
+    <h2>Rezonans</h2>
+    <p class="lead">Bir frekansta bobinle kondansatörün reaktansları eşitlenir ve birbirini götürür.</p>
+    <p>X<sub>L</sub> frekansla büyür, X<sub>C</sub> küçülür. Kesiştikleri frekansta seri devredeki ters yönlü iki ok birbirini siler, geriye yalnızca R kalır: empedans en küçük, akım en büyük olur. Bu frekans <strong>rezonans frekansı</strong>dır:</p>
+    <p class="formula">f₀ = 1 / (2π · √(L · C))</p>
+    <p>Rezonansta bobinin ve kondansatörün gerilimleri kaynak geriliminin <strong>Q</strong> katına çıkar. Q, devrenin ne kadar seçici olduğunu da söyler: Q büyükse tepe sivri, geçirdiği bant dardır.</p>
+    <p class="formula">Q = √(L / C) / R &nbsp;&nbsp; bant genişliği B = f₀ / Q</p>
+    <p>Paralel LC (<strong>tank devresi</strong>) tersini yapar: rezonansta empedansı en büyüktür. Eski radyolar istasyonu böyle seçer: ayar düğmesi kondansatörü değiştirir, f₀ istasyonun frekansına oturur.</p>
+    <details class="more"><summary>Daha fazla: enerji salıncağı, tehlike, radyo</summary>
+      <p>Rezonansta enerji kondansatörün elektrik alanıyla bobinin manyetik alanı arasında gidip gelir, salıncakta potansiyel ve hareket enerjisinin yer değiştirmesi gibi. Kaynak yalnızca dirençte kaybolanı tamamlar. Frekansı değiştirince osiloskopta genliğin birkaç periyotta yavaş yavaş büyüdüğünü görürsünüz: salıncak da bir itişte tepeye çıkmaz.</p>
+      <p>Yüksek Q tehlikeli de olabilir: 10 V'luk bir kaynak, Q = 20 olan bir devrede kondansatöre 200 V uygular. Kondansatörün gerilim sınırı aşılmamalıdır.</p>
+      <p>Tank devresinde Q, besleme direnci ve bobin telinin direnciyle (burada 1 Ω) birlikte belirlenir. Grafikteki eğriler formülden çizilir; sarı nokta, benzetimde ölçülen empedanstır.</p>
+      <p>Radyo alıcısında seçicilik ve antenin rezonansı: <a href="https://egitim.koraytoksoz.com/sdr/" target="_blank" rel="noopener">Dalgadan Sayıya</a> ve <a href="https://egitim.koraytoksoz.com/anten/" target="_blank" rel="noopener">Kablodan Boşluğa</a>.</p>
+    </details>
+    <p class="try">"Rezonansa git"e basın: akım tepe yapar, KN2'deki kondansatör gerilimi kaynağı geçer. Direnci küçültüp tepenin sivrildiğini, sonra tank devresinde empedansın tepe yaptığını görün.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>L = 10 mH sabit; C ayar düğmesi. 1 µF'ta f₀ ≈ 1,59 kHz, √(L/C) = 100 Ω.</li>
+    <li>R = 10 Ω'da Q = 10: KN2 (camgöbeği) sarının 10 katı. Osiloskop ölçeği kendiliğinden büyür.</li>
+    <li>Frekansı f₀'ın biraz dışına çekip genliğin düşüşünü, sonra f₀'a dönüp yavaş yükselişi gösterin.</li>
+    <li>Soru: C dört katına çıkarsa f₀ ne olur? (Yarıya iner.)</li>
+  </ul></aside>
+</section>
+
 <section class="slide" data-chapter="4" data-demo="c4lpf" id="rc-filtre">
   <div class="text">
     <h2>RC filtre</h2>
@@ -419,6 +547,7 @@
     <p>Kesim frekansında çıkış, girişin %70,7'sine (−3 dB) düşer. Bunun üstünde frekans on katına çıktıkça çıkış on kat küçülür.</p>
     <p>Tiz sesler yüksek frekanstır. Filtreyi sese uygularsanız tizler kısılır, ses boğuklaşır. Elektro gitarın ton düğmesi de bir RC alçak geçiren filtredir.</p>
     <details class="more"><summary>Daha fazla: kazanç, faz ve ses</summary>
+      <p>Empedans diliyle: devre, R ile kondansatörün empedansından kurulmuş bir <a href="#empedans">gerilim bölücüdür</a>: V<sub>çıkış</sub> / V<sub>giriş</sub> = Z<sub>C</sub> / (R + Z<sub>C</sub>). Kesim frekansı, X<sub>C</sub>'nin R'ye eşit olduğu frekanstır; orada iki ok eşit boydadır ve faz −45° çıkar.</p>
       <p>Kazanç |V<sub>çıkış</sub> / V<sub>giriş</sub>| = 1 / √(1 + (f/fc)²), faz kayması −arctan(f/fc); kesimde −45°. Desibel cinsinden kazanç 20 · log<sub>10</sub>(oran). Grafikteki eğri formülden çizilmedi: her frekansta devre ayrıca benzetilip çıkış genliği ölçüldü.</p>
       <p>Ses örneği tarayıcının Web Audio arayüzünde birinci dereceden dijital bir filtreden (IIR) geçiyor; katsayıları aynı RC devresinden hesaplanıyor ve kesim frekansı aynı. Web Audio'nun hazır BiquadFilter'ı ikinci derecedendir ve daha dik keser; RC'ye sadık kalmak için kullanılmadı.</p>
       <p>Testere dişi sesteki tizler, notanın harmonikleridir. Harmoniklerin sesin rengini nasıl belirlediğini müzik sitesinde dinleyin: <a href="https://egitim.koraytoksoz.com/muzik/#tini" target="_blank" rel="noopener">Tını: aynı nota, farklı ses</a>.</p>
@@ -1388,6 +1517,7 @@
 
 <script src="js/strings.js?v=202610151512"></script>
 <script src="js/circuit.js?v=202610151512"></script>
+<script src="js/ac.js?v=202610151512"></script>
 <script src="js/logic.js?v=202610151512"></script>
 <script src="js/lib.js?v=202610151512"></script>
 <script src="js/schematic.js?v=202610151512"></script>
@@ -1396,6 +1526,7 @@
 <script src="js/circuits/ch01.js?v=202610151512"></script>
 <script src="js/circuits/ch03.js?v=202610151512"></script>
 <script src="js/circuits/ch04.js?v=202610151512"></script>
+<script src="js/circuits/ch04b.js?v=202610151512"></script>
 <script src="js/circuits/ch05.js?v=202610151512"></script>
 <script src="js/circuits/ch06.js?v=202610151512"></script>
 <script src="js/circuits/ch08.js?v=202610151512"></script>
@@ -1410,6 +1541,7 @@
 <script src="js/demos/ch01.js?v=202610151512"></script>
 <script src="js/demos/ch03.js?v=202610151512"></script>
 <script src="js/demos/ch04.js?v=202610151512"></script>
+<script src="js/demos/ch04b.js?v=202610151512"></script>
 <script src="js/demos/ch05.js?v=202610151512"></script>
 <script src="js/demos/ch06.js?v=202610151512"></script>
 <script src="js/demos/ch08.js?v=202610151512"></script>

@@ -1,0 +1,24 @@
+<section class="slide" data-chapter="4" data-demo="c4react" id="reaktans">
+  <div class="text">
+    <h2>Reaktans</h2>
+    <p class="lead">Direnç her frekansta aynı direnir. Kondansatörle bobinin AC'ye karşı koyması ise frekansa bağlıdır.</p>
+    <p>Kondansatör, gerilim değiştikçe dolup boşalır. Gerilim ne kadar hızlı değişirse o kadar çok akım geçer: yüksek frekansta az, düşük frekansta çok karşı koyar, DC'yi hiç geçirmez. Bobin tersini yapar: akımın değişmesine direnir, yüksek frekansta akımı neredeyse keser.</p>
+    <p>Bu karşı koymaya <strong>reaktans</strong> (X) denir. Birimi dirençle aynıdır, ohm; tepe gerilimi tepe akımına bölerek ölçülür.</p>
+    <p class="formula">X<sub>C</sub> = 1 / (2π · f · C) &nbsp;&nbsp;&nbsp; X<sub>L</sub> = 2π · f · L</p>
+    <p>Dirençten farkı zamanlamadadır. Dirençte akım gerilimle aynı anda tepe yapar. Kondansatörde akım gerilimden çeyrek tur (90°) <strong>önce</strong>, bobinde çeyrek tur <strong>sonra</strong> tepe yapar.</p>
+    <details class="more"><summary>Daha fazla: neden 90°, neden ısınmaz?</summary>
+      <p>Kondansatörde akım, gerilimin değişim hızıyla orantılıdır: i = C · dv/dt. Sinüs en hızlı, sıfırdan geçerken değişir; akım tam o anda tepe yapar. Gerilimin tepesinde değişim durur, akım sıfırdır. Sonuç: akım çeyrek periyot öndedir.</p>
+      <p>Bobinde gerilim, akımın değişim hızıyla orantılıdır: v = L · di/dt. Aynı akıl yürütmeyle bu kez akım çeyrek periyot geride kalır.</p>
+      <p>Reaktans enerji harcamaz: bir çeyrek periyotta enerjiyi depolar (kondansatör elektrik alanında, bobin manyetik alanında), sonraki çeyrekte kaynağa geri verir. Ortalama güç sıfırdır; ısınan tek eleman dirençtir.</p>
+      <p>Osiloskobun sarı izi kaynak gerilimi (KN1), pembe iz kaynaktan çekilen akımdır (akım probu). Ölçülen değerler her periyotta benzetimden hesaplanır.</p>
+    </details>
+    <p class="try">Kondansatörü seçip frekansı artırın: akım büyür, ölçülen X<sub>C</sub> küçülür. Sonra bobine geçin ve aynısını deneyin.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Sarı: gerilim, pembe: akım. Kondansatörde pembe dalga sarıdan çeyrek periyot önce tepe yapıyor.</li>
+    <li>Sağdaki grafik log-log: XC eğimi aşağı, XL eğimi yukarı, R düz bir çizgi. Nokta, benzetimde ölçülen değer.</li>
+    <li>İngilizce ezber: "ELI the ICE man" (L'de E önce I, C'de I önce E).</li>
+    <li>Soru: Frekans iki katına çıkınca XC ne olur? (Yarıya iner.) XL? (İki katına çıkar.)</li>
+  </ul></aside>
+</section>

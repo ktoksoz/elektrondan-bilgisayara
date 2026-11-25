@@ -15,7 +15,7 @@ Hazırlayan: **Koray Toksöz**
 | 1. Elektrik nedir? | Su borusu benzetmesi (ve nerede çöktüğü), geleneksel akım ve elektron yönü, iletken / yalıtkan / yarı iletken |
 | 2. Ohm kanunu ve güç | Ohm kanunu ve V–I grafiği, aşırı güçte yanan direnç, LED direnci hesaplayıcı (E12), renk kodu oyunu |
 | 3. Devre analizi | Seri ve paralel, gerilim bölücü ve yükleme etkisi, Kirchhoff yasaları (KCL, KVL, Thevenin), multimetre ve atan sigorta |
-| 4. Zaman: kondansatör ve bobin | RC şarj eğrisi ve τ, bobinde gerilim sıçraması ve serbest geçiş diyodu, AC ve RMS, sesli RC filtre |
+| 4. Kondansatör, bobin ve empedans | RC şarj eğrisi ve τ, bobinde gerilim sıçraması ve serbest geçiş diyodu, AC ve RMS, reaktans, dönen fazör, kara kutunun empedansını ölçme, seri/paralel RLC empedans hesaplayıcı (empedans düzlemi ve fazör diyagramı), rezonans ve Q, sesli RC filtre |
 | 5. Yarı iletkenler ve diyot | PN eklemi, diyot I–V eğrisi, yarım ve tam dalga doğrultucu, LED renkleri, Zener regülatörü |
 | 6. Transistör: BJT | Musluk benzetmesi, mikrodenetleyici pininden motor sürme, ortak emetörlü yükselteç ve kırpılma |
 | 7. Transistör: MOSFET | Kanal oluşumu, PWM, BJT mi MOSFET mi? |
@@ -28,7 +28,7 @@ Hazırlayan: **Koray Toksöz**
 | 14. Büyük resim | 8 bitlik mini bilgisayar (SAP-1 benzeri), Arduino mikrodenetleyici, elektrik güvenliği |
 
 Ek olarak:
-- Türkçe **sesli anlatım** (56 slayt)
+- Türkçe **sesli anlatım** (61 slayt)
 - Deneyi gösteren **hayalet el** ("Göster" düğmesi)
 - Terimlerin üzerine gelince açılan **tanım balonları** (320 terim, Vikipedi bağlantılı)
 - **Sunucu notları**
@@ -64,6 +64,7 @@ Her slaytın bağlantısı adres çubuğunda durur (ör. `#karnaugh`).
 
 - **`index.html`:** Yayınlanan sayfa. `tools/assemble.py` tarafından `slides/`, `js/circuits/`, `js/demos/` ve `css/demos-*.css` parçalarından üretilir.
 - **`slides/*.html`:** Slayt metinleri, "Daha fazla" bölümleri ve sunucu notları (`aside.notes`), slayt başına bir dosya
+- **`js/ac.js`:** AC hesabı: karmaşık sayılar, R/L/C empedansları, seri, paralel ve karışık bağlantılar, fazör ölçümü (DFT)
 - **`js/circuit.js`:** Analog devre çözücü: düğüm analizi (MNA), Newton–Raphson, geçici rejim (trapez / geri Euler); direnç, kaynak, kondansatör, bobin, diyot, BJT, MOSFET, opamp modelleri
 - **`js/logic.js`:** Olay tabanlı mantık simülatörü (kapı gecikmeleri, latch, flip-flop, saat), ifade ayrıştırıcı, Quine–McCluskey sadeleştirici, Karnaugh yardımcıları
 - **`js/schematic.js`:** Bütün şemaları çizen ve çözücüye bağlayan bileşen (tel renkleri gerilimi, noktalar akımı gösterir)
@@ -73,14 +74,14 @@ Her slaytın bağlantısı adres çubuğunda durur (ör. `#karnaugh`).
 - **`js/strings.js`:** Bütün arayüz metinleri (çeviri için tek dosya)
 - **`js/app.js`, `js/glossary.js`, `js/narrator.js`, `js/guide.js`:** Slayt motoru, tanım balonları, sesli anlatım, hayalet el
 - **`audio/<slayt-id>.mp3`:** Anlatım sesleri; metinleri `tools/narration.json` içinde
-- **`tests/`:** Çözücü ve mantık simülatörü birim testleri (`npm test` ya da `node --test tests/*.test.js`)
+- **`tests/`:** Çözücü, AC hesabı ve mantık simülatörü birim testleri (`npm test` ya da `node --test tests/*.test.js`)
 - **`tools/`:** Birleştirme, doğrulama (`check.js`, `shots.js`), geliştirme sunucusu, yayınlama
 
 ## Geliştirme ve doğrulama
 
 ```sh
 python3 tools/assemble.py          # parçalardan index.html'i üret
-node --test tests/*.test.js        # 32 birim testi
+node --test tests/*.test.js        # 41 birim testi
 node tools/check.js http://localhost:8000/   # her slaytta: şema = çözücü, KCL, kaydırıcı taramaları, hayalet el hedefleri, FPS
 node tools/shots.js http://localhost:8000/ ekran/   # 1440, 1180 ve 390 px ekran görüntüleri
 ```

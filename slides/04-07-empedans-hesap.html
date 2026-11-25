@@ -1,0 +1,24 @@
+<section class="slide" data-chapter="4" data-demo="c4calc" id="empedans-hesap">
+  <div class="text">
+    <h2>Empedans hesaplayıcı</h2>
+    <p class="lead">R, L ve C'yi seri ya da paralel bağlayın, genlik ve frekansı girin: empedans vektör olarak çizilsin.</p>
+    <p>Seride akım her elemanda aynıdır ve <strong>empedanslar toplanır</strong>: oklar uç uca eklenir. Paralelde gerilim her elemanda aynıdır ve <strong>akımlar toplanır</strong>; bu yüzden paralelde 1/Z'ler toplanır.</p>
+    <p class="formula">Seri: Z = Z₁ + Z₂ &nbsp;&nbsp; Paralel: 1/Z = 1/Z₁ + 1/Z₂</p>
+    <p>Elemanların empedansları: Z<sub>R</sub> = R, Z<sub>L</sub> = jωL, Z<sub>C</sub> = 1/(jωC) = −j/(ωC); burada ω = 2πf. Kaynak gerilimi 0° referanstır, akım I = V / Z. φ artıysa devre <strong>endüktif</strong>tir (akım geride), eksiyse <strong>kapasitif</strong> (akım önde).</p>
+    <p>Yalnızca akımın gerilimle aynı fazdaki kısmı iş yapar. Etkin güç P = V<sub>rms</sub> · I<sub>rms</sub> · cos φ; cos φ'ye <strong>güç faktörü</strong> denir.</p>
+    <details class="more"><summary>Daha fazla: diyagramlar nasıl okunur, P, Q, S</summary>
+      <p>Empedans düzleminde yatay eksen R, dikey eksen jX'tir; iki eksen aynı ölçekle çizilir, açılar gerçektir. Seri bağlantıda her elemanın oku sırayla uç uca eklenir, toplamın ucu Z'dir. Paralel bağlantıda toplam Z'nin eşdeğer direnci (R<sub>eş</sub>) ve reaktansı (X<sub>eş</sub>) kesikli çizgilerle gösterilir.</p>
+      <p>Fazör diyagramında "Gerilimler" görünümü eleman gerilimlerini uç uca ekler; toplamları kaynak gerilimidir (Kirchhoff'un gerilim yasası, fazörlerle). "Akımlar" görünümü kol akımlarını ekler; toplamları kaynak akımıdır (KCL). İnce ok, öbür büyüklüğün yalnızca yönünü gösterir.</p>
+      <p>Görünür güç S = V<sub>rms</sub> · I<sub>rms</sub> (VA), tepkin güç Q = V<sub>rms</sub> · I<sub>rms</sub> · sin φ (VAR). Tepkin güç bobinle kondansatör arasında gidip gelir, ısıya dönüşmez ama kablolardan akım olarak geçer. Fabrikalar bu yüzden kondansatörle güç faktörünü düzeltir (kompanzasyon).</p>
+      <p>Hesap, ideal elemanlarla karmaşık sayılarla yapılır. Tablonun son satırı aynı devrenin çözücüdeki geçici rejim benzetiminden, her periyotta ölçülür; iki sonuç binde birkaç içinde aynı çıkar.</p>
+    </details>
+    <p class="try">Seri bağlantıda frekansı değiştirip Z okunun yatay eksene oturduğu frekansı bulun: orada X<sub>L</sub> = X<sub>C</sub>. Değerleri kutulara da yazabilirsiniz: 4,7k · 100n · 22m.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>Varsayılan: 10 V, 1 kHz, 100 Ω, 22 mH, 1 µF seri. XL ≈ 138 Ω, XC ≈ 159 Ω: devre hafifçe kapasitif.</li>
+    <li>R, L, C düğmeleri seri ve paralelde elemanı devreden çıkarır (seride kısa devre, paralelde açık devre).</li>
+    <li>Paralele geçip "Akımlar"a basın: IL ve IC ters yönde, birbirini kısmen götürüyor.</li>
+    <li>Soru: Seri RLC'de kondansatör gerilimi kaynaktan büyük olabilir mi? (Evet; bir sonraki slayt.)</li>
+  </ul></aside>
+</section>

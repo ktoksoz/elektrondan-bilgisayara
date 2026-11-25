@@ -1,0 +1,25 @@
+<section class="slide" data-chapter="4" data-demo="c4zbox" id="empedans">
+  <div class="text">
+    <h2>Empedans: AC'nin Ohm kanunu</h2>
+    <p class="lead">Empedans (Z), bir devrenin AC'ye toplam karşı koymasıdır: hem ne kadar karşı koyduğunu hem de akımı ne kadar kaydırdığını söyler.</p>
+    <p>DC'de V = I · R yetiyordu. AC'de akım hem küçülür hem kayar; ikisini birlikte taşımak için empedans bir <strong>vektördür</strong> (karmaşık sayı):</p>
+    <p class="formula">Z = R + jX &nbsp;&nbsp;&nbsp; |Z| = √(R² + X²)</p>
+    <p>Yatay bileşen R, enerjiyi ısıya çeviren dirençtir. Dikey bileşen X reaktanstır: bobin yukarı (+jX<sub>L</sub>), kondansatör aşağı (−jX<sub>C</sub>) çeker. Ohm kanunu aynen geçerlidir: <strong>V = I · Z</strong>.</p>
+    <p>Ölçmek için iki şey yeter: tepe gerilimi tepe akımına bölün (|Z| = Vp / Ip), aradaki zaman kaymasını açıya çevirin (φ = 360° · f · Δt).</p>
+    <details class="more"><summary>Daha fazla: admitans, uç izi, hoparlör</summary>
+      <p>Kutupsal ve dikdörtgen biçim arasında geçiş: R = |Z| cos φ, X = |Z| sin φ, φ = arctan(X / R). V = I · Z çarpımında boylar çarpılır, açılar toplanır.</p>
+      <p>Empedansın tersi <strong>admitans</strong>tır: Y = 1/Z, birimi siemens (S). Paralel bağlantıda admitanslar toplanır, tıpkı seride empedansların toplanması gibi.</p>
+      <p>Frekansı tararken Z okunun ucu bir iz bırakır. Seri RL ve RC'de iz dikey bir doğrudur: R sabit kalır, yalnızca X değişir. Paralel RC'de iz yarım çember çizer. Empedans analizörleri ve LCR metreler bir parçanın içini böyle tanır.</p>
+      <p>Hoparlörün üstündeki "8 Ω" da bir empedanstır. Hoparlör bobinli olduğu için gerçek empedansı frekansla değişir; 8 Ω bir anma değeridir.</p>
+      <p>Buradaki her nokta ölçümdür: kutunun içindeki elemanlar çözücüde benzetilir, gerilim ve akımın fazörleri her periyotta tek frekanslı Fourier dönüşümüyle (DFT) bulunur.</p>
+    </details>
+    <p class="try">Bir kutu seçip "Frekansı tara"ya basın ve Z okunun izini izleyin. Ok yukarı mı gidiyor, aşağı mı? Tahmininizi yapın, sonra "Kutuyu aç"a basın.</p>
+  </div>
+  <div class="stage"></div>
+  <aside class="notes"><ul>
+    <li>A: R + L (iz yukarı çıkar), B: R + C (iz aşağıdan sıfıra yaklaşır), C: R ∥ C (yarım çember), D: R + L + C (iz yatay ekseni f₀'da keser).</li>
+    <li>Kutuyu açmadan önce sınıfa tahmin ettirin; gerekçe: frekansla X büyüyorsa bobin, küçülüyorsa kondansatör.</li>
+    <li>Osiloskopta Δt'yi gösterin: pembe akım sarı gerilimin önünde mi, arkasında mı?</li>
+    <li>Soru: Z = 100 + j100 Ω ise φ kaç derece? (45°.)</li>
+  </ul></aside>
+</section>
