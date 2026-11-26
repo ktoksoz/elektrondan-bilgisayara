@@ -81,7 +81,7 @@ Her slaytın bağlantısı adres çubuğunda durur (ör. `#karnaugh`).
 
 ```sh
 python3 tools/assemble.py          # parçalardan index.html'i üret
-node --test tests/*.test.js        # 41 birim testi
+node --test tests/*.test.js        # 42 birim testi
 node tools/check.js http://localhost:8000/   # her slaytta: şema = çözücü, KCL, kaydırıcı taramaları, hayalet el hedefleri, FPS
 node tools/shots.js http://localhost:8000/ ekran/   # 1440, 1180 ve 390 px ekran görüntüleri
 ```
