@@ -28,8 +28,9 @@ CIRCUITS.c4rc = {
   ],
 };
 
-/* Röle bobini: pil + bobin (L ve sargı direnci) + alttan anahtar. Anahtar açıkken uçları arasında
-   2,2 kΩ'luk bir "kaçak" yol vardır (roff); yoksa ideal modelde sıçrama sonsuz olurdu.
+/* Röle bobini: pil + bobin (L ve sargı direnci) + alttan anahtar. Anahtar açılırken kontaklar arasında
+   2,2 kΩ'dan başlayıp hızla büyüyen bir ark oluşur (arc); yoksa ideal modelde sıçrama sonsuz olurdu.
+   Ark birkaç milisaniyede söner, sonra anahtar gerçekten açıktır ve akım sıfırdır.
    c4coilDiode: aynı devre + bobine ters paralel serbest geçiş diyodu. */
 CIRCUITS.c4coil = {
   title: "Röle bobini ve anahtar",
@@ -43,7 +44,7 @@ CIRCUITS.c4coil = {
     { id: "B1", type: "battery", at: [0, 5], rot: 90, V: 12, lp: [-2.6, 0] },
     { id: "L1", type: "inductor", at: [4, 3], L: 0.5 },
     { id: "RL", type: "resistor", at: [9, 3], R: 120, label: "R 120 Ω" },
-    { id: "S1", type: "switch", at: [14, 5], rot: 90, closed: false, roff: 2200, hotLabel: "S1 anahtarı", label: "S1", lp: [2.2, 0] },
+    { id: "S1", type: "switch", at: [14, 5], rot: 90, closed: false, arc: 2200, arcTau: 5e-4, hotLabel: "S1 anahtarı", label: "S1", lp: [2.2, 0] },
     { id: "GND", type: "ground", at: [7, 7] },
     { id: "P1", type: "probe", at: [17, 3], text: "KN1" },
   ],

@@ -305,7 +305,8 @@
         swb.textContent = closed ? S.swOpen : S.swClose;
         swb.classList.toggle("primary", !closed);
       }
-      mI.val.textContent = fmt(Math.abs(sch.sim.i("L1")), "A");
+      const iL = Math.abs(sch.sim.i("L1"));
+      mI.val.textContent = fmt(iL < 1e-9 ? 0 : iL, "A"); // açık anahtardan geçen pikoamperler: 0
       mV.val.textContent = fz(sch.v(netX()), "V");
       if (peak != null) mP.val.textContent = fmt(peak, "V");
       const sparking = performance.now() < sparkUntil;

@@ -92,12 +92,26 @@
     stamp(e, s) { s.G(e.t[0], e.t[1], 1 / Math.max(e.p.R, 1e-9)); },
     currents(e, s) { const i = (s.V(e.t[0]) - s.V(e.t[1])) / Math.max(e.p.R, 1e-9); return [i, -i]; },
   };
-  // anahtar: kapalıyken küçük, açıkken çok büyük direnç
+  // anahtar: kapalıyken küçük, açıkken çok büyük direnç.
+  // arc (Ω) verilirse açılma anında kontaklar arasında bir ark oluşur: direnci arc'tan başlar,
+  // her arcTau saniyede on katına çıkar ve roff'a ulaşınca ark söner (akım gerçekten sıfıra iner).
   MODELS.S = {
     terms: 2,
-    R(e) { return e.p.closed ? (e.p.ron ?? 1e-3) : (e.p.roff ?? 1e12); },
+    R(e) {
+      if (e.p.closed) return e.p.ron ?? 1e-3;
+      const roff = e.p.roff ?? 1e12;
+      return e.p.arc && e.armed ? Math.min(roff, e.arcR ?? e.p.arc) : roff;
+    },
     stamp(e, s) { s.G(e.t[0], e.t[1], 1 / this.R(e)); },
     currents(e, s) { const i = (s.V(e.t[0]) - s.V(e.t[1])) / this.R(e); return [i, -i]; },
+    accept(e, s) {
+      if (!e.p.arc) return;
+      if (e.p.closed) { e.armed = true; e.arcT = null; e.arcR = null; return; }
+      if (!e.armed) return;
+      if (e.arcT == null) e.arcT = s.t - s.h;
+      e.arcR = e.p.arc * Math.pow(10, (s.t - e.arcT) / (e.p.arcTau || 5e-4));
+      if (e.arcR >= (e.p.roff ?? 1e12)) { e.armed = false; e.arcR = null; }
+    },
   };
   // potansiyometre: a–w–b; pos = 0 (a ucu) … 1 (b ucu)
   MODELS.POT = {

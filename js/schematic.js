@@ -118,7 +118,8 @@
       g.lead([-2, 0], [-0.22, 0], "a"); g.lead([0.22, 0], [2, 0], "b");
       g.line([-0.22, -0.85], [-0.22, 0.85], { stroke: C.silk, width: 2.6 });
       if (p.polar) {
-        g.arcPath(1.1, 0, 1.3, Math.PI * 0.82, Math.PI * 1.18, { stroke: C.silk, width: 2.6 });
+        // eğri (eksi) levha: tepesi düz levhaya bakar, uçları ondan uzaklaşır
+        g.arcPath(1.32, 0, 1.1, Math.PI * 0.76, Math.PI * 1.24, { stroke: C.silk, width: 2.6 });
         g.text("+", [-0.7, -0.75], { size: 0.55, color: C.silk2 });
       } else g.line([0.22, -0.85], [0.22, 0.85], { stroke: C.silk, width: 2.6 });
     },
@@ -230,7 +231,7 @@
   // anahtar: tıklanınca açılır/kapanır
   PARTS.switch = {
     pins: TWO, paths: twoPaths, box: [-1.3, -1.2, 1.3, 0.5], interactive: "toggle",
-    el: (p, n) => [{ type: "S", id: p.id, n: [n("a"), n("b")], closed: !!p.closed, ron: p.ron ?? 1e-3, roff: p.roff ?? 1e12 }],
+    el: (p, n) => [{ type: "S", id: p.id, n: [n("a"), n("b")], closed: !!p.closed, ron: p.ron ?? 1e-3, roff: p.roff ?? 1e12, arc: p.arc, arcTau: p.arcTau }],
     draw(g, p) {
       g.lead([-2, 0], [-1, 0], "a"); g.lead([1, 0], [2, 0], "b");
       g.circle(-1, 0, 0.16, { fill: C.silk }); g.circle(1, 0, 0.16, { fill: C.silk });

@@ -288,3 +288,21 @@ test("astable multivibratör: geçici rejim yakınsar, KCL sağlanır, salınır
   // gizli eklem kapasiteleri kullanıcı listesinde görünmez
   assert.strictEqual(s.elements.length, 11);
 });
+
+test("anahtar arkı: bobin akımı açılınca sıçrama yapar, ark sönünce akım sıfır olur", () => {
+  const s = C.create({ method: "be", elements: [
+    { type: "V", id: "B1", n: ["p", "0"], V: 12 },
+    { type: "L", id: "L1", n: ["p", "m"], L: 0.5 },
+    { type: "R", id: "R1", n: ["m", "x"], R: 120 },
+    { type: "S", id: "S1", n: ["x", "0"], closed: true, arc: 2200, arcTau: 5e-4 },
+  ] });
+  s.dc(); s.tranInit({});
+  near(s.i("L1"), 0.1, 1e-6, "kapalıyken");
+  s.step(2e-6);
+  s.set("S1", "closed", false);
+  s.step(2e-6);
+  assert.ok(s.v("x") > 200, `sıçrama ${s.v("x")} V`);
+  for (let k = 0; k < 5000; k++) s.step(2e-6); // 10 ms: ark söndü
+  assert.ok(Math.abs(s.i("L1")) < 1e-9, `açık anahtar akımı ${s.i("L1")} A`);
+  near(s.v("x"), 12, 1e-3, "açık uç gerilimi");
+});
